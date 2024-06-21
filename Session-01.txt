@@ -1,0 +1,274 @@
+What is computer?
+====================
+Laptop
+Mobile
+Phone
+Refrigerator
+Washing machine etc..
+
+We can call above all those also a computer because A computer has some characterstics like CPU,RAM,STORAGE etc. And when we connect these devices to internet a IP address will be created to operate the computer (or) to compute with in the local and worldwide
+
+www.facebook.com ---> is a Server. based on the purpose like
+TV is used for Channels
+Mobile is user for calls
+Similarly Server is used for hosting applications and serve users/clients
+
+
+Client-Server Architecture
+=============================
+Client = who is requesting information
+Server = who is giving information
+
+Example:-Phone and laptop "viceversa"
+Whole IT is communication between clinets and servers
+
+
+Operating systems
+=====================
+Windows OS ---> A bridge between user and hardware 
+User instructions ---> commands ---> 0/1 ---> hardware
+
+OS will takcare of converting 0's and 1's 
+
+
+Windows vs Linux
+===================
+Windows ---> Graphics(Load increases on CPU,memory everthing)
+Linux ---> Linix world(No graphics,Faster,relabile,lesscost,stability,security comes from unix principles only
+
+
+How to connect Linux servers?
+=================================
+BOX = linux server (or) node
+LOCK = public key(should be in aws(sevrer)
+KEY = private key(should be with you)
+
+Authentication mechanisms to connect linux server
+===================================================
+1.what you know ---> username and password
+2.what you have ---> rsa tokens
+3.what you are  ---> palms,retina,fingerprints etc. for now we use second method (what you have),so we use SSH(secure shell)
+
+So here we need to generate or create a link between "LOCK and KEY" by using a command in gitbash "ssh-keygen -f <filename>" and press enter two times so there will be two files generated ".pub" and "without extension" to unable extension go to 
+controlpanel ---> file explorer options ---> view ---> unhide extensions for known files and then rename your private key with ".pem"
+
+Syntax for publickey is = ssh-rsa <code> Laptopname
+Syntax for privatekey is = BEGIN OPENSSH PRIVATE KEY <code> END OPENSSH PRIVATE KEY
+
+
+So you have created a link now create a server in aws and connect to that server with these key
+
+Steps:-
+==========
+1.Import keypair in aws by going to --> Network and security options --> keypairs --> actions --> import key pair without any gaps
+2.Create a security group(firewall) for inbound -->all traffic-->0.0.0.0/0(representation of internet)
+3.Launch instance with keypairs and take Amazon Linux 2AMI(HVM)
+
+Take public IP and username is "ec2-user" and "privatekey"
+{ssh -i <path-to-privatekey> username@IP} === usage {ssh -i saikiran.pem ec2-user@123.23.234.5}
+
+Gitbash ---> ssh client
+Protocol ---> ssh(we have different protocols like https,http etc.)
+Port ----> 22
+Ec2 server ---> ssh server
+
+
+Absolute path and Relative path
+====================================
+1.Absolute path === ssh -i /c/users/user/saikiran.pem ec2-user@IP (if you dont know where you are so give from the starting)
+2.Relative path === just know where you are by PWD and then give the path from there 
+
+Where ever you are if you type CD and enter you will go to user directory
+clear command will clear all the lines
+
+$---> normal user
+#---> root user(sudo su) to exit from root just "exit"
+pwd---> present working directory you will be launched to /home/ec2-user
+uname---> will tell the kernel name
+<command-name> --help ---> help
+
+us-east-1 ---> is the cheapest region,every region has min 2 availability zones,eberything here we call has resources,EC2(sevrer)
+
+
+Linux is not OS it is a kernel(49:35 to 58:38)
+====================================================
+
+
+
+
+
+
+============================================================================================================================================================
+
+
+Overview
+-----------
+
+1.ssh-keygen -f <file-name> ---> to generate key , and make sure you create in the home folder just go to home folder by "cd" and then create
+2.ssh -i <path-to-privatekey> username@IP ---> to connect to the server
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

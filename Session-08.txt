@@ -1,0 +1,20 @@
+DNS(Domain name system)
+---------------------------
+Domain registars
+-----------------
+godaddy,hostinger(cheap),aws etc..we are using aws clound for records because it is friendly
+
+Next go to route53 we can also buy domain here it very costly so we buy domain in hostinger and we create records for that in aws,so go to route53 ---> Dashboard ---> Hosted zone ---> register your domain ---> create hosted zone ---> saikiran.online like whatever ---> change nameservers in hostinger(DNS record ---> 
+
+Now create record
+------------------
+paste public IP in value
+ttl = 1 
+
+To check whether the record is created or not "nslookup mongodb.joindevops.online"
+To check logs "tail -f /var/log/messages" you will get running logs
+To check all logs "less -f /vat/log/messages"
+
+shift+g = go down
+gg = go up
+q = quit

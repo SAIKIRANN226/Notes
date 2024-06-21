@@ -1,0 +1,89 @@
+T3 medium for mongodb,shipping,mysql
+remaining for t2.small(free tier)
+rabitmq is for payment = messaging queue database
+
+
+Configuring all in this session at a time
+-----------------------------------------------
+1.create instances
+2.create records with private ip address of the created instances in hosted zones along with subdomain name and ttl 1
+3.dont forget to update in roboshop configfile(reverse proxy configuration)
+
+
+What is deployment wether it is manual or automation
+------------------------------------------------------
+1.developer will update the code in git and push as zip
+2.download the code
+3.stop the server
+4.remove old code
+5.unzip new code
+6.restart the server
+7.testing
+
+
+Synchronous vs Asynchronous
+-------------------------------
+http/s ---> syn communication server should be always up and running
+
+Asynchronous
+---------------
+client ---> messaging broker ---> server
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

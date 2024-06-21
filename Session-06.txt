@@ -1,0 +1,107 @@
+Public Ip vs Private Ip
+--------------------------
+if you type "ipconfig" you will get all details,ipv4 is a my private IP,IP under default gateway is modem
+ipv4 are exacusting and we are upgrading ipv6 till then we can use ipv4
+
+we have 2power32 IP address if we allocate all these we get problems so they bought "NAT" network address translation
+latency is time to respond
+
+fiber exchange points
+
+
+How internet is working?
+----------------------------
+
+
+Monolithic vs Micro services
+--------------------------------
+
+
+Security groups
+------------------
+to connect from one server to another server use "telnet <towhichIPadress> port"
+
+
+Project description
+------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

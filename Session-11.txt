@@ -1,0 +1,192 @@
+Project configuration
+------------------------
+1.create server
+2.install programming language
+3.download code / application
+4.create directories and users
+5.install dependencies
+6.start application
+
+
+Deployment/release
+---------------------
+1.developer push the code
+2.stop the server
+3.remove/backup the old code
+4.download new code
+5.start the server
+
+
+The above is manual then what is the diff btw manual and automation
+---------------------------------------------------------------------
+Manual:-
+1.downtime
+2.time consuming
+3.mistakes 
+4.troubling shooting is tough like finding who did the mistakes,repeated tasks
+
+
+Programming ---> java,.net,python
+Scripting ---> shell,python,ansible,terraform,kubernetes,docker
+
+
+Variables
+Data types
+Conditions
+Functions
+Loops
+
+
+Algorithm thinking should be there in scripting example(installing git through scripting)
+----------------------------------------------------------------------------------------------
+1.check user have sudo access or not
+2.if not sudo through error
+3.if sudo proceed
+4.install package git
+5.we need to check explicitly wether installed or not 
+6.if error installation through the error otherwise say success
+
+
+Shell scripting
+------------------
+where to keep scripts?git
+
+To connect to git we use keypair publickey = inserver(centralGit), privatekey with you
+1.cat publickey and paste in github ---> settings ---> ssh and gpgkeys ---> new ssh key paste there,
+2.keep you private key ---> there is .ssh folder if there is no folder create one ---> in this create a file with no extension and then paste the below content
+
+Host github.com
+  HostName github.com
+  User git
+  PreferredAuthentication publickey
+  IdentityFile ~/.ssh/daws-76s          --------> private key location (~ ---> home folder)give the location properly
+
+
+Git init ---> initiaziles
+git add
+git commit -m "message"
+git remote add origin 
+git push origin master
+
+Dont forget to configure your username and email by "git config --global"
+
+
+everything is set , developing in gitbash is not so good so we have IDE(integrated development environment)
+
+1.we have vs in laptop and develop code in vs
+2.push to GIT
+3.pull in the server
+
+
+
+
+
+In git if it is https: URL you need to give username and password
+If ssh then just privat key
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,187 @@
+Roboshop configure
+------------------------
+1.web/frontend tier        ----> stateless
+2.App/Api/backend tier     ----> stateless
+3.DB tier                  ----> statefull
+
+CRUD over database
+---------------------
+when you create a new user
+1.create a user
+2.read user
+3.update user
+4.delete user
+
+Nginx is used as reverse proxy in this project,we have RHEL=Fedora=centos=awslinux all are same flavoured but in this project siva has created his own AMI based on "centos8" that is browse more AMI's in Nvirgnia ----> search "devops-practice" ---> community AMI's ---> select "Centos-8-DevOps-Practice" this is not key based because we cannot create more keys for more servers it is very tough so this is username and password authentication. username is = centos; Password is = DevOps321
+
+
+
+1.Create security group for allowing all firewalls
+2.Create a web instance with devops-pratice,no keypair
+3.now create putty session ---> given session name ---> connection data --> username = centos ---> appearence ---> save the session
+4.open super putty and connect the web with public iP
+5.now open documentation and follow the steps
+
+
+
+yum is used to install packages
+dnf is also same 
+
+
+Forward proxy vs Reverse proxy
+----------------------------------
+Forward proxy is servers are not aware of clients behind VPN,like anonymous access to hide our identity,forward proxies cant understand real clients
+security ---> companies can impose restrictions not to use particular sites,and to monitor internet behaviour
+clients are aware of proxy,servers are not aware
+
+Reverse proxy
+--------------
+clients are not aware of server side(example facebook,or nginx)
+apps use reverse proxy to secure their code
+
+Famous HTTP status
+-------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
