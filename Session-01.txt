@@ -34,7 +34,7 @@ OS will takcare of converting 0's and 1's
 Windows vs Linux
 ===================
 Windows ---> Graphics(Load increases on CPU,memory everthing)
-Linux ---> Linix world(No graphics,Faster,relabile,lesscost,stability,security comes from unix principles only
+Linux ---> servers world(No graphics,Faster,relabile,lesscost,stability,security comes from unix principles only
 
 
 How to connect Linux servers?
