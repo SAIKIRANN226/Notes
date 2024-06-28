@@ -1,0 +1,321 @@
+"https://github.com/daws-76s/concepts/blob/master/ansible.MD" ----> paste this URL in chrome you will redirect to that page of the content to know how ansible works
+=======================================================================================================================================================
+
+ssh is connecting (or) logging in background
+----------------------------------------------
+
+
+
+Ansible it is an open source configuration management tool or automation tool
+================================================================================
+
+What is configuration ?for example if you buy a new laptop, you need to install softwares and setup username and passwords and connect to wifi etc. this is nothing but configuring your new laptop what you required, so similarly in linux also
+
+To make server ready for application deployment is called configuring server,not yet over we need to create user,folder,installing few packages,etc. this is called configuration management
+
+
+Deployment
+============
+1.stop the server 
+2.remove old code
+3.download new code
+4.restart the server
+
+
+Before discussing we should know the difference between shellscript and ansible
+===================================================================================
+
+1.shellscript will not work in all linux distributions like ubuntu,centos,fedora etc.we need to write different scripts for different distributions for all linux distributions though it has 99% same commands.
+2.for example our roboshop project is in now big billion days and we need 100 web servers, so here in shellscripting scalability issues are there,difficult to manage more number of severs
+3.error handling and validations need to do manual in shellscripting
+4.readability issues in shellscripting, it is not easy to understand, and also maintenance
+5.shell only works for linux,will not work with external systems like aws,azure,github,gitlab etc.,all the these disadvantages will ansible overcome
+
+
+
+
+Ansible is an open-source automation tool used for
+* Configuration management
+* Application deployment
+* Cloud provisioning and orchestration(But not recommended)
+
+
+Idempotence
+=============
+If you run program multiple times,that can create samething multiple times,where as in ansible if the user is not exists then it will create, if exists it will ignore, that means even if you run program infinite times it should create any damage 
+
+What is configuration?
+
+Before deploying the application we need to make the server ready. For example
+* Installing packages
+* Installing Programming languages
+* Installing build tools.
+* Installing Application Runtime.
+* Creation of users, folders, etc.
+* Setting permissions.
+* Creation of systemctl services.
+
+As a DevOps engineer we need to do this effectively. Basically CRUD over the server
+--------------------------------------------------------------------------------------
+
+Creation of configuration --> should be fast and accurate
+Update the configuration --> any changes in configuration should be rolled out asap
+Delete the configuration --> delete the configuration if not required
+Read the configuration --> it is easy to read the configuration of server through ansible playbooks
+
+Disadvantages of shell
+--------------------------
+* Does your shell script can work with all distributions? because command may change based on distribution.
+* Suppose on big billion day we have 1000 servers. How can we configure servers?
+* Is shell scripting effective for error handling?
+* Is shell scripting easy to understand and read?
+* How to manage sensitive information in shell scripts?
+* How to integrate shell script with external systems like AWS, Azure, etc.
+
+Ansible Features
+-------------------
+* Platform independent,like it can work for all ubuntu,centos,fedora etc.
+* Scalable,shell will only run in one server but ansible can run and any servers
+* Idempotence,if you run program multiple times,that can create multiple times,like creating users,if not exits it will create,if exists it will ignore,or simple words even if you run your program multiple times it should not create any damage,so ansible as idempotence behaviour
+Definition:- providing same results irrespective of the no. of executions is called idempotence
+* Error Handling
+* Readable and maintainable
+* Vault
+* Rich modules,we can connect to any external tools using rich modules
+* Agent less,
+
+
+Pull vs Push configuration
+---------------------------------
+
+**PULL: chef is the best example for pull based
+1. Nodes should connect to the servers through agent software.
+2. Nodes should download the configuration periodically, say every 30min.
+3. Even there is no change in configuration, agents connect to servers that creates unnecessary traffic and data consumption.
+4. Pull based also have one advantage that is 
+
+**PUSH: ansible is the best for push
+1. Unlike pull there is no need of agent installation. because in this we have ssh connection, just this connection workout is enough
+2. Whenever there is a change in configuration, server can push to the nodes directly.
+3. Ansible uses SSH authentication to connect to the servers.
+
+
+
+
+Just create two servers in aws example server and node
+----------------------------------------------------------
+Now take the node IP and in the server "sshpass -p "DevOps321" ssh centos@nodeIp" , so now you are logged in node in the server successfully,you can do anything here (or) exit from the node server then "sshpass -p "DevOps321" ssh centos@nodeIP -C "echo hello > /tmp/hello.txt"" , here no need to login into the server , you can also install packages without touching, for example take any github repository like installing MySQL file copy the URL from the URL browser then "sshpass -p "DevOps321" ssh centos@nodeIP -C "curl <paste the URL> | sudo bash"
+
+
+Ansible is push based architecture
+--------------------------------------
+
+
+Installing ansible in the server? "sudo yum install ansible -y" , where ever the ansible is installed we call it has a ansible server
+
+To connect to node from the ansible server then "ansible -i nodeIP, all -e ansible_user=centos -e ansible_password=DevOps321 -m ping"  , here "i" is inventory we can give multiple servers so for now we have given "all"
+
+In linux everything we called ---> commands
+In ansible ----> modules
+
+
+Installing packages through ansible in node from server = "ansible -i nodeIP, all -e ansible_user=centos -e ansible_password=DevOps321 --become -m yum -a "name=nginx state=present"  ---> present = install ; --become = root user ; m = module 
+
+
+To start the server = "ansible -i nodeIP, all -e ansible_user=centos -e ansible_password=DevOps321 --become -m service -a "name=nginx state=started"  
+
+
+Shell script and ansible
+===========================
+here we run one by one commands to install whatever, so instead we put these commands altogether in one file and run the script, similarly ansible have commands to put together and run as a playbook and the syntax for the playbook is YAML yet another markup language example banking withdrawal form
+
+
+DTO(data transfer object)transferring data from one system to another
+=========================================================================
+if you give your Facebook credentials in your laptop browser then how the data is transferred to the Facebook ? through XML format
+
+we have XML(extensive markup language)
+
+
+Markup languages
+===================
+refer this in your GitHub repositories, just to know how the markup languages look like no need to practice this, but practice yaml in this sessions
+
+person.xml
+person.json
+person.yaml
+
+
+
+Now write ansible playbooks
+================================
+1.create one folder with ansible in VS 
+2.create one repo in guthub
+3.open gitbash then go the location of the ansible then do git init ; git remote add origin Url
+
+Now write a sample play book in VS that is "01-playbook.yaml" ---> refer this in GitHub
+
+Inventory is a list of hosts that can ansible server connect to the different components
+
+1.ansible -i inventory web --list-hosts
+2.ansible -i inventory cart --list-hosts
+3.ansible -i inventory ungrouped --list-hosts
+4.ansible -i inventory all --list-hosts
+
+01-playbook.yaml
+==================
+Open the server ---> git clone ---> cd ansible ---> ansible-playbook -i inventory -e ansible _user=centos -e ansible_password=DevOps321 <file-name>
+
+02-nginx.yaml
+=================
+Open the server ---> git clone ---> cd ansible ---> ansible-playbook -i inventory -e ansible _user=centos -e ansible_password=DevOps321 <file-name>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
