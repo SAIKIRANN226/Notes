@@ -1,0 +1,23 @@
+ansible.cfg ---> refer from VS
+--------------------------------
+It is a configuration file we can control everything from here,if we give ansible --version we can see from the configuration is loading
+https://docs.ansible.com/ansible/latest/reference_appendices/config.html ---> preferences
+
+Tags.yaml
+-------------
+to run a tag ---> ansible-playbook -t devops 16.tags.yaml ---> dint not given hosts because it will test from the local host, if you dint mention the tags in the command it will run all tags
+
+New release or new deployment
+-------------------------------
+1.stop the server
+2.remove old code
+3.download the latest code
+4.restart the server
+
+deployment.yaml for this
+
+
+Configuration management problems
+-------------------------------------
+
+

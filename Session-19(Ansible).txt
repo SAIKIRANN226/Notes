@@ -1,0 +1,174 @@
+03.multi-play.yaml ---> refer this in VS
+
+Here giving "-" in the ansible playbook means it is list of plays (or) yaml always start with "-"
+
+Create 2 servers
+------------------
+For example 
+
+1.ansible server make sure to install ansible in the server by "sudo yum install ansible -y" then it becomes ansible server
+
+2.node server ---> watch the 03.multi-play.yaml in VS
+
+then gitbash,pull in server and execute by following command ---> ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321 <playbook-name>
+
+
+=========================================================================
+
+Variables
+----------
+Dry concept, that means dont repeat yourself, variables we keep a aside from the code so that code will not get disturb when we are doing changes, variables holds a value you can use it anywhere. so to call a variable in ansible we use {{ }} , we use two flower brases, we used this variables in play level and can be used annywhere in the task level
+
+04.variables.yaml ---> refer this file in VS, variables from play level
+05.variables-task.yaml ---> variables from task level. refer this is VS
+
+So now tell me which one will pick? variables from play level (or) from task level?, task level variables can over write play level that is the concept of inheritence
+
+06.variables-from-files.yaml ---> keeping completely out of the program creating one file for that is "variables.yaml"
+
+07.variables-from promt.yaml ---> refer this VS
+08.vars_frominventory.yaml ---> you can give in the inventory.ini in [localhost:vars] under this you can give variables
+09.vars_fromArgs.yaml ---> you can give from the command line, how to mention this in command line that is "ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321 -e "PERSON=saikiran" -e "WISHES=good morning manish" <playbook>"
+
+So we have these many variables right? so which one will be preferred first and then followed by other ? 10.var.preference.yaml ---> refer this in VS
+
+====================================================================
+
+Data types
+-----------
+11.datatypes.yaml ---> refer this in VS
+
+
+1.- ---> list
+2.if not - ---> then map
+
+
+=======================================================
+
+12.conditions.yaml ---> like example if id roboshop, if not exists we create it , if exists we skipped. we have module for this, that is "ansible.builtin.command" can be search in google like ansible builtin command.we can use this if you dont find in default modules, give the command and grap that output in register, what ever you give in the register it is called as variable name
+
+
+===================================================
+
+Loops
+------
+13.loops.yaml ---> refer this in VS
+14.loops.yaml ---> install multiple packages
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

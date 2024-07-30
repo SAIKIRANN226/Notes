@@ -1,0 +1,184 @@
+1.Signup for git
+
+2.we need to generate keys or use existing keys
+
+3.keep public key in github To connect to git we use keypair publickey = should be in server(centralGithub), privatekey with you
+cat publickey and paste in github settings ---> ssh and gpgkeys ---> new ssh key paste there,
+keep you private key ---> there is .ssh folder if there is no folder create one ---> in this create a file with no extension and then paste the below content
+
+Host github.com
+  HostName github.com
+  User git
+  PreferredAuthentication publickey
+  IdentityFile ~/.ssh/daws-76s          --------> private key location (~ ---> home folder)give the location of private properly(you can give private key where ever you want but need to give the proper location)
+
+
+4.create .ssh folder if it is not there and create a config file with out extension and in this keep the github config,this .ssh folder will be in /users/username/.ssh
+
+
+Note:- In linux we are automatically landing in the home directory that is just enter pwd then you will get /c/users/user here defenitly you will have .ssh folder 
+Why this ssh connection ? because we work with multiple github accounts so for every account logging with username and password is not a good pracitce so we prefer to use ssh based authentication here
+
+Github ---> is nothing but a folder in internet with tracking capabilities
+
+
+=====================================================================================================================================
+
+Only repository owner can clone with the ssh URL for others prefer clone with Https URL
+
+"git branch -M main" to change from master to main
+
+Learn Dzone git commands
+
+"git add . ; git commit -m "proper message" ; git push"
+
+
+=====================================================================================================================================
+
+
+Shellscript(bash script)
+-------------------------
+
+#!/bin/bash ----> this we call it as shibang it is the first line to check the syntax of shellscript we need to give the location of           bash ,apart from the first line if you see # anywhere it is commentout
+
+If you want git in visual studio only go to view ---> terminal ---> select gitbash
+
+If you enter wrong URL while pushing then we can set "git remote set-url origin <url of the repository>"
+
+If git is not configured in the github account yet even developers can start writing their code in the VS untill git is ready and the they can push it to the git later,
+
+A normal folder will become git when you initialise it like "git init"
+
+
+=====================================================================================================================================
+
+
+
+1.we develop code in vs 
+2.using gitbash client we push the code to the github repository
+3.create a server in aws
+4.pull the code in server from github, or you can clone by using https,if it is a new repo go for "clone", you want only changes then "git pull"
+5.go to the path where the shell script is then 
+6."sh <script-name>" we get the ouput
+
+
+
+=====================================================================================================================================
+
+
+Variables
+----------
+Giving variables in capital letters it is recommended but not mandatory,for calling a variable must give $
+
+what ever you add the changes firt push it to the github then only pull from the server
+git add . ; git commit -m "message" ; git push
+
+
+How do you run commands in shellscript and take output?
+--------------------------------------------------------
+$(command) ---> example:- $(date)
+
+
+Arguments or Args
+---------------------
+we can give arguments outside the shell 
+usage ---> "sh <scriptanem> ram raheem"
+
+
+For example we need to connect external systems like to connect to DB , we need username and password
+-------------------------------------------------------------------------------------------------------
+
+
+Data Types
+-----------
+int,float,string etc..
+In this shell data type is not much important it will automatically consider which data type is 
+
+Array
+-------
+Array index will start from 0,1,2,3....we have notation for "ALL" that is "@" 
+
+
+Important note:- if make any changes in the code in VS if you save that changes by pressing ctrl+S then color will change to yellow untill, so to make normal then you must push the code to the github account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
