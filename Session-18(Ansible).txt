@@ -1,4 +1,5 @@
 # "https://github.com/daws-76s/concepts/blob/master/ansible.MD" ----> How ansible works
+# We are following yaml syntax for ansible
 
 1.What is configuration management?
 -------------------------------------
