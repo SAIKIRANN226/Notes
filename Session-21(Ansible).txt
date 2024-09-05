@@ -1,0 +1,25 @@
+First he mentioned about the google document of the classes
+------------------------------------------------------------
+
+Continuation of the roboshop configuration through ansible
+------------------------------------------------------------
+In roboshop.sh ---> there is a "UPSERT" previously it was create but this one if record exists it will edit, if not exists it will create
+and while running "roboshop.sh" file you will get the error "unable to locate credentials.you can configure credentials by running aws configure" that means you dint add the role for this ---> actions-->secuirty-->modifyIAM role-->add your already created role
+
+You can follow as per the document also but configuring by sequencing is recommended
+--------------------------------------------------------------------------------------
+1.mongodb.yaml
+2.catalogue.yaml
+3.web.yaml ---> in web we need to add our publicIP address in hostedzone records
+4.redis.yaml
+5.user.yaml
+6.cart.yaml
+7.mysql.yaml
+8.shipping.yaml
+9.rabbitmq.yaml
+10.payment.yaml
+
+Command vs shell
+-----------------
+Shell--> it is like you login inside server and running the command,env variables and redirections symbols will work
+Command--> it is like running command ooutside the server,env variables and redirections symbols will not work

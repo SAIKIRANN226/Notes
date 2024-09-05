@@ -1,0 +1,89 @@
+To go directly in to your working folder in gitbash
+----------------------------------------------------
+cd /d/repos/terraform-vpc-test
+
+1.Create VPC 
+2.Create Internet gateway and attach to the VPC
+3.Create subnets
+4.Create route tables(public,private,database)and associate it with their respective subnets 
+  with two regions 1a and 1b.
+5.Add route in the public public route table there we have default route but we need to add 
+  "edit routes" --> add route --> 0.0.0.0/0(default internet gateway is the target),Do not 
+   attach 0.0.0.0/0(Internet gateway)to the private subnet that is only the difference.
+  
+# When you create VPC aws will automatically default route table(10.0.0.0/16)will be created
+  to communicate between subnets
+
+HA ---> High availability
+--------------------------
+az-1 = one public subnet     = 10.0.1.0/24
+az-2 = another public subnet = 10.0.2.0/24
+
+az-1 = one private subnet     = 10.0.11.0/24
+az-2 = another private subnet = 10.0.12.0/24
+
+az-1 = one database subnet     = 10.0.21.0/24
+az-2 = another database subnet = 10.0.22.0/24
+
+NAT Gateway(is used to enabled outgoing internet)
+--------------------------------------------------
+If we need to update any package(or)download something in the private subnets,for this we need to connect to internet.But what traffic is ? is it OUTGOING? or INCOMING?.If sever wants to download something then it is OUTGOING traffic, INCOMING traffic is already disabled in the private subnets.So if we want to go outside and download safely we have something called "NAT Gateway" --> this should be created in the public subnet(1a or 1b)because we have given internet connectivity to the public subnets then we add it in the route tables
+
+Before creating NAT gateway we have one rule because IP address is dynamic whenever you off and on,it will change the IP address,for that we need to create elastic,Here when you create a NAT gateway aws will create instance in the background(we dont have access to that)that means NAT and elasticIP is chargeable,So create elasticIP address 1st --> Then create NAT Gateway
+
+# Creating is not enough you need to add in the route tables(private and database)then only 
+  you will get access(Destination= 0.0.0.0/0,Target= NAT gateway)
+
+VPC peering
+------------
+# Example of the two villages,for every village we have pincode,so similarly in the VPC what 
+  is pincode?That is "CIDR"
+# Bydefaut we cannot connect two VPCs,it is possible through VPC peering,only when both VPC's
+  should have different CIDR
+Requestor VPC = i want to connect with you please accept my request
+Acceptor VPC  = ok i will accept your request
+
+Possibilities when VPC peering will be done
+--------------------------------------------
+# VPC in same region and same account
+# VPC in another region and same account
+# VPC in same region and another account
+# VPC in different region and another account
+
+So let us take Requestor VPC = Roboshop
+               Acceptor VPC = Default vpc
+Now create VPC peering connection,after creating in the same account you need to accept request in the "Actions" option
+
+Take example of villages now you have created a road(peering connection)between two villages,but if you want to connect to streets(subnets)so connect all street with roads to the VPC peering road,this is nothing but routes in VPC,generally when you are connecting to 2 villages we need to get pin codes of 2 villages in the destination and give peering connection in the target,add in all public and private and main route table explicitly
+
+Note:-Both sides should have roads(routes)
+
+Now create above all those with terraform
+------------------------------------------
+1.Create VPC
+2.Create Internetgate way and attach
+3.Create all subnets
+4.Create route tables
+5.Create routes
+6.Associate with subnets
+7.Create elasticIP
+8.Create NAT
+9.Add NAT gateway route in public and database subnets
+10.Peering connection
+11.routes
+
+Common tags this is a map
+--------------------------
+Project = Roboshop
+Terraform = true
+Environment = dev
+
+Resource tags this is also a map
+---------------------------------
+# Similarly we have different tags like vpc tags,subnet tags,nat tags etc.
+# We want both tags so merge tags,when you do so then resource tags will be applicable,so for
+  this we have "terraform merge"
+# we can merge both ---> tags = merge(var.common_tags, var.vpc_tags)
+
+Note:- Terraform-aws-vpc ---> is a module we are developing
+       Terraform-vpc-test ---> is we are testing wether the module is working or not

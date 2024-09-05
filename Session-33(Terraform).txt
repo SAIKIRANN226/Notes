@@ -1,0 +1,5 @@
+How to connect to private instance?
+-------------------------------------
+1.First connect to public instance from there connect to private instance,we call this as jump
+  host
+2.VPN(when interviewer asks tell that you have used cisco vpn)

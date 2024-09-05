@@ -1,0 +1,7 @@
+Algortithm for 
+------------------
+Deleting old log files and check disk usage and alert
+
+We have folder where we are storing log files /tmp/shellscript-logs
+delete log files more than 14 days only .log extensions not any other files
+

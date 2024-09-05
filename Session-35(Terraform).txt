@@ -1,0 +1,7 @@
+Roboshop-infra-dev(VS) for dev environment 
+---------------------------------------------
+
+[Note:-public facing on https not http]
+
+# Any project starts with VPC,so create VPC resource first
+

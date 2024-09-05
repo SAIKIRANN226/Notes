@@ -1,9 +1,28 @@
 Service management
-----------------------
-Example posting a letter delhi --> hyd
+--------------------
+Example posting a letter from delhi --> hyd
 we have 0-65,535 ip address(nothing but a apartment) are there in computer including mobiles,if you dont give port number it will halt at the apartment(0-65,535 ip address)
 we have different blocks like ssh(22),http(80),https(443),msql(3006),SMTP(25),like popular protocols and ports
 nginx is http protocol port no.80
+
+Example1:-
+----------
+ssh -i <private-key> ec2-user@IPaddress
+
+# first request will reach to IPaddress
+# system will check user is connecting to which protocol? like anything running ssh process
+  with port no.22
+# then it will check the user and privatekey is correct or not (or) authentication will be
+  checked by system
+# if authentication is passed then we able to connect to it
+
+Example2:-
+-----------
+www.facebook.com:443
+
+# first request go to fb ipaddress
+# system will check any https process is running in 443 or not
+# if running login page will be showed
 
 Algorithm
 ------------
@@ -12,150 +31,70 @@ Algorithm
 3.firewall
 4.instance created
 5.connected
-if we follow algorithm troubleshooting will be easy nothing like writing yourself in a notes in general language
+  if we follow algorithm troubleshooting will be easy nothing like writing yourself in a  
+  notes in general language
+6.search for popular protocols in google and know about them
 
+=============================================================================================
 
 1.Install nginx "sudo amazon-linux-extras install nginx1 -y"
 2."systemctl start nginx" ---> this how running a package into a service
-3."systemctl status nginx"---> to know if it is running or not (or) we can also check with process
+3."systemctl status nginx"---> to know if it is running or not (or) we can also check with
+   process
 4."systemctl stop nginx"---> to stop the service
-5."systemctl enable nginx"--> automaticall services will run
+5."systemctl enable nginx"--> automatically services will run
 6."systemctl disable nginx"
-
+7.nginx is used on http protocol and port no.80
 
 Network managment
------------------------
-"netstat -lntp(listing,n=portNo,Process)"---> if netstat is not installed then install it,this command is used to check if ports are running or not
-
+------------------
+# network statistics "netstat -lntp(listing,n=portNo,p=Process,t=tcp protocol)"---> if 
+  netstat is not installed then install it,this command is used to check if ports are running
+  (or) not.
+# to check their process also then take "sudo netstat -lntp"
+# to check wether the netstat is installed or not just enter "netstat"
 
 Trouble shooting process
----------------------------
+--------------------------
 1.check system resources like 
-   CPU memory high consumption---> generally we check this in task manager,but in terminal just "top"command
+   CPU memory high consumption---> generally we check this in task manager,but in terminal 
+   just "top"command
    hardisk full---> "df -hT"
-   RAM full---> "free --help" if ram is using more and more we need to kill it and restart again
+   RAM full---> "free --help" if ram is using more and more we need to kill it and restart 
+   again
 2.check if the process is running or not---> ps -ef | grep nginx
 3.wether the port is opened or not---> netstat -lntp
 4.check wether the service is running or not "systemctl status <service-name>"
 5.check wether the firewall is opened or not
 6.check if internet is working or not by "ping google.com or ping IPaddress"
 
-
 How to give admin access or any other access to linux user?
----------------------------------------------------------------
-example two types of users
+-------------------------------------------------------------
+Example two types of users
 1.Linux admin team ---> full access
 2.DevOps team ---> limited sudo access
-Create two groups and users in each group
-ramesh---> add him to wheel group or give admin full access,under wheelgroup enter "%admin ALL=(ALL)   ALL"
-suresh---> 
 
-"vim /etc/sudoers" ----> here we need to add groups,as this is a crusial file so we should not open in this so linux has given "visudo" it will open file safely,then set password for ramesh,next change the password authentication by going to "vim /etc/ssh/sshd_config",then "systemctl restart sshd".this is giving of full admin access but we cannot give full access to all for some we give some access like "yum" command(to know where this command is installed "which yum" or "systemctl" command then open "visudo"under the %wheel group...= "%devops  ALL=(ALL)  /usr/bin/yum,/usr/bin/systemctl"... so this way we can give limited access
+Create two groups :- admin,devops ---> groupadd admin,groupadd devops
+Create two users :- ramesh,suresh ---> useradd ramesh,useradd suresh
+Adding ramesh in admin :- usermod -g admin ramesh
+Adding suresh in devops :- usermod -g devops suresh
+To check their details :- id suresh, id ramesh
 
-everytime opening "visudo" is also a risky,so linux has given one directory(sudoers.d) to put there.copy that line which ever you want "%devops  ALL=(ALL)  /usr/bin/yum,/usr/bin/systemctl" ---> "vim /etc/sudoers.d/folder-name" paste here
+How to give access? ---> generally to give sudo access we have one file "/etc/sudoers" so "vim /etc/sudoers", it is not recommended to open this file as it crucial so linux has given one command to open file safely that is "visudo"
 
+Ramesh ---> add him to wheel group (or) give admin full access,under wheelgroup enter 
+%admin ALL=(ALL)   ALL
 
+Suresh---> add him to wheel group give required limited access
+%devops  ALL=(ALL)  /usr/bin/yum,/usr/bin/systemctl
+
+Then set password for ramesh to connect to server,next change the password authentication by going to "vim /etc/ssh/sshd_config",then "systemctl restart sshd".this is giving of full admin access but we cannot give full access to all we can give only few access like "yum" command(to know where this command is installed "which yum" or "systemctl" command then open "visudo"under the %wheel group = "%devops  ALL=(ALL)  /usr/bin/yum,/usr/bin/systemctl" so this way we can give limited access
+
+Everytime opening "visudo" is also a risky,so linux has given one location that is cut the below 4 points and paste here ---> vim /etc/sudoers.d
+# %devops  ALL=(ALL)  /usr/bin/yum,/usr/bin/systemctl
+# %admin ALL=(ALL)   ALL
+# vim /etc/sudoers.d/devops(created folder) --> paste it here
+# vim /etc/sudoers.d/admin(created folder) ---> paste it here
 
 3tier architecture(52:33)
 ---------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

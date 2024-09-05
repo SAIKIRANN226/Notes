@@ -1,0 +1,7 @@
+The main disadvantage in shell scripting is we need to check every line through exit status,So to set automatically exits we need to give "set -e" we have without exit status file in shell scripting -----> here e = automatically exit
+
+Instead of giving &>>logfile everywhere,we can give "exec &>>logfile" under logfile name
+
+To check the logs "sudo less /var/log/messages" we can check remote connections are successfully connected or not
+
+unzip -o /tmp/we.zip ----> here "o" is overwrite

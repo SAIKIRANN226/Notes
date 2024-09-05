@@ -1,0 +1,12 @@
+Ansible vault
+------------------
+We are giving the passwords in the terminal but it is unsecure for this now we are using vault in the ansible
+
+encoding---> a proper pattern to encode the text
+encryption---> generating a text randomly with mathematic algorithm,so we encrypt ansible vault,so those who know the password they can only dycrypt
+
+How to create ansible vault?
+--------------------------------
+ansible-vault create /path/some-name.yaml
+
+------>>>>>>>>> this class is not completed you need to be perfect later from class 1 - 24

@@ -1,0 +1,88 @@
+Terraform best practices
+-------------------------
+For naming the resources in the terraform search in google
+
+Modules development
+--------------------
+# Dry,dont repeat yourself
+# Code reuse,no need to write infra for every project from the scratch,example see the
+  "terraform-modules" in the VS
+# Module syntax is 
+      module "name" {
+	source = "../ec2" ---> example actually it is one step back
+      }
+# Provider will not be there in the module developing
+
+2 types of modules
+-------------------
+1.Customized modules for our organisation,this will create by central team in cloud
+2.Open source modules
+
+2 roles
+--------
+1.Module developer --> who develops module
+2.Module user --> who consumes module
+Note:-Put one README.md file to provide the documentation on the module
+
+1.VPC(virtual private cloud)
+-----------------------------
+Watch from ---> (26:09 to 1:14:13)
+
+Difference between public subnet and private subnet?
+-----------------------------------------------------
+Subnets who have connection(route)to the internet gateway are publicsubnets,subnets who dont have internet gateway(route)are privatesubnets.
+
+Create roboshop network(VPC)
+-----------------------------
+1.Create VPC network ---> you need to give CIDR while creating vpc nothing but like pin code
+  here siva has given 10.0.0.0/16,so this ip address is public(or)private?so internet
+  has given some "private ip address range" you can search in google you find three ranges
+  and that is only allocated to private ip not public, so from this siva selected starting 
+  from 10.
+2.AWS has given minimum 16-28,if you want to create a vpc atleast you need to give 
+  10.0.0.0/28 ---> 28 bits are for network,remaining 2power4=16,we can configure 16servers
+  when you are taking vpc atleast you need to create 16 servers.
+3.Maximum we can take 10.0.0.0/16 ---> 16 bits are for network,16bits are for hosts(65K)
+
+Create roboshop public subnet
+------------------------------
+# Here in "IPV4 subnet CIDR block" section you can give 10.0.1.0/24
+
+Create roboshop private subnet
+-------------------------------
+# Here in "IPV4 subnet CIDR block" section you can give 10.0.2.0/24
+
+Create public route table and private route table
+--------------------------------------------------
+# Make sure you select your created VPC not default for all the above subnets and tables
+
+Create Internet gateway(just like modem)
+-----------------------------------------
+# Make sure attach this internet gateway to your VPC
+
+Now associate
+--------------
+# Click on the public subnet ---> select Route table ---> edit route table association --->
+  then associate with public route table which you have already created
+# Do same for the private subnet also
+
+When you select public route table which you have created,then click on Routes --> edit routes ---> add route ---> In destination give internet notation (0.0.0.0/0) ---> Internet gateway in the Target section ---> select default from the drop down ---> save changes
+
+That means public IP got the internet access and we dint given internet access to private that is the difference
+
+Edit subnet settings
+---------------------
+Click on the private subnet ---> actions ---> edit subnet settings 
+Enable public ip address(do not enable this)but you need to enable this in public subnet
+
+We can create web server in the public subnet and remaining severs like cart,shipping etc.. can be created in the private subnets
+
+Create a subnet for database
+-----------------------------
+10.0.3.0/24 and create database route table and attach it to the database subnet
+
+So what ever we have created all these by manually in the aws,we should create this by using terraform
+
+Minimum you need to create resources in two availability zones so that you can save from yourself from the natural disasters, that means you need to keep public and private subnets aswel as remaining subnets in two availability zones,if the company is having budget then we can create servers in both zones(or)create one and transfer to other zones in case of any natural disasters alert, 
+
+Note:- AWS wont charge for VPC's,subnets,route tables,it only charges when you are creating server

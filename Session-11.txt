@@ -1,44 +1,41 @@
 Project configuration
-------------------------
-1.create server
-2.install programming language
-3.download code / application
-4.create directories and users
-5.install dependencies
+----------------------
+1.creating the server
+2.installing programming language
+3.downloading code / application
+4.creating directories and users
+5.installing dependencies
 6.start application
 
-
-Deployment/release
----------------------
+Deployment/release process
+---------------------------
 1.developer push the code
 2.stop the server
 3.remove/backup the old code
 4.download new code
 5.start the server
 
-
-The above is manual then what is the diff btw manual and automation
----------------------------------------------------------------------
-Manual:-
+The above is manual then what is the difference btw manual and automation
+--------------------------------------------------------------------------
+Manual disadvantages:-
 1.downtime
 2.time consuming
-3.mistakes 
+3.human erros 
 4.troubling shooting is tough like finding who did the mistakes,repeated tasks
 
-
-Programming ---> java,.net,python
+Programming ---> java,.net,python etc.
 Scripting ---> shell,python,ansible,terraform,kubernetes,docker
 
-
+Patterns and methods to learn any scripting
+--------------------------------------------
 Variables
 Data types
 Conditions
 Functions
 Loops
 
-
-Algorithm thinking should be there in scripting example(installing git through scripting)
-----------------------------------------------------------------------------------------------
+Algorithm thinking should be there in scripting,example:-installing git through scripting
+------------------------------------------------------------------------------------------
 1.check user have sudo access or not
 2.if not sudo through error
 3.if sudo proceed
@@ -46,147 +43,49 @@ Algorithm thinking should be there in scripting example(installing git through s
 5.we need to check explicitly wether installed or not 
 6.if error installation through the error otherwise say success
 
-
 Shell scripting
-------------------
-where to keep scripts?git
-
-To connect to git we use keypair publickey = inserver(centralGit), privatekey with you
-1.cat publickey and paste in github ---> settings ---> ssh and gpgkeys ---> new ssh key paste there,
-2.keep you private key ---> there is .ssh folder if there is no folder create one ---> in this create a file with no extension and then paste the below content
+----------------
+# Where to keep scripts? in git
+# Generate a key-pair in gitbash
+# To connect to git we use keypair.publickey = should be in the server(centralGit), 
+  privatekey with you
+# cat publickey and paste in github ---> settings ---> ssh and gpgkeys ---> new ssh-key paste 
+  there
+# keep your private key ---> there is .ssh folder if there is no folder create one in 
+  c/users/saikiran(user) ---> in this create a file with name of "config" with no extension 
+  and then paste the below content(or)you can search in google -->git ssh config syntax
 
 Host github.com
   HostName github.com
   User git
   PreferredAuthentication publickey
-  IdentityFile ~/.ssh/daws-76s          --------> private key location (~ ---> home folder)give the location properly
-
-
-Git init ---> initiaziles
-git add
-git commit -m "message"
-git remote add origin 
-git push origin master
-
-Dont forget to configure your username and email by "git config --global"
-
-
-everything is set , developing in gitbash is not so good so we have IDE(integrated development environment)
-
-1.we have vs in laptop and develop code in vs
-2.push to GIT
-3.pull in the server
-
-
-
-
-
-In git if it is https: URL you need to give username and password
-If ssh then just privat key
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  IdentityFile ~/.ssh/daws-76s -----------------> Private key location it can be anywhere it 
+                                                  is not mandatory to be in the 
+                                                  ~homefolder(~ ---> home folder)but need to
+                                                  to give the location correctly
+
+When you create a new repo in github
+-------------------------------------
+To clone any repo we have "https and SSH"
+https --> you should give username and password(used by others to clone)
+SSH --> just private-key is enough,now we are using this(used by owners who created repo)
+
+Few GIT(global information tracking system) commands commonly used
+--------------------------------------------------------------------
+It is a de-centralised(distributed)version control system,now a days everyone is using distributed because we can recover the data if lost.but not with centralised one which are 
+like TFS.
+# git init
+# git add
+# git commit -m "message"
+# git remote add origin 
+# git push origin master
+# Dont forget to configure your username and email by "git config --global"
+# We also have staging area in the git nothing but temperory area,send the code what is completed fornow(nothing git add command only)
+
+Now everything is set,developing in gitbash is not so good so we have IDE(integrated development environment)
+
+1.We have VS(IDE) in laptop and develop code in vs
+2.Push to GIT
+3.Pull in the server
+4.What ever a small change you want you must do in the VS-->push to git-->then pull in server
+5.Dont do any changes in the servers

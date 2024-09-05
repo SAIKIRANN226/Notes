@@ -1,0 +1,58 @@
+Recap
+-------
+1.How to develop module
+2.How to use module
+3.We used "SSM parameter store" to store the configuration
+  one project export configuration
+  another project refer the configuration.
+  Configuration should be kept independent because generally mistakes in project is not in 
+  code the problem will be in the configuration,if any small change is done then entire 
+  project may not work,so configuration should be kept independent.
+4.Security groups --> it plays an important role because we need to connect to every 
+  resources which are present in AWS.
+
+Roboshop-terraform(VS)resources
+---------------------------------
+1.VPC
+2.SG
+3.VPN ---> (34:43) after creating vpn take publicip
+4.EC2 ---> Here we need to create all ec2 instances along with route53 records,Here we can keep loops also because it is repeating but it is not right.if you want to keep in loop we need to parameterise allmost all values,ultimately it very tough to manage,so creating in normal way,but standard way is autoscaling and launch templates that will be explained in future classes
+
+
+[Note:-Before it was created without provider only but by taking the default values actually it should not create it should provide error anyhow it is created,bydefault a provisioner folder is created in the s3 bucket because of this mixing(merging) may happen,if you get error you will come to know that provider should be kept]
+
+
+Now we got
+------------
+1.VPC and peering
+2.All security groups
+3.VPN
+4.EC2 and records 
+5.Now we need to configure those EC2's for that we need to create 1 ansible server,this 
+  server will provision playbooks to all the EC2's
+6.If you are creating ansible server obviously we need to create a SG for ansible,as it is
+  connecting to every servers with secure connection that is port no.22
+7.Creating ansible server in the default VPC
+8.Now ansible is created and to provision automatically we need to write a small script in 
+  "user-data" ---> ec2-provision.sh
+9.Where to find user-data logs? --> when you connect in superputty in the ansible server -->
+  sudo su - --->/cd /var/log/ --> ls -l --> tail -f cloud-init-output.log
+10.Watch (50:55) ---> concept
+
+
+# Create application load balancer
+# Create two instances
+
+# Instances will get request from LB,so what should be the ingress rule in SG which you have 
+  created for instances? should have SG which is attached to LB,so create LB securityGroup.
+  while create LB SG(select "http" because instanceLB will get traffic from internet)
+# Now create instance LB SG (select LB from source)
+# Create target group(nothing but teams) and health check
+# Add rule in the LB by adding path condition
+
+=============================================================================================
+
+Notes:-
+--------
+# When you add a new module you need to init first
+

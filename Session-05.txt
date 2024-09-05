@@ -1,45 +1,44 @@
-In 3tier architecture we have            1.frontend            2.backend                 3.db    
-                                    (apache,nginx,iis)           (jboss                (mssql,mysql,redis) 
-                                    we deploy applications        tomcat)
-                                 like html,reactjs,angularjs    backend apps
-                                                                  java,python
-                                                                    .net   
+In 3tier architecture we have
+-------------------------------  
+Load balancer
+     |   
+     *
+Frontend servers :- Apache,nginx,IIS etc.Applications we deploy in frontend is 
+                    HTML,JS,reactJS,AngularJS
+Backend servers :- Jdboss,tomcat,weblogic etc.Applications we deploy in backend is 
+                   Java,.net,python etc.
+Database servers :- mssql,mysql,nosql,redis etc.
+
 Putty
-----------
-we learned how to connect through ssh in gitbash,here in putty also ultimately should go 
+------
+We learned how to connect through ssh in gitbash,here in putty also ultimately should go 
 1.username
 2.privatekey/password
 3.ip address
 if we give above three what will putty do in background?so putty will take above three and it will issue a command "ssh -i <privatekey> username@IP"
 
-
-In gitbash we call privatekey is in ".pem" format,but in 
-putty ".ppk" format(putty privatekey)
-
+# In gitbash we call privatekey as ".pem" format,but in putty ".ppk" format(putty privatekey)
 
 Open puttygen
 --------------
 1.load .pem file
 2.click on save privatekey with .ppk extension
 3.open putty --> connection ---> ssh ---> Auth ---> credentials ---> load privatkey.ppk
-4.connection ---> data ---> username(ec2-user)...then session and save
-5.create a server in aws and take the ip and paste it there click on load
+4.connection ---> data ---> username(ec2-user)...then go to session and save
+5.create a server in aws and take the ip and paste it putty(hostname) click on load
 6.to change the font open putty,appearence,change and then save
 
+We have extension for putty that is super putty,just create one sever in aws and connect in the superputty try to install nginx,start,enable,and check the ip in chrome if it is showing nginix (or) not,so where the html files will load in nginx?  "/usr/share/nginx/html", so to go this folder "sudo su -" then cd usr/share/nginx/html, here we can also put our own short html format
 
-we have extension for putty that is super putty,just create one sever in aws and connect in the superputty try to install nginx,start,enable,and check the ip in chrome if it is showing nginix or not,so where the html files will load in nginx?  "/usr/share/nginx/html", so to go this folder "sudo su -" then cd usr/share/nginx/html, here we can also put our own short html format
-
-
-1.generally frontend servers called as http servers open port No =80 ,hosts html or java based applications
+1.generally frontend servers called as http servers open port No.80 ,hosts html or java 
+  based applications
 2.backend is also http servers but port No =8080, hosts like tomcat,jboss,.net,python
 3.these frontend and back will connect through API's
-
-
+4.for file transferring we use winscp
 
 Linux file system structure
 -------------------------------
-Like this PC in windows in linux we have "cd /"
-
+Like "This PC" in windows in linux we have "cd /"
 boot ---> when server is getting started,server refers this directory and config from grub.config
 dev ---> external devices are mounted here expect motherboard
 etc ---> extra configuration 
@@ -57,215 +56,13 @@ tmp ---> temporory files not important files stored here
 usr ---> all users will be here
 var ---> variables,log files
 
+When putty stucks then open putty first load your session then connection ---> give 30 in  seconds between...then go to session and save
 
-when putty stucks then open putty first load your session then connection ---> give 30 there then go to session and save
+Symlink and hardlink(1:01:31)
+------------------------------
+Inode is the representation of file and folder inside the memory(it is a number),so if you create a file and try ls -i then there is pointer with some number that is nothing file location,we dont have idea where that location is. that is handled by kernel
 
+Symlink ---> is nothing but a shortcut which targets the actual location. in the sameway we can also create a shortcut for a file by "ln -s <source-where is your file> <destination path>"  usage is "ln -s /home/ec2-user/hello /tmp/hello-soft"--->L=linked file,s=symbolic,here symlink point to different inode but location is always pointing to actual file,if we delete this file we lose link,but not with hardlink it is directly dealing with memory what ever the hardlinks or files to inode it will check for the reference untill unless all the linked files are delete 
+Symlink and actual file have their own inodes to check this "ls -li"
 
-
-Symlink and hardlink
--------------------------
-inode is the representation of file and folder inside the memory it is a number,so if you create a file and try ls -l then there is pointer with some number that is nothing file location,we dont have idea where that location that be handled by kernel
-
-symlink is nothing but a shortcut which target the actual location in the sameway we can also create a shortcut for a file by "ln -s <source-where is your file> <destination path>"  usage is "ln -s /home/ec2-user/hello /tmp/hello-soft"   L=linked file,s=symbolic,here symlink point to different inode but location is always pointing to actual file,if we delete this file we lose link,but not with hardlink it is directly dealing with memory what ever the hardlinks or files to inode it will check for the reference untill unless all the linked files are delete 
-Symlink and actual have their own inodes to check this "ls -li"
-
-
-but hardlink actual file and hardlink both are point to inode,how to give hardlink? "ln /home/ec2-user/hello hello-hard" if you dont give "s" it will become hardlink
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+But hardlink actual file and hardlink both are point to inode,how to give hardlink? "ln /home/ec2-user/hello hello-hard" if you dont give "s" it will become hardlink

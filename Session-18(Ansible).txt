@@ -1,0 +1,80 @@
+# "https://github.com/daws-76s/concepts/blob/master/ansible.MD" ----> paste this URL in 
+   chrome you will redirect to that page of the content to know how ansible works
+
+1.What is configuration management?
+------------------------------------
+For example if you buy a new laptop,you need to install softwares and setup like username and passwords and connect to wifi etc.This is nothing but configuring your new laptop what you required.So similarly in linux also,To make server ready for application deployment is called configuring the server,not yet over we need to create users,folders,installing few packages,setting up permissions etc.This is called configuration management.
+
+2.Application Deployment basic steps
+-------------------------------------
+1.Stop the server 
+2.Remove old code
+3.Download new code
+4.Restart the server
+
+3.Cloud provisioning and orchestration(But not recommended)
+------------------------------------------------------------
+It can also connect to external systems like aws,azure,gcp,gitlab etc,to create instances but is not recommended because ansible is only intended for configuration and deployment
+
+Idempotence
+------------
+If you run program multiple times,that can create samething multiple times,where as in ansible if the user is not exists then it will create,if exists it will ignore,that means
+even if you run program infinite times it will not create any damage.Definition:-Providing same results irrespective of the no.of executions is called idempotence
+
+Just create two servers in aws example server and node
+-------------------------------------------------------
+Now take the node IP and in the server instance "sshpass -p "DevOps321" ssh centos@nodeIp", so now you are logged in node in the server successfully,you can do anything here(or)exit from the node server then "sshpass -p "DevOps321" ssh centos@nodeIP -C "echo hello > /tmp/hello.txt"",Here no need to login into the server,you can also install packages without touching,for example take any github repository like installing MySQL file copy the URL from the URL browser then enter the below command
+"sshpass -p "DevOps321" ssh centos@nodeIP -C "curl <paste the URL> | sudo bash"
+
+Push architecture(ansible is a push)
+-------------------------------------
+Configuration server ----> main server it can connect to any remote servers
+Node-1,Node-2,Node-3 ----> remote servers
+Here Configuration server is connecting to Nodes-1,2,3 ofcourse it is using ssh-connection in the background
+
+Pull architecture(chef is a pull)
+----------------------------------
+There is one advantage in pull architecture
+
+Ansible is push based architecture
+-----------------------------------
+# Installing ansible in the server? "sudo yum install ansible -y",where ever the ansible is 
+  installed we call it has a ansible server
+# To connect to node from the ansible server then 
+  "ansible -i nodeIP, all -e ansible_user=centos -e ansible_password=DevOps321 -m ping"
+   Here "i" is inventory we can give multiple servers so for now we have given "all"
+
+Installing packages through ansible in node from ansible server = "ansible -i nodeIP, all -e ansible_user=centos -e ansible_password=DevOps321 --become -m yum -a "name=nginx state=present"  --->(present = install ; --become = root user ; m = module)
+
+To start the server = "ansible -i nodeIP, all -e ansible_user=centos -e ansible_password=DevOps321 --become -m service -a "name=nginx state=started"  
+
+Shell script(vs)ansible
+------------------------
+In linux everything we called ---> commands
+In ansible ----> modules
+Here we run one by one commands to install whatever,so instead we put these commands alltogether in one file and run the script,similarly ansible have commands(modules)to put together and run as a playbook and the syntax for the playbook is in YAML format,yet another markup language example banking withdrawal form
+
+DTO(data transfer object)transferring data from one system to another
+----------------------------------------------------------------------
+Example if you give your Facebook credentials in your laptop browser then how the credentials is transferred to the Facebook?Through XML format(extensive markup language)
+
+Markup languages
+-----------------
+Refer this in your VS(concepts),just to know how the markup languages look like no need to practice this,But practice yaml in this sessions
+# person.xml
+# person.json
+# person.yaml ---> indentation is mandatory
+
+Inventory is a list of hosts that can ansible server connect to the different components,do this in the server after going to the ansible location
+1.ansible -i inventory web --list-hosts
+2.ansible -i inventory cart --list-hosts
+3.ansible -i inventory ungrouped --list-hosts
+4.ansible -i inventory all --list-hosts
+
+01-playbook.yaml
+-----------------
+Open the server ---> git clone ---> cd ansible ---> ansible-playbook -i inventory -e ansible _user=centos -e ansible_password=DevOps321 <file-name>
+
+02-nginx.yaml
+--------------
+Open the server ---> git clone ---> cd ansible ---> ansible-playbook -i inventory -e ansible _user=centos -e ansible_password=DevOps321 <file-name>

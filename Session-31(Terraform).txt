@@ -1,0 +1,10 @@
+# We need terraform to create 100% project using terraform not just creating VPC,SG etc.So we 
+  are developing the module and simultaniously we are testing it
+# In this class we continue from creating database subnet
+# Before creating route tables and association, we are creating EIP and NATgateway and
+  remaining
+# How to refer terraform module in github? ---> source = "git::<https URL>ref=main
+
+Terraform-aws-vpc ---> is a module we are developing
+Terraform-vpc-test ---> is we are testing wether the module is working or not
+

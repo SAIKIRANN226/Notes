@@ -1,0 +1,33 @@
+# 03.multi-play.yaml ---> refer this in VS
+# Here giving "-" in the ansible playbook means it is list of plays(or)yaml always start 
+  with "-"
+
+Create 2 servers
+-----------------
+For example:-
+1.Ansible server make sure to install ansible in the server by "sudo yum install ansible -y" 
+  then it becomes ansible server
+2.Node server ---> watch the 03.multi-play.yaml in VS
+3.Then gitbash,pull in server and execute by following command 
+  ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321
+  <playbook-name>
+
+Variables
+----------
+Dry concept,that means dont repeat yourself,variables we keep a aside from the code so that code will not get disturb when we are doing changes,variables holds a value you can use it anywhere.So to call a variable in ansible we use {{ }} , we use two flower brases,we used this variables in play level and can be used annywhere in the task level
+
+# 04.variables.yaml ---> refer this file in VS, variables from play level
+# 05.variables-task.yaml ---> variables from task level.refer this is VS
+# 06.variables-from-files.yaml ---> keeping completely out of the program creating one file 
+  for that is "variables.yaml"
+# 07.variables-from promt.yaml
+# 08.vars_frominventory.yaml
+# 09.vars_fromArgs.yaml
+# 10.var.preference.yamlSo we have these many variables right?So which one will be preferred 
+  first and then followed by other? 10.var.preference.yaml
+# 11.datatypes.yaml(- ---> list,if not - ---> then map)
+# 12.conditions.yaml
+# 13.loops.yaml
+# 14.loops.yaml ---> install multiple packages
+# 15.loops.yaml ---> install and uninstall packages
+# 16.tags.yaml

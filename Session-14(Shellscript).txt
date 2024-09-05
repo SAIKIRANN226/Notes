@@ -1,0 +1,27 @@
+Using loops install any number of packages
+-----------------------------------------------
+Algorithm for Installing number of packages
+1.check root user or not
+2.if root user then check package is installed or not,if installed skip it and tell user it 
+  is already installed,if not install it and validate
+3.if not root user throw the error
+
+# To know if package is installed or not in the server just "yum list installed",to know anything particular then "yum list installed git", to check exit status of the git just "echo $?" if "0" it is installed
+
+13-install-packages(VS)
+------------------------
+Roboshop shellscript(VS)
+-------------------------
+SED editor(stream line editor)it is temporary editor it will not save
+----------------------------------------------------------------------
+To change the configuration.for humans we have VIM editor but for scripts we have SED editor
+Example:-sed -e '1 a I am  learning DevOps'<file-name> ------> e=enable, a=append(after)if you want before first line then "i",1=line1.if want after 2nd line then "2 a".If you want permanent change then keep "i" in place of "e"
+
+Lines update
+-------------
+sed -e 's/<word-to-find>/word-to-replace/' ---> first occurrence in the line
+sed -e 's/<word-to-find>/word-to-replace/g' ----> global for everything
+
+# How to check logs? ---> sudo less /var/log/messages
+# To check the ports "netstat -lntp"
+# Shellscript is nothing but put all the Linux commands in one file

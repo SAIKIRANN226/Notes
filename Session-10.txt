@@ -1,14 +1,12 @@
-T3 medium for mongodb,shipping,mysql
+t3.medium for mongodb,shipping,mysql
 remaining for t2.small(free tier)
 rabitmq is for payment = messaging queue database
 
-
 Configuring all in this session at a time
------------------------------------------------
+------------------------------------------
 1.create instances
 2.create records with private ip address of the created instances in hosted zones along with subdomain name and ttl 1
 3.dont forget to update in roboshop configfile(reverse proxy configuration)
-
 
 What is deployment wether it is manual or automation
 ------------------------------------------------------
@@ -20,70 +18,12 @@ What is deployment wether it is manual or automation
 6.restart the server
 7.testing
 
-
 Synchronous vs Asynchronous
--------------------------------
-http/s ---> syn communication server should be always up and running
+----------------------------
+http and https are ---> syn communication server should be always up and running,if servers not running we get error code like 400/500.that is synchronous
 
 Asynchronous
----------------
-client ---> messaging broker ---> server
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-------------
+Servers should 100% up and always running it should not down for that we use asynchronous
+Client ---> messaging broker(messaging queue) ---> servers
+Example:-whatsapp messaging when other person is offline

@@ -1,0 +1,5 @@
+In this class creating SG modules and creating all security groups
+--------------------------------------------------------------------
+roboshop-terraform ---> folder in VS
+
+# SSM parameter store ---> we can store key-value pair,it is like a configuration store
