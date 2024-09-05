@@ -1,9 +1,6 @@
 In this session we are configuring roboshop project with ansible
------------------------------------------------------------------
-1.Create a server and install ansible in it by "sudo yum install ansible -y",here from ansible we connect to the nodes.
-Here sivakumar is creating the instances and also records using already created shellscript(roboshop.sh)as creating through ansible is some difficult he will show in the upcomming sessions.you need to give role to create the instances ---> actions/security/modifyIAM/select your role which you already created
-
-Delete the old records ---> hosted zones --> except NS and SOA
+------------------------------------------------------------------
+Create a server and install ansible in it by "sudo yum install ansible -y",here from ansible we connect to the nodes.Here sivakumar is creating the instances and also records using already created shellscript(roboshop.sh)as creating through ansible is some difficult he will show in the upcomming sessions.Delete old records if there in the hosted zones except NS & SOA,commands you should run in the ansible server are 1.git clone <https URL> 2.sh <script-name>.you need to give role to create the instances ---> In the instance section go to the actions/security/modifyIAM/select your role which you already created.
 
 Now create roboshop project
 -----------------------------
@@ -12,8 +9,8 @@ Now create roboshop project
 3.git init
 4.git remote add origin URL
 
-1.create inventory.ini ---> refer this code in github, giving ini extension because syntax will highlight
-2.mongodb.yaml
+1.create inventory.ini ---> VS
+2.mongodb.yaml ---> Develop code in VS ---> push to git ---> clone in the ansible server ---> then ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321 mongodb.yaml (Same for all)
 3.mongodb.repo
 4.catalouge.yaml
 5.catalouge.service
