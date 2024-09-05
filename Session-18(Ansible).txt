@@ -22,7 +22,7 @@ Definition:-Providing same results irrespective of the no.of executions is calle
 
 Just create two servers in aws.Example server and node
 --------------------------------------------------------
-Now take the node IP and in the server instance "sshpass -p "DevOps321" ssh centos@nodeIp",So now you are logged in node from the server successfully without loggin into the node server,you can do anything here(or)exit from the node server then ---> sshpass -p "DevOps321" ssh centos@nodeIP -C "echo hello > /tmp/hello.txt".Here no need to login into the server,you can also install packages without touching,for example take any github repository like installing MySQL file copy the URL from the URL browser then enter the below command ---> sshpass -p "DevOps321" ssh centos@nodeIP -C "curl <paste the URL> | sudo bash
+Now take the node IP and in the server instance "sshpass -p "DevOps321" ssh centos@nodeIp",So now you are logged in node from the server successfully without logging into the node server,you can do anything here(or)exit from the node server then ---> sshpass -p "DevOps321" ssh centos@nodeIP -C "echo hello > /tmp/hello.txt".Here no need to login into the server,you can also install packages without touching,for example take any github repository like installing MySQL file copy the URL from the URL browser then enter the below command ---> sshpass -p "DevOps321" ssh centos@nodeIP -C "curl <paste the URL> | sudo bash
 
 Push architecture(ansible is a push)
 --------------------------------------
