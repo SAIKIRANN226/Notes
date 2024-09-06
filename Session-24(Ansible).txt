@@ -34,8 +34,7 @@ How to create ansible vault?
 
 # We have ssm parameter store in aws to store the keys we integrate with ansible and fetch the values from aws
 
-# Tell to the interviewer that we earlier used ansible vault recently we migrated to aws ssm parameter since our entire infrastructure  
-  in aws
+# Interview that we earlier used ansible vault recently we migrated to aws ssm parameter since our entire infrastructure in aws
 
 So till now we dint used aws cloud services or advantages,we did as per the onpremise,we have servers and domains.First we deployed 
 applications manually onpremise,then we used shellscripting to config,then we used ansible to configure as ansible can connect to 
