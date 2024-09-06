@@ -1,7 +1,6 @@
 ansible.cfg ---> refer from VS
 --------------------------------
-# It is a configuration file we can control everything from here,if we give "ansible --version" in the server we can see from where the configuration is 
-  loading
+# It is a configuration file we can control everything from here,if we give "ansible --version" in the server we can see from where the configuration is loading.
 
 Ansible configuration preferences
 -----------------------------------
