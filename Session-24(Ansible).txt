@@ -35,7 +35,7 @@ How to create ansible vault?
 # We have ssm parameter store in aws to store the keys we integrate with ansible and fetch the values from aws
 
 # Tell to the interviewer that we earlier used ansible vault recently we migrated to aws ssm parameter since our entire infrastructure  
-  is in aws
+  in aws
 
 So till now we dint used aws cloud services or advantages,we did as per the onpremise,we have servers and domains.First we deployed 
 applications manually onpremise,then we used shellscripting to config,then we used ansible to configure as ansible can connect to 
@@ -47,7 +47,7 @@ Example now we have 10 servers because of traffic, i need to run ansible playboo
 
 Plug and play
 ---------------
-# If ansible have aws plugin to connect to aws ec2,we can fetch ip address,aws will itself developed plugin to ansible to connect to ec2
+# If ansible have aws plugin to connect to aws ec2,we can fetch ip address,aws developed plugin to ansible to connect to ec2
 # Not only aws ansible can connect to other external systems also like azure,gcp,alibaba etc.if they have plugins to connect 
 # ansible uses boto and botocore in background to connect to aws,boto and botocore are aws python modules,as entire ansible is 
   developed on python only
