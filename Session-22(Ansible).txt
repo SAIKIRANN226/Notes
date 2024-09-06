@@ -12,9 +12,9 @@ https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.htm
 # Instead of duplicating the code we can use roles to follow the principle of functions,variables but here we call it as a ansible 
   roles.It is a dry principle,A proper directory structure to keep our configuration and we can share this with other users ---> 
   refer(VS)
-# Example ansible provide certain roles like common/tasks/handlers/templates/files/vars etc.we mostly used tasks,common,files in our 
-  project like repeating tasks across all components in the common role,and supporting files in the files role,and components tasks
-  in the task role to maintain a proper folder structure and to generalise everything
+# Example ansible provide certain roles like common/tasks/handlers/templates/files/vars etc.we mostly used 
+  tasks,common,files,vars,handlers in our project like repeating tasks across all components in the common role,and supporting files in 
+  the files role,and components tasks in the task role to maintain a proper folder structure and to generalise everything.
 # So to run the main.yaml in the server "ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321 -e 
   component=mongodb main.yaml"
 
