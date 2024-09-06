@@ -10,6 +10,8 @@ Ansible configuration preferences
 # ~/.ansible.cfg (in the home directory) --> it should be dot
 # /etc/ansible/ansible.cfg
 
+Dispatch is a third party application
+
 Handlers
 ----------
 Only when configuration is changed on a machine then only restart the server otherwise no,we can implement this by using handlers,we should not do unnecesary restart the server in the production it will take 1-2 minutes.
