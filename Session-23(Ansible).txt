@@ -12,7 +12,7 @@ Ansible configuration preferences
 
 Handlers
 ----------
-Only when configuration is changed on a machine then only restart the server otherwise no,we can implement this by using handlers
+Only when configuration is changed on a machine then only restart the server otherwise no,we can implement this by using handlers,we should not do unnecesary restart the server in the production it will take 1-2 minutes
 
 Tags.yaml
 -----------
