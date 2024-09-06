@@ -30,5 +30,10 @@ New release or new deployment
 
 Configuration management problems
 -----------------------------------
+DEV
+QA
+UAT
+PROD
+Everybody will take seriously only for prod not for dev thats why few developers says code is working in dev not working in prod,so thats why only one play-book should run in all environments only variables we can manage remaining everything is same
 
 
