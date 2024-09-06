@@ -1,6 +1,7 @@
 ansible.cfg ---> refer from VS
 --------------------------------
-# It is a configuration file we can control everything from here,if we give "ansible --version" in the server we can see from where the configuration is loading.
+# It is a configuration file we can control everything from here,if we give "ansible --version" in the server we can see from where the 
+  configuration is loading.
 
 Ansible configuration preferences
 -----------------------------------
@@ -8,6 +9,10 @@ Ansible configuration preferences
 # ansible.cfg (in the current directory)
 # ~/.ansible.cfg (in the home directory) --> it should be dot
 # /etc/ansible/ansible.cfg
+
+Handlers
+----------
+Only when configuration is changed on a machine then only restart the server otherwise no,we can implement this by using handlers
 
 Tags.yaml
 -----------
@@ -19,11 +24,9 @@ New release or new deployment
 2.remove old code
 3.download the latest code
 4.restart the server
-
-deployment.yaml for this
-
+# deployment.yaml for this
 
 Configuration management problems
--------------------------------------
+-----------------------------------
 
 
