@@ -1,12 +1,11 @@
-# Use different key names in s3 buckets like in the previous you used different key "foreach" 
-  you can use as per your wish but not with same key names because it will merge all.
-# If you are facing any error in pushing the code to the github use the below command
-    "git remote set-url origin <URL>"
-# If the code in vs is in full green colour that means the repository is not yet ready in 
-  the github when repo is ready then it will turn to normal colour after pushing to git
+# Use different key names in s3 buckets like in the previous you used different key "foreach" you can use as per your wish but not with 
+  same key names because it will merge all.
+# If you are facing any error in pushing the code to the github use the below command "git remote set-url origin <URL>"
+# If the code in vs is in full green colour that means the repository is not yet ready in the github when repo is ready then it will 
+  turn to normal colour after pushing to git
 
 How to create multiple environments with terraform(3ways)
-----------------------------------------------------------
+------------------------------------------------------------
 1.tfvars ---> using to overwrite the default variables from variables.tf
 2.workspaces ---> terraform workspace list (show the list)
 3.different repos for different environments
@@ -14,36 +13,29 @@ How to create multiple environments with terraform(3ways)
 For example we want mongodb-dev, redis-dev
                     mongodb-dev.daws76s.online
                     mongodb-redis.daws76s.online
-
-# Same code but with different configuration,that means we need to control only variables for
-  different env's by using tfvars
-# Different buckets to maintain states by creating different folders "dev,prod". what do you
-  think? using different buckets for dev and prod(or)same buckets? different is the best,we 
-  can also use same but we make sure different evn's should not get disturbed
-# How do we maintain different buckets?by creating two folders dev/prod in "AWSconsole" and
-  create dynamodb tables for two
+# Same code but with different configuration,that means we need to control only variables for different env's by using tfvars
+# Different buckets to maintain states by creating different folders "dev,prod".what do you think? using different buckets for dev and 
+  prod(or)same buckets?different is the best,we can also use same but we make sure different evn's should not get disturbed.
+# How do we maintain different buckets?by creating two folders dev/prod in "AWSconsole" and create dynamodb tables for two
 
 So we have web-dev,web-prod other than that we get web-qa like that,how to control this?
------------------------------------------------------------------------------------------
-1.if key starts with web then we can write a condition using terraform inbuilt function that 
-  that is ---> startswith(each.key, "web")
-2.When you do terraform init ---> backend will also be there,so here you have multiple 
-  environments,so use "terraform init -backend-config=dev/backend.tf"
-3.terraform plan -var-file=dev/dev.tfvras ---> if you dont mention the file name it will load
-  default variables
+-------------------------------------------------------------------------------------------
+1.If key starts with web then we can write a condition using terraform inbuilt function that is ---> startswith(each.key, "web")
+2.When you do terraform init ---> backend will also be there,so here you have multiple environments,so use 
+  "terraform init -backend-config=dev/backend.tf"
+3.terraform plan -var-file=dev/dev.tfvras ---> if you dont mention the file name it will load default variables
 4.terraform apply -var-file=dev/dev.tfvars
 5.terraform destory -var-file=dev/dev.tfvars
 
-So when you do for the next one prod (or) other env then you need to reconfigure by using below command,(OR) when you are switching from one env to another you must reinitialize
-"terraform init -reconfigure -backend-config=prod/backend.tf"
+So when you do for the next one prod(or)other env then you need to reconfigure by using below command,(OR) when you are switching from one env to another you must reinitialize "terraform init -reconfigure -backend-config=prod/backend.tf"
 
-[Note:- when you forgot to give the -var-file then terraform will take default variables which is in variables.tf so in this you comment out the default variables then terraform will prompt for the variables,so you will get know that i forgot to give varfile]
+Note:- when you forgot to give the -var-file then terraform will take default variables which is in variables.tf so in this you comment out the default variables then terraform will prompt for the variables,so you will get know that i forgot to give varfile
 
 2.Workspaces
--------------
-We can manage multiple environments using single code (or) same code,only few backends will support this s3 is one of them.if you want to know workspace commands just "terraform workspace".How to create workspace? ---> terraform workspace new dev --> do it in gitbash
+--------------
+We can manage multiple environments using single code(or)same code,only few backends will support this s3 is one of them.if you want to know workspace commands just "terraform workspace".How to create workspace? ---> terraform workspace new dev --> do it in gitbash
 
-When you are using terraform it has default variable that is "terraform.workspace",so if you are in dev then its value is "terraform.workspace --> dev" , if you are in prod then its value is "terraform.workspace --> prod".so you need to write lookup function this function works as if you pass key we can get that value
+When you are using terraform it has default variable that is "terraform.workspace",so if you are in dev then its value is "terraform.workspace -->will become dev" ,if you are in prod then its value is "terraform.workspace --> prod".so you need to write lookup function this function works as if you pass key we can get that value.
 
 In tfvars example there are two separate buckets were created like dev/prod,but in workspaces there is only default bucket "env:/" inside it it will automatically create dev/prod spaces
 
