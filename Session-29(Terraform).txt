@@ -1,3 +1,14 @@
 Terraform best practices
 --------------------------
 For naming the resources in the terraform search in google
+
+Modules development
+---------------------
+# Dry,dont repeat yourself
+# Code reuse,no need to write infra for every project from the scratch,example see the
+  "terraform-modules" in the VS
+# Module syntax is 
+      module "name" {
+	       source = "../ec2" ---> example actually it is one step back
+      }
+# Provider will not be there in the module developing
