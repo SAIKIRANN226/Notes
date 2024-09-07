@@ -66,24 +66,4 @@ Now associate
   then associate with public route table which you have already created
 # Do same for the private subnet also
 
-When you select public route table which you have created,then click on Routes --> edit routes ---> add route ---> In destination give internet notation (0.0.0.0/0) ---> Internet gateway in the Target section ---> select default from the drop down ---> save changes
-
-That means public IP got the internet access and we dint given internet access to private that is the difference
-
-Edit subnet settings
----------------------
-Click on the private subnet ---> actions ---> edit subnet settings 
-Enable public ip address(do not enable this)but you need to enable this in public subnet
-
-We can create web server in the public subnet and remaining severs like cart,shipping etc.. can be created in the private subnets
-
-Create a subnet for database
------------------------------
-10.0.3.0/24 and create database route table and attach it to the database subnet
-
-So what ever we have created all these by manually in the aws,we should create this by using terraform
-
-Minimum you need to create resources in two availability zones so that you can save from yourself from the natural disasters, that means you need to keep public and private subnets aswel as remaining subnets in two availability zones,if the company is having budget then we can create servers in both zones(or)create one and transfer to other zones in case of any natural disasters alert, 
-
-Note:- AWS wont charge for VPC's,subnets,route tables,it only charges when you are creating server
 
