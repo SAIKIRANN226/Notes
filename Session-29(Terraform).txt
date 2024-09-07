@@ -77,6 +77,13 @@ Enable public ip address(do not enable this)but you need to enable this in publi
 
 We can create web server in the public subnet and remaining severs like cart,shipping etc.. can be created in the private subnets
 
+Create a subnet for database
+-----------------------------
+10.0.3.0/24 and create database route table and attach it to the database subnet
+
+So what ever we have created all these by manually in the aws,we should create this by using terraform
+
+
 
 
 
