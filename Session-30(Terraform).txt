@@ -7,7 +7,7 @@ cd /d/repos/terraform-vpc-test
 3.Create subnets
 4.Create route tables(public,private,database)and associate it with their respective subnets 
   in two regions 1a and 1b.
-5.Add route in the public public route table there we have default route but we need to add 
+5.Add route in the public route table there we have default route but we need to add 
   "edit routes" --> add route --> 0.0.0.0/0(default internet gateway is the target),Do not 
    attach 0.0.0.0/0(Internet gateway)to the private subnet that is only the difference.
   
