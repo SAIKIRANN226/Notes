@@ -72,9 +72,10 @@ Now create above all those with terraform
 
 Common tags this is a map
 ---------------------------
-Project = Roboshop
-Terraform = true
-Environment = dev
+Project = "Roboshop"
+Terraform = "true"
+Environment = "dev"
+Component = "web"
 
 Resource tags this is also a map
 ----------------------------------
