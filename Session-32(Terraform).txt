@@ -11,11 +11,15 @@ In this class creating SG modules and creating all security groups
                get it from there we have "ssm paramter" in systems manager in this ssm paramter store we can 
                store key-value pair,generally path will be in the format like naming convention 
                "/roboshop/dev/vpc_id" -->whole name is key and value also will be there we can refer this in SG.
+               Note:-Generally we dont give ingress rules when we are creating SG it will change based on the situation.
   > 03-vpn
   > 04-ec2
   
 Data-sources
 --------------
 Where the data-sources will be useful?To query data from the provider and also from the existing resource,but to query the existing resource we need to give some input like vpc_id,this vpc_id will not come from data-sources,only default vpc_id we can take.but to take your created vpc_id is again data-sources is not an option,so we have ssm parameter is like configuration storage for example one application is there in this application we have configuration and that can be stored in the ssm parameter store,and another application can refer that configuration from the ssm parameter,and also stores.and another application like that so on.It is a central store,So that means you need to store the vpc_id configuration in the ssm parameter by writing a small script(parameters.tf in roboshop-terraform).
+
+So we should create SG's for all components by using document,as per the documents we have security rules like Mongodb should accpet connections only from catalogue and user,So what should i write ingress rule in mongodb? Source: catalogue IPaddress / Port: 27017 ,
+Similarly like for other private servers also.So Here catalogue IPaddress(or)other private address are dynamic so we need to create static IPaddress using Elastic IP address,but creating elastic IP address is chargable so we cannot create those many IP addresses,for that SG is giving one option that is like obviously you create security_groups for all private servers consider mongodb-SG,then go to the created SG/edit inbound rules/custom TCP/port:27017/in the source we need to give the elastic IP address which we dont prefer beacuse od cost so give mongodb-SG-id which you have created,thats means irrespective of the IPaddress this SG is attached to mongodb whatever traffic is comming from the mongodb accpet the connections irrespective of the IPaddress.So write a rule in main.tf for mongod,redis,shipping etc.
 
 
