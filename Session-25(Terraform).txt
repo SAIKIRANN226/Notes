@@ -17,7 +17,7 @@ If we keep code in the GIT,we can maintain history,we can also rollback to the p
 
 Consistent infrastructure
 ---------------------------
-Same code will work with all environments like dev,sit,uat,prod.Real time scenario like code is wokring in dev but not in prod,for this issue we use terraform
+Same code will work with all environments like dev,sit,uat,prod.Real time scenario like code is working in dev but not in prod,for this issue we use terraform
 
 Automated infrastructure(CRUD)
 --------------------------------
