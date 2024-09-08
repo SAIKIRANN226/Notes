@@ -1,17 +1,21 @@
 In this class creating SG modules and creating all security groups
 --------------------------------------------------------------------
-Terraform-aws-SGmodule ---> refer in VS
+1.Roboshop-terraform(VS)
+2.Terraform-aws-SGmodule(VS)
 
-# Why we are creating in different folders like 
+# Why we are creating in different folders?When the project is becomming big then refreshing and 
+  maintenance will be easy
   > 01-vpc
-  > 02-sg ---> main input for the SG is "vpc_id" sg wants vpc_id in which vpc you are creating SG,if the sg is creating in the same folder then getting vpc_id is easy,but when vpc is in another folder to get it from there we have "ssm paramter" in systems manager in this ssm paramter store we can store key-value pair,generally path will be in the format like naming convention "/roboshop/dev/vpc_id" we can refer this in SG
+  > 02-sg ---> main input for the SG is "vpc_id" sg wants vpc_id in which vpc you are creating SG,if the sg is 
+               creating in the same folder then getting vpc_id is easy,but when vpc is in another folder to 
+               get it from there we have "ssm paramter" in systems manager in this ssm paramter store we can 
+               store key-value pair,generally path will be in the format like naming convention 
+               "/roboshop/dev/vpc_id" we can refer this in SG.
   > 03-vpn
   > 04-ec2
-  When the project is becomming big then refreshing and maintenance will be easy
-
+  
 Data-sources
 --------------
-Where the data-sources will be useful? To query data from the provider and also from the existing resource,but to query the existing resource we need to give some input like vpc_id,this vpc_id will not come from data-sources,only default vpc_id we can take.but to take your created vpc_id is again data-sources is not an option,so we have ssm parameter is like configuration store for example one application configuration in this application can be stored in the ssm parameter store,and another application can refer that configuration from the ssm parameter,and also stores.and another application like that so on.It is a central store,So that means store the vpc_id configuration in the ssm parameter by writing a script(parameters.tf in roboshop-terraform)
+Where the data-sources will be useful? To query data from the provider and also from the existing resource,but to query the existing resource we need to give some input like vpc_id,this vpc_id will not come from data-sources,only default vpc_id we can take.but to take your created vpc_id is again data-sources is not an option,so we have ssm parameter is like configuration store for example one application configuration in this application can be stored in the ssm parameter store,and another application can refer that configuration from the ssm parameter,and also stores.and another application like that so on.It is a central store,So that means store the vpc_id configuration in the ssm parameter by writing a script(parameters.tf in roboshop-terraform).
 
-1.Roboshop-terraform(VS)
-2.Terraform-aws-SGmodule(VS
+
