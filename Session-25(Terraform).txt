@@ -43,7 +43,7 @@ Cost optimization
 4.Terraform is also a hybrid cloud that means you can create infra in aws,azure,GCP not only 
   cloud,terraform can work with any other popular tools in the market,you can see in the 
   terraform providers,it can work with everything
-The above all are the terraform understanding(interview question).it is a declarative way of creating infrastructure,what is declarative ---> whatever you write you get it if you write correct syntax,easy syntax and no need to follow sequence in the code
+The above all are the terraform understanding(interview question).It is a declarative way of creating infrastructure,what is declarative ---> Whatever you write you will get provided if you write in correct syntax,terraform advantage is that easy syntax and no need to follow the sequence.
 
 From here we create infrastructure using terraform not manually,now setup terraform
 --------------------------------------------------------------------------------------
