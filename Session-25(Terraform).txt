@@ -1,9 +1,9 @@
 Terraform
 -----------
-# Is a popular IAC(infrastructure as a code)--> Old tool was "CFengine" rightnow people are 
-  using chef,puppet,ansible,terraform etc.
-# Till now we configured our project manually,shellscript,ansible,but we prefer ansible as a 
-  configuration management if it is large project.
+# Is a popular IAC(infrastructure as a code)
+# Ansible is configuration as a code
+# Till now we configured our project manually,shellscript,ansible,but we prefer ansible as a configuration management if it is large 
+  project.
 
 Why we din't prefer manuall configuration?
 --------------------------------------------
