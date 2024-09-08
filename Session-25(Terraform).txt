@@ -48,9 +48,9 @@ From here we create infrastructure using terraform not manually,now setup terraf
 2.Move that exe file in your desired location,downloading is not enough still it will show terraform command not found
 3.Take this downloaded path and give it in the "system environment variable"
 4.Search in the laptop ---> Edit the system environment variables-->environment variables--> select(or)click on the path in the system 
-  variables-->edit-->new-->paste it here
+variables-->edit-->new-->paste it here
 5.If you give the terraform command it will check all paths you have given in the environment variables,if it avaiable then terraform 
-  command will work
+command will work
 6.Install "hashicorp terraform extension" to get colors
 
 We write code in VS ---> then we push to github ---> then we push to the aws,but in order to push to the aws we need authentication for that we have "awsCLI" for this go to the google and search "aws cli install" just run shown commands in "cmd" from the command prompt,then test "aws --version" in cmd aswel as in gitbash.To connect we need to create a terraform user --> IAM/users/create(next)/attch policies directly and select administrator access/ --> click on your created user/security credentials/create accesskey/click on command line interface(CLI)/copy the accesskey and secretkey then -----> "aws configure" in gitbash --> these credentials will be saved in --> windowsC/users/user/.aws folder
