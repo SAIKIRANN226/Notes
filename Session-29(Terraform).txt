@@ -70,7 +70,7 @@ When you select public route table which you have created,then click on Routes -
 
 Edit subnet settings
 ----------------------
-Click on the private subnet ---> actions ---> edit subnet settings.Enable public ip address(do not enable this)but you need to enable this in public subnet.We can create web server in the public subnet and remaining severs like cart,shipping etc.can be created in the private subnets
+You need to enable public_ip address in public subnet by public subnet ---> actions ---> edit subnet settings.but you need to enable this in public subnet.Dont enable this in private subnet,We can create web server in the public subnet and remaining severs like cart,shipping etc.can be created in the private subnets
 
 Create a subnet for database
 ------------------------------
