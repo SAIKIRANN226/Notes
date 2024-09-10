@@ -28,6 +28,5 @@ Similarly like for other private servers also.So Here catalogue IPaddress(or)oth
 Here from ec2.tf we have created mongodb instances,but there is not public_ip we cannot connect through ssh,so we have two options
 1.create one ec2 in public subnet,login to that ec2 first from there connect to mongodb 
 2.vpn installl connect to private servers through vpn
-2.
 
 
