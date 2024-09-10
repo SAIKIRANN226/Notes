@@ -49,7 +49,7 @@ So let us take Requestor VPC = Roboshop
                Acceptor VPC = Default vpc
 Now create VPC peering connection,after creating in the same account you need to accept request in the "Actions" option
 
-Take example of villages now you have created a road(peering connection)between two villages,but if you want to connect to streets(subnets)so connect all street with roads to the VPC peering road,this is nothing but routes in VPC,generally when you are connecting to 2 villages we need to get pin codes of 2 villages in the destination and give peering connection in the target,add in all public and private and main route table explicitly.Note:-Both sides should have roads(routes)
+Take example of villages now you have created a road(peering connection)between two villages,but if you want to connect to streets(subnets)so connect all street with roads to the VPC peering road,this is nothing but routes in VPC,generally when you are connecting to 2 villages we need to get pin codes of 2 villages in the destination and give peering connection in the target,add in all public and private and main route table explicitly.Note:-Both sides should have roads(routes).For example:-If you are adding VPC-->Route tables(when you are in roboshop route table)-->add default vpc CIDR in the destination-->target(oeering connection),if not reflected add in all route tables and add from other side also
 
 Now create above all those with terraform
 -------------------------------------------
@@ -65,15 +65,15 @@ Now create above all those with terraform
 10.Peering connection
 11.routes
 
-Common tags this is a map
----------------------------
+Common tags this is a map(Tagging strategy)
+---------------------------------------------
 Project = "Roboshop"
 Terraform = "true"
 Environment = "dev"
 Component = "web"
 
-Resource tags this is also a map
-----------------------------------
+Resource tags this is also a map(Tagging strategy)
+----------------------------------------------------
 # Similarly we have different tags like vpc tags,subnet tags,nat tags etc.
 # We want both tags so merge tags,when you do so then resource tags will be applicable,so for
   this we have "terraform merge"
