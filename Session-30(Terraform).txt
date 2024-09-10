@@ -54,7 +54,7 @@ Take example of villages now you have created a road(peering connection)between 
 Now create above all those with terraform
 -------------------------------------------
 1.Create VPC
-2.Create Internetgate way and attach
+2.Create Internet gateway and attach
 3.Create all subnets
 4.Create route tables
 5.Create routes
