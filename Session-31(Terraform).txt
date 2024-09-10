@@ -3,6 +3,11 @@
 # In this class we continue from creating database subnet
 # Before creating route tables and association,we are creating EIP and NATgateway and remaining
 # How to refer terraform module in github? ---> source = "git::<https URL>ref=main
+# Users can decide is peering required or not
+  If required 
+    1.they have to give peering vpc_id
+    2.if they are not giving then we consider default vpc_id
+# We cannot connect drirectly to the instances in roboshop private subnets if we dont have public_Ip so for that create a vpn in default vpc,first connect to vpn in your laptop then only we can connect to the instances
 
 Terraform-aws-vpc ---> is a module we are developing
 Terraform-vpc-test ---> is we are testing wether the module is working or not
