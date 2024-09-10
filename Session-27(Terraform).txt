@@ -33,6 +33,6 @@ Create a s3 bucket
 Bucket name should be unique
 
 Lock the bucket
-----------------
+-----------------
 By using "dynamodb" ---> create table to lock the bucket and make sure partion key should be in the same letters = "LockID"
 Just type in google terraform s3 remote state and take that configuration and put it in VS it is backend inside provider
