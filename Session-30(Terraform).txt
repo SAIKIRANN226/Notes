@@ -29,7 +29,7 @@ NAT Gateway(is used to enabled outgoing internet)
 ---------------------------------------------------
 If we need to update any package(or)download something in the private subnets,for this we need to connect to internet.But what traffic is ? is it OUTGOING? or INCOMING?.If sever wants to download something then it is OUTGOING traffic, INCOMING traffic is already disabled in the private subnets.So if we want to go outside and download safely we have something called "NAT Gateway" --> this should be created in the public subnet(1a or 1b)because we have given internet connectivity to the public subnets then we add it in the route tables
 
-Before creating NAT gateway we have one rule because IP address is dynamic whenever you off and on,it will change the IP address,for that we need to create elastic,Here when you create a NAT gateway aws will create instance in the background(we dont have access to that)that means NAT and elasticIP is chargeable,So create elasticIP address 1st --> Then create NAT Gateway
+Here when you create a NAT gateway aws will create instance in the background(we dont have access to that)that means NAT and elasticIP is chargeable,So create elasticIP address 1st --> Then create NAT Gateway.Before creating NAT gateway we have one rule because IP address is dynamic whenever you off and on,it will change the IP address,for that we need to create elastic,
 
 # Creating is not enough you need to add in the route tables(private and database)then only 
   you will get access(Destination= 0.0.0.0/0,Target= NAT gateway)
