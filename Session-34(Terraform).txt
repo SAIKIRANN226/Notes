@@ -33,7 +33,8 @@ Now we got
 8.Now ansible is created and to provision automatically we need to write a small script in 
   "user-data" ---> ec2-provision.sh
 9.Where to find user-data logs? --> when you connect in superputty in the ansible server -->
-  sudo su - --->/cd /var/log/ --> ls -l --> tail -f cloud-init-output.log
+  sudo su - --->/cd /var/log/ --> ls -l --> tail -f cloud-init-output.log. user data is only for once it will 
+  not create again if you want then you need to delete it that is the only disadvantage in user-date
 10.Watch (50:55) ---> concept
 
 # Create application load balancer
