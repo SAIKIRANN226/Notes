@@ -1,5 +1,12 @@
 How to connect to private instance?
 -------------------------------------
-1.First connect to public instance from there connect to private instance,we call this as jump
-  host
+1.First connect to public instance from there connect to private instance,we call this as jump host
 2.VPN(when interviewer asks tell that you have used cisco vpn)
+3.We used cisco vpn
+4.Configuring vpn will be taken care by separate team
+
+Mongodb should accept connections from 
+1.vpn
+2.catalogue
+3.user
+So write a rule in main.tf in SG
