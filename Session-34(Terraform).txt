@@ -5,8 +5,8 @@ Recap
 3.We used "SSM parameter store" to store the configuration
   one project export configuration
   another project refer the configuration.
-  Configuration should be kept independent because generally mistakes in project is not in 
-  code the problem will be in the configuration,if any small change is done then entire 
+  Configuration should be kept independent because generally mistakes will be project not in 
+  code.the problem will be in the configuration,if any small change is done then entire 
   project may not work,so configuration should be kept independent.
 4.Security groups --> it plays an important role because we need to connect to every 
   resources which are present in AWS.
