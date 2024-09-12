@@ -35,6 +35,7 @@ If traffic increases,auto-scaling will create instances
     b.provision the instance using ansible
     c.stop the instance
     d.take ami
-    e.update auto-scaling using new ami(slowly old instances will replace by new)if traffic increases in future
+    e.update auto-scaling using new ami(slowly old instances will replace by new)
+      if traffic increases in future
 Second approch is the best because though it takes time 10 min website will be in running
 
