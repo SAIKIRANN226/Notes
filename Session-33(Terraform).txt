@@ -28,4 +28,4 @@ Now you have created mongodb instance and now you should write a security rule a
 1.first vpn
 2.catalogue
 3.user
-So write a rule in main.tf in SG
+So write a rule in main.tf in SG.that means we need to write a rule so every instance should accept connections from vpn
