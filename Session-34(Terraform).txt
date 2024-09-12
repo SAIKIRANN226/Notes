@@ -23,8 +23,7 @@ Now we got
 6.If you are creating ansible server obviously we need to create a SG for ansible also,as it is connecting to every servers with secure connection that is port no.22
 7.Creating ansible server in the default VPC(in any subnet)
 8.Now ansible is created and to provision automatically we need to write a small script in "user-data" ---> ec2-provision.sh
-9.Where to find user-data logs? --> when you connect in superputty in the ansible server -->sudo su - --->/cd /var/log/ --> ls -l --> tail -f cloud-init-output.log. user data is only for once it will not create again if you want then you need to delete it that is the 
-only disadvantage in user-date
+9.Where to find user-data logs? --> when you connect in superputty in the ansible server -->sudo su - --->/cd /var/log/ --> ls -l --> tail -f cloud-init-output.log. user data is only for once it will not create again if you want then you need to delete it that is the only disadvantage in user-data
 10.Watch (50:55) ---> concept
 
 Application will become stable by below points
