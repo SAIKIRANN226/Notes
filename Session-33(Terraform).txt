@@ -1,12 +1,31 @@
 How to connect to private instance?
 -------------------------------------
+Roboshop-terraform(VS)
+Instances we have created in Roboshop-terraform(VS) in ec2 folder is private instances,so we dont have publicIP addresses how do we connect then?then we have two ways but we prefer second one
 1.First connect to public instance from there connect to private instance,we call this as jump host
-2.VPN(when interviewer asks tell that you have used cisco vpn)
-3.We used cisco vpn
-4.Configuring vpn will be taken care by separate team
+2.VPN --> forward proxy(when interviewer asks tell that you have used cisco vpn)
+Note:-We used cisco vpn in our company,however configuring vpn will be taken care by separate team
+# Home-network(laptop) ---> AWS-network(default VPC{vpn} and roboshop VPC{private_instance}) -->{04:47}
 
-Mongodb should accept connections from 
-1.vpn
+Steps to connect to private instance through VPN
+---------------------------------------------------
+1.Create public instance in default vpc(in any subnet) and connect in superputty using publicIP
+2.Create mongodb instance in roboshop vpc,that means mongodb should accept connections from vpn which is 
+  installed in public instance,that means go to the mongodb SG/inbound rules/edit inbound rules/add rule -->
+  open ssh port from securityGroup which is attached to vpn because ip address is dynamic
+3.Install open-vpn(because it is lesscost for practice)
+4.A configuration file(like a private-key) with what evername you have given at the time of installing vpn is 
+  created with same name which is in ls -l /cat this file and save in local with alltype files extension
+5.Install open vpn client in local laptop/open and upload your above created file,now you are connected
+6.Establish peeering connection between default vpc and roboshop vpc
+7.Private instances in roboshop vpc should accept connections from vpn,here in example mongodb is private 
+  instance is in database subnet check here do we have connection or not there should have two IPaddreses 
+  default vpc IP and roboshop vpc IP,that means there is a connection.now take privateIP(mongodb) and connect
+  to superputty you will able to connect now
+# Now do all those above steps automation using terraform.
+
+Now you have created mongodb instance and now you should write a security rule as per the document that mongodb should accept connections from
+1.first vpn
 2.catalogue
 3.user
 So write a rule in main.tf in SG
