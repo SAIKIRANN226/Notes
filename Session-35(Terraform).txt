@@ -1,5 +1,40 @@
 Roboshop-infra-dev(VS) for dev environment 
 ---------------------------------------------
-Note:-public facing(means hitting the URL on https not http
-# Any project starts with VPC,so create VPC resource first
+https://github.com/daws-76s/roboshop-infra-dev --->Refer this repo for diagram
+# Public facing(means hitting the URL on https not http)http is for privateLB and https is for publicLB
+# Any project starts with VPC,SG,VPN
+
+Push vs pull in ansible
+--------------------------
+1.One disadvantage in push approch that is ansible server will push the configuration to the nodes,if anybody disturb the configuration by logging manually,we cannot find out who did it,so thats why ansible pull is implemented,we can schedule in crontab that foe every 30 min download the configuration from git directly and run it,any how we implemented idempotency so no problem if you run multiple times
+
+Interview question
+---------------------
+What is the disadvantage in ansible compare to pull based?When you push the configuration from the ansible server to the nodes if anybody changes the configuration manually,so we implemented a pull archetecture to schedule the crontab to pull the configuration periodically from git and run it,any how we have idempotency nature so no problem even if you run multiple times
+
+Roboshop-ansible-roles.tf(VS)
+--------------------------------
+
+# Use-data will be running inside the instance after creation,but do we know whether the user-data is successed or not ? until unless we see logs,so for that we user provisioners,if we connect through provisioners then we will able to see on the terminal itself,we use null resource to connect provisioners(roboshop-infra-dev/main.tf)
+# Last time we discussed ansible vault but now we are using only ssm paramter store
+# Every platform like aws has it own solution to maintain configuration and secrets,aws is like cloud platform,in cloud platform we have many resources like ec2,dynamodb and manymore services,in every service we may use passwords or other secrets,so every platform has ssm parameter store services will refer this ssm parameter,if you want to do any changes come to the ssm parameter and make changes and restart thats it
+
+AWS platform ---> ec2 is one service ---> ssm paramter(vault) is another service,So now ec2 will fetch configuration from the ssm parameter,but inorder to fetch ec2 should have access to the ssm paramter like IAM role IAM policy we need to add to get access to the ssmparamter,But here we provisioning servers through ansible that means ansible should pull from the ssmparameter store,So how ansible will connect to aws parameter store?so ansible uses boto3 and botocore python modules to connect and IAM policy should also be there in the server to implement vault,so we used "iam_instance_profile" in main.tf from databases file
+
+In past we used ansible vault but it is difficult to maintain servers beacuse infrastructure is in cloud then we integrated ansible with ssm paramter store.
+
+# If you dont find in official modules then we can use community modules
+# If you use ansible command instead of modules you dont find idempotency in commands
+
+App and web tier
+-------------------
+If traffic increases,auto-scaling will create instances
+  1)when new instance is created,use user-data or provisioner with ansible to configure the server -->5min
+  2)when you are deploying,website is running
+    a.first create one new instance
+    b.provision the instance using ansible
+    c.stop the instance
+    d.take ami
+    e.update auto-scaling using new ami(slowly old instances will replace by new)if traffic increases in future
+Second approch is the best because though it takes time 10 min website will be in running
 
