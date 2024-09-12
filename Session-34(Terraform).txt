@@ -2,9 +2,7 @@ Recap
 -------
 1.How to develop module
 2.How to use module
-3.We used "SSM parameter store" to store the configuration one project export configuration another project refer the configuration.
-  configuration should be kept independent because generally mistakes will be project configuration not in code.if any small change is 
-  done in configuration then entire project may not work,so configuration should be kept independent.
+3.We used "SSM parameter store" to store the configuration one project export configuration another project refer the configuration.configuration should be kept independent because generally mistakes will be project configuration not in code.if any small change is done in configuration then entire project may not work,so configuration should be kept independent.
 4.Security groups --> it plays an important role because we need to connect to every resources which are present in AWS.
 
 Roboshop-terraform(VS)resources
@@ -22,13 +20,11 @@ Now we got
 3.VPN
 4.EC2 and records 
 5.Now we need to configure those EC2's for that we need to create 1 ansible server,this server will provision playbooks to all the EC2's
-6.If you are creating ansible server obviously we need to create a SG for ansible also,as it is connecting to every servers with secure 
-  connection that is port no.22
+6.If you are creating ansible server obviously we need to create a SG for ansible also,as it is connecting to every servers with secure connection that is port no.22
 7.Creating ansible server in the default VPC(in any subnet)
 8.Now ansible is created and to provision automatically we need to write a small script in "user-data" ---> ec2-provision.sh
-9.Where to find user-data logs? --> when you connect in superputty in the ansible server -->sudo su - --->/cd /var/log/ --> ls -l --> 
-  tail -f cloud-init-output.log. user data is only for once it will not create again if you want then you need to delete it that is the 
-  only disadvantage in user-date
+9.Where to find user-data logs? --> when you connect in superputty in the ansible server -->sudo su - --->/cd /var/log/ --> ls -l --> tail -f cloud-init-output.log. user data is only for once it will not create again if you want then you need to delete it that is the 
+only disadvantage in user-date
 10.Watch (50:55) ---> concept
 
 Application will become stable by below points
@@ -42,21 +38,12 @@ Application will become stable by below points
 
 Important topics
 -------------------
-# Create two instances(and keep user-data in advanced details like (#!/bin/bash | yum install nginx -y |mkdir -p 
-  /usr/share/nginx/html/ui | echo"<h1>Hi we are from UI team</h1>" > /usr/share/nginx/html/ui/index.html | systemctl restart nginx
-# Instances will get request from LB,so what should be the ingress rule in SG which you have created for instances? should have SG 
-  which is attached to LB,so first create LB securityGroup.while creating LB SG(select "http" because nginxLB will get traffic from 
-  internet so give "0.0.0.0/0"
+# Create two instances(and keep user-data in advanced details like (#!/bin/bash | yum install nginx -y |mkdir -p /usr/share/nginx/html/ui | echo"<h1>Hi we are from UI team</h1>" > /usr/share/nginx/html/ui/index.html | systemctl restart nginx
+# Instances will get request from LB,so what should be the ingress rule in SG which you have created for instances? should have SG which is attached to LB,so first create LB securityGroup.while creating LB SG(select "http" because nginxLB will get traffic from 
+internet so give "0.0.0.0/0"
 # Secondly create nginx instancesSG --> http/port 80/(select "LB" from source)
 # Create application load balancer with atleast 2 AZ's---> and in the listeners and routing,you need to create target group
-# Create target group(nothing but teams like nginx-UI/nginx-backend/database)and health check is nothing but instances are running or 
-  not like checking ports/healthy threshold/unhealthy threshold/timeout/success codes/intervals.and then click next select the instances
-  and register with include as pending and go back to the loadbalancer creation and select nginx-UI target group,now go to the created 
-  load balancer--->under listeners and rules click on rule-->there you have default rule which nginxUI that means what ever request 
-  will come it will give to the nginx-UI,so here we need to add a rule that create rule name/condition-path/path will be /ui/*
-  priority can be given as 1 if you want,so now what ever the request with /UI it will redirect to the UI team,Similarly we can create 
-  for /backend/databases
-  Loadbalancer will give you a DNS name that should be configured in route53 generally
+# Create target group(nothing but teams like nginx-UI/nginx-backend/database)and health check is nothing but instances are running or not like checking ports/healthy threshold/unhealthy threshold/timeout/success codes/intervals.and then click next select the instances and register with include as pending and go back to the loadbalancer creation and select nginx-UI target group,now go to the created load balancer--->under listeners and rules click on rule-->there you have default rule which nginxUI that means what ever request will come it will give to the nginx-UI,so here we need to add a rule that create rule name/condition-path/path will be /ui/* priority can be given as 1 if you want,so now what ever the request with /UI it will redirect to the UI team,Similarly we can create for /backend/databases Loadbalancer will give you a DNS name that should be configured in route53 generally
 
 
 
