@@ -15,16 +15,16 @@ What is the disadvantage in ansible compare to pull based?When you push the conf
 Roboshop-ansible-roles.tf(VS)
 --------------------------------
 
-# Use-data will be running inside the instance after creation,but do we know whether the user-data is successed or not ? until unless we see logs,so for that we user provisioners,if we connect through provisioners then we will able to see on the terminal itself,we use null resource to connect provisioners(roboshop-infra-dev/main.tf)
+# User-data will be running inside the instance after creation,but do we know whether the user-data is successed or not?Untill unless we see logs,so for that we use provisioners,if we connect through provisioners then we will able to see on the terminal itself,for that we use null resource to connect provisioners(roboshop-infra-dev/main.tf)
 # Last time we discussed ansible vault but now we are using only ssm paramter store
-# Every platform like aws has it own solution to maintain configuration and secrets,aws is like cloud platform,in cloud platform we have many resources like ec2,dynamodb and manymore services,in every service we may use passwords or other secrets,so every platform has ssm parameter store services will refer this ssm parameter,if you want to do any changes come to the ssm parameter and make changes and restart thats it
+# Every platform like aws has it own solution to maintain configuration and secrets,aws is like cloud platform,in cloud platform we have many resources like ec2,dynamodb and manymore services,in every service we may use passwords or other secrets,so every platform has ssm parameter store,these services will refer to ssm parameter,if you want to do any changes come to the ssm parameter and make changes and restart thats it
 
-AWS platform ---> ec2 is one service ---> ssm paramter(vault) is another service,So now ec2 will fetch configuration from the ssm parameter,but inorder to fetch ec2 should have access to the ssm paramter like IAM role IAM policy we need to add to get access to the ssmparamter,But here we provisioning servers through ansible that means ansible should pull from the ssmparameter store,So how ansible will connect to aws parameter store?so ansible uses boto3 and botocore python modules to connect and IAM policy should also be there in the server to implement vault,so we used "iam_instance_profile" in main.tf from databases file
+AWS platform ---> ec2 is one service ---> ssm paramter(vault) is another service,So now ec2 will fetch configuration from the ssm parameter,but inorder to fetch ec2 should have access to the ssm paramter like IAM role or IAM policy we need to add to get access to the ssmparamter,But here we provisioning servers through ansible that means ansible should pull from the ssmparameter store,So how ansible will connect to aws ssm parameter store(service)?so ansible uses boto3 and botocore python modules to connect and IAM policy should also be there in the server to implement vault,so we used "iam_instance_profile" in main.tf from databases file
 
-In past we used ansible vault but it is difficult to maintain servers beacuse infrastructure is in cloud then we integrated ansible with ssm paramter store.
+In past we used ansible vault but it is difficult to maintain servers beacuse our infrastructure is in cloud lateron we integrated ansible with ssm paramter store.
 
 # If you dont find in official modules then we can use community modules
-# If you use ansible command instead of modules you dont find idempotency in commands
+# If you use ansible command instead of modules you dont find idempotency nature in commands
 
 App and web tier
 -------------------
