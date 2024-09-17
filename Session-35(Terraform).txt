@@ -6,7 +6,7 @@ https://github.com/daws-76s/roboshop-infra-dev --->Refer this repo for diagram
 
 Push vs pull in ansible
 --------------------------
-1.One disadvantage in push approch that is ansible server will push the configuration to the nodes,if anybody disturb the configuration by logging manually,we cannot find out who did it,so thats why ansible pull is implemented,we can schedule in crontab that foe every 30 min download the configuration from git directly and run it,any how we implemented idempotency so no problem if you run multiple times
+1.One disadvantage in push approch that is ansible server will push the configuration to the nodes,if anybody disturb the configuration by logging manually,we cannot find out who did it,so thats why ansible pull is implemented,we can schedule in crontab that for every 30 min it will download the configuration from git directly and run it,any how we implemented idempotency so no problem if you run multiple times
 
 Interview question
 ---------------------
