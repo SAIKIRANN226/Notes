@@ -38,8 +38,7 @@ else{
 
 We have one line condition also that is 
 ------------------------------------------
-expression ? "this will run if true" : "this will run if false" ---> terraform will follow 
-this only
+expression ? "this will run if true" : "this will run if false" ---> terraform will follow this only
 
 Loops(2types)
 ---------------
