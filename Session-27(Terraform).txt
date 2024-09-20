@@ -2,7 +2,7 @@ Note:-If you are facing push error in the github you can forcefull push by using
 
 Locals
 --------
-Count.index will not have access in the locals,we can only put in the count.tf,basically expressions,conditions,functions can be put in the locals,then how to call a local? "local.instance_type"
+Count.index will not have access in the locals,we can only put in the count.tf,basically we can keep expressions,conditions,functions inside the locals,then how to call a local? "local.instance_type"
 
 Data-sources(VS)
 ------------------
