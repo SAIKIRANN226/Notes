@@ -1,7 +1,6 @@
-To go directly in to your working folder in gitbash
-------------------------------------------------------
-cd /d/repos/terraform-vpc-test
-
+[Note:-To go directly in to your working folder in gitbash ---> cd /d/repos/terraform-vpc-test]
+Steps
+-------
 1.Create VPC 
 2.Create Internet gateway and attach to the VPC
 3.Create subnets
@@ -10,8 +9,9 @@ cd /d/repos/terraform-vpc-test
 5.Add route in the public route table there we have default route but we need to add 
   "edit routes" --> add route --> 0.0.0.0/0(default internet gateway is the target),Do not 
   attach 0.0.0.0/0(Internet gateway)to the private subnet that is only the difference.
+6.Enable publicIP address in public subnet
   
-# When you create VPC aws will automatically default route table(10.0.0.0/16)will be created
+# When you create VPC aws will automatically create default route table(10.0.0.0/16)will be created
   to communicate between subnets
 
 HA ---> High availability
