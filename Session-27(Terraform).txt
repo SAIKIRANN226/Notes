@@ -1,4 +1,6 @@
-Note:-If you are facing push error in the github you can forcefull push by using "git push -f origin master"
+# To go directly in to your working folder in gitbash ---> cd /d/repos/terraform-vpc-test
+# If you are facing push error in the github you can forcefull push by using "git push -f origin master"
+# git remote set-url origin <URL>
 
 Locals
 --------
