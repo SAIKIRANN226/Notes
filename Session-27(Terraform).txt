@@ -1,6 +1,8 @@
 # To go directly in to your working folder in gitbash ---> cd /d/repos/terraform-vpc-test
 # If you are facing push error in the github you can forcefull push by using "git push -f origin master"
 # git remote set-url origin <URL>
+# If the code in vs is in full green colour that means the repository is not yet created in 
+  the github when repo is ready then it will turn to normal colour after pushing to git
 
 Locals
 --------
