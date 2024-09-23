@@ -81,12 +81,9 @@ Terraform ---> Responsibility is to create server nothing but infrastructure cre
                created then we handover the IP address to ansible,it will takecare of the 
                provisioning(or)configuration management,if you integrate terraform and 
                ansible you will get end-end automation using provisioners
+[Note:-We can also create ec2 instances using ansbile but it does not have state file as terraform does,thats why terraform is perfect for creation of infrastructure]
 
-Note:-We can also create ec2 instances using ansbile but it does not have state file as terraform does,thats why terraform is perfect for creation of infrastructure
-
-Creation time ---> this local exec will run when server is created when we apply
-Destroy time ---> at the time of destory
-
-Why we use this creation time and destroy time?
--------------------------------------------------
-To trigger other systems like sending emails when servers created(or)when destoryed.
+# Creation time ---> this local exec will run when server is created when we apply
+# Destroy time ---> at the time of destory
+# Why we use this creation time and destroy time?To trigger other systems like sending emails when servers 
+  created(or)when destoryed.
