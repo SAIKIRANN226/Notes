@@ -65,8 +65,7 @@ Provisioners is only for ec2 instances
 -----------------------------------------
 2 types :- 1.local-exec ---> local to where you are running terraform command(laptop),if you  
              run terraform command from the linux server.what will be the local here? local 
-             will be linux server
-             [Note:- local-exec will run only one time so to again this you need to destroy]
+             will be linux server [Note:-local-exec run only onetime so to again this you need to destroy]
            2.remote-exec ---> this will run inside the server,first you should connect to the 
              server,then you can run anything inside the server.
 Provisioners are useful to integrate terraform with configuration management tools like ansible.
