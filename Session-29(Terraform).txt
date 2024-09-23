@@ -1,12 +1,9 @@
-Terraform best practices
---------------------------
-For naming the resources in the terraform search in google
+# Terraform best practices is used for naming the resources in the terraform "search in google"
 
 Modules development
----------------------
-# Dry,dont repeat yourself
-# Code reuse,no need to write infra for every project from the scratch,example see the
-  "terraform-modules" in the VS
+----------------------
+# Dry concept,dont repeat yourself
+# Code reuse,no need to write infra for every project from the scratch,example "terraform-modules"(VS)
 # Module syntax is 
       module "name" {
 	 source = "../ec2" ---> example actually it is one step back
@@ -16,13 +13,13 @@ Modules development
 2 types of modules
 --------------------
 1.Customized modules for our organisation,this will create by central team in cloud
-2.Open source modules
+2.Open source modules from the internet
 
-2 roles
----------
-1.Module developer --> who develops module
-2.Module user --> who consumes module
-Note:-Put one README.md file to provide the documentation on the module
+2 types of roles
+------------------
+1.Module developer role --> who develops module
+2.Module user role --> who consumes module
+[Note:-Put one README.md file to provide the documentation on the module]
 
 1.VPC(virtual private cloud)
 ------------------------------
