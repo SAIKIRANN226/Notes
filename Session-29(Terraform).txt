@@ -24,6 +24,7 @@ Modules development
 1.VPC(virtual private cloud)
 ------------------------------
 Watch from ---> (26:09 to 1:14:13)
+NAT ---> Network address translation
 
 Difference between public subnet and private subnet?
 ------------------------------------------------------
