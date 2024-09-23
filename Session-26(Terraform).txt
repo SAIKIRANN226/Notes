@@ -1,5 +1,3 @@
-Go through the session-01 in VS 
-----------------------------------
 Note:-And dont forget to put ".gitignore" better to put in the root folder in terraform not only in terraform root folder for example if you are creating any other new folder then you need to put there also,because when you hit "terraform init" then terraform will download the provider and this provider memory is almost 350mb.github is only to store code not software(or)exe files,so github will automatically reject,so thats why .gitignore is important here
 
 Variables(VS)
