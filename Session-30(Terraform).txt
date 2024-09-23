@@ -28,7 +28,7 @@ If we need to update any package(or)download something in the private subnets,fo
 
 VPC peering
 --------------
-Example of the two villages,for every village we have pincode,so similarly in the VPC what is pincode?That is "CIDR" Bydefaut we cannot connect two VPCs,it is possible through VPC peering,only when both VPC'sshould have different CIDR's
+Example of the two villages,for every village we have pincode,so similarly in the VPC what is pincode?That is "CIDR" Bydefaut we cannot connect two VPCs,it is possible through VPC peering,only when both VPC's should have different CIDR's
 1.Requestor VPC = i want to connect with you please accept my request
 2.Acceptor VPC  = ok i will accept your request
 
