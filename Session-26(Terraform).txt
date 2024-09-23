@@ -48,7 +48,7 @@ Example:- max(5,12,23) --> max is the function and we are giving inputs 5,12,23 
 
 Locals(VS)
 ------------
-Locals is just like variables but it has some extra capabilities,you can keep functions,expressions,conditions inside a local and use them anywhere
+Locals is just like variables but it has some extra capabilities,you can keep functions,expressions,conditions inside a local and use them anywhere using "local.instance_type"
 
 Dynamic(VS)
 -------------
