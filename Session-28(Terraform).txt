@@ -56,8 +56,7 @@ Which approch is best ?
 2. pros ---> same code
    cons ---> same code for multiple environments,you need to be very careful because 
              whatever changes you do that will apply to all env's also.Terraform is also 
-             maintaining same bucket that may cause errors and difficult to maintain, 
-             difficult to maintain variables
+             maintaining same bucket that may cause errors and difficult to maintain variables
 3. pros ---> since everything is different you no need to worry
    cons ---> you need to maintain code duplication 2 repos, if it is big project or crucial
              project better to maintain this method
