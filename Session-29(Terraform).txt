@@ -34,9 +34,9 @@ Create roboshop network(VPC)
 ------------------------------
 1.Create VPC network ---> you need to give CIDR while creating vpc nothing but like pin code
   here siva has given 10.0.0.0/16,so this ip address is public(or)private?so internet
-  has given some "private ip address range" you can search in google you find three ranges they are starting 
-  from 10. , 172. , 192. and that is only allocated to private ip not public,so from this siva selected 
-  starting from 10.
+  has given some "private ip address range" you can search in google you find three ranges they are 
+  starting from 10. , 172. , 192. and that is only allocated to private ip not public,so from this siva 
+  selected starting from 10.
 2.AWS has given minimum 16-28,if you want to create a vpc atleast you need to give 
   10.0.0.0/28 ---> 28 bits are for network,remaining 2power4=16,we can configure 16servers
   when you are taking vpc atleast you need to create 16 servers.
