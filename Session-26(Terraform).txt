@@ -46,8 +46,8 @@ Functions(VS)
 It will do some work,if we give some input and it will take this input and give output.Here in terraform we cannot create our own functions but terraform itself has some functions we need to use that only.
 Example:- max(5,12,23) --> max is the function and we are giving inputs 5,12,23 then terraform will give output that is 23,similarly we have other functions also,and we have used length function --> length(var.instance_names)
 
-Locals
---------
+Locals(VS)
+------------
 Locals is just like variables but it has some extra capabilities,you can keep functions,expressions,conditions inside a local and use them anywhere
 
 Dynamic(VS)
