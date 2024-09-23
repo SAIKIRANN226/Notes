@@ -2,8 +2,6 @@ Note:-Don't forget to put ".gitignore" better to put in the root folder in terra
 
 Variables(VS)
 ---------------
-If it is starting from the flower brases {} ---> it is a map type
-
 Terraform.tfvars(VS)
 ----------------------
 instance_type = "t3.small" 
