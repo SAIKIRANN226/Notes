@@ -67,7 +67,7 @@ Component = "web"
 
 Resource tags this is also a map(Tagging strategy)
 -----------------------------------------------------
-Similarly we have different tags like vpc tags,subnet tags,nat tags etc.But we want both tags,however when you use both,bydefault terraform will consider common tags only,so for that we have "terraform merge" ---> merge(var.common_tags, var.vpc_tags)
+Similarly we have different tags like vpc tags,subnet tags,nat tags etc.But we want both tags,however when you use both,bydefault terraform will consider common tags only,so for that we have "terraform merge" ---> merge(var.common_tags, var.vpc_tags),we can merge any number of maps
 
 Note:- Terraform-aws-vpc ---> is a module we are developing
        Terraform-vpc-test ---> is we are testing wether the module is working or not
