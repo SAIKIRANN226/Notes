@@ -2,7 +2,7 @@
   you can use as per your wish but not with same key names because it will merge all.
 # If you are facing any error in pushing the code to the github use the below command
   "git remote set-url origin <URL>"
-# If the code in vs is in full green colour that means the repository is not yet ready in 
+# If the code in vs is in full green colour that means the repository is not yet created in 
   the github when repo is ready then it will turn to normal colour after pushing to git
 
 How to create multiple environments with terraform(3ways)
