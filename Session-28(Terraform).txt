@@ -8,7 +8,7 @@
 How to create multiple environments with terraform(3ways)
 ------------------------------------------------------------
 1.tfvars ---> using to overwrite the default variables from variables.tf
-2.workspaces ---> terraform workspace list(shows the workspace list)
+2.workspaces ---> terraform workspace list(shows the workspace list),terraform workspace shows all commands
 3.different repos for different environments
 
 For example we want mongodb-dev, redis-dev
