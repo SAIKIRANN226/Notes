@@ -64,7 +64,7 @@ Now associate
   then associate with public route table which you have already created
 # Do same for the private subnet also
 
-When you select public route table which you have created,then click on Routes --> edit routes ---> add route ---> In destination give internet notation (0.0.0.0/0) ---> Internet gateway in the Target section ---> select default from the drop down ---> save changes.That means public IP got the internet access and we dint given internet access to private that is the difference
+When you select public route table which you have created,then click on Routes --> edit routes ---> add route ---> In destination give internet notation (0.0.0.0/0) ---> Internet gateway in the Target section ---> select default from the drop down ---> save changes.That means public subnet got the internet access and we dint given internet access to private that is the difference
 
 Edit subnet settings
 ----------------------
