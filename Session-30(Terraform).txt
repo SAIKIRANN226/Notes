@@ -1,7 +1,3 @@
-Note:-To go directly in to your working folder in gitbash ---> cd /d/repos/terraform-vpc-test
-
-Steps
---------
 1.Create VPC 
 2.Create Internet gateway and attach to the VPC
 3.Create subnets
