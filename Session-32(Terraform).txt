@@ -24,8 +24,8 @@ Where the data-sources will be useful?To query data from the provider and also f
 
 So we should create SG's for all components by using document,as per the documents we have security rules like Mongodb should accpet connections only from catalogue and user,So what should i write ingress rule in mongodb? Source: catalogue IPaddress / Port: 27017 ,Similarly like for other private servers also.So Here catalogue IPaddress(or)other private address are dynamic so we need to create static IPaddress using Elastic IP address,but creating elastic IP address is chargable so we cannot create those many IP addresses,for that SG is giving one option that is like obviously you create security_groups for all private servers consider mongodb-SG,then go to the created SG/edit inbound rules/custom TCP/port:27017/in the source we need to give the elastic IP address which we dont prefer because of cost so give mongodb-SG-id which you have created,that means irrespective of the IPaddress this SG is attached to mongodb whatever traffic is comming from the mongodb accept the connections irrespective of the IPaddress.So write a rule in main.tf for mongod,redis,shipping etc.instead of IP address we are giving "source_security_group_id"
 
-Here from ec2.tf we have created mongodb instances,but there is not public_ip we cannot connect through ssh,so we have two options
+Here from ec2.tf we have created mongodb instance,but there is no public_ip we cannot connect through ssh,so we have two options
 1.create one ec2 in public subnet,login to that ec2 first from there connect to mongodb 
-2.vpn installl connect to private servers through vpn
+2.vpn install connect to private servers through vpn
 
 
