@@ -4,7 +4,7 @@ Instances we have created in Roboshop-terraform(VS)in ec2 folder is private inst
 1.First connect to public instance from there connect to private instance,we call this as jump host
 2.VPN --> forward proxy(when interviewer asks tell that you have used cisco vpn)
 Note:-We used cisco vpn in our company,however configuring vpn will be taken care by separate team
-# Laptop(homeNetwork) ---> AWS-network(default VPC{vpn} and roboshop VPC{private_instance}) -->{04:47}
+# Laptop(homeNetwork) --->AWS-network(default VPC{vpn} and roboshop VPC{private_instance}) -->{04:47}
 
 Steps to connect to private instance through VPN
 ---------------------------------------------------
