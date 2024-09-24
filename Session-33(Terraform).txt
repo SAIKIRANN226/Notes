@@ -20,7 +20,7 @@ Steps to connect to private instance through VPN
 6.Establish peeering connection between default vpc and roboshop vpc
 7.Private instances in roboshop vpc should accept connections from vpn,here in example mongodb is private 
   instance is in database subnet check here do we have connection or not there should have two IPaddreses 
-  default vpc IP and roboshop vpc IP,that means there is a connection.now take privateIP(mongodb) and connect
+  default vpc IP and roboshop vpc IP,that means there is a connection.now take privateIP(mongodb)and connect
   to superputty you will able to connect now
 # Now do all those above steps automation using terraform.
 
