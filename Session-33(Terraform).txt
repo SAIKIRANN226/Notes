@@ -13,8 +13,8 @@ Steps to connect to private instance through VPN
   open-vpn from the open source.
 2.Create mongodb instance in roboshop vpc,that means mongodb should accept connections from vpn which is 
   installed in public instance,that means go to the 
-  mongodb SecurityGroup/inbound rules/edit inbound rules/add rule-->open ssh port from securityGroup which is 
-  attached to vpn because ip address is dynamic
+  mongodb SecurityGroup/inbound rules/edit inbound rules/add rule-->open ssh port from securityGroup 
+  which is attached to vpn because ip address is dynamic
 3.Install open-vpn(because it is lesscost for practice)
 4.A configuration file(like a private-key)with whatever name(client)you have given at the time of 
   installing vpn is created with same name which is in "ls -l"/cat this file and save in local with alltype 
