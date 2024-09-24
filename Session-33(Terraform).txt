@@ -8,7 +8,8 @@ Note:-We used cisco vpn in our company,however configuring vpn will be taken car
 
 Steps to connect to private instance through VPN
 ---------------------------------------------------
-1.Create public instance in default vpc(in any subnet) and connect in superputty using publicIP
+1.Create public instance in default vpc(in any subnet) and connect in superputty using publicIP and install 
+  open-vpn from the open source
 2.Create mongodb instance in roboshop vpc,that means mongodb should accept connections from vpn which is 
   installed in public instance,that means go to the mongodb SG/inbound rules/edit inbound rules/add rule-->
   open ssh port from securityGroup which is attached to vpn because ip address is dynamic
