@@ -25,6 +25,7 @@ Steps to connect to private instance through VPN
   that subnet-->route table-->here you will see two IP addresses defaultVPC and roboshopVPC that means 
   there is a connection between two VPC that means peering connection is done.now take 
   privateIP(mongodb)and connect to superputty you will able to connect now
+8.After creating mongodb instance--->inbound--->give vpn SG in the mondogdb inboundrule with ssh connection
 # Now do all those above steps automation using terraform.
 
 Now you have created mongodb instance and now you should write a security rule as per the document that mongodb should accept connections from
