@@ -4,7 +4,7 @@ In this class creating SG modules and creating all security groups
 2.Terraform-aws-SGmodule(VS)
 Why we are creating in different folders?When the project is becomming big then refreshing and maintenance will be easy
   > 01-vpc
-  > 02-sg ---> main input for the SG is "vpc_id" sg wants vpc_id in which vpc you are creating SG,
+  > 02-sg --->main input for the SG is "vpc_id" sg wants vpc_id in which vpc you are creating SG,
           if the sg is creating in the same folder then getting vpc_id is easy,but when vpc is in another 
           folder to get it from there we have "ssm paramter" in systems manager in this ssm paramter store 
           we can store key-value pair,generally path will be in the format like naming convention 
