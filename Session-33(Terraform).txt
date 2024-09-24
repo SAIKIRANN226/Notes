@@ -1,10 +1,10 @@
 How to connect to private instance?
 -------------------------------------
-Instances we have created in Roboshop-terraform(VS) in ec2 folder is private instances,so we dont have publicIP addresses how do we connect then?then we have two ways but we prefer second one
+Instances we have created in Roboshop-terraform(VS)in ec2 folder is private instances,so we dont have publicIP addresses how do we connect then?then we have two ways but we prefer second one
 1.First connect to public instance from there connect to private instance,we call this as jump host
 2.VPN --> forward proxy(when interviewer asks tell that you have used cisco vpn)
 Note:-We used cisco vpn in our company,however configuring vpn will be taken care by separate team
-# Home-network(laptop) ---> AWS-network(default VPC{vpn} and roboshop VPC{private_instance}) -->{04:47}
+# Laptop(homeNetwork) ---> AWS-network(default VPC{vpn} and roboshop VPC{private_instance}) -->{04:47}
 
 Steps to connect to private instance through VPN
 ---------------------------------------------------
