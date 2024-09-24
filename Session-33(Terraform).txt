@@ -9,23 +9,23 @@ Instances we have created in Roboshop-terraform(VS)in ec2 folder is private inst
 
 Steps to connect to private instance through VPN
 ---------------------------------------------------
-1.Create public instance in default vpc(in any subnet) and connect in superputty using publicIP and install 
-  open-vpn from the open source
+1.Create public instance in default vpc(in any subnet)and connect in superputty using publicIP and install 
+  open-vpn from the open source.
 2.Create mongodb instance in roboshop vpc,that means mongodb should accept connections from vpn which is 
-  installed in public instance,that means go to the mongodb SG/inbound rules/edit inbound rules/add rule-->
-  open ssh port from securityGroup which is attached to vpn because ip address is dynamic
+  installed in public instance,that means go to the mongodb SecurityGroup/inbound rules/edit inbound rules/add 
+  rule-->open ssh port from securityGroup which is attached to vpn because ip address is dynamic
 3.Install open-vpn(because it is lesscost for practice)
-4.A configuration file(like a private-key) with whatever name(client) you have given at the time of 
-  installing vpn is created with same name which is in ls -l /cat this file and save in local with alltype 
-  files extension
+4.A configuration file(like a private-key)with whatever name(client)you have given at the time of 
+  installing vpn is created with same name which is in "ls -l"/cat this file and save in local with alltype 
+  files extension.
 5.Install open vpn client in local laptop/open and upload your above created file,now you are connected
 6.Establish peeering connection between default vpc and roboshop vpc
 7.Private instances in roboshop vpc should accept connections from vpn,here in example mongodb is private 
   instance is in database subnet.check here do we have connection or not there should have two IPaddreses 
-  default vpc IP and roboshop vpc IP,how to check this? take the vpn instance is in which subnet-->go to 
+  default vpc IP and roboshop vpc IP,how to check this?take the vpn instance is in which subnet-->go to 
   that subnet-->route table-->here you will see two IP addresses defaultVPC and roboshopVPC that means 
-  there is a connection between two VPC that means peering connection is done.now take 
-  privateIP(mongodb)and connect to superputty you will able to connect now
+  there is a connection between two VPC that means peering connection is done.now take privateIP(mongodb)and 
+  connect to superputty you will able to connect now
 8.After creating mongodb instance--->inbound--->give vpn SG in the mondogdb inboundrule with ssh connection
 # Now do all those above steps automation using terraform.
 
