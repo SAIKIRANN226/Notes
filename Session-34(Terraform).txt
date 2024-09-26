@@ -35,7 +35,7 @@ Now we got
   ec2-provision.sh
 9.Where to find user-data logs? --> when you connect in superputty in the ansible server -->sudo su - --->
   /cd/var/log/ --> ls -l --> tail -f cloud-init-output.log. user data is only for once it will not create 
-  again if you want then you need to delete it that is the only disadvantage in user-data
+  again if you want again then you need to delete it that is the only disadvantage in user-data
 10.Watch (50:55) ---> concept
 
 Application will become stable by below points
