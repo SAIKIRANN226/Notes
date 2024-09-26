@@ -1,9 +1,10 @@
 Recap
 -------
-1.How to develop module
-2.How to use module
-3.We used "SSM parameter store" to store the configuration one project exports the configuration another project refers the configuration.configuration should be kept independent because generally mistakes will be in project configuration not in code.if any small change is done in configuration then entire project may not work,so configuration should be kept independent.
-4.Security groups --> it plays an important role because we need to connect to every resources which are present in AWS.
+1.We know how to develop module and how to use module
+2.We used "SSM parameter store" to store the configuration.One project exports the configuration,another  
+  project refers the configuration.Configuration should be kept independent because generally mistakes will be   happen in project configuration not in code.if any small change is done in configuration then entire project   may not work,so configuration should be kept independent.
+3.Security groups -->It plays an important role because we need to connect to every resources which are  
+  present in AWS.
 
 Roboshop-terraform(VS)resources
 ----------------------------------
