@@ -6,7 +6,11 @@ Recap
   be happen in project configuration not in code.if any small change is done in configuration then entire 
   project may not work,so configuration should be kept independent.
 3.Security groups -->It plays an important role because we need to connect to every resources which are  
-  present in AWS.
+  present in AWS.Individually every concept is easy to understand but when you mix all concepts in one big
+  project then it will create more confusion like for example if a clients request OR user request from the 
+  laptop need to go to the aws end service,this request will cross more stages like first it should cross
+  client server configuration should be correct and then server side like vpcgateways,nat,SG's, and may more
+  resources,so this overall visualization should be there in us,so thats why SecurityGroup is impt.
 
 Roboshop-terraform(VS)resources
 ----------------------------------
