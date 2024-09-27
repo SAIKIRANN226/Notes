@@ -41,8 +41,8 @@ Cost optimization
 1.Create when required,delete when not required
 2.Automatic dependency management,for example if we need to create route53,ec2 servers should be in running 
   take those ip and then paste in the route53,that means route53 is depending on ec2 servers,that means we 
-  can create resources and terraform will takecare of dependencies.(OR)If you want to create ec2 instance,it
-  is depending on SG,so terraform will automatically first create SG then ec2
+  can create resources and terraform will takecare of dependencies.(OR)If you want to create 
+  ec2 instance,it is depending on SG,so terraform will automatically first create SG then ec2
 3.Terraform modules--->you can create terraform code as modules,other project can also use it without 
   writing from the scratch
 4.Terraform is also a hybrid cloud that means you can create infra in aws,azure,GCP 
