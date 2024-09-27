@@ -93,7 +93,8 @@ Variables
 variable "name-of-variable" {
      type = datatype
      default = "default value"
-}
+} 
+
 Note:Terraform will automatically consider which datatype is.so no need to give datatype but for practice we need 
 
 Now we are creating secuirty group
