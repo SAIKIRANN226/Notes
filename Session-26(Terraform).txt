@@ -7,7 +7,7 @@ Terraform.tfvars(VS)
 instance_type = "t3.small" 
 
 # if you dont give the default value in the variables.tf,terraform will ask for the 
-  prompt,so if you create a terraform.tfvars and declare value it will overwrite this tfvars
+  prompt,so if declare a value in terraform.tfvars,then it will override the variables.tf values
   so terraform will take this value. we can declare values in the variables.tf and we can 
   give the values in the terraform.tfvars
 
