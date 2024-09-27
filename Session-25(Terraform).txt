@@ -13,8 +13,6 @@ Why we din't prefer manuall configuration?
   one single ansible server(control machine)
 4.For example if you are doing work manually it is least preffered but if you do same work with scripting 
   it is best approach,we have below all advantages in scripting(terraform)
-5.Ansible is also declarative as we are giving our desired infra in a file and giving it to the 
-  ansible or terraform
 
 Version control
 -----------------
@@ -48,7 +46,7 @@ Cost optimization
 4.Terraform is also a hybrid cloud that means you can create infra in aws,azure,GCP 
   not only cloud,terraform can work with any other popular tools in the market,you can see in the terraform 
   providers,it can work with everything.
-The above all are the terraform understanding(interview question).It is a declarative way of creating infrastructure,what is declarative ---> Whatever you write you will get provided if you write in correct syntax,terraform advantage is that easy syntax and no need to follow the sequence.
+The above all are the terraform understanding(interview question).It is a declarative way of creating infrastructure,what is declarative ---> Whatever you write you will get provided if you write in correct syntax,terraform advantage is that easy syntax and no need to follow the sequence.Ansible is also declarative as we are giving our desired infra in a file and giving it to the ansible or terraform
 
 From here we create infrastructure using terraform not manually,now setup terraform
 --------------------------------------------------------------------------------------
