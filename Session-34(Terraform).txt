@@ -15,7 +15,7 @@ Recap
 Roboshop-terraform(VS)resources
 ----------------------------------
 1.VPC
-2.SG
+2.SG --->Yaml is written just to give the information of the configuration
 3.VPN
 4.EC2 --->Here we need to create all ec2 instances along with route53 records,Here we can keep loops also because it is repeating but it is not right.if you want to keep in loop we need to parameterise allmost all values,ultimately it very tough to manage,so creating in normal way,but standard way is autoscaling and launch templates that will be explained in future classes
 [Note:-Before->resources was created without provider only but by taking the default values.actually it should not create,it should provide error anyhow it is created,bydefault a provisioner folder is created in the s3 bucket because of this all projects mixing(merging)may happen,if you get error you will come to know that provider should be kept]
