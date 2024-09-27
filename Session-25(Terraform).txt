@@ -63,11 +63,12 @@ From here we create infrastructure using terraform not manually,now setup terraf
 
 We write code in VS ---> then we push to github ---> then we push to the aws,but in order to push to the aws we need authentication for that we have "awsCLI" for this go to the google and search "aws cli install" just run shown commands in "cmd" from the command prompt,then test "aws --version" in cmd aswel as in gitbash.To connect we need to create a terraform user --> IAM/users/create(next)/attch policies directly and select administrator access/ --> click on your created user/security credentials/create accesskey/click on command line interface(CLI)/copy the accesskey and secretkey then -----> "aws configure" in gitbash --> these credentials will be saved in --> windowsC/users/user/.aws folder
 
-Lets create ec2 instance
---------------------------
+Terraform syntax
+-------------------
 resource "what resource" "name of your resource" {
 
 }
+
 1.This syntax we call HCL(hashicorp configuration language) 
 2.Here also we have variables/conditions/loops/functions/datatypes
 3.So rightnow we are using terraform for the aws so search terraform providers-->select aws provider if you 
