@@ -2,13 +2,15 @@ Terraform
 -----------
 # Is a popular IAC(infrastructure as a code)
 # Ansible is configuration as a code
-# Till now we configured our project manually,shellscript,ansible,but we prefer ansible as a configuration management if it is large project compare to any other configuration management tools
+# Till now we configured our project manually,shellscript,ansible,but we prefer ansible as a configuration   
+  management if it is large project compare to any other configuration management tools
 
 Why we din't prefer manuall configuration?
 --------------------------------------------
 1.Because it is time taking process as we need to login manually in every servers
 2.We will get more human errors
-3.But where as ansible,it can connect to more number of servers easily from one single ansible server(control machine)
+3.But where as ansible,it can connect to more number of servers easily from one single ansible server(control 
+  machine)
 
 Version control
 -----------------
