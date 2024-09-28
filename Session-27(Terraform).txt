@@ -14,9 +14,14 @@ Terraform is connecting to lot of providers like aws,azure,gcp and everything,so
 
 Foreach loop(VS)
 ------------------
-1.Conditions ---> mostly to iterate list for list we used count and count.index(special variables),this count.index should only kept in the count.tf not in locals
-2.for_each ---> mostly to iterate maps
-3.Dynamic loop ---> creating resources multiple times we used count,and foreach loop is used for creating instances and route53 records,so in the securityGroup if you want to add a new rule(or)multiple ports likes 80,443,22 in ingress(or)egress blocks so that block will be repeating as many rules you want to add.if a block is repeating you can keep that block in a variable and call dynamic loop
+1.Conditions ---> mostly to iterate list for list we used count and count.index(special
+                  variables),this count.index should only kept in the count.tf not in locals
+2.for_each -----> mostly to iterate maps
+3.Dynamic loop ---> creating resources multiple times we used count,and foreach loop is 
+                    used for creating instances and route53 records,so in the securityGroup if you want to add 
+                    a new rule(or)multiple ports likes 80,443,22 in ingress(or)egress blocks so that block 
+                    will be repeating as many rules you want to add.if a block is repeating you can keep that 
+                    block in a variable and call dynamic loop
 
 Terraform state(State and remote state)
 -----------------------------------------
