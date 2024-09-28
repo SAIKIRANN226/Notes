@@ -28,7 +28,7 @@ Conditions(VS)
 if(expression) {
 	if true this will run
 }
-else{
+else {
 	if false this will run
 } 
 
