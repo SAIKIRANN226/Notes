@@ -14,10 +14,10 @@ Terraform is connecting to lot of providers like aws,azure,gcp and everything,so
 
 Foreach loop(VS)
 ------------------
-1.Conditions ---> mostly to iterate list for list we used count and count.index(special
+1.conditions ---> mostly to iterate list for list we used count and count.index(special
                   variables),this count.index should only kept in the count.tf not in locals
 2.for_each -----> mostly to iterate maps
-3.Dynamic loop ---> creating resources multiple times we used count,and foreach loop is 
+3.dynamic loop ---> creating resources multiple times we used count,and foreach loop is 
                     used for creating instances and route53 records,so in the securityGroup if you want to 
                     add a new rule(or)multiple ports likes 80,443,22 in ingress(or)egress blocks 
                     so that block will be repeating as many rules you want to add.
@@ -33,11 +33,11 @@ What is the terraform responsibility? what ever we write it will create ---> dec
 # If you do terraform apply again then terraform will check current state,if current state = 
   desired state then it will not take any action
 # If current state is not equal to desired state then it will create
-# terraform.tfstate is in my laptop iam pushing it to the github,another devops engineer
+# Terraform.tfstate is in my laptop iam pushing it to the github,another devops engineer
   cloned my repo and run it again,both are running terraform apply,so here duplicates may come,some 
   got error as already exists.i have terraform.tfstate and devops engineer has terraform.tfstate.
   so for this we have central state file to check the infra exists or not.
-# terraform.tfstate is a crucial file,should not delete
+# Terraform.tfstate is a crucial file,should not delete
 # Collabaration ---> terraform will have no idea about the infra created,if multiple
   persons are working on same infra it will try to create duplicates and errors may also come and another 
   disadvantage is security.tfstate is a crucial file if you keep it in local it may deleted or updated by 
