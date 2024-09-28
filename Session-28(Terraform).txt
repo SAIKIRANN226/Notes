@@ -9,9 +9,8 @@ How to create multiple environments with terraform(3ways)
 3.different repos for different environments
 
 For example we want mongodb-dev, redis-dev
-                    mongodb-dev.daws76s.online
-                    mongodb-redis.daws76s.online
-
+                    mongodb-dev.daws76s.online, mongodb-redis.daws76s.online
+                    
 # Same code but with different configuration,that means we need to control only variables 
   for different env's by using tfvars
 # Different buckets to maintain states by creating different folders "dev,prod".what do you 
