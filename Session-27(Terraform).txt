@@ -27,7 +27,7 @@ Terraform state(State and remote state)
 -----------------------------------------
 What is the terraform responsibility? what ever we write it will create ---> declarative
 1.Declarative state = Our desired state
-2.Current state is Whatever terraform has created in "terraform.tfstate"
+2.Current state is Whatever terraform has created it will store in "terraform.tfstate"
 3.Desired == Current state should be equal
 
 # If you do terraform apply again then terraform will check current state,if current state = 
