@@ -41,8 +41,8 @@ Loops(2types)
 1.count based loop --> to iterate list like creating multipe instances
 2.foreach loop --> to iterate maps like creating route53 records
 
-Functions(VS)
----------------
+Functions
+-----------
 It will do some work,if we give some input and it will take this input and give output.Here in terraform we cannot create our own functions but terraform itself has some functions we need to use that only.
 Example:- max(5,12,23) --> max is the function and we are giving inputs 5,12,23 then terraform will give output that is 23,similarly we have other functions also,and we have used length function --> length(var.instance_names)
 
