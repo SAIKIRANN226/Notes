@@ -8,8 +8,8 @@ What is infrastructure?
   networks, storage accounts, databases, and more. Each resource is defined in the Terraform configuration.
 
 2.Providers:- Terraform interacts with various cloud providers (like AWS, Azure, GCP),
-  on-premises solutions, and other services through providers. Each provider has its own set of resources and 
-  data sources that you can manage.
+  on-premises solutions, and other services through providers. Each provider has its own set of resources 
+  and data sources that you can manage.
 
 3.Modules:- These are reusable groups of Terraform configurations that encapsulate related
   resources. They help organize and manage infrastructure more efficiently.
