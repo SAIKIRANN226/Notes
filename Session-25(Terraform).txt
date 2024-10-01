@@ -31,7 +31,6 @@ What is infrastructure?
 # Till now we configured our project manually,shellscript,ansible,but we prefer ansible as
   a configuration management if it is large project compare to any other configuration management tools
 
-
 Why we din't prefer manuall configuration?
 --------------------------------------------
 1.Because it is time taking process as we need to login manually in every servers
