@@ -38,9 +38,10 @@ Why we din't prefer manuall configuration?
 1.Because it is time taking process as we need to login manually in every servers
 2.We will get more human errors
 3.But where as ansible,it can connect to more number of servers easily from 
-  one single ansible server(control machine)
+  one single ansible server(ansible controller machine)
 4.For example if you are doing work manually it is least preffered but if you do same work with scripting 
-  it is best approach,we have below all advantages in scripting(terraform)
+  it is best approach,we have below all advantages in Terraform scripting,not only terraform we can use other
+  tools also like ansible/shellscripting/powershell/python etc.
 
 Version control
 -----------------
