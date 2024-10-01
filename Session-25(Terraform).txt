@@ -28,7 +28,6 @@ What is infrastructure?
 7.Provisioning and Automation:- Terraform automates the provisioning of infrastructure,
   making it easier to manage and scale your resources.
 
-# Ansible is also configuration as a code
 # Till now we configured our project manually,shellscript,ansible,but we prefer ansible as
   a configuration management if it is large project compare to any other configuration management tools
 
