@@ -13,8 +13,8 @@ Data-sources(VS)
 ------------------
 Terraform is connecting to lot of providers like aws,azure,gcp and everything,so these providers contains lot of data like regions,availability zones,ec2 etc.All these are changing dynamically,so data-source is used to query the data dynamically from the providers,aswel as from the existing resources,using this information we can create another resources also.Example:-AMI's ID's will be changing when ever there is a new patch released by the aws,so to fetch ami automatically we use data-source.just search in the google "Terraform query"
 
-Foreach loop(VS)
-------------------
+Loops(VS)
+-----------
 1.conditions ---> mostly to iterate list for list we used count and count.index(special
                   variables),this count.index should only kept in the count.tf not in locals
 2.for_each -----> mostly to iterate maps
