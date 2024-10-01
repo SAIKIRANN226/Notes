@@ -6,7 +6,7 @@
 
 Locals
 --------
-Count.index will not have access in the locals,we can only put in the count.tf,basically we can keep expressions,conditions,functions inside the locals,then how to call a local? "local.instance_type"
+We can keep expressions,conditions,functions inside the locals,then how to call a local? "local.instance_type"
 
 Data-sources(VS)
 ------------------
