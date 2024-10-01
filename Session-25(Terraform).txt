@@ -11,8 +11,8 @@ What is infrastructure?
   on-premises solutions, and other services through providers. Each provider has its own set of resources 
   and data sources that you can manage.
 
-3.Modules:- These are reusable groups of Terraform configurations that means other teams can use this modules
-  without writing from the scratch with same code but with different configuration
+3.Modules:- These are reusable groups of Terraform configurations that means other teams can use this 
+  modules without writing from the scratch with same code but with different configuration
 
 4.State Management:- Terraform maintains a state file that tracks the current state of your
   infrastructure. This file allows Terraform to know what resources are already provisioned and how they 
