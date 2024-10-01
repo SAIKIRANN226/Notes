@@ -1,7 +1,7 @@
 Terraform
 -----------
-# Is a popular IAC(infrastructure as a code),defining your infrastructure in configuration 
-  files(like ec2.tf is configuration file)using HCL
+Is a popular IAC(infrastructure as a code),defining your infrastructure in configuration files(like ec2.tf is configuration file)using HCL
+
 What is infrastructure?
 --------------------------
 1.Resources:- These are the components of your infrastructure, such as virtual machines,
