@@ -11,7 +11,7 @@ We can keep expressions,conditions,functions inside the locals,then how to call 
 
 Data-sources(VS)
 ------------------
-Terraform is connecting to lot of providers like aws,azure,gcp and everything,so these providers contains lot of data like regions,availability zones,ec2 etc.All these are changing dynamically,so data-source is used to query the data dynamically from the providers,aswel as from the existing resources,using this information we can create another resources also.Example:-AMI's ID's will be changing when ever there is a new patch released by the aws,so to fetch ami automatically using data-source.just search in the google "Terraform query"
+Terraform is connecting to lot of providers like aws,azure,gcp and everything,so these providers contains lot of data like regions,availability zones,ec2 etc.All these are changing dynamically,so data-source is used to query the data dynamically from the providers,aswel as from the existing resources,using this information we can create another resources also.Example:-AMI's ID's will be changing when ever there is a new patch released by the aws,so to fetch ami automatically we use data-source.just search in the google "Terraform query"
 
 Foreach loop(VS)
 ------------------
