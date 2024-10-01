@@ -6,7 +6,8 @@
 
 Locals
 --------
-We can keep expressions,conditions,functions inside the locals,then how to call a local? "local.instance_type"
+We can keep expressions,conditions,functions inside the locals,then how to call a local? 
+"local.instance_type" (OR) "local.name" etc.
 
 Data-sources(VS)
 ------------------
