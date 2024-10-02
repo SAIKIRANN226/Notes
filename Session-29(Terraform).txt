@@ -25,6 +25,7 @@ Module development
 ------------------------------
 Watch from ---> (26:09 to 1:14:13)
 NAT ---> Network address translation
+CIDR ---> Classless inter domain routing nothing but a pincode of village
 
 Difference between public subnet and private subnet?
 ------------------------------------------------------
