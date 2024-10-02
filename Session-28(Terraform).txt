@@ -5,9 +5,6 @@ How to create multiple environments with terraform(3ways)
 1.tfvars
 2.workspaces
 3.different repos for different environments
-
-For example we want mongodb-dev, redis-dev
-                    mongodb-dev.daws76s.online, mongodb-redis.daws76s.online
                     
 # Same code but with different configuration,that means we need to control only variables 
   for different env's by using tfvars
