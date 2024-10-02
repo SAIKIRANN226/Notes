@@ -31,7 +31,6 @@ So when you do for the next one prod(or)other env then you need to reconfigure b
 "terraform apply -var-file=prod/prod.tfvars"
 "terraform destory -var-file=prod/prod.tfvars"
 
-
 Note:-When you forgot to give the -var-file then terraform will take default variables which is in variables.tf so in this you comment out the default variables then terraform will prompt for the variables,so you will get know that i forgot to give varfile
 
 2.Workspaces
