@@ -35,7 +35,8 @@ Note:-When you forgot to give the -var-file then terraform will take default var
 
 2.Workspaces
 --------------
-We can manage multiple environments using single code(or)same code,only few backends will support this,s3 is one of them.if you want to know workspace commands just "terraform workspace".How to create workspace? ---> terraform workspace new dev --> do it in gitbash
+We can manage multiple environments using single code(or)same code,only few backends will support this,s3 is one of them.if you want to know workspace commands just "terraform workspace".How to create workspace? 
+"terraform workspace new dev" --> do it in gitbash
 
 When you are using terraform it has default variable that is "terraform.workspace",so if you are in dev then the value of "terraform.workspace will automatically becomes dev",if you are in prod then the value of "terraform.workspace will automatically becomes prod".so you need to write lookup function this function works as if you pass key we can get that value.
 
