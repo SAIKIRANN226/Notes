@@ -74,7 +74,7 @@ You need to enable auto-asign IPV4 address in public subnet by going to public s
 
 Create a subnet for database
 -------------------------------
-# 10.0.3.0/24 and create database route table and attach it to the database subnet
+# 10.0.3.0/24 and create database route table and associate with database subnet
 # So what ever we have created all these by manually in the aws,we should create this by using terraform
 
 Minimum you need to create resources in two availability zones so that you can save from yourself from the natural disasters,that means you need to keep public and private subnets aswel as remaining subnets in two availability zones,if the company is having budget then we can create servers in both zones(or)create one and transfer to other zones in case of any natural disasters alert
