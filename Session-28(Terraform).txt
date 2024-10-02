@@ -24,7 +24,7 @@ So we have web-dev,web-prod other than that we get web-qa like that,how to contr
 2.When you do terraform init ---> backend will also be there,so here you have multiple 
   environments,so use "terraform init -backend-config=dev/backend.tf"
 3.terraform plan -var-file=dev/dev.tfvras ---> if you dont mention the file name it will 
-  load default variables
+  load default variables which is in variables.tf
 4.terraform apply -var-file=dev/dev.tfvars
 5.terraform destory -var-file=dev/dev.tfvars
 
