@@ -42,7 +42,13 @@ When you are using terraform it has default variable that is "terraform.workspac
 
 In tfvars example,there are two separate buckets were created like dev/prod,but in workspaces there is only default bucket "env:/" inside it it will automatically create dev/prod work spaces folders
 
-terraform workspace list(shows the workspace list),terraform workspace shows all commands
+Workspace commands
+---------------------
+1.terraform workspace delete
+2.terraform workspace list
+3.terraform workspace new
+4.terraform workspace select
+5.terraform workspace show
 
 3.Creating different repos for different environments
 --------------------------------------------------------
