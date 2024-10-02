@@ -1,7 +1,7 @@
-# Terraform best practices is used for naming the resources in the terraform "search in google"
+Terraform best practices is used for naming the resources in the terraform "search in google"
 
-Modules development
-----------------------
+Module development
+---------------------
 # Dry concept,dont repeat yourself
 # Code reuse,no need to write infra for every project from the scratch,example "terraform-modules"(VS)
 # Module syntax is 
