@@ -1,11 +1,9 @@
-# Use different key names in s3 buckets like in the previous you used different key"foreach" 
-  you can use as per your wish but not with same key names because it will merge all.even we can use 
-  same key also but it will be difficult to maintain the buckets
+Use different key names in s3 buckets like in the previous you used different key "foreach" you can use as per your wish but not with same key names because it will merge all.even we can use same key also but it will be difficult to maintain the buckets
 
 How to create multiple environments with terraform(3ways)
 ------------------------------------------------------------
 1.tfvars
-2.workspaces ---> terraform workspace list(shows the workspace list),terraform workspace shows all commands
+2.workspaces
 3.different repos for different environments
 
 For example we want mongodb-dev, redis-dev
@@ -41,6 +39,8 @@ We can manage multiple environments using single code(or)same code,only few back
 When you are using terraform it has default variable that is "terraform.workspace",so if you are in dev then the value of "terraform.workspace will automatically becomes dev",if you are in prod then the value of "terraform.workspace will automatically becomes prod".so you need to write lookup function this function works as if you pass key we can get that value.
 
 In tfvars example,there are two separate buckets were created like dev/prod,but in workspaces there is only default bucket "env:/" inside it it will automatically create dev/prod work spaces folders
+
+terraform workspace list(shows the workspace list),terraform workspace shows all commands
 
 3.Creating different repos for different environments
 --------------------------------------------------------
