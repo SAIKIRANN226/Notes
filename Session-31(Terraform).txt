@@ -6,7 +6,9 @@
 # Users can decide is peering required or not if required then we have two options
     1.They have to give peering vpc_id
     2.If they are not giving then we consider default vpc_id
-# We cannot connect directly to the instances in roboshop private subnets if we dont have public_Ip so for that create a vpn in default vpc,first connect to vpn in your laptop then only we can connect to the instances
+# We cannot connect directly to the instances in roboshop private subnets if we dont have public_Ip so for 
+  that create a vpn in default vpc,first connect to vpn in your laptop then only we can connect to the 
+  instances
 
 Terraform-aws-vpc ---> is a module we are developing
 Terraform-vpc-test ---> is we are testing wether the module is working or not
