@@ -2,7 +2,7 @@
   are developing the module and simultaniously we are testing it
 # In this class we continue from creating database subnet
 # Before creating route tables and association,we are creating EIP and NATgateway and then remaining
-# How to refer terraform module in github? ---> source = "git::<https URL>ref=main
+# How to refer terraform module from github? ---> source = "git::<https URL>ref=main
 # Users can decide is peering required or not if required then we have two options
     1.They have to give peering vpc_id
     2.If they are not giving then we consider default vpc_id
