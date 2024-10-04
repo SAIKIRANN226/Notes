@@ -1,7 +1,8 @@
 Roboshop-infra-dev(VS) for dev environment 
 ----------------------------------------------
 https://github.com/daws-76s/roboshop-infra-dev ---> Refer this repo for diagram
-# Public facing(means hitting the URL on https not http)http is for privateLB and https is for publicLB
+# Public facing(means hitting the URL on https(443) not http(80)http is for privateLB and 
+  https is for publicLB
 # Any project starts with VPC,SG,VPN etc.
 
 Push vs pull in ansible
