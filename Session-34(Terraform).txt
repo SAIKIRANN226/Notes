@@ -41,7 +41,7 @@ Now we got
 
 Application will become stable by below points
 -------------------------------------------------
-1.Load balancer will listen on port No.80 and also 443
+1.Load balancer(will listen on port No.80 and also 443)
 2.Target groups
 3.Rules
 4.Launch templates
