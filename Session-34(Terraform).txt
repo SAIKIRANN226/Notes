@@ -29,15 +29,15 @@ Now we got
 5.Now we need to configure these EC2's for that we need to create 1 ansible server,this server 
   will provision playbooks to all the EC2's
 6.If you are creating ansible server obviously we need to create a SG for ansible also,as it is connecting 
-  to every servers with secure connection that is port no.22,so instead of creating new SG for ansible we can 
-  use vpn SG
+  to every servers with secure connection that is port no.22,so instead of creating new SG for ansible we 
+  can use vpn SG
 7.Creating ansible server in the default VPC(in any subnet)
 8.Now ansible is created and to provision automatically we need to write a small script in "user-data" --->  
   ec2-provision.sh
 9.Where to find user-data logs? --> when you connect in superputty in the ansible server --> sudo su - --->
   /cd/var/log/ --> ls -l --> tail -f cloud-init-output.log. user data is only for once it will not create 
   again if you want again then you need to delete it that is the only disadvantage in user-data
-10.Watch (50:55) ---> concept
+10.Watch (50:55) ---> Concept
 
 Application will become stable by below points
 -------------------------------------------------
@@ -59,4 +59,12 @@ Important topics
 # Secondly create nginx instancesSG --> http/port 80/(select "LB" from source)
 # Create application load balancer with atleast 2 AZ's---> and in the listeners and routing,you need to 
   create target group
-# Create target group(nothing but teams like nginx-UI/nginx-backend/database)and health check is nothing but instances are running or not like checking ports/healthy threshold/unhealthy threshold/timeout/success codes/intervals.and then click next select the instances and register with include as pending and go back to the loadbalancer creation and select nginx-UI target group,now go to the created load balancer--->under listeners and rules click on rule-->there you have default rule which nginxUI that means what ever request will come it will give to the nginx-UI,so here we need to add a rule that create rule name/condition-path/path will be /ui/* priority can be given as 1 if you want,so now what ever the request with /UI it will redirect to the UI team,Similarly we can create for /backend/databases Loadbalancer will give you a DNS name that should be configured in route53 generally
+# Create target group(nothing but teams like nginx-UI/nginx-backend/database)and health check is nothing but 
+  instances are running or not like checking ports/healthy threshold/unhealthy threshold/timeout/success 
+  codes/intervals.and then click next select the instances and register with include as pending and go back to 
+  the loadbalancer creation and select nginx-UI target group,now go to the created load balancer--->under 
+  listeners and rules click on rule-->there you have default rule which nginxUI that means what ever request 
+  will come it will give to the nginx-UI,so here we need to add a rule that create rule name/condition- 
+  path/path will be /ui/* priority can be given as 1 if you want,so now what ever the request with /UI it will 
+  redirect to the UI team,Similarly we can create for /backend/databases Loadbalancer will give you a DNS name 
+  that should be configured in route53 generally
