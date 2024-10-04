@@ -51,19 +51,19 @@ Application will become stable by below points
 Important topics
 -------------------
 # Create two instances(and keep user-data in advanced details like
-  (#!/bin/bash | yum install nginx -y |mkdir -p /usr/share/nginx/html/ui | echo"<h1>Hi we are from UI 
-  team</h1>" > /usr/share/nginx/html/ui/index.html | systemctl restart nginx
+  (#!/bin/bash | yum install nginx -y | mkdir -p /usr/share/nginx/html/ui | echo"<h1>Hi we are from UI 
+  team</h1>" > /usr/share/nginx/html/ui/index.html | systemctl restart nginx)
 # Instances will get request from LB,so what should be the ingress rule in SG which you have created for 
-  instances? should have SG which is attached to LB,so first create LB securityGroup.while creating LB 
-  SG(select "http" because nginxLB will get traffic from internet so give "0.0.0.0/0"
+  instances? should have SG which is attached to LB, so first create LB securityGroup. while creating LB 
+  SG (select "http" because nginxLB will get traffic from internet so give "0.0.0.0/0")
 # Secondly create nginx instancesSG --> http/port 80/(select "LB" from source)
-# Create application load balancer with atleast 2 AZ's---> and in the listeners and routing,you need to 
+# Create application load balancer with atleast 2 AZ's ---> and in the listeners and routing,you need to 
   create target group
 # Create target group(nothing but teams like nginx-UI/nginx-backend/database)and health check is nothing 
   but instances are running or not like checking ports/healthy threshold/unhealthy 
   threshold/timeout/success codes/intervals.and then click next select the instances and register with 
   include as pending and go back to the loadbalancer creation and select nginx-UI target group,
-  now go to the created load balancer---> under listeners and rules click on rule --> there you have 
+  now go to the created load balancer ---> under listeners and rules click on rule ---> there you have 
   default rule which nginxUI that means what ever request will come it will give to the nginx-UI,
   so here we need to add a rule that create rule name/condition-path/path will be /ui/* priority can be 
   given as 1 if you want,so now what ever the request with /UI it will redirect to the UI team,
