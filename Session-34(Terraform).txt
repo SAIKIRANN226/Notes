@@ -59,12 +59,12 @@ Important topics
 # Secondly create nginx instancesSG --> http/port 80/(select "LB" from source)
 # Create application load balancer with atleast 2 AZ's---> and in the listeners and routing,you need to 
   create target group
-# Create target group(nothing but teams like nginx-UI/nginx-backend/database)and health check is nothing but 
-  instances are running or not like checking ports/healthy threshold/unhealthy threshold/timeout/success 
-  codes/intervals.and then click next select the instances and register with include as pending and go back to 
-  the loadbalancer creation and select nginx-UI target group,now go to the created load balancer--->under 
-  listeners and rules click on rule-->there you have default rule which nginxUI that means what ever request 
-  will come it will give to the nginx-UI,so here we need to add a rule that create rule name/condition- 
-  path/path will be /ui/* priority can be given as 1 if you want,so now what ever the request with /UI it will 
-  redirect to the UI team,Similarly we can create for /backend/databases Loadbalancer will give you a DNS name 
-  that should be configured in route53 generally
+# Create target group(nothing but teams like nginx-UI/nginx-backend/database)and health check is nothing 
+  but instances are running or not like checking ports/healthy threshold/unhealthy threshold/timeout/success 
+  codes/intervals.and then click next select the instances and register with include as pending and go back 
+  to the loadbalancer creation and select nginx-UI target group,now go to the created load balancer---> under 
+  listeners and rules click on rule-->there you have default rule which nginxUI that means what ever 
+  request will come it will give to the nginx-UI,so here we need to add a rule that create rule 
+  name/condition-path/path will be /ui/* priority can be given as 1 if you want,so now what ever the request 
+  with /UI it will redirect to the UI team,Similarly we can create for /backend/databases Loadbalancer will 
+  give you a DNS name that should be configured in route53 generally
