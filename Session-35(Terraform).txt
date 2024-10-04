@@ -1,12 +1,12 @@
 Roboshop-infra-dev(VS) for dev environment 
----------------------------------------------
-https://github.com/daws-76s/roboshop-infra-dev --->Refer this repo for diagram
+----------------------------------------------
+https://github.com/daws-76s/roboshop-infra-dev ---> Refer this repo for diagram
 # Public facing(means hitting the URL on https not http)http is for privateLB and https is for publicLB
 # Any project starts with VPC,SG,VPN etc.
 
 Push vs pull in ansible
 --------------------------
-1.One disadvantage in push approch that is ansible server will push the configuration to the nodes,if anybody disturb the configuration by logging manually,we cannot find out who did it,so thats why ansible pull is implemented,we can schedule in crontab that for every 30 min it will download the configuration from git directly and run it,any how we implemented idempotency so no problem if you run multiple times
+One disadvantage in push approch that is ansible server will push the configuration to the nodes,if anybody disturb the configuration by logging manually,we cannot find out who did it,so thats why ansible pull is implemented,we can schedule in crontab that for every 30 min it will download the configuration from git directly and run it,any how we implemented idempotency so no problem if you run multiple times
 
 Interview question
 ---------------------
@@ -15,9 +15,15 @@ What is the disadvantage in ansible compare to pull based?When you push the conf
 Roboshop-ansible-roles.tf(VS)
 --------------------------------
 
-# User-data will be running inside the instance after creation,but do we know whether the user-data is successed or not?Untill unless we see logs,so for that we use provisioners,if we connect through provisioners then we will able to see on the terminal itself,for that we use null resource to connect provisioners(roboshop-infra-dev/main.tf)
+# User-data will be running inside the instance after creation,but do we know whether the user-data is 
+  successed or not?Untill unless we see logs,so for that we use provisioners,if we connect through 
+  provisioners then we will able to see on the terminal itself,for that we use null resource to connect 
+  provisioners(roboshop-infra-dev/main.tf)
 # Last time we discussed ansible vault but now we are using only ssm paramter store
-# Every platform like aws has it own solution to maintain configuration and secrets,aws is like cloud platform,in cloud platform we have many resources like ec2,dynamodb and manymore services,in every service we may use passwords or other secrets,so every platform has ssm parameter store,these services will refer to ssm parameter,if you want to do any changes come to the ssm parameter and make changes and restart thats it
+# Every platform like aws has it own solution to maintain configuration and secrets,aws is like cloud 
+  platform,in cloud platform we have many resources like ec2,dynamodb and manymore services,in every service 
+  we may use passwords or other secrets,so every platform has ssm parameter store,these services will refer to
+  ssm parameter,if you want to do any changes come to the ssm parameter and make changes and restart thats it
 
 AWS platform ---> ec2 is one service ---> ssm paramter(vault) is another service,So now ec2 will fetch configuration from the ssm parameter,but inorder to fetch ec2 should have access to the ssm paramter like IAM role or IAM policy we need to add to get access to the ssmparamter,But here we provisioning servers through ansible that means ansible should pull from the ssmparameter store,So how ansible will connect to aws ssm parameter store(service)?so ansible uses boto3 and botocore python modules to connect and IAM policy should also be there in the server to implement vault,so we used "iam_instance_profile" in main.tf from databases file
 
