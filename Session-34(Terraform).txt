@@ -56,7 +56,7 @@ Important topics
 # Instances will get request from LB,so what should be the ingress rule in SG which you have created for 
   instances? should have SG which is attached to LB, so first create LB securityGroup. while creating LB 
   SG (select "http" because nginxLB will get traffic from internet so give "0.0.0.0/0")
-# Secondly create nginx instances-SG --> http/port 80/(select "LB" from source)
+# Secondly create SG for instances --> http/port 80/(select "LB" from source)
 # Create application load balancer with atleast 2 AZ's ---> and in the listeners and routing, you need to 
   create target group
 # Create target group(nothing but teams like nginx-UI/nginx-backend/database)and health check is nothing 
