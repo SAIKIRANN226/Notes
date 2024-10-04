@@ -21,9 +21,10 @@ Roboshop-ansible-roles.tf(VS)
   provisioners(roboshop-infra-dev/main.tf)
 # Last time we discussed ansible vault but now we are using only ssm paramter store
 # Every platform like aws has it own solution to maintain configuration and secrets,aws is like cloud 
-  platform,in cloud platform we have many resources like ec2,dynamodb and manymore services,in every service 
-  we may use passwords or other secrets,so every platform has ssm parameter store,these services will refer to
-  ssm parameter,if you want to do any changes come to the ssm parameter and make changes and restart thats it
+  platform,in cloud platform we have many resources like ec2,dynamodb and manymore services,in every 
+  service we may use passwords or other secrets,so every platform has ssm parameter store,these services 
+  will refer to ssm parameter,if you want to do any changes come to the ssm parameter and make changes and 
+  restart thats it
 
 AWS platform ---> ec2 is one service ---> ssm paramter(vault) is another service,So now ec2 will fetch configuration from the ssm parameter,but inorder to fetch ec2 should have access to the ssm paramter like IAM role or IAM policy we need to add to get access to the ssmparamter,But here we provisioning servers through ansible that means ansible should pull from the ssmparameter store,So how ansible will connect to aws ssm parameter store(service)?so ansible uses boto3 and botocore python modules to connect and IAM policy should also be there in the server to implement vault,so we used "iam_instance_profile" in main.tf from databases file
 
