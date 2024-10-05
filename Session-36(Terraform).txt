@@ -40,8 +40,8 @@ First create "05-app-alb" ---> So now team manager(ap-alb) is set now next
 Target group(team) ---> "06-catalogue" now team is ready then
 Auto-scaling(HR) ---> so for this we need hiring template 
                        1.create one instances
-					   2.provision with ansible
-					   3.stop the instance
-					   4.take AMI
-					   5.delete the instance
-					   6.now create launch template with AMI  
+		       2.provision with ansible
+		       3.stop the instance
+		       4.take AMI
+		       5.delete the instance
+		       6.now create launch template with AMI  
