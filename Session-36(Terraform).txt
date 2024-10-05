@@ -1,0 +1,46 @@
+In the last class we created
+-------------------------------
+1.vpc
+2.sg
+3.vpn
+4.databases ---> and databases we created using provisioners to provision the instances with
+                 database for that we used ansible roles and in this class continue from creating route 53 records in the databases
+				 
+Work-Flow
+----------- 
+Client --> Business analyst --> Team manager --> Team leaders --> Team members
+
+Team manager ---> Only listen to business analyst
+Team manager
+      UI team lead ---> If UI work, team manager redirect to UI team lead
+	  Backend team lead ---> If backend work, team manager redirect to Backend team lead
+
+UI team/Backend team
+-----------------------
+3 members (like team members,junior,sr.engineer ect.)
+
+HR reponsibility ---> should check continously if the resources are 
+Over load ---> then have to take another resources
+Less work ---> have to give work
+If they resign ---> have to replace with other resources
+
+Who is Team manager in overall architecture ---> Application Load Balancer(http)only listen to business analyst,port 80 no encryption required
+Who is HR in overall architecture ---> autoscaling
+Who is teams/groups in architecture ---> target groups
+Who are employees/persons in architecture ---> instances
+Who is hiring template in architecture ---> launch templates
+
+Context path ---> daws76s.online/roboshop
+                  daws76s.online/amazon
+Host path ---> roboshop.daws76s.online
+               amazon.daws76s.online
+			   
+First create "05-app-alb" ---> So now team manager(ap-alb) is set now next
+Target group(team) ---> "06-catalogue" now team is ready then
+Auto-scaling(HR) ---> so for this we need hiring template 
+                       1.create one instances
+					   2.provision with ansible
+					   3.stop the instance
+					   4.take AMI
+					   5.delete the instance
+					   6.now create launch template with AMI  
