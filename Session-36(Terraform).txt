@@ -4,7 +4,8 @@ In the last class we created
 2.sg
 3.vpn
 4.databases ---> and databases we created using provisioners to provision the instances with
-                 database for that we used ansible roles and in this class continue from creating route 53 records in the databases
+                 database for that we used ansible roles and in this class continue from creating route 53 
+                 records in the databases
 				 
 Work-Flow
 ----------- 
