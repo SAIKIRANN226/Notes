@@ -1,1 +1,11 @@
+GIT(content tracker)
+-----------------------
+Just a content tracker example:- echo "hello world" | git hash-object --stdin 
+"hello world" is the content from the above command and when you enter the above command you will get a commid-id that is nothing but hash-object which will be in 40 char we call that has "SHA code" universal unique ID,what ever you store whether it is file or folder for everything it will have a "SHA code" | git is a key-value pair here key = SHA code(commit-id) ; value = content is the value. If you change the content, commit-id also changes, if the content is same across allover the world commit-id will also be same for everyone 
 
+1. Create a repo example "learn-git"
+2. Clone into your local(gitbash)
+3. Commit a README.MD in this and push to the github
+4. Give a "protection rule" by going to settings/branches/add branch protection rule like what has to be 
+   minimum requirements like Number of approvers/require PR/dismiss tale approval etc.
+5.
