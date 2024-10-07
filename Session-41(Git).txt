@@ -1,11 +1,36 @@
 GIT(content tracker)
 -----------------------
-Just a content tracker example:- echo "hello world" | git hash-object --stdin 
-"hello world" is the content from the above command and when you enter the above command you will get a commid-id that is nothing but hash-object which will be in 40 char we call that has "SHA code" universal unique ID,what ever you store whether it is file or folder for everything it will have a "SHA code" | git is a key-value pair here key = SHA code(commit-id) ; value = content is the value. If you change the content, commit-id also changes, if the content is same across allover the world commit-id will also be same for everyone 
+It is just a content tracker for example:- "echo "hello world" | git hash-object --stdin"
+"hello world" is the content from the above command and when you enter the above command you will get a commid-id that is nothing but hash-object which will be in 40 char we call that has "SHA code" universal unique ID,what ever you store whether it is file or folder for everything it will have a "SHA code" | git is a key-value pair here key = SHA code(commit-id) ; value = content is the value. If you change the content, commit-id also changes, if the content is same across allover the world commit-id will also be same for everyone. Where all these tracking will be ? It will be in "ls -la" ---> .git/ folder. If you enter command "git log" you will get commit-id, take that commit-id and "git cat-file <commit-id> -p" you will get total information. How to create a branch? "git branch feature-1". How to switch from obe branch to another? "git checkout main". Also adding approvers in collaborators and teams, after getting approval developer can merge it, after merging to the main branch that means a new commit is added in the main branch, then later you need to pull in the main branch to reflect the changes "git pull origin main". "git log --oneline"
+
+Merge stratagies
+-------------------
+1.Merge
+2.Rebase
+
+Merge
+-------
+When you are merging from one branch to another branch, for example we merged feature-1 into the main branch. it will create a merge commit always that have two parents, merge will preserve the complete history it is like chain structure
+
+Rebase
+--------
+If you follow rebase strategy you will not get extra commits but commit-ids will change and rewrites the history and it will not preserve the history
+
+Squash 
+--------
+Nothing but mixing for example if a developer is developing one microservice and he commited like 60 commits that will be shown in the github which is not good so it will merge as one commit if you use squash
+
+If a branch is developed by multiple developers then prefer merge because we need to know who are doing what so merge will preserve the history, but where as rebase rewrites it, everyone dont go for rebase only most of them go for merge only 
+
+Branching stragey
+-------------------
+1. main  ---> long live branch
+2. feature ---> short live branch we can delete this after mergin into the main, developers can create feature                 feature branch, once they complete development they will raise PR and merge/rebase in to the 
+                main branch
+Where should CI/CD need to happen? feature-1 before raising PR lets do CICD in dev environment, if success in dev then you can raise PR then merge/rebase into main branch, Code is same across all environments but configuration is different, so configuration should be detached from code as we are using SSM parameter store
 
 1. Create a repo example "learn-git"
 2. Clone into your local(gitbash)
 3. Commit a README.MD in this and push to the github
 4. Give a "protection rule" by going to settings/branches/add branch protection rule like what has to be 
    minimum requirements like Number of approvers/require PR/dismiss tale approval etc.
-5.
