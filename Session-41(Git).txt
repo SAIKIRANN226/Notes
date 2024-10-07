@@ -26,8 +26,8 @@ Branching stragey
 -------------------
 1. main  ---> long live branch
 2. feature ---> short live branch we can delete this after mergin into the main, developers can create
-                feature branch, once they complete development they will raise PR and merge/rebase in to the 
-                main branch
+                feature branch, once they complete development they will raise PR and merge/rebase in to 
+                the main branch
 Where should CI/CD need to happen? feature-1 before raising PR lets do CICD in dev environment, if success in dev then you can raise PR then merge/rebase into main branch, Code is same across all environments but configuration is different, so configuration should be detached from code as we are using SSM parameter store
 
 1. Create a repo example "learn-git"
