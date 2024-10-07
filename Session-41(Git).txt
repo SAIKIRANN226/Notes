@@ -35,3 +35,6 @@ Where should CI/CD need to happen? feature-1 before raising PR lets do CICD in d
 3. Commit a README.MD in this and push to the github
 4. Give a "protection rule" by going to settings/branches/add branch protection rule like what has to be 
    minimum requirements like Number of approvers/require PR/dismiss tale approval etc.
+
+https://dzone.com/articles/top-20-git-commands-with-examples
+https://dzone.com/articles/top-35-git-commands-with-examples-and-bonus
