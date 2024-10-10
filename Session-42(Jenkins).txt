@@ -11,8 +11,8 @@ Jenkins is CICD tool or continous integration tool
 8. Create user account
 9. So jenkins setup is completed and start using it
 
-Whatever we do in the jenkins we call it has a job, now click on new-item(nothing but creating a sample file as of now) select free-style project, free-style is nothing but everything you do it in UI, not only in jenkins
-initially we created resources in aws console also we call that also a free-style. Select Execute shell in build steps option, echo "hello-world" then apply and save. We are just telling jenkins to run this command. then click on buildnow
+Whatever we do in the jenkins we call it has a job, now click on new-item(nothing but creating a sample file as of now) select free-style project, free-style is nothing but everything you do it in UI, not only in 
+jenkins initially we created resources in aws console also we call that also a free-style. Select Execute shell in build steps option, echo "hello-world" then apply and save. We are just telling jenkins to run this command. then click on buildnow
 
 What is the difference between free-style job and pipeline job?
 -------------------------------------------------------------------
