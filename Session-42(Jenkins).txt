@@ -1,1 +1,45 @@
+Jenkins is CICD tool or continous integration tool
+------------------------------------------------------
+1. Create a jenkins intance with t3.small/20gb/default SG
+2. Login to the instance using public_ip in the superputty
+3. Intall jenkins using the commands which can be found in the internet by just searching jenkins
+   (https://pkg.jenkins.io/redhat-stable/)
+4. After installing "systemctl start jenkins" and "systemctl status jenkins" and "systemctl enable jenkins"
+5. Now take the jenkins_ip and paste in the url with port 8080 beacuse it is jenkins port
+6. Just cat the path which is showing in the jenkins console and login 
+7. Then install suggested plugins
+8. Create user account
+9. So jenkins setup is completed and start using it
 
+Whatever we do in the jenkins we call it has a job, now click on new-item(nothing but creating a sample file as of now) select free-style project, free-style is nothing but everything you do it in UI, not only in jenkins
+initially we created resources in aws console also we call that also a free-style. Select Execute shell in build steps option, echo "hello-world" then apply and save. We are just telling jenkins to run this command. then click on buildnow
+
+What is the difference between free-style job and pipeline job?
+-------------------------------------------------------------------
+Free-style jon is no one is preferring now it is very easy to do everything from the console, anybody can do the changes and we dont know who did what? and it is very difficult to restore to the original version, thats why everybody is moved to pipeline, so now we should understand jenkins pipeline just search "jenkins pipelines" click on the first link and know about the pipeline syntax
+
+Create a new job with pipeline and use the default script of hello-world in the pipeline script, we can pipeline script from SCM because anybody can change the code from the pipeline script, as our source code is git if we put this pipeline in git and jenkins will take that code from the git and run it this is called as "gitOps"
+
+Now create a project in VS "learn-jenkins" and remember this raw syntax you may get interview question
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
+}
