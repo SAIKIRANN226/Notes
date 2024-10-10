@@ -22,24 +22,3 @@ Create a new job with pipeline and use the default script of hello-world in the 
 
 Now create a project in VS "learn-jenkins" and remember this raw syntax you may get interview question
 
-pipeline {
-    agent any
-
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
-    }
-}
