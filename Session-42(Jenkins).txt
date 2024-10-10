@@ -18,7 +18,7 @@ What is the difference between free-style job and pipeline job?
 -------------------------------------------------------------------
 Free-style jon is no one is preferring now it is very easy to do everything from the console, anybody can do the changes and we dont know who did what? and it is very difficult to restore to the original version, thats why everybody is moved to pipeline, so now we should understand jenkins pipeline just search "jenkins pipelines" click on the first link and know about the pipeline syntax
 
-Create a new job with pipeline and use the default script of hello-world in the pipeline script, we can pipeline script from SCM because anybody can change the code from the pipeline script, as our source code is git if we put this pipeline in git and jenkins will take that code from the git and run it this is called as "gitOps"
+Create a new job with pipeline and use the default script of hello-world in the pipeline script, we can pipeline script from SCM because anybody can change the code from the pipeline script, as our source code is git if we put this pipeline in git and jenkins will take that code from the git and run it this is called as "gitOps" put the https URL of git in the jenkins
 
 Now create a project in VS "learn-jenkins" and remember this raw syntax you may get interview question
 
