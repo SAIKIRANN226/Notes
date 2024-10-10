@@ -7,7 +7,7 @@ Jenkins is a CICD tool (or) continous integration tool
    to install using commands which can be found in the internet
    (https://pkg.jenkins.io/redhat-stable/)
 4. After installing "systemctl start jenkins" and "systemctl status jenkins" and "systemctl enable jenkins"
-5. Now take the jenkins_ip and paste in the url with port 8080 beacuse jenkins runs on port 8080
+5. Now take the jenkins_ip and paste in the url(jenkins port=8080)
 6. Just cat the path which is showing in the jenkins console and login 
 7. Then install suggested plugins
 8. Create user account
