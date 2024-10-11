@@ -15,7 +15,7 @@ Jenkins is a CICD tool (or) continous integration tool
 9. So jenkins setup is completed and start using it
 
 Whatever we do in the jenkins we call it has a job, now click on new-item(nothing but creating a sample file as of now) select free-style project, free-style is nothing but everything you do it in UI, not only 
-in jenkins initially we created resources in aws console also, later we used terraform,shellscript,ansible tp create resources. we call that also a free-style. Select "Execute shell" in build steps option, echo "hello-world" then apply and save. We are just telling jenkins to run this command. then click on buildnow
+in jenkins initially we created resources in aws console that is also called as free-style, later we used terraform,shellscript,ansible to create resources.Select "Execute shell" in build steps option, echo "hello-world" then apply and save. We are just telling jenkins to run this command. then click on buildnow
 
 What is the difference between free-style job and pipeline job?
 -------------------------------------------------------------------
@@ -27,5 +27,66 @@ Free-style job is no one is preferring now, it is very easy to do everything fro
 -------------
 Now create a new job with "pipeline" and use the default script of hello-world in the "pipeline script" and you can add any number of stages, But we prefer "pipeline script from SCM" because anybody can change the code from the pipeline script, Our source code(SCM) is git if we put this pipeline in git then jenkins will take that code from the git and run it this is called as "gitOps" Note:- Put the https URL of jenkins file from the git in the jenkins server
 
+Raw syntax of the pipeline(interview question)
+-------------------------------------------------
+pipeline {
+    agent any
+	
+	stages {
+	   stage('Build') {
+	      steps {
+		    echo 'Building..'
+		  }
+	   }
+	   stage('Test') {
+	      steps {
+		    echo 'Testing..'
+		  }
+	   }
+	   stage('Deploy') {
+	      steps {
+		     echo 'Deploying..'
+		  }
+	   }
+	}
+}
 
+What is agent?
+----------------
+Take the example of 1 person ---> 1 acre of land ; 100 acres ---> lot of resources
+owner ---> emploee resources ---> distribute the work
 
+If you have single project you can use single sever(jenkins-master), but if you have multiple projects one single jenkins server cannot handle the load so we have AGENT(which act like a slave) "MASTER-AGENT". So
+create one more instance for agent and install java same command which is used in the jenkins server, Now configure this agent in jenkins server by going to the manage jenkins option/nodes/new-node(keep name as per your wish)/generally jenkins configuration will be saved in "cd /var/lib/jenkins/" so in the sameway you need to create a directory while creating agent "/var/jenkins-agent". Number of executers here we put 3 as per the instance.
+
+1. Master asking agent to work ---> "launch agents via ssh" master will connect to agent through ssh
+2. Employee coming to master and asking for work
+
+Host ---> we can use both public_ip and private_ip but siva used private_ip
+Configure credentials also ---> ID = ssh-auth ; hostkeyverification strategy ---> put non-verifying verification strategy because it will ask for yes or no while creating 
+
+We can add as many agents we want like one agent is for java, one agent is for .net, one agent is for python, How many agents you have used?(interview question). We have 5 agents because we are supporting multiple programming languages like python,java,.net and nodejs, so for each language we have 2-2 agents
+
+CentOS doest have sudo access, it has in home folder so give "/home/centos/jenkins-agent" in remote root directory
+
+Check "log" if nodes are online or not, to cross check in the server wether you have created the jenkins agent or not by "ls -l"
+
+Post section
+--------------
+We have different conditions we can use from the document which is present in the internet
+
+Environements
+---------------
+We can use any where like for example write a shell-script in that we can use environment, or if you just write "env" in the script you will get lot of environments and we can use as per our requirement
+
+Triggers
+----------
+webhook ---> connecting from one to another like system-1 should sent information to another systems that means whenever there is an event in the system-1 it will inform to another nothing but event based communication, in this If developer pushes the code to the git then we want pipeline to run automatically 
+
+when event in git ----> jenkins should get the information so for that create "jenkins-github" integration
+1. Event will come in git and git should have jenkins info, so go to the webhook in github/add webhook/payload 
+   URL should be "http://18.343.33.34:8080/github-webhook/
+2. Select application_json
+3. Similarly in the jenkins also we need to select "githib hook trigger.." in build trigger
+
+Now try something to add and push and wether it is working or not 
