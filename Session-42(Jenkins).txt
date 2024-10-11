@@ -7,8 +7,8 @@ Jenkins is a CICD tool (or) continous integration tool
    to install using commands which can be found in the internet
    (https://pkg.jenkins.io/redhat-stable/)
 4. After installing "systemctl start jenkins" and "systemctl status jenkins" and "systemctl enable jenkins"
-5. Now take the jenkins_ip and paste in the url(jenkins port=8080), when you do this you will get error 
-   the network is not secured bu you need to click on the continue to site.
+5. Now take the jenkins_ip(public) and paste in the url(jenkins port=8080), when you do this you will get 
+   error the network is not secured but you need to click on the continue to site.
 6. Just cat the path which is showing in the jenkins console and login 
 7. Then install suggested plugins
 8. Create user account
@@ -54,7 +54,7 @@ pipeline {
 What is agent?
 ----------------
 Take the example of 1 person ---> 1 acre of land ; 100 acres ---> lot of resources
-owner ---> emploee resources ---> distribute the work
+Owner ---> employee resources ---> distribute the work
 
 If you have single project you can use single sever(jenkins-master), but if you have multiple projects one single jenkins server cannot handle the load so we have AGENT(which act like a slave) "MASTER-AGENT". So
 create one more instance for agent and install java same command which is used in the jenkins server, Now configure this agent in jenkins server by going to the manage jenkins option/nodes/new-node(keep name as per your wish)/generally jenkins configuration will be saved in "cd /var/lib/jenkins/" so in the sameway you need to create a directory while creating agent "/var/jenkins-agent". Number of executers here we put 3 as per the instance.
@@ -63,7 +63,7 @@ create one more instance for agent and install java same command which is used i
 2. Employee coming to master and asking for work
 
 Host(agent) ---> we can use both public_ip and private_ip but siva used private_ip
-Configure credentials also ---> ID = ssh-auth ; hostkeyverification strategy ---> put non-verifying verification strategy because it will ask for yes or no while creating 
+Configure credentials also ---> ID = ssh-auth ; hostkeyverification strategy ---> Put non-verifying verification strategy because it will ask for yes or no while creating 
 
 We can add as many agents we want like one agent is for java, one agent is for .net, one agent is for python, How many agents you have used?(interview question). We have 5 agents because we are supporting multiple programming languages like python,java,.net and nodejs, so for each language we have 2-2 agents
 
@@ -73,7 +73,7 @@ Check "log" if nodes are online or not, to cross check in the server wether you 
 
 Post section
 --------------
-We have different conditions we can use from the document which is present in the internet
+We have lot of different conditions we can use from the document which is present in the internet
 
 Environements
 ---------------
