@@ -25,7 +25,7 @@ Free-style job is no one is preferring now, it is very easy to do everything fro
 
 2. Pipelines
 -------------
-Now create a new job with "pipeline" and use the default script of hello-world in the "pipeline script" and you can add any number of stages, But we prefer "pipeline script from SCM" because anybody can change the code from the pipeline script, Our source code(SCM) is git if we put this pipeline in git then jenkins will take that code from the git and run it this is called as "gitOps" Note:- Put the https URL of jenkins file from the git in the jenkins server
+Now create a new job with "pipeline" and use the default script of hello-world in the "pipeline script" and you can add any number of stages, But we prefer "pipeline script from SCM" because anybody can change the code from the pipeline script also, Our source code(SCM) is git if we put this pipeline in git then jenkins will take that code from the git and run it this is called as "gitOps" Note:- Put the https URL of jenkins file from the git in the jenkins server
 
 Raw syntax of the pipeline(interview question)
 -------------------------------------------------
@@ -62,7 +62,7 @@ create one more instance for agent and install java same command which is used i
 1. Master asking agent to work ---> "launch agents via ssh" master will connect to agent through ssh
 2. Employee coming to master and asking for work
 
-Host ---> we can use both public_ip and private_ip but siva used private_ip
+Host(agent) ---> we can use both public_ip and private_ip but siva used private_ip
 Configure credentials also ---> ID = ssh-auth ; hostkeyverification strategy ---> put non-verifying verification strategy because it will ask for yes or no while creating 
 
 We can add as many agents we want like one agent is for java, one agent is for .net, one agent is for python, How many agents you have used?(interview question). We have 5 agents because we are supporting multiple programming languages like python,java,.net and nodejs, so for each language we have 2-2 agents
@@ -84,8 +84,8 @@ Triggers
 webhook ---> connecting from one to another like system-1 should sent information to another systems that means whenever there is an event in the system-1 it will inform to another nothing but event based communication, in this If developer pushes the code to the git then we want pipeline to run automatically 
 
 when event in git ----> jenkins should get the information so for that create "jenkins-github" integration
-1. Event will come in git and git should have jenkins info, so go to the webhook in github/add webhook/payload 
-   URL should be "http://18.343.33.34:8080/github-webhook/
+1. Event will come in git and git should have jenkins info, so go to the webhook in 
+   github/add webhook/payload URL should be "http://18.343.33.34:8080/github-webhook/
 2. Select application_json
 3. Similarly in the jenkins also we need to select "githib hook trigger.." in build trigger
 
