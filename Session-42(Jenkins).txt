@@ -8,7 +8,7 @@ Jenkins is a CICD tool (or) continous integration tool
    (https://pkg.jenkins.io/redhat-stable/)
 4. After installing "systemctl start jenkins" and "systemctl status jenkins" and "systemctl enable jenkins"
 5. Now take the jenkins_ip and paste in the url(jenkins port=8080), when you do this you will get error 
-   the network is not secured bu you need to click on the continue to site then only able to get jenkins page
+   the network is not secured bu you need to click on the continue to site.
 6. Just cat the path which is showing in the jenkins console and login 
 7. Then install suggested plugins
 8. Create user account
