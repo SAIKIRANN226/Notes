@@ -65,7 +65,7 @@ create one more instance for agent and install java same command which is used i
 Host(agent) ---> we can use both public_ip and private_ip but siva used private_ip
 Configure credentials also ---> ID = ssh-auth ; hostkeyverification strategy ---> Put non-verifying verification strategy because it will ask for yes or no while creating 
 
-We can add as many agents we want like one agent is for java, one agent is for .net, one agent is for python, How many agents you have used?(interview question). We have 5 agents because we are supporting multiple programming languages like python,java,.net and nodejs, so for each language we have 2-2 agents
+We can add as many agents we want like one agent is for java, one agent is for .net, one agent is for python, How many agents you have used?(interview question). We have 5 agents because we are supporting multiple programming languages like python,java,.net and nodejs, so for each language we have 2-2 agents. Master should must have jenkins and java but where as in nodes java is mandatory, even if there is no jenkins in nodes no problem
 
 CentOS doest have sudo access, it has in home folder so give "/home/centos/jenkins-agent" in remote root directory
 
