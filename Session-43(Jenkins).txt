@@ -59,7 +59,11 @@ server.js and catalogue.json is the main code of catalogue and write a jenkinsfi
    and password cat it as shown in the popup box, Generally when you enter "npm install" then it will fetch 
    from the internet but companies will not give access so companies will put those dependencies in the 
    nexus repository, so nexus is a single point of contact for libraries and dependencies. Here we need to 
-   create a repository for catalogue
+   create a repository for catalogue to hold the catalogue artifacts
+
+
+Maven 2 format
+-----------------
    
 
 
