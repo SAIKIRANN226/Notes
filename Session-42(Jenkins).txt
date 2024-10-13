@@ -77,9 +77,8 @@ Two types of work flow
 1. Master asking agent to work ---> "launch agents via ssh" master will connect to agent through ssh
 2. Employee coming to master and asking for work
 
-Host(agent) ---> We can use both public_ip and private_ip but siva used private_ip because it is in the same network. Configure credentials also ---> ID = ssh-auth(you can keep any name) ; hostkeyverification strategy
---> Put "non-verifying verification strategy" because it will ask for yes (or) no while creating.
-We can add as many agents we want like 1 agent is for java, 1 agent is for .net, 1 agent is for python, How many agents you have used ? (interview question). We have 5 agents because we are supporting multiple programming languages like python,java,.net and nodejs, so for each language we have 2-2 agents. Master should must have jenkins and java but where as in nodes java is mandatory, even if there is no jenkins in nodes no problem. Check "log" option, if nodes are online (or) not. To cross check in the server wether you have created the jenkins agent (or) not by "ls -l"
+Host(agent) ---> We can use both public_ip and private_ip but siva used private_ip because it is in the same network. Configure credentials also ---> ID = ssh-auth(you can keep any name) ; 
+hostkeyverification strategy --> Put "non-verifying verification strategy" because it will ask for yes (or) no while creating. We can add as many agents we want like 1 agent is for java, 1 agent is for .net, 1 agent is for python, How many agents you have used ? (interview question). We have 5 agents because we are supporting multiple programming languages like python,java,.net and nodejs, so for each language we have 2-2 agents. Master should must have jenkins and java but where as in nodes java is mandatory, even if there is no jenkins in nodes no problem. Check "log" option, if nodes are online (or) not. To cross check in the server wether you have created the jenkins agent (or) not by "ls -l"
 
 Post section
 ---------------
