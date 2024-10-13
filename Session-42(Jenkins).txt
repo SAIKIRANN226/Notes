@@ -15,16 +15,14 @@ Jenkins is a CICD tool (or) continous integration tool
 9. So jenkins setup is completed and start using it
 
 Whatever we do in the jenkins we call it has a job, now click on new-item(nothing but creating a sample file as of now) select free-style project, free-style is nothing but everything you do it in UI, not only 
-in jenkins initially we created resources in aws console that is also called as free-style, later we used terraform,shellscript,ansible to create resources.Select "Execute shell" in build steps option, echo "hello-world" then apply and save. We are just telling jenkins to run this command. then click on buildnow
+in jenkins initially we created resources in aws console that is also called as free-style, later we used terraform,shellscript,ansible to create resources. Select "Execute shell" in build steps option, echo "hello-world" then apply and save. We are just telling jenkins to run this command. then click on buildnow
 
-What is the difference between free-style job and pipeline job?
--------------------------------------------------------------------
 1. Free-style
---------------
+---------------
 Free-style job is no one is preferring now, it is very easy to do everything from the console, anybody can do the changes and we dont know who did what? and it is very difficult to rollback to the original version, thats why everybody is moved to pipeline, So now we should understand jenkins pipeline just search "jenkins pipelines" click on the first link and know about the pipeline syntax
 
 2. Pipelines
--------------
+--------------
 Now create a new job with "pipeline" and use the default script of hello-world in the "pipeline script" and you can add any number of stages, But we prefer "pipeline script from SCM" because anybody can change the code from the pipeline script also, Our source code(SCM) is git if we put this pipeline in git then jenkins will take that code from the git and run it this is called as "gitOps" Note:- Put the https URL of jenkins file from the git in the jenkins server
 
 Raw syntax of the pipeline(interview question)
@@ -49,44 +47,61 @@ pipeline {
 		  }
 	   }
 	}
+        post { 
+        always { 
+            echo 'I will always say Hello again!'
+        }
+        failure { 
+            echo 'this runs when pipeline is failed, used generally to send some alerts'
+        }
+        success{
+            echo 'I will say Hello when pipeline is success'
+        }
+    }
 }
 
 What is agent?
 ----------------
-Take the example of 1 person ---> 1 acre of land ; 100 acres ---> lot of resources
-Owner ---> employee resources ---> distribute the work
+Take the example of 1 person ---> 1 acre of land ; If 100 acres ---> need lot of resources then
+Owner recruit ---> employee resources ---> distribute the work
 
 If you have single project you can use single sever(jenkins-master), but if you have multiple projects one single jenkins server cannot handle the load so we have AGENT(which act like a slave) "MASTER-AGENT". So
-create one more instance for agent and install java same command which is used in the jenkins server, Now configure this agent in jenkins server by going to the manage jenkins option/nodes/new-node(keep name as per your wish)/generally jenkins configuration will be saved in "cd /var/lib/jenkins/" so in the sameway you need to create a directory while creating agent "/var/jenkins-agent". Number of executers here we put 3 as per the instance.
+create one more instance for agent and install java same command which is used in the jenkins server, It is not mandatory to install jenkins in nodes, we need to install java packages. Now configure this agent in jenkins server by going to the "manage jenkins option/nodes/new-node(keep name as per your wish)/generally jenkins configuration will be saved in "cd /var/lib/jenkins/" so in the sameway you need to create a directory while creating agent "/var/jenkins-agent". Number of executers here we put 3 as per the instance.
 
+How do you configure master and agent architecture?
+------------------------------------------------------
+We have multiple agents then we go to the manage jenkins there is an option for nodes, we will create node with parameters like Name,Description,Number of executors,remote root directory(In this section we need to give "/home/centos/jenkins-agent" because centOS doesn't have sudo access in "/var/jenkins" path, it has only in the home folder "/home/centos/jenkins-agent"
+
+Two types of work flow
+-------------------------
 1. Master asking agent to work ---> "launch agents via ssh" master will connect to agent through ssh
 2. Employee coming to master and asking for work
 
-Host(agent) ---> we can use both public_ip and private_ip but siva used private_ip
-Configure credentials also ---> ID = ssh-auth ; hostkeyverification strategy ---> Put non-verifying verification strategy because it will ask for yes or no while creating 
+Host(agent) ---> We can use both public_ip and private_ip but siva used private_ip because it is in the same network.
+Configure credentials also ---> ID = ssh-auth(you can keep any name) ; hostkeyverification strategy ---> Put "non-verifying verification strategy" because it will ask for yes or no while creating 
 
-We can add as many agents we want like one agent is for java, one agent is for .net, one agent is for python, How many agents you have used?(interview question). We have 5 agents because we are supporting multiple programming languages like python,java,.net and nodejs, so for each language we have 2-2 agents. Master should must have jenkins and java but where as in nodes java is mandatory, even if there is no jenkins in nodes no problem
+We can add as many agents we want like one agent is for java, one agent is for .net, one agent is for python, How many agents you have used ? (interview question). We have 5 agents because we are supporting multiple programming languages like python,java,.net and nodejs, so for each language we have 2-2 agents. Master should must have jenkins and java but where as in nodes java is mandatory, even if there is no jenkins in nodes no problem
 
-CentOS doest have sudo access, it has in home folder so give "/home/centos/jenkins-agent" in remote root directory
-
-Check "log" if nodes are online or not, to cross check in the server wether you have created the jenkins agent or not by "ls -l"
+Check "log" option, if nodes are online (or) not 
+To cross check in the server wether you have created the jenkins agent (or) not by "ls -l"
 
 Post section
---------------
+---------------
 We have lot of different conditions we can use from the document which is present in the internet
 
 Environements
----------------
-We can use any where like for example write a shell-script in that we can use environment, or if you just write "env" in the script you will get lot of environments and we can use as per our requirement
+----------------
+We can use any where like for example write a shell-script in that we can use environment, (or) if you just write "env" in the script you will get lot of environments and we can select and use as per our requirement
 
 Triggers
-----------
-webhook ---> connecting from one to another like system-1 should sent information to another systems that means whenever there is an event in the system-1 it will inform to another nothing but event based communication, in this If developer pushes the code to the git then we want pipeline to run automatically 
+-----------
+Webhook ---> Connecting from one to another, for example system-1 should sent information to another systems that means whenever there is an event in the system-1 it should inform to another system this is nothing but "event based communication" in this If developer pushes the code to the git then we want pipeline to run automatically 
 
-when event in git ----> jenkins should get the information so for that create "jenkins-github" integration
-1. Event will come in git and git should have jenkins info, so go to the webhook in 
+When event is in git ----> Jenkins should get the information and github should get the information of jenkins. So for that create "jenkins-github" integration
+1. Event will come in git and git should have jenkins info, so go to the webhook in the "jenkins-folder" 
    github/add webhook/payload URL should be "http://18.343.33.34:8080/github-webhook/
 2. Select application_json
-3. Similarly in the jenkins also we need to select "githib hook trigger.." in build trigger
+3. Similarly in the jenkins server also we need to select "githib hook trigger for GITscm polling" 
+   in build trigger options
 
-Now try something to add and push and wether it is working or not 
+Now try something to add and push, wether it is working or not
