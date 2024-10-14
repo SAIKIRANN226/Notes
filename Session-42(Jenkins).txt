@@ -78,8 +78,8 @@ Free-style job is no one is preferring now, it is very easy to do everything fro
 -------------
 Now create a new job with "pipeline" and use the default script of hello-world in the "pipeline script" and you can add any number of stages, But we prefer "pipeline script from SCM" because anybody can change the code from the pipeline script also, Our source code(SCM) is git. If we put this pipeline in git then jenkins will take that code from the git and run it this is called as "gitOps" Note:- Put the https URL of jenkins file from the git in the jenkins server
 
-Raw syntax of the pipeline(interview question)
------------------------------------------------
+Raw syntax of the pipeline (interview question)
+------------------------------------------------
 pipeline {
     agent any
 	
