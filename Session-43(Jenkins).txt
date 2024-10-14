@@ -54,7 +54,7 @@ server.js and catalogue.json is the main code of catalogue, in package.json we k
    the code we cannot store zip files (OR) artifacts. is nothing but your application which is in the form 
    of zip file we call it as artifacts. Sonatype Nexus is also a repository only for storing artifacts not 
    code, So create 1 instance for Nexus with t3.medium(atleast 2gm ram)/30gb storage.Login in to the nexus 
-   sever with sudo access and then "labauto" then type "nexus" select option 2, when you enter "netstat -lntp" 
+   sever with sudo access and then "labauto" then type "nexus" select option 2, when enter "netstat -lntp" 
    you will get 8081 port for nexus. Now take the ip address of nexus server paste in google, then sign in 
    and password cat it as shown in the popup box, Generally when you enter "npm install" then it will fetch
    the dependencies from the internet but companies will not give access to the internet, so companies will 
