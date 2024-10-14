@@ -62,7 +62,6 @@ server.js and catalogue.json is the main code of catalogue, in package.json we k
    libraries and  dependencies. Here we need to create a repository for catalogue to hold the catalogue 
    artifacts
 
-
 Maven 2 format
 ---------------
 For example 1000 students in a class is there a chance of below naming 
@@ -70,9 +69,31 @@ firstname
 firstname + lastname ---> will be the same?
 firstname + lastname + dob ---> may be possible
 That means when you add a comibination it will become unique, So similarly in the project we have modules like
-catalogue,cart etc. and versions for modules, So project should follow the proper folder structure to get uniqueness, For example with in the company we have a project called roboshop
+catalogue module,cart module etc. and catalogue version and cart version etc. So project should follow the proper folder structure to get uniqueness, For example with in the company we have a project called roboshop and catalogue is one of the module and for this catalogue have multiple versions like 1.0.0 ; 1.0.1 ; 2.0.0
 
+How the structure will be ?
+----------------------------
+group id ---> com.roboshop in reverse order
+artifact id ---> catalogue
+version ---> 1.0.0
 
+Folder structure
+-----------------
+com/roboshop/catalogue/versions
 
+Now create catalogue repository in Nexus(UI) server
+----------------------------------------------------
+Version policy ---> "snapshot" is for development environment
+                    "release" is for prod environment
+					     "mixed" is for both so as of now we are using mixed
+Layout policy ---> persmissive
+Deployment policy ---> allow redeploy, this option is not good for prod
 
-
+After creating repo it will give us a URL, so in this URL you can store the artifacts, nothing but zipping the artifacts in jenkins and pushing to this URL, So search for "zipfiles and folders in linux with excluded files" in google and we got the below command --> zip -q -r catalogue.zip ./* -x ".git" -x "*.zip" 
+In this command -q = for silenting the log because it is printing huge log
+                -x = exclude
+                -x "*.zip" = What this again ? when you build a zip file will be created and incase if you 
+                             run it again it will create another zip file so for that we need to exclude 
+                unzip = unzip catalogue.zip
+                rm -rf = to remove files
+You should remove workspace after running pipeline because when you run for the next time problems will come, So use this "deleteDir()" in post section, this is must
