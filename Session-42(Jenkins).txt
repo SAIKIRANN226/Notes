@@ -20,9 +20,9 @@ in jenkins initially we created resources in aws console that is also called fre
 Creating resources in AWS (Amazon Web Services) can be done through the AWS Management Console (a graphical user interface) or by using scripting (often with tools like AWS CLI, AWS SDKs, or Infrastructure as Code tools like Terraform or AWS CloudFormation). Each method has its advantages and disadvantages:
 
 Advantages of AWS Management Console
----------------------------------------
-1. User-Friendly Interface:- The console provides an intuitive graphical interface, making it easier for 
-   beginners to navigate and manage AWS resources.
+-------------------------------------
+1. User-Friendly Interface:- This method will make it easier for beginners to navigate and manage AWS 
+   resources.
 2. Immediate Feedback:- Changes can be made and results viewed immediately, helping users understand how 
    services interact in real-time.
 3. No Setup Required:- Users can start using the console without any installation of tools or writing 
@@ -33,7 +33,7 @@ Advantages of AWS Management Console
    console than through scripts.
 
 Disadvantages of AWS Management Console
--------------------------------------------
+----------------------------------------
 1. Manual Process:- Creating resources manually can be time-consuming and error-prone, especially for 
    large-scale deployments.
 2. Lack of Version Control:- Changes made in the console are not easily tracked or version-controlled, 
@@ -70,7 +70,7 @@ Disadvantages of Scripting
 Conclusion
 ------------
 The choice between using the AWS Management Console and scripting largely depends on your specific use case, team expertise, and the scale of your operations. For smaller projects or initial explorations, the console might be more suitable, while larger or more complex projects often benefit from the automation and consistency offered by scripting.
-
+ 
 1. Free-style
 ----------------
 Free-style job is no one is preferring now, it is very easy to do everything from the console, anybody can do the changes and we dont know who did what? and it is very difficult to rollback to the original version, thats why everybody is moved to pipeline, So now we should understand jenkins pipeline just search "jenkins pipelines" click on the first link and know about the pipeline syntax
@@ -115,42 +115,42 @@ pipeline {
 }
 
 What is agent ?
------------------
-Take the example of 1 person ---> 1 acre of land ; If 100 acres ---> need lot of resources then
-Owner recruit ---> employee resources ---> distribute the work
+----------------
+Take the example of 1 person can do ---> 1 acre of land ; If 100 acres ---> need lot of resources then
+Owner recruit ---> employes resources ---> and distribute the work, similary to the Master-agent(node) also
 
 If you have single project you can use single sever(jenkins-master), but if you have multiple projects one single jenkins server cannot handle the load, So we have AGENT(which act like a slave) "MASTER-AGENT". So
-create one more instance for agent and install java same command which is used in the jenkins server, It is not mandatory to install jenkins in nodes, we need to install java packages. Now configure this agent in jenkins server by going to the "manage jenkins option/nodes/new-node(keep name as per your wish)/generally jenkins configuration will be saved in "cd /var/lib/jenkins/" so in the sameway you need to create a directory while creating agent "/var/jenkins-agent" here CentOs doesn't have sudo access in this path. Number of executors here we put 3 as per the instance.
+create one more instance for agent and install java, same command which is used in the jenkins server, It is not mandatory to install jenkins in nodes, we need to install only java packages. Now configure this agent in jenkins server by going to the "manage jenkins option/nodes/new-node(keep name as per your wish)/generally jenkins configuration will be saved in "cd /var/lib/jenkins/" so in the sameway you need to create a directory while creating agent "/var/jenkins-agent" here CentOs doesn't have sudo access in this path. Number of executors here we put 3 as per the instance.
 
 How do you configure master and agent architecture ?
--------------------------------------------------------
-We have multiple agents then we go to the manage jenkins there is an option for nodes, while creating nodes we have few options like Name,Description,Number of executors,remote root directory(In this section we need to give "/home/centos/jenkins-agent(you can keep any name)" because centOS doesn't have sudo access in "/var/jenkins" path, it has only in the home folder "/home/centos/jenkins-agent"
+-----------------------------------------------------
+We have multiple agents then we go to the manage jenkins there is an option for nodes, while creating nodes we have few parameters like Name,Description,Number of executors,remote root directory(In this section we need to give "/home/centos/jenkins-agent(you can keep any name)" because centOS doesn't have sudo access in "/var/jenkins" path, it has only in the home folder "/home/centos/jenkins-agent"
 
 Two types of work flow
--------------------------
+-----------------------
 1. Master asking agent to work ---> "launch agents via ssh" master will connect to agent through ssh
 2. Employee coming to master and asking for work
 
 Host(agent) ---> We can use both public_ip and private_ip but siva used private_ip because it is in the same network. Configure credentials also ---> ID = ssh-auth(you can keep any name) ; 
-hostkeyverification strategy --> Put "non-verifying verification strategy" because it will ask for yes (or) no while creating. We can add as many agents we want like 1 agent is for java, 1 agent is for .net, 1 agent is for python, How many agents you have used ? (interview question). We have 5 agents because we are supporting multiple programming languages like python,java,.net and nodejs, so for each language we have 2-2 agents. Master should must have jenkins and java but where as in nodes java is mandatory, even if there is no jenkins in nodes no problem. Check "log" option, if nodes are online (or) not. To cross check in the server wether you have created the jenkins agent (or) not by "ls -l"
+hostkeyverification strategy --> Put "non-verifying verification strategy" because it will ask for prompt yes (or) no while creating. We can add as many agents we want like 1 agent is for java, 1 agent is for .net, 1 agent is for python, How many agents you have used ? (interview question). We created 5 agents because we are supporting multiple programming languages like python,java,.net and nodejs, so for each language we have 2-2 agents. Master should must have jenkins and java but where as in nodes java is mandatory, even if there is no jenkins in nodes no problem. Check "log" option, if nodes are online (or) not. To cross check in the server wether you have created the jenkins agent (or) not by "ls -l"
 
 Post section
----------------
-We have lot of different conditions we can use from the document which is present in the internet
+-------------
+We have lot of different conditions we can use from the document which is present in the internet like post,environments,triggers,etc.
 
 Environements
-----------------
-We can use any where like for example write a shell-script in that we can use environment, (or) if you just write "env" in the script you will get lot of environments and we can select and use as per our requirement
+--------------
+We can use anywhere in the script like for example write a shell-script in that we can use environment, or if you just write "env" in the script you will get all environments and we can select and use as per our requirement
 
 Triggers
------------
-Webhook ---> Connecting from one to another, for example system-1 should sent information to another systems that means whenever there is an event in the system-1 it should inform to another system this is nothing but "event based communication" in this If developer pushes the code to the git then we want pipeline to run automatically 
+---------
+Webhook ---> Connecting from one to another, for example system-1 should send information to another systems that means whenever there is an event in the system-1 it should inform to another system this is nothing but "event based communication" in this If developer pushes the code to the git then we want pipeline to run automatically 
 
 When event is in git ----> Jenkins should get the information and github should get the information of jenkins. So for that create "jenkins-github" integration
 1. Event will come in git and git should have jenkins info, so go to the webhook in the "jenkins-folder" 
-   github/add webhook/payload URL should be "http://18.343.33.34:8080/github-webhook/
+   github/add webhook/payload URL must be "http://18.343.33.34:8080/github-webhook/
 2. Select application_json
-3. Similarly in the jenkins server also we need to select "githib hook trigger for GITscm polling" 
+3. Similarly in the jenkins server also we need to select "github hook trigger for GITscm polling" 
    in build trigger options
 
 Now try something to add and push, wether it is working or not
