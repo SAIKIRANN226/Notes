@@ -38,27 +38,29 @@ Now create seperate repository for catalogue and create CICD for this
 ----------------------------------------------------------------------
 server.js and catalogue.json is the main code of catalogue, in package.json we keep dependencies and now write a jenkinsfile for server.js and catalogue.json, we dont need infra for CI part. we need infra only for CD part. like for example developers will do CI part and infra engineers will do CD part parallely once the infra is ready then they push to the dev environment
 
-1. First get the application version, to read json file in pipeline there is a plugin called 
-   "pipeline utility steps" we need to install this in jenkins and write a code in script also give a 
-   key-value variable like packageVersion = '' script we have used here is groovy not shellscript
+1. First get the application version, version is in "package.json" file so to read json file in pipeline 
+   there is a plugin called "pipeline utility steps" we need to install this in jenkins and write a code 
+   in script also give a key-value variable like packageVersion = '' script we have used here is groovy 
+   not shellscript, "def" means defining variable in the script
 2. Second step is build the code for that we need to install npm dependencies here we used shellscript
    while building it is failed because npm command not found, so you need to install nodejs in agent, go
-   to the documentation ---> catalogue.MD ---> take commands from here "dnf module disable nodejs -y"
+   to the documentation ---> catalogue.MD ---> take commands from there "dnf module disable nodejs -y"
    "dnf module enable nodejs:18 -y" ; "dnf install nodejs -y". Enter these 3 commands in agent server 
    by taking sudo access first
 3. Testing and scanning 
 4. Build ---> First checking what files are there ls -la, Node modules are useful to run server.js, 
    when you zip server.js along with node modules in the another server then you no need to install npm 
    again, so you can run the service directly, so zip this and store in the nexus, git is used to store 
-   the code we cannot store zip files (OR) artifacts is nothing but your application which is in the form 
-   of zip file we call it as artifacts. Nexus is also a repository only for storing artifacts not code, 
-   So create 1 instance for Nexus with t3.medium(atleast 2gm ram)/30gb storage.Login in to the nexus sever 
-   with sudo access and then "labauto" then enter "nexus" select option 2, when you enter "netstat -lntp" 
+   the code we cannot store zip files (OR) artifacts. is nothing but your application which is in the form 
+   of zip file we call it as artifacts. Sonatype Nexus is also a repository only for storing artifacts not 
+   code, So create 1 instance for Nexus with t3.medium(atleast 2gm ram)/30gb storage.Login in to the nexus 
+   sever with sudo access and then "labauto" then type "nexus" select option 2, when you enter "netstat -lntp" 
    you will get 8081 port for nexus. Now take the ip address of nexus server paste in google, then sign in 
-   and password cat it as shown in the popup box, Generally when you enter "npm install" then it will fetch 
-   from the internet but companies will not give access so companies will put those dependencies in the 
-   nexus repository, so nexus is a single point of contact for libraries and dependencies. Here we need to 
-   create a repository for catalogue to hold the catalogue artifacts
+   and password cat it as shown in the popup box, Generally when you enter "npm install" then it will fetch
+   the dependencies from the internet but companies will not give access to the internet, so companies will 
+   put those dependencies in the nexus repository, Thats why nexus is a single point of contact for 
+   libraries and  dependencies. Here we need to create a repository for catalogue to hold the catalogue 
+   artifacts
 
 
 Maven 2 format
