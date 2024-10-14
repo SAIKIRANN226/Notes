@@ -1,5 +1,5 @@
 Jenkins is a CICD tool (or) continous integration tool
----------------------------------------------------------
+-------------------------------------------------------
 1. Create a jenkins instance with t3.small/20gb/defaultSG as of now
 2. Login to the instance using public_ip in the superputty
 3. Install jenkins using commands which can be found in "jenkins.io" go to three lines in top right
@@ -43,7 +43,7 @@ Disadvantages of AWS Management Console
    (e.g., dev, test, prod) can be challenging and lead to inconsistencies.
 
 Advantages of Scripting (e.g., AWS CLI, SDKs)
-------------------------------------------------
+----------------------------------------------
 1. Automation and Efficiency: Scripts can automate the creation and management of resources, 
    which increases efficiency, especially for repetitive tasks.
 2. Version Control: Scripts can be stored in version control systems (e.g., Git), allowing for better 
@@ -56,7 +56,7 @@ Advantages of Scripting (e.g., AWS CLI, SDKs)
    potentially lowering operational costs.
 
 Disadvantages of Scripting
------------------------------
+---------------------------
 1. Learning Curve:- Users need to learn scripting languages and AWS-specific command syntax, which may be 
    daunting for beginners.
 2. Debugging Complexity:- Scripting errors can sometimes be difficult to troubleshoot, especially for 
@@ -67,19 +67,19 @@ Disadvantages of Scripting
    can add complexity.
 
 Conclusion
-------------
+-----------
 The choice between using the AWS Management Console and scripting largely depends on your specific use case, team expertise, and the scale of your operations. For smaller projects or initial explorations, the console might be more suitable, while larger or more complex projects often benefit from the automation and consistency offered by scripting.
  
 1. Free-style
-----------------
+--------------
 Free-style job is no one is preferring now, it is very easy to do everything from the console, anybody can do the changes and we dont know who did what? and it is very difficult to rollback to the original version, thats why everybody is moved to pipeline, So now we should understand jenkins pipeline just search "jenkins pipelines" click on the first link and know about the pipeline syntax
 
 2. Pipelines
----------------
+-------------
 Now create a new job with "pipeline" and use the default script of hello-world in the "pipeline script" and you can add any number of stages, But we prefer "pipeline script from SCM" because anybody can change the code from the pipeline script also, Our source code(SCM) is git. If we put this pipeline in git then jenkins will take that code from the git and run it this is called as "gitOps" Note:- Put the https URL of jenkins file from the git in the jenkins server
 
 Raw syntax of the pipeline(interview question)
--------------------------------------------------
+-----------------------------------------------
 pipeline {
     agent any
 	
