@@ -14,8 +14,7 @@ Jenkins is a CICD tool (or) continous integration tool
 8. Create user account
 9. So jenkins setup is completed and start using it
 
-Whatever we do in the jenkins we call it has a job, now click on new-item (nothing but creating a sample file or JOB as of now) select free-style project, free-style is nothing but everything you do it in UI, not only 
-in jenkins initially we created resources in aws console that is also called free-style, later we used terraform,shellscript,ansible to create resources. Select "Execute shell" in build steps option, echo "hello-world" then apply and save. We are just telling jenkins to run this command using build button.
+Whatever we do in the jenkins we call it has a job, now click on new-item (nothing but creating a sample file or JOB as of now) select free-style project, free-style is nothing but everything you do it in UI, not only in jenkins initially we created resources in aws console that is also called free-style, later we used terraform,shellscript,ansible to create resources. Select "Execute shell" in build steps option, echo "hello-world" then apply and save. We are just telling jenkins to run this command using build button.
 
 Creating resources in AWS (Amazon Web Services) can be done through the AWS Management Console (a graphical user interface) or by using scripting (often with tools like AWS CLI, AWS SDKs, or Infrastructure as Code tools like Terraform or AWS CloudFormation). Each method has its advantages and disadvantages:
 
