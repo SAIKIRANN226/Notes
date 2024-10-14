@@ -27,8 +27,8 @@ Advantages of AWS Management Console
    services interact in real-time.
 3. No Setup Required:- Users can start using the console without any installation of tools or writing 
    scripts.
-4. Visual Representation:- The console offers visualizations and dashboards that help users monitor resource 
-   status and usage effectively.
+4. Visual Representation:- The console offers visualizations and dashboards that help users 
+   monitor resource status and usage effectively.
 5. Access to All Features:- Some advanced features and settings may be more accessible or visible in the 
    console than through scripts.
 
@@ -51,8 +51,8 @@ Advantages of Scripting (e.g., AWS CLI, SDKs)
    tracking of changes and collaboration.
 3. Consistent Deployments: Scripting ensures consistent environments across different deployments, 
    minimizing human error.
-4. Infrastructure as Code: Using tools like AWS CloudFormation allows you to define your infrastructure as 
-   code, enabling easy replication and modifications.
+4. Infrastructure as Code: Using tools like AWS CloudFormation allows you to define your infrastructure 
+   as code, enabling easy replication and modifications.
 5. Cost-Effective: Automated scripts can reduce the time and resources needed for manual management, 
    potentially lowering operational costs.
 
@@ -62,7 +62,8 @@ Disadvantages of Scripting
    daunting for beginners.
 2. Debugging Complexity:- Scripting errors can sometimes be difficult to troubleshoot, especially for 
    complex setups.
-3. Setup Time:- Initial setup for scripts may require more time and effort compared to a quick console setup.
+3. Setup Time:- Initial setup for scripts may require more time and effort compared to a 
+   quick console setup.
 4. Dependency Management:- Managing dependencies and ensuring that scripts run in the correct environment 
    can add complexity.
 
