@@ -2,42 +2,41 @@ Note:- Logs will be showed in the jenkins master however running will be in node
 
 "Input" condition
 ------------------
-Nothing but taking approval and moving to the next stage, So refer this from "roboshop-infra-dev" vpc there you have jenkins file and configured everything and now configure in jenkins by creating a separate folder "robosho infra" create vpc in this folder and script path ---> 01-vpc/Jenkinsfile, When you try to build you will get a error that "terraform command not found". This build is running in agent, It is not madatory to know everything to the master but who are working as agents should know, Here in this scenario agent dont know the Terraform commands, So for that we need to install few tools in agent "Terraform command" ; " aws credentials" install these two in agent just search "install terraform linux" in google select centos and run shown 3 commands in agent server. Next do "aws configure" [Note:- While configuring aws dont do with root user, because master is connecting through centos user it is not taking the sudo acccess, so it must be normal user while aws configure]
-Now run this pipeline(build). To enable colors we need to install a plugin that is "ansiColor('xterm')", not just putting in the code we need to install the plugin in the jenkins server/go to manage jenkins/plugins/type ansiColor, If any plugins are not working even after isntalling like example here colors is not showing even after installing plugins then you need to restart jenkins in the Jenkins-master server by "systemctl restart jenkins" 
+Nothing but taking approval and moving to the next stage, So refer this from "roboshop-infra-dev" vpc there you have jenkins file and configured everything and now configure in jenkins by creating a separate folder "robosho infra" create vpc inside this folder and script path ---> 01-vpc/Jenkinsfile, When you try to build you will get a error that "terraform command not found". This build is running in agent, It is not madatory to know everything to the master but who are working as agents should know, Here in this scenario agent dont know the Terraform commands, So for that we need to install few tools in agent "Terraform command" ; " aws credentials" install these two in agent just search "install terraform linux" in google select centos and run shown 3 commands in agent server. Next do "aws configure" [Note:- While configuring aws dont do with root user, because master is connecting through centos user it is not taking the sudo acccess, so it must be normal user while aws configure]. Now run this pipeline(build). To enable colors we need to install a plugin that is ansiColor go to manage jenkins/plugins/type ansiColor.and put this command in the script also "ansiColor('xterm')". If any plugins are not working even after installing like example here colors is not showing even after installing plugins then you need to restart jenkins in the Jenkins-master server by "systemctl restart jenkins" 
 
 "When" condition
--------------------
+-----------------
 Like giving condition when branch name is production do these steps, Search in google like jenkins pipelines when with parameters. Refer parameters in roboshop-infra-dev(01-vpc), there you have two parameters one is apply and another one is destroy, So when you try to "build with parameters" you can see a drop down and select apply/destory, So this means we can write CICD for infrastructure also.
 
 CICD for applications
-------------------------
-Is it mandatory to have infrastructure for creating CICD for applications ? Project infra should be ready. So what are the infra ? in roboshop-infra-dev ? vpc,sg,vpn,database,app-alb,acm,web-alb are project infra and like catalogue is purely application. Nothing but whichever are longterm those are called project infra, which are short-term those are called application.
+----------------------
+Is it mandatory to have infrastructure for creating CICD for applications ? Yes project infra should be ready. So what are the infrastructures in roboshop-infra-dev ? vpc,sg,vpn,database,app-alb,acm,web-alb are project infra and like catalogue is purely application. Nothing but whichever are longterm those are called project infra, whichever are short-term those are called applications.
 
-Now do CICD for catalogue, what should be there to do ?
------------------------------------------------------------
+Now do CICD for catalogue application, what should be there to do ?
+--------------------------------------------------------------------
 
 CI (Continous integration)
------------------------------
-What are we doing in CI ? We are integrating the code like we have developers and they are continously pushing the code to the git, as a devops engineer we need to take that code and check wether the code is compiling properly (or) not and building the code generally we get errors while building the code, for that scanning and unit testing and saving at one place, this is called continous integration process, If this process succeded then only we go for deployment which is "CD"
+---------------------------
+What are we doing in CI ? We are integrating the code like we have developers and they are continously pushing the code to the git, as a devops engineer we need to take that code and check wether the code is compiling properly (or) not and building the code so in this process generally we get errors while building the code, scanning the code and testing the code and saving the code at one place, this is called continous integration process, If this process succeded then only we go for deployment which is "CD"
 
 1. First catalogue should be in git
-2. Write Jenkinsfile for this, what should be stages in jenkinsfiles ?
+2. Write Jenkinsfile for this, what should be the stages in jenkinsfiles ?
    a) clone the code
    b) unit testing
    c) scans like (sonar scan)
    d) installing dependencies
    e) build (zip file)
-   f) push the zip file to the "nexus" which is repository where we keep our "artifacts"
+   f) push the zip file to the "nexus" which is a repository where we keep our "artifacts" other than code
 
 CD (Continous deployment)
-----------------------------
+--------------------------
 1. deploy to dev
 2. testers will test the functional cases
 3. finally publish the results
 
 Now create seperate repository for catalogue and create CICD for this
-------------------------------------------------------------------------
-server.js and catalogue.json is the main code of catalogue and write a jenkinsfile for this, we dont need infra for CI part. we need infra only for CD part. like for example developers will do CI part and infra engineers will do CD part parallely once the infra is ready then they push to the dev environment
+----------------------------------------------------------------------
+server.js and catalogue.json is the main code of catalogue, in package.json we keep dependencies and now write a jenkinsfile for server.js and catalogue.json, we dont need infra for CI part. we need infra only for CD part. like for example developers will do CI part and infra engineers will do CD part parallely once the infra is ready then they push to the dev environment
 
 1. First get the application version, to read json file in pipeline there is a plugin called 
    "pipeline utility steps" we need to install this in jenkins and write a code in script also give a 
@@ -63,8 +62,8 @@ server.js and catalogue.json is the main code of catalogue and write a jenkinsfi
 
 
 Maven 2 format
------------------
-   
+---------------
+
 
 
 
