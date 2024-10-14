@@ -1,7 +1,7 @@
 Note:- Logs will be showed in the jenkins master however running will be in nodes
 
 "Input" condition
---------------------
+------------------
 Nothing but taking approval and moving to the next stage, So refer this from "roboshop-infra-dev" vpc there you have jenkins file and configured everything and now configure in jenkins by creating a separate folder "robosho infra" create vpc in this folder and script path ---> 01-vpc/Jenkinsfile, When you try to build you will get a error that "terraform command not found". This build is running in agent, It is not madatory to know everything to the master but who are working as agents should know, Here in this scenario agent dont know the Terraform commands, So for that we need to install few tools in agent "Terraform command" ; " aws credentials" install these two in agent just search "install terraform linux" in google select centos and run shown 3 commands in agent server. Next do "aws configure" [Note:- While configuring aws dont do with root user, because master is connecting through centos user it is not taking the sudo acccess, so it must be normal user while aws configure]
 Now run this pipeline(build). To enable colors we need to install a plugin that is "ansiColor('xterm')", not just putting in the code we need to install the plugin in the jenkins server/go to manage jenkins/plugins/type ansiColor, If any plugins are not working even after isntalling like example here colors is not showing even after installing plugins then you need to restart jenkins in the Jenkins-master server by "systemctl restart jenkins" 
 
