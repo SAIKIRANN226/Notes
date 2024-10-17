@@ -4,7 +4,7 @@ Jenkins is a CICD tool (or) continous integration tool
 2. Login to the instance using public_ip in the superputty
 3. Install jenkins using commands which can be found in "jenkins.io" go to three lines in top right
    corner you will find download option, and select Redhat/Fedora/almalinux/CentOS. Here you will find 
-   commands Note that you are not installing in the laptop as a software, you are installing in the 
+   commands Note, that you are not installing in the laptop as a software, you are installing in the 
    server. So you need to install using commands only.
 4. After installing "systemctl start jenkins" and "systemctl status jenkins" and "systemctl enable jenkins"
 5. Now take the jenkins_ip (public) and paste in the url (jenkins port=8080) , when you do this you get 
@@ -14,7 +14,7 @@ Jenkins is a CICD tool (or) continous integration tool
 8. Create user account
 9. So jenkins setup is completed and start using it
 
-Whatever we do in the jenkins we call it has a job, now click on new-item (nothing but creating a sample file or JOB as of now) select free-style project, free-style is nothing but everything you do it in UI, not only in jenkins initially we created resources in aws console that is also called free-style, later we used terraform,shellscript,ansible to create resources. Select "Execute shell" in build steps option, echo "hello-world" then apply and save. We are just telling jenkins to run this command using build button.
+Whatever we do in the jenkins we call it as a job, now click on new-item (nothing but creating a sample file or JOB as of now) select free-style project, free-style is nothing but everything you do it in UI(console), not only in jenkins initially we created resources in aws console that is also called free-style, later we used terraform,shellscript,ansible to create resources. Select "Execute shell" in build steps option, echo "hello-world" then apply and save. We are just telling jenkins to run this command using build now button.
 
 Creating resources in AWS (Amazon Web Services) can be done through the AWS Management Console (a graphical user interface) or by using scripting (often with tools like AWS CLI, AWS SDKs, or Infrastructure as Code tools like Terraform or AWS CloudFormation). Each method has its advantages and disadvantages:
 
@@ -72,7 +72,7 @@ The choice between using the AWS Management Console and scripting largely depend
  
 1. Free-style
 --------------
-Free-style job is no one is preferring now, it is very easy to do everything from the console, anybody can do the changes and we dont know who did what? and it is very difficult to rollback to the original version, thats why everybody is moved to pipeline, So now we should understand jenkins pipeline just search "jenkins pipelines" click on the first link and know about the pipeline syntax
+Free-style job is no one is preferring now, it is very easy to do everything from the console, anybody can do the changes and we dont know who did what? and it is very difficult to rollback to the original version, thats why everybody is moved to pipeline, So now we should understand jenkins pipeline just search "jenkins pipelines" click on the first link and know about the pipeline syntax and its different conditions
 
 2. Pipelines
 -------------
@@ -87,32 +87,32 @@ pipeline {
        }
     }
 	
-	stages {
-	   stage('Build') {
-	      steps {
-		    echo 'Building..'
+    stages {
+        stage('Build') {
+	   steps {
+	     echo 'Building..'
 		  }
 	   }
-	   stage('Test') {
-	      steps {
-		    echo 'Testing..'
+	stage('Test') {
+	   steps {
+	    echo 'Testing..'
 		  }
 	   }
-	   stage('Deploy') {
-	      steps {
-		     echo 'Deploying..'
+       stage('Deploy') {
+	   steps {
+	     echo 'Deploying..'
 		  }
 	   }
 	}
-        post { 
-        always { 
-            echo 'I will always say Hello again!'
+   post { 
+     always { 
+        echo 'I will always say Hello again!'
         }
-        failure { 
-            echo 'this runs when pipeline is failed, used generally to send some alerts'
+     failure { 
+        echo 'this runs when pipeline is failed, used generally to send some alerts'
         }
-        success{
-            echo 'I will say Hello when pipeline is success'
+     success{
+        echo 'I will say Hello when pipeline is success'
         }
     }
 }
@@ -122,8 +122,9 @@ What is agent ?
 Take the example of 1 person can do ---> 1 acre of land ; If 100 acres ---> need lot of resources then
 Owner recruit ---> employes resources ---> and distribute the work, similary to the Master-agent(node) also
 
-If you have single project you can use single sever(jenkins-master), but if you have multiple projects one single jenkins server cannot handle the load, So we have AGENT(which act like a slave) "MASTER-AGENT". So
-create one more instance for agent and install java, same command which is used in the jenkins server, It is not mandatory to install jenkins in nodes, we need to install only java packages. Now configure this agent in jenkins server by going to the "manage jenkins option/nodes/new-node(keep name as per your wish)/generally jenkins configuration will be saved in "cd /var/lib/jenkins/" so in the sameway you need to create a directory while creating agent "/var/jenkins-agent" here CentOs doesn't have sudo access in this path. Number of executors here we put 3 as per the instance.
+If you have a single project you can use single sever(jenkins-master), but if you have multiple projects one single jenkins server cannot handle the load, So we have AGENT(which act like a slave) "MASTER-AGENT". So
+create one more instance for agent and install java, one of the command which is used in the jenkins server
+installation, It is not mandatory to install jenkins in nodes, we need to install only java packages command. Now configure this agent in jenkins server by going to the "manage jenkins option/nodes/new-node(keep name as per your wish)/generally jenkins configuration will be saved in "cd /var/lib/jenkins/" so in the sameway you need to create a directory while creating agent "/var/jenkins-agent" here CentOs doesn't have sudo access in this path.So need to give "/home/centos/jenkins-agent(you can keep any name)" and Number of executors here we put 3 as per the instance.
 
 How do you configure master and agent architecture ?
 -----------------------------------------------------
@@ -135,11 +136,11 @@ Two types of work flow
 2. Employee coming to master and asking for work
 
 Host(agent) ---> We can use both public_ip and private_ip but siva used private_ip because it is in the same network. Configure credentials also ---> ID = ssh-auth(you can keep any name) ; 
-hostkeyverification strategy --> Put "non-verifying verification strategy" because it will ask for prompt yes (or) no while creating. We can add as many agents we want like 1 agent is for java, 1 agent is for .net, 1 agent is for python, How many agents you have used ? (interview question). We created 5 agents because we are supporting multiple programming languages like python,java,.net and nodejs, so for each language we have 2-2 agents. Master should must have jenkins and java but where as in nodes java is mandatory, even if there is no jenkins in nodes no problem. Check "log" option, if nodes are online (or) not. To cross check in the server wether you have created the jenkins agent (or) not by "ls -l"
+hostkeyverification strategy --> Put "non-verifying verification strategy" because it will ask for prompt yes (or) no while creating. We can add as many agents we want like 1 agent is for java, 1 agent is for .net, 1 agent is for python, How many agents you have used ? (interview question). We created 5 agents because we are supporting multiple programming languages like python,java,.net and nodejs, so for each language we have 2-2 agents. Master must have jenkins and java but where as in nodes java is mandatory, even if there is no jenkins in nodes no problem. Check "log" option, if nodes are online (or) not. To cross check in the server wether you have created the jenkins agent (or) not by "ls -l"
 
 Post section
 -------------
-We have lot of different conditions we can use from the document which is present in the internet like post,environments,triggers,etc.
+We have lot of different conditions we can use from the document which is present in the internet like post,environments,triggers,input,when,etc.
 
 Environements
 --------------
@@ -147,13 +148,10 @@ We can use anywhere in the script like for example write a shell-script in that 
 
 Triggers
 ---------
-Webhook ---> Connecting from one to another, for example system-1 should send information to another systems that means whenever there is an event in the system-1 it should inform to another system this is nothing but "event based communication" in this If developer pushes the code to the git then we want pipeline to run automatically 
-
-When event is in git ----> Jenkins should get the information and github should get the information of jenkins. So for that create "jenkins-github" integration
+Webhook ---> Connecting from one to another, for example system-1 should send information to another systems that means whenever there is an event in the system-1 it should inform to another system this is nothing but "event based communication" in this, If developer pushes the code to the git then we want pipeline to run automatically. When event is in git ----> Jenkins should get the information and github should get the information of jenkins. So for that create "jenkins-github" integration
 1. Event will come in git and git should have jenkins info, so go to the webhook in the "jenkins-folder" 
    github/add webhook/payload URL must be "http://18.343.33.34:8080/github-webhook/
 2. Select application_json
 3. Similarly in the jenkins server also we need to select "github hook trigger for GITscm polling" 
-   in build trigger options
-
+   in build trigger options.
 Now try something to add and push, wether it is working or not
