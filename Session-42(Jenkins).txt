@@ -122,8 +122,8 @@ What is agent ?
 Take the example of 1 person can do ---> 1 acre of land ; If 100 acres ---> need lot of resources then
 Owner recruit ---> employes resources ---> and distribute the work, similary to the Master-agent(node) also
 
-If you have a single project you can use single sever(jenkins-master), but if you have multiple projects one single jenkins server cannot handle the load, So we have AGENT(which act like a slave) "MASTER-AGENT". So
-create one more instance for agent and install java, one of the command which is used in the jenkins server
+If you have a single project you can use single sever(jenkins-master), but if you have multiple projects one single jenkins server cannot handle the load, So we have AGENT(which act like a slave) "MASTER-AGENT". 
+So create one more instance for agent and install java, one of the command which is used in the jenkins server
 installation, It is not mandatory to install jenkins in nodes, we need to install only java packages command. Now configure this agent in jenkins server by going to the "manage jenkins option/nodes/new-node(keep name as per your wish)/generally jenkins configuration will be saved in "cd /var/lib/jenkins/" so in the sameway you need to create a directory while creating agent "/var/jenkins-agent" here CentOs doesn't have sudo access in this path.So need to give "/home/centos/jenkins-agent(you can keep any name)" and Number of executors here we put 3 as per the instance.
 
 How do you configure master and agent architecture ?
