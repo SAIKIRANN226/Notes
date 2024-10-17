@@ -1,4 +1,4 @@
-Note:- Logs will be showed in the jenkins master however running will be in nodes
+Note:- Logs of nodes will be showed in the jenkins master however running will be in nodes
 
 "Input" condition
 ------------------
