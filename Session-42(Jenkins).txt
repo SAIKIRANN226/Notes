@@ -131,7 +131,7 @@ server installation, It is not mandatory to install jenkins in nodes, we need to
 
 How do you configure master and agent architecture ?
 -----------------------------------------------------
-We have multiple agents then we go to the manage jenkins there is an option for nodes, while creating nodes we have few parameters like Name,Description,Number of executors,remote root directory(In this section we need to give "/home/centos/jenkins-agent(you can keep any name)" because centOS doesn't have sudo access in "/var/jenkins" path, it has only in the home folder "/home/centos/jenkins-agent"
+We have multiple agents then we go to the manage jenkins there is an option for nodes, while creating nodes we have few parameters like Name,Description,Number of executors,remote root directory(In this section we need to give "/home/centos/jenkins-agent(you can keep any name)" because centOS doesn't have sudo access in "/var/jenkins" path, it has only in the home folder "/home/centos/jenkins-agent" because master is connecting to nodes through SSH authentication
 
 Two types of work flow
 -----------------------
