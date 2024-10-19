@@ -86,8 +86,9 @@ Now create catalogue repository in Nexus(UI) server
 ----------------------------------------------------
 Version policy ---> "snapshot" is for development environment
                     "release" is for prod environment
-		    "mixed" is for both so as of now we are using mixed because when you select release then
-                     version should be - release, if you select snapshot then version should be - snapshot
+		    "mixed" is for both so as of now we are using mixed because when you select release 
+                     then version should be - release, if you select snapshot then version should 
+                     be - snapshot
 Layout policy ---> persmissive
 Deployment policy ---> allow redeploy, this option is not good for prod
 
