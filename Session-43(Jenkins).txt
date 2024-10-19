@@ -2,11 +2,11 @@ Note:- Logs of nodes will be showed in the jenkins master however running will b
 
 "Input" condition
 ------------------
-Nothing but taking approval and moving to the next stage, So refer this from "roboshop-infra-dev" vpc there you have jenkins file and configured everything and now configure in jenkins by creating a separate folder "robosho infra" create vpc inside this folder and script path ---> 01-vpc/Jenkinsfile, When you try to build you will get a error that "terraform command not found". This build is running in agent, It is not madatory to know everything to the master but who are working as agents should know, Here in this scenario agent dont know the Terraform commands, So for that we need to install few tools in agent "Terraform command" ; " aws credentials" install these two in agent just search "install terraform linux" in google select centos and run shown 3 commands in agent server. Next do "aws configure" [Note:- While configuring aws dont do with root user, because master is connecting through centos user it is not taking the sudo acccess, so it must be normal user while aws configure]. Now run this pipeline(build). To enable colors we need to install a plugin that is ansiColor go to manage jenkins/plugins/type ansiColor.and put this command in the script also "ansiColor('xterm')". If any plugins are not working even after installing like example here colors is not showing even after installing plugins then you need to restart jenkins in the Jenkins-master server by "systemctl restart jenkins" 
+Nothing but taking approval and moving to the next stage, So refer this from "roboshop-infra-dev" vpc there we have written jenkins file, now configure same in jenkins by creating a separate folder "roboshop infra" create vpc inside this folder and script path ---> 01-vpc/Jenkinsfile, When you try to build you will get a error that "terraform command not found". This build is running in agent, It is not madatory to know everything to the master only, but who are working as agents should know, Here in this scenario agent dont know the Terraform commands, So for that we need to install few tools in agent "Terraform command" ; " aws credentials" install these two in agent just search "install terraform linux" in google select centos and run shown 3 commands in agent server. Next do "aws configure" [Note:- While configuring aws dont do with root user, because master is connecting through centos user it is not taking the sudo acccess, so it must be normal user while aws configure]. Now run this pipeline(build). To enable colors we need to install a plugin that is ansiColor go to manage jenkins/plugins/type ansiColor. and put this command in the script also "ansiColor('xterm')". If any plugins are not working even after installing like example here colors is not showing even after installing plugins then you need to restart jenkins in the Jenkins-master server by "systemctl restart jenkins" 
 
 "When" condition
 -----------------
-Like giving condition when branch name is production do these steps, Search in google like jenkins pipelines when with parameters. Refer parameters in roboshop-infra-dev(01-vpc), there you have two parameters one is apply and another one is destroy, So when you try to "build with parameters" you can see a drop down and select apply/destory, So this means we can write CICD for infrastructure also.
+Like giving condition when branch name is production do these steps, Search in google like jenkins pipelines when with parameters. Refer parameters in roboshop-infra-dev(01-vpc), there you have two parameters one is apply and another one is destroy, So when you try to "build with parameters" in the jenkins server, you can see a drop down and select apply/destory, So this means we can write CICD for infrastructure also.
 
 CICD for applications
 ----------------------
@@ -17,9 +17,10 @@ Now do CICD for catalogue application, what should be there to do ?
 
 CI (Continous integration)
 ---------------------------
-What are we doing in CI ? We are integrating the code like we have developers and they are continously pushing the code to the git, as a devops engineer we need to take that code and check wether the code is compiling properly (or) not and building the code so in this process generally we get errors while building the code, scanning the code and testing the code and saving the code at one place, this is called continous integration process, If this process succeded then only we go for deployment which is "CD"
+What are we doing in CI ? We are integrating the code like we have developers and they are continously pushing the code to the git, as a devops engineer we need to take that code and check wether the code is compiling properly (or) not and building the code, scanning the code, testing the code and saving the code 
+at one place, this is called continous integration process, If this process succeded then only we go for deployment which is "CD"
 
-1. First catalogue should be in git
+1. First catalogue application should be in git
 2. Write Jenkinsfile for this, what should be the stages in jenkinsfiles ?
    a) clone the code
    b) unit testing
@@ -30,13 +31,13 @@ What are we doing in CI ? We are integrating the code like we have developers an
 
 CD (Continous deployment)
 --------------------------
-1. deploy to dev
-2. testers will test the functional cases
-3. finally publish the results
+1. Deploy to dev
+2. Testers will test the functional cases
+3. Finally publish the results
 
 Now create seperate repository for catalogue and create CICD for this
 ----------------------------------------------------------------------
-server.js and catalogue.json is the main code of catalogue, in package.json we keep dependencies and now write a jenkinsfile for server.js and catalogue.json, we dont need infra for CI part. we need infra only for CD part. like for example developers will do CI part and infra engineers will do CD part parallely once the infra is ready then they push to the dev environment
+server.js and package.json is the main code of catalogue, in package.json we keep dependencies and now write a jenkinsfile for server.js and catalogue.json, we dont need infra for CI part. we need infra only for CD part. like for example developers will do CI part and infra engineers will do CD part parallely once the infra is ready then they push to the dev environment
 
 1. First get the application version, version is in "package.json" file so to read json file in pipeline 
    there is a plugin called "pipeline utility steps" we need to install this in jenkins and write a code 
@@ -53,21 +54,21 @@ server.js and catalogue.json is the main code of catalogue, in package.json we k
    again, so you can run the service directly, so zip this and store in the nexus, git is used to store 
    the code we cannot store zip files (OR) artifacts. is nothing but your application which is in the form 
    of zip file we call it as artifacts. Sonatype Nexus is also a repository only for storing artifacts not 
-   code, So create 1 instance for Nexus with t3.medium(atleast 2gm ram)/30gb storage.Login in to the nexus 
+   code, So create 1 instance for Nexus with t3.medium(atleast 2gm ram)/30gb storage. Login in to the nexus 
    sever with sudo access and then "labauto" then type "nexus" select option 2, when enter "netstat -lntp" 
    you will get 8081 port for nexus. Now take the ip address of nexus server paste in google, then sign in 
    and password cat it as shown in the popup box, Generally when you enter "npm install" then it will fetch
    the dependencies from the internet but companies will not enable the internet, so companies will 
    put those dependencies in the nexus repository, Thats why nexus is a single point of contact for 
-   libraries and  dependencies. Here we need to create a repository for catalogue to hold the catalogue 
-   artifacts
+   libraries and dependencies. Here we need to create a repository for catalogue to hold the catalogue 
+   artifacts in the Sonatype nexus repository
 
 Maven 2 format
 ---------------
-For example 1000 students in a class is there a chance of below naming 
-firstname
-firstname + lastname ---> will be the same?
-firstname + lastname + dob ---> may be possible
+For example 1000 students in a class is there a chance of below naming combinations
+1. firstname ---> will be same?
+2. firstname + lastname ---> will be the same?
+3. firstname + lastname + dob ---> may be possible
 That means when you add a comibination it will become unique, So similarly in the project we have modules like
 catalogue module,cart module etc. and catalogue version and cart version etc. So project should follow the proper folder structure to get uniqueness, For example with in the company we have a project called roboshop and catalogue is one of the module and for this catalogue have multiple versions like 1.0.0 ; 1.0.1 ; 2.0.0
 
@@ -85,13 +86,13 @@ Now create catalogue repository in Nexus(UI) server
 ----------------------------------------------------
 Version policy ---> "snapshot" is for development environment
                     "release" is for prod environment
-					     "mixed" is for both so as of now we are using mixed
+		    "mixed" is for both so as of now we are using mixed
 Layout policy ---> persmissive
 Deployment policy ---> allow redeploy, this option is not good for prod
 
 After creating repo it will give us a URL, so in this URL you can store the artifacts, nothing but zipping the artifacts in jenkins and pushing to this URL, So search for "zipfiles and folders in linux with excluded files" in google and we got the below command --> zip -q -r catalogue.zip ./* -x ".git" -x "*.zip" 
-In this command -q = for silenting the log because it is printing huge log
-                -x = exclude
+In this command "./* means in this catalogue directory we want all and "-x" is exclude
+                -q = for silenting the log because it is printing huge log on the jenkins terminal
                 -x "*.zip" = What this again ? when you build a zip file will be created and incase if you 
                              run it again it will create another zip file so for that we need to exclude 
                 unzip = unzip catalogue.zip
