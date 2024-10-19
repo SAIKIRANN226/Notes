@@ -1,1 +1,3 @@
+Versions 1.0.0 ---> we call it as semantic version this is popular, industry will follow this only just search and know about semantic versioning
 
+We have artifacts in jenkins and we need to push to nexus, for that we need to install a plugin "nexus artifact uploader" and also write a small script in jenkins file which is taken from the internet for publishing artifact refer this in VS and also create credentials
