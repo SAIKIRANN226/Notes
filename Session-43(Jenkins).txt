@@ -2,11 +2,11 @@ Note:- Logs of nodes will be showed in the jenkins master however running will b
 
 "Input" condition
 ------------------
-Nothing but taking approval and moving to the next stage, So refer this from "roboshop-infra-dev" vpc there we have written jenkins file, now configure same in jenkins by creating a separate folder "roboshop infra" create vpc inside this folder and script path ---> 01-vpc/Jenkinsfile, When you try to build you will get a error that "terraform command not found". This build is running in agent, It is not madatory to know everything to the master only, but who are working as agents should know, Here in this scenario agent dont know the Terraform commands, So for that we need to install few tools in agent "Terraform command" ; " aws credentials" install these two in agent just search "install terraform linux" in google select centos and run shown 3 commands in agent server. Next do "aws configure" [Note:- While configuring aws dont do with root user, because master is connecting through centos user it is not taking the sudo acccess, so it must be normal user while aws configure]. Now run this pipeline(build). To enable colors we need to install a plugin that is ansiColor go to manage jenkins/plugins/type ansiColor. and put this command in the script also "ansiColor('xterm')". If any plugins are not working even after installing like example here colors is not showing even after installing plugins then you need to restart jenkins in the Jenkins-master server by "systemctl restart jenkins" 
+Nothing but taking approval and moving to the next stage, So refer this from "roboshop-infra-dev"-vpc there we have written jenkins file, now configure same in jenkins by creating a separate folder "roboshop infra" inside this folder create "vpc" folder and script path ---> 01-vpc/Jenkinsfile, When you try to build you will get an error that "terraform command not found". This build is running in agent, It is not madatory to know everything to the master only, but who are working as agents should know, Here in this scenario agent dont know the Terraform commands, So for that we need to install few tools in agent "Terraform command" ; " aws credentials" install these two in agent just search "install terraform linux" in google select centos and run shown 3 commands in agent server. Next do "aws configure" [Note:- While configuring aws dont do with root user, because master is connecting through centos user it is not taking the sudo access, so it must be normal user while aws configure]. Now run this pipeline(build). To enable colors we need to install a plugin that is ansiColor go to manage jenkins/plugins/type ansiColor. and put the following command in the script also "ansiColor('xterm')". If any plugins are not working even after installing like example here colors is not showing even after installing plugins then you need to restart jenkins in the Jenkins-master server by "systemctl restart jenkins" 
 
 "When" condition
 -----------------
-Like giving condition when branch name is production do these steps, Search in google like jenkins pipelines when with parameters. Refer parameters in roboshop-infra-dev(01-vpc), there you have two parameters one is apply and another one is destroy, So when you try to "build with parameters" in the jenkins server, you can see a drop down and select apply/destory, So this means we can write CICD for infrastructure also.
+Like, giving condition when branch name is production do these steps, Search in google like jenkins pipelines when with parameters. Refer parameters in roboshop-infra-dev(01-vpc), there you have two parameters one is apply and another one is destroy, So when you try to "build with parameters" in the jenkins server, you can see a drop down and select apply/destory, So this means we can write CICD for infrastructure also.
 
 CICD for applications
 ----------------------
@@ -17,8 +17,8 @@ Now do CICD for catalogue application, what should be there to do ?
 
 CI (Continous integration)
 ---------------------------
-What are we doing in CI ? We are integrating the code like we have developers and they are continously pushing the code to the git, as a devops engineer we need to take that code and check wether the code is compiling properly (or) not and building the code, scanning the code, testing the code and saving the code 
-at one place, this is called continous integration process, If this process succeded then only we go for deployment which is "CD"
+What are we doing in CI ? We are integrating the code, like we have developers and they are continously pushing the code to the git, as a devops engineer we need to take that code and check wether the code is compiling properly (or) not and building the code, scanning the code, testing the code and saving the code 
+at one place, this is called continous integration process, If this process succeded then only we go for CD.
 
 1. First catalogue application should be in git
 2. Write Jenkinsfile for this, what should be the stages in jenkinsfiles ?
@@ -27,7 +27,9 @@ at one place, this is called continous integration process, If this process succ
    c) scans like (sonar scan)
    d) installing dependencies
    e) build (zip file)
-   f) push the zip file to the "nexus" which is a repository where we keep our "artifacts" other than code
+   f) push the zip file to the "nexus" which is a repository where we keep our "artifacts" other than 
+      code.Artifacts typically include compiled code, binaries, configuration files, libraries, containers, 
+      or any other output that is required for the next stages of development, testing, or deployment.
 
 CD (Continous deployment)
 --------------------------
