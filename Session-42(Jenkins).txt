@@ -1,6 +1,6 @@
 Jenkins is a CICD tool (or) continous integration tool
 -------------------------------------------------------
-SCM(github) --> JenkinsCICD --> Build --> Test --> Deploy --> Monitoring the whole process 24/7 --> Sending alerts if any errors
+Code will be in SCM(github) --> JenkinsCICD will the take from SCM --> Build --> Test --> Deploy --> Monitoring the whole process 24/7 --> Sending alerts if any errors
 
 How to create Jenkins server ?
 -------------------------------
