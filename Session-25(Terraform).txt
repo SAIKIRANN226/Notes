@@ -1,7 +1,7 @@
 Terraform
 ----------
 Is a popular IAC(infrastructure as code),defining your infrastructure in configuration files
-(like ec2.tf is called as configuration file)using HCL ---> Hashi corp configuration language.It is a declarative way of creating infrastructure,what is declarative ---> Whatever you write you will get provided if you write in correct syntax,terraform advantage is that easy syntax and no need to follow the sequence.Ansible is also declarative as we are giving our desired infra in a file and giving it to the ansible or terraform
+(like ec2.tf is called as configuration file)using HCL ---> Hashi corp configuration language.It is a declarative way of creating infrastructure,what is declarative ---> Whatever you write you will get provided if you write in correct syntax,terraform advantage is that easy syntax and no need to follow the sequence.Ansible is also declarative as we are giving our desired infra in a file and giving it to the ansible
 
 What is infrastructure?
 ------------------------
