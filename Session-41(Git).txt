@@ -20,11 +20,10 @@ If you follow rebase strategy you will not get extra commits but commit-ids will
 
 Squash 
 -------
-Nothing but mixing for example if a developer is developing one microservice and he commited like 60 commits that will be shown in the github which is not good so it will merge as one commit if you use squash.
-If a branch is developed by multiple developers then prefer merge because we need to know who are doing what. so merge will preserve the history so that we can know who did what, but where as rebase rewrites it, nobody goes for rebase, most of them go for merge only 
+Nothing but mixing for example if a developer is developing one microservice and he commited like 60 commits that will be shown in the github which is not good so it will merge as one commit if you use squash.If a branch is developed by multiple developers then prefer merge because we need to know who are doing what. so merge will preserve the history so that we can know who did what, but where as rebase rewrites it, nobody goes for rebase, most of them go for merge only 
 
 Branching strategy
-------------------
+-------------------
 1. main  ---> long live branch
 2. feature ---> short live branch we can delete this after merging into the main, developers can create
                 feature branch, once they complete development, they will raise PR and merge/rebase into 
