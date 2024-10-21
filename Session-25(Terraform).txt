@@ -22,9 +22,10 @@ What is infrastructure?
 3.Modules:- These are reusable that means other teams can use this modules without writing from the scratch 
   with same code but with different configuration
 
-4.State Management:- Terraform maintains a state file that tracks the current state of your
-  infrastructure. This file allows Terraform to know what resources are already provisioned and how they 
-  should be modified or destroyed. Current state is nothing but what terraform has created
+4.State Management:- Terraform maintains a state file that is "terraform.tfstate" file which tracks the 
+  current state of your infrastructure. This file allows Terraform to know what resources are already 
+  provisioned and how they should be modified or destroyed. Current state is nothing but what terraform 
+  has created
 
 5.Plan and Apply:- Terraform allows you to create an execution plan (terraform plan) that
   shows what actions Terraform will take to reach the desired state defined in your configuration. You then 
