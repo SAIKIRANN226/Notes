@@ -38,5 +38,7 @@ Where should CI/CD need to happen? feature-1 before raising PR lets do CICD in d
 4. Give a "protection rule" by going to settings/branches/add branch protection rule like what has to be 
    minimum requirements like Number of approvers/require PR/dismiss tale approval etc.
 
+We dont have any rights to raise PR or other thing this thing only done by the developers only not devops engineers
+
 https://dzone.com/articles/top-20-git-commands-with-examples
 https://dzone.com/articles/top-35-git-commands-with-examples-and-bonus
