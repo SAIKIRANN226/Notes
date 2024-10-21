@@ -71,9 +71,10 @@ For example 1000 students in a class is there a chance of below naming combinati
 1. firstname ---> will be same?
 2. firstname + lastname ---> will be the same?
 3. firstname + lastname + dob ---> may be possible
-That means when you add a comibination it will become unique, So similarly in the project we have modules 
-like catalogue module,cart module etc. and catalogue version and cart version etc. So project should 
-follow the proper folder structure to get uniqueness, For example with in the company we have a project called roboshop and catalogue is one of the module and for this catalogue have multiple versions like 1.0.0 ; 1.0.1 ; 2.0.0
+That means when you add a comibination it will become unique, So similarly in the project we have 
+modules like catalogue module,cart module etc. and catalogue version and cart version etc. So project 
+should follow the proper folder structure to get uniqueness, For example with in the company we have a project called roboshop and catalogue is one of the module and for this catalogue have multiple versions 
+like 1.0.0 ; 1.0.1 ; 2.0.0
 
 How the structure will be ?
 ----------------------------
