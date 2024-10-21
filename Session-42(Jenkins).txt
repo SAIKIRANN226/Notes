@@ -1,24 +1,30 @@
-Jenkins is a CICD tool (or) continous integration tool
--------------------------------------------------------
-Code will be in SCM(github) --> JenkinsCICD will the take from SCM --> Build --> Test --> Deploy --> Monitoring the whole process 24/7 --> Sending alerts if any errors
+Jenkins is a CICD tool
+-----------------------
+1. Developer developes and pushes the code to SCM tool which is (github) then
+2. Jenkins CICD tool will the take the code from SCM and it will
+3. Build or Compile --> Whatever the code is in SCM that is in human understanding but we need to convert 
+   into computer understanding language because we are deploying in the server(computer)
+4. Test
+5. Deploy
+6. Monitoring the whole process 24/4 and sending alerts if any errors
 
-How to create Jenkins server ?
--------------------------------
+How to create Jenkins-master server ?
+--------------------------------------
 1. Create a jenkins instance with t3.small/20gb/defaultSG as of now
 2. Login to the instance using public_ip in the superputty
 3. Install jenkins using commands which can be found in "jenkins.io" go to three lines in top right
    corner you will find download option, and select Redhat/Fedora/almalinux/CentOS. Here you will find 
-   commands Note, that you are not installing in the laptop as a software, you are installing in the 
+   commands. Note that you are not installing in the laptop as a software, you are installing in the 
    server. So you need to install using commands only.
 4. After installing "systemctl start jenkins" and "systemctl status jenkins" and "systemctl enable jenkins"
 5. Now take the jenkins_ip (public) and paste in the url (jenkins port=8080) like 54.152.189.90:8080/, 
-   when you do this you get error that the network is not secured but proceed "continue to site"
+   when you do this you may get error: network is not secured but proceed with "continue to site"
 6. Just cat the path which is showing in the jenkins console and login 
 7. Then install suggested plugins
 8. Create user account
 9. So jenkins setup is completed and start using it
 
-Whatever we do in the jenkins we call it as a job, now click on new-item (nothing but creating a sample file or JOB as of now) select free-style project, free-style is nothing but everything you do it in UI(console), not only in jenkins initially we created resources in aws console that is also called free-style, later we used terraform,shellscript,ansible to create resources. Select "Execute shell" in build steps option, echo "hello-world" then apply and save. We are just telling jenkins to run this command using build now button.
+Whatever we do in the jenkins we call it as a job, now click on new-item (nothing but creating a sample file or JOB as of now) select free-style project, free-style is nothing but everything you do it in UI(console), not only in jenkins initially we created resources in aws console that is also called free-style, later we used terraform,shellscript,ansible to create resources. Here in free-style project select "Execute shell" in build steps option, echo "hello-world" then apply and save. We are just telling jenkins to run this command using build now button.
 
 Creating resources in AWS (Amazon Web Services) can be done through the AWS Management Console (a graphical user interface) or by using scripting (often with tools like AWS CLI, AWS SDKs, or Infrastructure as Code tools like Terraform or AWS CloudFormation). Each method has its advantages and disadvantages:
 
@@ -30,8 +36,8 @@ Advantages of AWS Management Console
    services interact in real-time.
 3. No Setup Required:- Users can start using the console without any installation of tools or writing 
    scripts.
-4. Visual Representation:- The console offers visualizations and dashboards that help users 
-   monitor resource status and usage effectively.
+4. Visual Representation:- The console offers visualizations and dashboards that help users monitor the
+   resource status and usage effectively.
 5. Access to All Features:- Some advanced features and settings may be more accessible or visible in the 
    console than through scripts.
 
@@ -41,9 +47,7 @@ Disadvantages of AWS Management Console
    large-scale deployments.
 2. Lack of Version Control:- Changes made in the console are not easily tracked or version-controlled, 
    making it challenging to audit changes.
-3. Limited Automation:- Automation options are limited; while some actions can be automated with 
-   AWS Lambda, they may not be as comprehensive as script-based solutions.
-4. Inconsistent Environments:- Replicating the same setup across multiple environments 
+3. Inconsistent Environments:- Replicating the same setup across multiple environments 
    (e.g., dev, test, prod) can be challenging and lead to inconsistencies.
 
 Advantages of Scripting (e.g., AWS CLI, SDKs)
@@ -61,14 +65,11 @@ Advantages of Scripting (e.g., AWS CLI, SDKs)
 
 Disadvantages of Scripting
 ---------------------------
-1. Learning Curve:- Users need to learn scripting languages and AWS-specific command syntax, which may be 
-   daunting for beginners.
-2. Debugging Complexity:- Scripting errors can sometimes be difficult to troubleshoot, especially for 
+1. Debugging Complexity:- Scripting errors can sometimes be difficult to troubleshoot, especially for 
    complex setups.
-3. Setup Time:- Initial setup for scripts may require more time and effort compared to a 
-   quick console setup.
-4. Dependency Management:- Managing dependencies and ensuring that scripts run in the correct environment 
-   can add complexity.
+2. Setup Time:- Initial setup for scripts may require more time and effort compared to aws console
+3. Dependency Management:- Managing dependencies and ensuring that scripts run in the correct environment 
+   will be difficult
 
 Conclusion
 -----------
@@ -76,7 +77,7 @@ The choice between using the AWS Management Console and scripting largely depend
  
 1. Free-style
 --------------
-Free-style job is no one is preferring now, it is very easy to do everything from the console, anybody can do the changes and we dont know who did what? and it is very difficult to rollback to the original version, thats why everybody is moved to pipeline, So now we should understand jenkins pipeline just search "jenkins pipelines" click on the first link and know about the pipeline syntax and its different conditions
+Free-style job is no one is preferring now, as it is very easy to do everything from the console, anybody can do the changes and we dont know who did what? and it is very difficult to rollback to the original version, thats why everybody is moved to pipeline, So now we should understand jenkins pipeline just search "jenkins pipelines" click on the first link and know about the pipeline syntax and its different conditions
 
 2. Pipelines
 -------------
