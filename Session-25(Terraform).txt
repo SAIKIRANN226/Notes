@@ -1,23 +1,30 @@
 Terraform
 ----------
 Is a popular IAC(infrastructure as code),defining your infrastructure in configuration files
-(like ec2.tf is configuration file)using HCL ---> Hashi corp configuration language
+(like ec2.tf is called as configuration file)using HCL ---> Hashi corp configuration language.It is a declarative way of creating infrastructure,what is declarative ---> Whatever you write you will get provided if you write in correct syntax,terraform advantage is that easy syntax and no need to follow the sequence.Ansible is also declarative as we are giving our desired infra in a file and giving it to the ansible or terraform
 
 What is infrastructure?
 ------------------------
+1. Resources
+2. Providers
+3. Modules
+4. State management
+5. Plan and apply 
+6. Version control
+7. Provisioning and automation
+
 1.Resources:- These are the components of your infrastructure, such as virtual machines,
   networks, storage accounts, databases, and more. Each resource is defined in the Terraform configuration.
 
-2.Providers:- Terraform interacts with various cloud providers (like AWS, Azure, GCP),
-  on-premises solutions, and other services through providers. Each provider has its own set of resources 
-  and data sources that you can manage.
+2.Providers:- Terraform interacts with various cloud providers (like AWS, Azure, GCP), so it has own set of 
+  resources and data sources that we can manage.
 
-3.Modules:- These are reusable groups of Terraform configurations that means other teams can use this 
-  modules without writing from the scratch with same code but with different configuration
+3.Modules:- These are reusable that means other teams can use this modules without writing from the scratch 
+  with same code but with different configuration
 
 4.State Management:- Terraform maintains a state file that tracks the current state of your
   infrastructure. This file allows Terraform to know what resources are already provisioned and how they 
-  should be modified or destroyed.
+  should be modified or destroyed. Current state is nothing but what terraform has created
 
 5.Plan and Apply:- Terraform allows you to create an execution plan (terraform plan) that
   shows what actions Terraform will take to reach the desired state defined in your configuration. You then 
@@ -29,8 +36,7 @@ What is infrastructure?
 7.Provisioning and Automation:- Terraform automates the provisioning of infrastructure,
   making it easier to manage and scale your resources.
 
-# Till now we configured our project manually,shellscript,ansible,but we prefer ansible as
-  a configuration management if it is large project compare to any other configuration management tools
+Till now we configured our project manually,shellscript,ansible,but we prefer ansible as a configuration management if it is large project compare to any other configuration management tools
 
 Why we din't prefer manuall configuration?
 -------------------------------------------
@@ -38,9 +44,20 @@ Why we din't prefer manuall configuration?
 2. We will get more human errors
 3. But where as ansible,it can connect to more number of servers easily from 
    one single ansible server(ansible controller machine)
-4. For example if you are doing work manually it is least preffered but if you do same work with scripting 
+4. For example if you are doing work manually it is least preferred but if you do same work with scripting 
    it is best approach,we have below all advantages in Terraform scripting,not only terraform we can use 
    other tools also like ansible/shellscripting/powershell/python etc.
+
+Advantages of Terraform scripting
+----------------------------------
+1. Version control
+2. Consistent infrastructure
+3. Automated infrastructure(CRUD)
+4. Inventory management
+5. Cost optimization
+6. Automatic dependency management
+7. Terraform modules
+8. Hybrid cloud
 
 Version control
 ----------------
@@ -48,7 +65,7 @@ If we keep code in the GIT,we can maintain history,we can also rollback to the p
 
 Consistent infrastructure
 --------------------------
-Same code will work with all environments like dev,sit,uat,prod.Real time scenario like code is working in dev but not in prod,for this issue we use terraform
+Same code will work with all environments like dev,sit,uat,prod. Real time scenario like code is working in dev but not in prod,for this issue we use terraform
 
 Automated infrastructure(CRUD)
 -------------------------------
@@ -74,12 +91,11 @@ Cost optimization
 4. Terraform is also a hybrid cloud that means you can create infra in aws,azure,GCP 
    not only cloud,terraform can work with any other popular tools in the market,you can see in the 
    terraform providers,it can work with everything.
-The above all are the terraform understanding(interview question).It is a declarative way of creating infrastructure,what is declarative ---> Whatever you write you will get provided if you write in correct syntax,terraform advantage is that easy syntax and no need to follow the sequence.Ansible is also declarative as we are giving our desired infra in a file and giving it to the ansible or terraform
+The above all are the terraform understanding(interview question).
 
 From here we create infrastructure using terraform not manually,now setup terraform
 ------------------------------------------------------------------------------------
-1. Terraform download from google mostly AMD64 windows,if you download and extract you will
-   get exe file
+1. Terraform download from google mostly AMD64 windows,if you download and extract you will get exe file
 2. Move that exe file in your desired location,downloading is not enough still it will show
    terraform command not found
 3. Take this downloaded path and give it in the "system environment variable"
