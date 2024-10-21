@@ -1,26 +1,25 @@
 GIT(a stupid content tracker)
 ------------------------------
-We have a protection rule for branch this option only available when there is a content in the branch, we can protect our branch by few restrictions like pull-request,and we can add number of approvals, like that we have different options to protect our main branch so that nobody will push directly to the main branch.
-Git is just a content tracker for example type the below command in gitbash to know how git will track the content:- echo "hello world" | git hash-object --stdin , Here "hello world" is the content from the above command and when you enter the above command you will get a commit-id that is nothing but hash-object which will be in 40 characters, we call that has "SHA code" universal unique ID , what ever you store whether it is file or folder for everything it will have a "SHA code". git is a key-value pair here key = SHA code(commit-id) ; value = content is the value. If you change the content, commit-id also changes, if the content is same across allover the world commit-id will also be same for everyone. Where does all these tracking will be saved?It will be in "ls -la" ---> .git/ folder.and commit-ids will be saved in .objects/ folder, If you enter command "git log" you will get commit-id of that entire file which you are working, take that commit-id and "git cat-file <commit-id> -p" you will get total information of the commit-id. How to create a branch? "git branch feature-1". How to switch from one branch to another? "git checkout main". Also adding approvers in collaborators and teams, after getting approval developer can merge it, after merging to the main branch that means a new commit is added in the main branch, then later you need to pull in the main branch to reflect the changes "git pull origin main". "git log --oneline" if you want to print commit-id in oneline
+We have a protection rule for branch this option only available when there is a content in the branch, we can protect our branch by few restrictions like pull-request,and we can add number of approvals,dismiss tale approval etc. like that we have different options to protect our main branch so that nobody will push directly to the main branch.Git is just a content tracker for example type the below command in gitbash to know how git will track the content:- echo "hello world" | git hash-object --stdin , Here "hello world" is the content from the above command and when you enter the above command you will get a commit-id that is nothing but hash-object which will be in 40 characters, we call that has "SHA code" universal unique ID , what ever you store whether it is file or folder for everything it will have a "SHA code". git is a key-value pair here key = SHA code(commit-id) ; value = content is the value. If you change the content, commit-id also changes, if the content is same across allover the world commit-id will also be same for everyone. Where does all these tracking will be saved?It will be in "ls -la" ---> .git/ folder.and commit-ids will be saved in .objects/ folder, If you enter command "git log" you will get commit-id of that entire file which you are working, take that commit-id and "git cat-file <commit-id> -p" you will get total information of the commit-id. How to create a branch? "git branch feature-1". How to switch from one branch to another? "git checkout main". Also adding approvers in collaborators and teams, after getting approval developer can merge it, after merging to the main branch that means a new commit is added in the main branch, then later you need to pull in the main branch to reflect the changes "git pull origin main". "git log --oneline" if you want to print commit-id in oneline
 
 Watch from (19:54 to 51:37) ---> PR(pull request)
 
-Merge stratagies
------------------
+Merging strategies
+-------------------
 1.Merge
 2.Rebase
 
 Merge
 ------
-When you are merging from one branch to another branch, for example we merged feature-1 into the main branch. it will create a merge commit always that have two parents, merge will preserve the complete history in the form of commit-ids, it is like chain structure
+When you are merging from one branch to another branch, for example we merged feature-1 into the main branch. it will create a merge commit-id always, that have two parents, merge will preserve the complete history in the form of commit-ids, it is like chain structure, so that we can know who did what changes.
 
 Rebase
 -------
-If you follow rebase strategy you will not get extra commits but commit-ids will change and rewrites the history and it will not preserve the history
+If you follow rebase strategy you will not get extra commits but commit-ids will changes and rewrites the history and it will not preserve the history
 
 Squash 
 -------
-Nothing but mixing for example if a developer is developing one microservice and he commited like 60 commits that will be shown in the github which is not good so it will merge as one commit if you use squash.If a branch is developed by multiple developers then prefer merge because we need to know who are doing what. so merge will preserve the history so that we can know who did what, but where as rebase rewrites it, nobody goes for rebase, most of them go for merge only 
+Nothing but mixing all commit-ids into 1-commit, for example if a developer is developing one microservice and he commited like 60 commits that will be shown in the github which is not good to see, so it will merge as one commit if you use squash. If a branch is developed by multiple developers then prefer merge because we need to know who are doing what. so merge will preserve the history so that we can know who did what, but where as rebase rewrites it, nobody goes for rebase, most of them go for merge only 
 
 Branching strategy
 -------------------
@@ -28,13 +27,7 @@ Branching strategy
 2. feature ---> short live branch we can delete this after merging into the main, developers can create
                 feature branch, once they complete development, they will raise PR and merge/rebase into 
                 the main branch, This is nothing but feature branching strategy
-Where should CI/CD need to happen? feature-1 before raising PR lets do CICD in dev environment, if success in dev then you can raise PR then merge/rebase into main branch, Code is same across all environments but configuration is different, so configuration should be detached from code as we are using SSM parameter store to store the configuration. Once the code is merged from dev to main branch, from main branch it goes to like QA,SIT,UAT and PROD, what if dev is success and failure in QA or SIT or UAT or PROD ? then developer again need to create feauture branch and develop in the dev environment then go to main again
-
-1. Create a repo example "learn-git"
-2. Clone into your local(gitbash)
-3. Commit a README.MD in this and push to the github
-4. Give a "protection rule" by going to settings/branches/add branch protection rule like what has to be 
-   minimum requirements like Number of approvers/require PR/dismiss tale approval etc.
+Where should CI/CD need to be happen? feature-1 before raising PR lets do CICD in dev environment, if success in dev then you can raise PR and merge/rebase into main branch. Code is same across all environments but configuration is different, so configuration should be detached from code as we are using SSM parameter store to store the configuration. Once the code is merged from dev to main branch, from main branch it goes to like QA,SIT,UAT and PROD, what if dev is success and failed in any one of these QA or SIT or UAT or PROD ? then developer again need to create feauture branch and develop in the dev environment then PR to main again
 
 We dont have any rights to raise PR or other thing this thing only done by the developers only not devops engineers, we only discuss with developers like what is branching strategies and how many branchs should be there, what is the merging strategy ? how merging should be happen ? we discuss this and come to a common point, so that we can do settings as per the discussion like merge/rebase/squash
 
