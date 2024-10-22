@@ -72,3 +72,6 @@ RED ---> \e[31m
 GREEN ---> \e[32m
 YELLOW ---> \e[33m 
 NORMAL ---> \e[0m      To enable colors option you need to give "-e"
+
+12.loops.sh(VS)
+----------------
