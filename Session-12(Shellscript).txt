@@ -1,52 +1,69 @@
 Shell-script(bash script)
 --------------------------
 1. Create a separate folder for all your repos in your local and same will be reflected in VS also
-2. Watch your Shell script folder in your VS ---> 01-hello-world.sh (Extension for the shellscript is ".sh")
-3. #!/bin/bash ----> This we call it as "shibang" it is the first line to check the syntax of the shellscript 
-   we need to give the location of bash, apart from the first line if you see "#" anywhere it is commentout
-# If you want git in visual studio only go to view ---> terminal ---> select gitbash
-# If you enter wrong URL while pushing then we can set 
+2. Watch your Shell script folder in your VS ---> 01-hello-world.sh 
+   (Extension for the shellscript is ".sh")
+3. #!/bin/bash ----> This we call it as "shibang" it is the first line to check the syntax of the 
+   shellscript we need to give the location of bash which is /bin/bash but we write as a first line #! , 
+   apart from the first line if you see "#" anywhere it is commentout
+4. Shibang is the first line in shellscript, that we used to give the location of the bash or shell so it
+   will check the syntax and execute our shellscript
+5. To print anything in the shellscript we use a special command called "echo" ---> 01-hello-world.sh
+6. If you want gitbash in visual studio only go to view ---> Terminal ---> Select gitbash
+7. If you enter wrong URL while pushing to the github then we can set by using below command
     "git remote set-url origin <url of the repository>"
-# If git is not configured in the github account yet.even developers can start writing their
-  code in the VS untill git is ready and the they can push it to the git later.
-# A normal folder will become git when you initialise it like "git init"
-# echo is only used for printing purpose
+8. If git is not configured in the github account yet, then also developers can start writing their
+   code in the VS untill git is ready and then they can push it to the git later.
+9. A normal folder will become git when you initialise it like "git init"
+10. echo is only used for printing purpose
 
-1.we develop code in vs 
-2.using gitbash client we push the code to the github repository
-3.create a server in aws
-4.pull the code in server from github,or you can clone by using https,if it is a new repo go
-  for"clone",you want only changes then"git pull"
-5.go to the path where the shell script is,then 
-6."sh <script-name>" we get the ouput
+01-hello-world.sh
+------------------
+a) Create one instance for shell script to practice or to run our shellscripts and login to that instance
+   using public_ip 
+b) To clone shellscript repository URL, what you will choose HTTPS or SSH ? we go for HTTPS because we 
+   create more servers based on the traffic, rightnow we are practicing so we cannot configure keys
+   everytime for connecting through SSH, so thats why we go for HTTPS as it is "readonly"
+c) Now "git clone <https URL>"
+d) Now "cd shellscrip" and now how to run this shellscript ? "sh <script-name>
 
-Variables(VS)
---------------
-# Dry concept dont repeat yourself
-# We can give variables in capital letters but not mandatory,for calling a variable give "$"
-# What ever you add the changes firt push it to the github then only pull from the server
-  git add . ; git commit -m "message" ; git push
+Steps
+------
+1. We develop code in vs 
+2. Using gitbash client we push the code to the github repository
+3. Create a server in aws
+4. Pull the code in server from github, or you can clone by using https, if it is a new repo go
+   for "clone", if you want only changes then "git pull"
+5. Go to the path where the shell script is, then run the script using below command
+6. "sh <script-name>" we get the ouput
 
-How do you run commands in shellscript and take output?
---------------------------------------------------------
-${command} ---> Usage => DATE=$(date)
-                         echo "script started executing at ${DATE}"
+02-variables.sh(VS)
+--------------------
+1. Dry concept dont repeat yourself
 
-Arguments,args(VS)
--------------------
-We can give arguments outside the shell 
-Usage ---> "sh <script-name> ram raheem"
+03-variables.sh(VS)
+--------------------
+How to do you run commands in shellscript and take output ? (interview question)
+1. Push to github
+2. Pull in the server to reflect the new changes
 
-For example we need to connect external systems like to connect to DB,we need username and password(VS-->05-variables.sh)
+04-variables.sh(VS)
+--------------------
+1. Push to the github
+2. Pull in the server
 
-Data Types(VS)
----------------
-int,float,string etc.
-In this shell data type is not much important it will automatically consider which data type is.Usage in server:- sh <script-name> 100 200
+05-variables.sh(VS)
+--------------------
+For example we need to connect to external systems like connecting to DB, we need username and password
 
-Arrays(VS)
------------
-Array index will start from 0,1,2,3....we have notation for "ALL" that is "@" 
+06-data-types.sh(VS)
+---------------------
+In shellscript data type is not much important it will automatically consider which data type is. Usage in 
+the server:- sh <script-name> 100 200
+
+07-arrays.sh(VS)
+-----------------
+Array index will start from 0,1,2,3.... We have notation for "ALL" that is "@" 
 Usage:- sh 07-arrays.sh
 
-Important note:- If you make any changes in the code in VS if you save that changes by pressing ctrl+S then color will change to yellow.So to make normal then you must push the code to the github account
+Important note:- If you make any changes in the code in VS if you save that changes by pressing ctrl+S then color will change to yellow. So to make normal then you must push the code to the github account
