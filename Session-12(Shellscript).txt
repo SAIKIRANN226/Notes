@@ -1,18 +1,9 @@
-# In linux we are automatically landing in the home directory that is just enter pwd then you
-  will get /c/users/user here defenitly you will have .ssh folder 
-# Why this ssh connection ? because we work with multiple github accounts so for every 
-  account logging with username and password is not a good pracitce so we prefer to use ssh 
-  based authentication here
-# Github ---> is nothing but a folder in internet with tracking capabilities
-# git branch -M main --> to change from master to main
-# Learn Dzone git commands
-# git add . ; git commit -m "proper message" ; git push -u origin master
-
-Shellscript(bash script)
--------------------------
-#!/bin/bash ----> this we call it as shibang it is the first line to check the syntax of the 
- shellscript we need to give the location of bash,apart from the first line if you see # 
- anywhere it is commentout
+Shell-script(bash script)
+--------------------------
+1. Create a separate folder for all your repos in your local and same will be reflected in VS also
+2. Watch your Shell script folder in your VS ---> 01-hello-world.sh (Extension for the shellscript is ".sh")
+3. #!/bin/bash ----> This we call it as "shibang" it is the first line to check the syntax of the shellscript 
+   we need to give the location of bash, apart from the first line if you see "#" anywhere it is commentout
 # If you want git in visual studio only go to view ---> terminal ---> select gitbash
 # If you enter wrong URL while pushing then we can set 
     "git remote set-url origin <url of the repository>"
