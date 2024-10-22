@@ -1,6 +1,4 @@
-1. Make sure Repository name you create in github and windows folder should be same
-
-You should not do any changes or adding new files in server terminal, you can do one step back like after going to home folder(cd) like ~ ---> here you can store the logs for practicing as siva showed in the terminal, here in terminal if you get any errors or not working properly you can delete that folder and again you can clone from the github
+Make sure Repository name you create in github and windows folder should be same, You should not do any changes or adding new files in server terminal, you can do one step back like after going to home folder(cd) like ~ ---> here you can store the logs for practicing as siva showed in the terminal, here in terminal if you get any errors or not working properly you can delete that folder and again you can clone from the github
 
 08-conditions.sh(VS)
 ---------------------
