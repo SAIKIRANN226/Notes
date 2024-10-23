@@ -43,7 +43,7 @@ Steps
 
 03-variables.sh(VS)
 --------------------
-How to do you run commands in shellscript and take output ? (interview question), you need to put command in the parentheses() ---> $(command)
+How to do you run commands in shellscript and take output ? (interview question), you need to put command in the parentheses() ---> $(command) and put this value in a variable
 
 04-variables.sh(VS)
 --------------------
@@ -52,7 +52,7 @@ How to do you run commands in shellscript and take output ? (interview question)
 
 05-variables.sh(VS)
 --------------------
-For example we need to connect to external systems like connecting to DB, we need username and password
+For example if we need to connect to external systems like DB, we need username and password
 
 06-data-types.sh(VS)
 ---------------------
@@ -61,7 +61,9 @@ the server:- sh <script-name> 100 200
 
 07-arrays.sh(VS)
 -----------------
-Array index will start from 0,1,2,3.... We have notation for "ALL" that is "@" 
-Usage:- sh 07-arrays.sh
+Array index will start from 0,1,2,3.... We have notation for "ALL" that is "@" Usage:- sh 07-arrays.sh
 
-Important note:- If you make any changes in the code in VS if you save that changes by pressing ctrl+S then color will change to yellow. So to make normal then you must push the code to the github account
+Points to remember
+-------------------
+1. If you make any changes in the code in VS if you save that changes by pressing ctrl+S then color will 
+   change to yellow. So to make normal then you must push the code to the github account
