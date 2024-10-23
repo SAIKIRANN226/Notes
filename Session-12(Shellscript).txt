@@ -25,7 +25,7 @@ b) To clone shellscript repository URL, what you will choose HTTPS or SSH ? we g
    create more servers based on the traffic, rightnow we are practicing so we cannot configure keys
    everytime for connecting through SSH, so thats why we go for HTTPS as it is "readonly"
 c) Now "git clone <https URL>"
-d) Now "cd shellscrip" and now how to run this shellscript ? "sh <script-name>
+d) Now "cd shellscript" and now how to run this shellscript ? "sh <script-name>
 
 Steps
 ------
@@ -44,8 +44,6 @@ Steps
 03-variables.sh(VS)
 --------------------
 How to do you run commands in shellscript and take output ? (interview question)
-1. Push to github
-2. Pull in the server to reflect the new changes
 
 04-variables.sh(VS)
 --------------------
