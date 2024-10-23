@@ -1,5 +1,3 @@
-Make sure Repository name you create in github and windows folder should be same, You should not do any changes or adding new files in server terminal, you can do one step back like after going to home folder(cd) like ~ ---> here you can store the logs for practicing as siva showed in the terminal, here in terminal if you get any errors or not working properly you can delete that folder and again you can clone from the github
-
 08-conditions.sh(VS)
 ---------------------
 "if" condition syntax
@@ -11,10 +9,8 @@ if(expression) {
    statement if expression is false
 }
 
-09-install-mysql.sh(VS)
-------------------------
-Algorithm(steps)
-----------------
+09-install-mysql.sh(VS) and Algorithm(steps)
+---------------------------------------------
 1. check user is root(or)not
 2. if root
      proceed
@@ -27,44 +23,41 @@ Algorithm(steps)
    if not success
      then show what is the error
 
-1. check user is root(or)not
+1. Check user is root or not
 -----------------------------
-How to know if it is root user or not ? you just enter "id" in the server terminal with root access 
-sudo -, there you can see root user has id = zero (or) type "id -u" then you get root ID, other than zero 
-it is not root user. Shellscript wont stop if it faces error, it is our responsibility to stop and slove 
-the error and then proceed, for that we have "exit status" --> $?, it will check previous command success or not exit status have a special variable "$?" ---> if success it has "0" if failure "not 0"
+How to know if it is root user or not ? you just enter "id" in the server terminal with root access sudo - there you can see root user has id = zero (or) type "id -u" then you get root ID, other than zero it is not root user. Shellscript wont stop if it faces error, it is our responsibility to stop and solve the error and then proceed, for that we have "exit status" --> $? (special variable), it will check previous command success or not ---> if success it has "0" if failure "1" otherthan 0
 
 10-functions.sh(VS)
 --------------------
 We can keep the repeated code in the functions and call it whenever we want, generally we keep functions under VARIABLES, we have given arguments to the shellscript, similarly we need to give inputs to the functions also
 
-You have run the script right ? then where is that log ? there will be no logs in /var/log/messages, we need to store that logs particularly otherwise we cannot troubleshoot, make sure you should not log in the current folder of server come outside and then do, this is just to show how it works rightnow
-
 11-logs.sh(VS)
 ---------------
+You have run the script right ? then where is that log ? there will be no logs in /var/log/messages, we need to store that logs particularly otherwise we cannot troubleshoot, make sure you should not log in the working folder of server come outside and then do, this is just to show how it works rightnow
+
 Redirections(> symbol is for output redirection) do these below all in the server
 ----------------------------------------------------------------------------------
-1. ls -ltr > temp.log ---> storing ls -ltr log in a temp.log file, here output is not in terminal, it is 
-   in temp.log to view this "cat temp.log"
+1. ls -ltr > temp.log ---> Storing log in a temp.log file, here output will not show in terminal, it is 
+   in temp.log file, to view this "cat temp.log"
 2. If you give a successfull(or)correct command(or)spelling mistake in commands like "ls -ltrrrrsd temp.log"
 3. "any-command > temp.log"  ---> bydefault success output only stores here
-    1 ---> success = usage(ls -ltr 1> temp.log)
-    2 ---> failure = usage(ls -ltr 2> temp.log) ---> it is a success command because there is no spelling 
-           mistake, so it  wont be in the temp.log, if (ls -ljtsssfs 2> temp.log) now it will store because 
+    1 ---> Success = usage(ls -ltr 1> temp.log)
+    2 ---> Failure = usage(ls -ltr 2> temp.log) ---> it is a success command because there is no spelling 
+           mistake, so it wont be in the temp.log, if (ls -ljtsssfs 2> temp.log) now it will store because 
            it is wrong(failure) command
-    &> ---> both wether it is success or not it will store in the temp.log
-    &>> ----> it will append the new log
+    &> ---> Both wether it is success or not it will store in the temp.log
+    &>> ----> It will append the new log
 4. To open the log file "less <logfile-name>"
 
 Special Variables will work only in double qotes ""
 ----------------------------------------------------
-$? ---> checks wether the exit status of previous command is success or not
-$0 ---> you will get script name
-$1 ---> first argument
-$2 ---> second so on ...
+$? ---> Checks wether the exit status of previous command is success or not
+$0 ---> You will get script name
+$1 ---> First argument
+$2 ---> Second and so on ...
 $N ---> Nth arg
-$@ ---> all arguments
-$# ---> to know how many args are passed
+$@ ---> All arguments
+$# ---> To know how many args are passed
 
 Colors
 -------
@@ -75,3 +68,13 @@ NORMAL ---> \e[0m      To enable colors option you need to give "-e"
 
 12-loops.sh(VS)
 ----------------
+If you want to install multiple packages then use loops
+
+Points to remember
+-------------------
+1. Make sure Repository name you create in github and windows folder should be same, You should not do any 
+   changes or adding new files in server terminal, you can do one step back like after going to home 
+   folder(cd) like ~ ---> here you can store the logs for practicing as siva showed in the terminal, here in 
+   terminal if you get any errors or not working properly you can delete that folder and again you can clone 
+   from the github
+2. Logs can only we seen in the server not in gitbash.
