@@ -43,7 +43,7 @@ Steps
 
 03-variables.sh(VS)
 --------------------
-How to do you run commands in shellscript and take output ? (interview question)
+How to do you run commands in shellscript and take output ? (interview question), you need to put command in the parentheses() ---> $(command)
 
 04-variables.sh(VS)
 --------------------
