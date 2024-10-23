@@ -5,7 +5,7 @@ Shell-script(bash script)
    (Extension for the shellscript is ".sh")
 3. #!/bin/bash ----> This we call it as "shibang" it is the first line to check the syntax of the 
    shellscript we need to give the location of bash which is /bin/bash but we write as a first line #! , 
-   apart from the first line if you see "#" anywhere it is commentout
+   apart from the first line if you see "#" anywhere it is commentout ; ! ---> Exclamation mark
 4. Shibang is the first line in shellscript, that we used to give the location of the bash or shell so it
    will check the syntax and execute our shellscript
 5. To print anything in the shellscript we use a special command called "echo" ---> 01-hello-world.sh
