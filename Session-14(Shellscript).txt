@@ -9,8 +9,6 @@ Algorithm for Installing any number of packages:-
 How do we call this script in server ? ---> "sh 13-install-packages.sh git mysql postfix etc"
 To know if package is installed or not in the server just "yum list installed", to know anything particular then "yum list installed git", to check exit status of the git just "echo $?" if "0" it is installed
 
-Shellscript is nothing but put your required linux commands in a file 
-
 Roboshop shellscript(VS)
 -------------------------
 Refer the Document and create first mongodb 
@@ -28,3 +26,7 @@ sed -e 's/<word-to-find>/word-to-replace/g' ----> global for everything
 # How to check logs? ---> sudo less /var/log/messages
 # To check the ports "netstat -lntp"
 # Shellscript is nothing but put all the Linux commands in one file
+
+Points to remember
+-------------------
+1. Shellscript is nothing but put your required linux commands in a file 
