@@ -11,22 +11,24 @@ To know if package is installed or not in the server just "yum list installed", 
 
 Roboshop shellscript(VS)
 -------------------------
-Refer the Document and create first mongodb 
+Refer the Document and configure the project starting from the mongodb it is not mandatory to start from the mongodb we can start as per the document also but it is good to start from the mongodb, preferences below
+1. Mongodb
+2. Catalogue
+3. 
 
 SED editor(stream line editor)it is temporary editor it will not save
 ----------------------------------------------------------------------
 To change the configuration. For humans we have VIM editor but for scripts we have SED editor
-Example:- sed -e '1 a I am  learning DevOps'<file-name> ------> e=enable, a=append(after)if you want before first line then "i",1=line1.if want after 2nd line then "2 a".If you want permanent change then keep "i" in place of "e"
+Example:- sed -e '1 a I am  learning DevOps'<file-name> ------> e=enable, a=append(after) if you want before first line then "i", 1=line1. If want after 2nd line then "2 a" . If you want permanent change then keep "i" in place of "e"
 
-Lines update
--------------
-sed -e 's/<word-to-find>/word-to-replace/' ---> first occurrence in the line
-sed -e 's/<word-to-find>/word-to-replace/g' ----> global for everything
-
-# How to check logs? ---> sudo less /var/log/messages
-# To check the ports "netstat -lntp"
-# Shellscript is nothing but put all the Linux commands in one file
+Lines updating
+---------------
+sed -e 's/<word-to-find>/word-to-replace/' ---> First occurrence in the line
+sed -e 's/<word-to-find>/word-to-replace/g' ----> Global for everything
 
 Points to remember
 -------------------
 1. Shellscript is nothing but put your required linux commands in a file 
+2. How to check logs? ---> First take sudo - and less /var/log/messages
+3. To check the ports "netstat -lntp"
+4. Create route53 records in hosted zones
