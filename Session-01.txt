@@ -89,4 +89,3 @@ Or you can get help from man command also ---> "man <command>"
 
 Linux is not OS it is a kernel(49:35 to 58:38)
 -----------------------------------------------
-45:23 ---> about firewall
