@@ -1,5 +1,5 @@
-What is computer?
-------------------
+What is computer ?
+-------------------
 Laptop
 Mobile
 Phone
@@ -7,17 +7,17 @@ Refrigerator
 Washing machine etc..
 We can call above all those also a computer because A computer has some characterstics like CPU,RAM,STORAGE etc. And when we connect these devices to internet(wifi) an IP address will be created to operate the computer (or) to compute with in the local and worldwide
 
-www.facebook.com ---> Is a Server. based on the purpose like
+www.facebook.com ---> Is a Server, based on the purpose like
 TV is used for Channels
 Mobile is user for calls
-Similarly Server is used for hosting applications and serve users/clients
+Similarly Server is used for hosting applications to serve users/clients
 
 Client-Server Architecture
 ---------------------------
 Client = Who is requesting information
 Server = Who is giving information
-Example:- Phone and laptop "viceversa" when transferring media
-Whole IT is a communication between clinets and servers
+Example:- Phone and laptop "viceversa" when transferring media 
+Whole IT is a communication between clients and servers
 
 Operating systems
 ------------------
@@ -28,12 +28,13 @@ OS will takcare of converting 0's and 1's
 Windows vs Linux
 -----------------
 Windows ---> Graphics(Load increases on CPU,memory & everthing)
-Linux ---> Linix world(No graphics,Faster,relabile,lesscost,stability,security comes from unix principles only)
+Linux ---> Servers world(No graphics,Faster,reliable,lesscost,stability,security comes from 
+unix principles only)
 
 How to connect Linux servers ?
 -------------------------------
 BOX = Linux server (or) Node
-LOCK = Public key(should be in aws(server)
+LOCK = Public key(should be in aws-server)
 KEY = Private key(should be with you)
 
 Authentication mechanisms to connect linux server
@@ -52,15 +53,15 @@ with ".pem"
 # Syntax for publickey is = ssh-rsa <code> Laptopname
 # Syntax for privatekey is = BEGIN OPENSSH PRIVATE KEY <code> END OPENSSH PRIVATE KEY
 
-So you have created a link now create a server in aws and connect to that server with these key
+So you have created a link now create a server in aws and connect to that server with these keys
 
-Steps to connect to ssh-server
--------------------------------
-1.Import keypair in aws by going to --> Network and security options --> keypairs --> 
-  actions --> import key pair without any gaps
-2.Create a security group(firewall) for inbound --> all traffic--> 0.0.0.0/0(representation 
-  of internet)
-3.Launch instance with keypairs and take Amazon Linux 2AMI(HVM)
+Steps to connect to ssh-server with keys in the gitbash 
+--------------------------------------------------------
+1. Import keypair in aws by going to --> Network and security options --> keypairs --> actions and 
+   import key pair without any gaps
+2. Create a security group (firewall) for inbound ---> all traffic ---> 0.0.0.0/0(representation 
+   of internet)
+3. Launch instance with keypairs and take Amazon Linux 2AMI(HVM)
 
 Take public IP and username is "ec2-user" and "privatekey"
 {ssh -i <path-to-privatekey> username@IP} ===> usage {ssh -i saikiran.pem ec2-user@123.23.234.5} and this command should be enter in the gitbash in the pwd "c/Users/saikiran"
@@ -70,34 +71,22 @@ Protocol ---> ssh(we have different protocols like https,http etc.)
 Port for ssh ---> 22
 Ec2 server ---> ssh server
 
-Cheapest region is "us-east-1" ---> latency(somewhat slow which is negligible)
-Evrery region as two AZ's
+Cheapest region is "us-east-1" ---> latency(somewhat slow which is negligible). Every region has min 2 availability zones, Everything here we call as resources, like EC2(server). Where ever you are if you type CD and enter you will go to user directory. "clear" command will clear all the lines, when you open gitbash bydefault it will be in the "/c/Users/saikiran" when ever you stuck in the gitbash just enter "ctrl+c"
 
 Absolute path and Relative path
----------------------------------
-1.Absolute path ===> ssh -i /c/users/user/saikiran.pem ec2-user@IP (if you dont know where you are so give from the starting)
-2.Relative path ===> just know where you are by PWD and then give the path from there like "ssh -i saikiran.pem ec2-user@IP" when you are in user directory
+--------------------------------
+1. Absolute path ===> ssh -i /c/users/user/saikiran.pem ec2-user@IP (if you dont know where you are so give 
+   from the starting)
+2. Relative path ===> Just know where you are by PWD and then give the path from there like 
+   "ssh -i saikiran.pem ec2-user@IP" when you are in user directory
 
-Where ever you are if you type CD and enter you will go to user directory
-clear command will clear all the lines
-
-$---> normal user
-#---> root user(sudo su -) to exit from root just "exit"
-pwd---> present working directory you will be launched to /home/ec2-user
-uname---> will tell the kernel name
-<command-name> --help ---> get help from that particular command
-Or you can get help from man command also ---> "man uname"
-
-us-east-1 ---> is the cheapest region,every region has min 2 availability zones,eberything here we call has resources,EC2(sevrer)
+$ ---> Normal user
+# ---> Root user(sudo su -) to exit from root just "exit"
+pwd ---> Present working directory you will be launched in /home/ec2-user
+uname ---> will tell the kernel name
+<command-name> --help ---> Get help from that particular command
+Or you can get help from man command also ---> "man <command>"
 
 Linux is not OS it is a kernel(49:35 to 58:38)
-------------------------------------------------
+-----------------------------------------------
 45:23 ---> about firewall
-
-Overview:-
-----------
-1.ssh-keygen -f <file-name> ---> to generate key , and make sure you create in the home 
-  folder just go to home folder by "cd" and then create
-2.ssh -i <path-to-privatekey> username@IP ---> to connect to the server.
-3.when ever you are struck in the gitbash just enter "ctrl+c"
-4.when you open the gitbash bydefault it will be in the "/c/Users/saikiran"
