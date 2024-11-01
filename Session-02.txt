@@ -1,5 +1,5 @@
 Basic Linux commands
-----------------------
+---------------------
 ls ---> list subdirectories
 cd ---> change directory
 cd ..---> one step back
@@ -10,7 +10,7 @@ r ---> read
 x ---> execute
 ls -l ---> lengthy format in alphabetical order
 ls -lr ---> lengthy format in reverse alphabetical order
-ls --help ---> will provide all the commands regarding LS,but we dont use all
+ls --help ---> will provide all the commands regarding LS, but we dont use all
 ls -lt ---> based on latest timing
 ls -ltr ---> oldest timing
 ls -la ---> lists all folders and files including hidden
@@ -19,72 +19,68 @@ mkdir ---> creates folder
 blue color is folder
 white color is file
 
-CRUD
------
-CREATE,READ,UPDATE,DELETE
-So in entire software (or) you take any technology the background is CRUD. example:- www.facebook.com,login or signup or update etc.what ever ever you do CRUD will happen
+CRUD(CREATE,READ,UPDATE,DELETE)
+--------------------------------
+So in entire software (or) you take any technology the background is CRUD. Example:- www.facebook.com, 
+login or signup or update etc. what ever you do CRUD will happen
 
 Updating file with content
-----------------------------
-# cat > file-name and then start entering content (one greaterthan symbol> always replaces 
-  the content)
-# cat >> file-name will appends(add) the content (or) to add a new content
-# to save this ---> enter and ctrl+D
-# to read file ---> cat <file-name>
+---------------------------
+1. cat > file-name and then start entering content (one greaterthan symbol > always replaces the content)
+2. cat >> file-name will appends(add) the new content
+3. To save this ---> enter and ctrl+D
+4. To read file ---> cat <file-name>
 
 Remove file and folder
-------------------------
-rm <file-name> ---> deletes the file
-rmdir <folder-name> ---> deletes the empty folder
-rm -r <folder-name> ---> deletes the files also ("r" means recurrsive go inside and delete everything)
+-----------------------
+rm <file-name> ---> Deletes the file
+rmdir <folder-name> ---> Deletes the empty folder
+rm -r <folder-name> ---> Deletes the files also ("r" means recurrsive go inside and delete everything)
 
-Copy
-------
+Copy command
+-------------
 cp <source where the file is> <destination>
 cp -r ---> recurssive
 
-Move
-------
+Move command
+-------------
 mv ---> move
-with in the same folder if you use mv command,it works as a rename
-So mv command can also be used for renaming 
+with in the same folder if you use mv command, it works as a rename also. So mv command can also be used 
+for renaming 
 
 grep command
---------------
+-------------
 grep <word-to-find> <file-name>
 Linux is case sensitive linux will treat DevOps and DEVOPS different to make this case insensitive(i) use
 "grep -i <word-to-find> <file-name>"
 
-Piping
---------
-| ---> one command output will become the input to the another command
-
-wget vs curl
+Piping symbol
 --------------
+| ---> One command output will become the input to the another command
+
+wget vs curl commands
+----------------------
 wget is nothing but "get from web"
+wget ===> Used to download the file like example chrome .exe file
+curl ===> Downloads the content directly on the terminal without downloading file, we use this more, for example take your any session URL from git and try 
 
-wget == used to download the file like example chrome .exe file
-curl == downloads the content directly on the terminal without downloading file,we use this more,for example take your any session URL from git and try 
-
-cut 
------
+cut command
+------------
 # https://github.com/saikiran-notes/blob/master/session.txt
-
-# to cut this we use "delimiter" here ":" and "/" are the delimiters available here,we get 
-  fragments in delimiter
+# To cut this we use "delimiter" here ":" and "/" are the delimiters, we get fragments in delimiter
 
 Command ==> cut -d / -f1
 Usage ==> "echo https://github.com/saikiran-notes/blob/master/session.txt | cut -d /f1"
 
-awk
------
-Command ==> awk -F / '{print $1F}'   
-to get last fragment just use awk -F / '{print $NF}'
+awk command
+------------
+Command ===> awk -F / '{print $1F}' 
+To get last fragment just use awk -F / '{print $NF}'
 
 awk will divide the data based on columns so we use the above command
 
-Head and tail
----------------
+Head and tail commands
+-----------------------
 head <file-name> ==> first 10 lines
 tail <file-name> ==> last 10 lines
 to get specific ==> head -n 1 <file-name>  == first line,similarly tail also
