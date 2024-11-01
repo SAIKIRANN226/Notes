@@ -1,7 +1,6 @@
-Service management
---------------------
-Example posting a letter from delhi --> hyd
-we have 0-65,535 ip address(nothing but a apartment) are there in computer including mobiles,if you dont give port number it will halt at the apartment(0-65,535 ip address)
+Service management(Example posting a letter from delhi --> hyd)
+----------------------------------------------------------------
+We have 0-65,535 ip_address(nothing but a apartment) are there in computer including mobiles,if you dont give port number it will halt at the apartment(0-65,535 ip address)
 we have different blocks like ssh(22),http(80),https(443),msql(3006),SMTP(25),like popular protocols and ports
 nginx is http protocol port no.80
 
