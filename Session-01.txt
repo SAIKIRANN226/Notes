@@ -7,49 +7,55 @@ Refrigerator
 Washing machine etc..
 We can call above all those also a computer because A computer has some characterstics like CPU,RAM,STORAGE etc. And when we connect these devices to internet(wifi) an IP address will be created to operate the computer (or) to compute with in the local and worldwide
 
-www.facebook.com ---> is a Server. based on the purpose like
+www.facebook.com ---> Is a Server. based on the purpose like
 TV is used for Channels
 Mobile is user for calls
 Similarly Server is used for hosting applications and serve users/clients
 
 Client-Server Architecture
-----------------------------
-Client = who is requesting information
-Server = who is giving information
-Example:-Phone and laptop "viceversa" when transferring media
+---------------------------
+Client = Who is requesting information
+Server = Who is giving information
+Example:- Phone and laptop "viceversa" when transferring media
 Whole IT is a communication between clinets and servers
 
 Operating systems
--------------------
+------------------
 Windows OS ---> A bridge between user and hardware 
 User instructions ---> commands ---> 0/1 ---> hardware
-# OS will takcare of converting 0's and 1's
+OS will takcare of converting 0's and 1's
 
 Windows vs Linux
-------------------
+-----------------
 Windows ---> Graphics(Load increases on CPU,memory & everthing)
 Linux ---> Linix world(No graphics,Faster,relabile,lesscost,stability,security comes from unix principles only)
 
-How to connect Linux servers?
+How to connect Linux servers ?
 -------------------------------
-BOX = linux server (or) node
-LOCK = public key(should be in aws(server)
-KEY = private key(should be with you)
+BOX = Linux server (or) Node
+LOCK = Public key(should be in aws(server)
+KEY = Private key(should be with you)
 
 Authentication mechanisms to connect linux server
 --------------------------------------------------
-1.what you know ---> username and password
-2.what you have ---> rsa tokens
-3.what you are  ---> palms,retina,fingerprints etc. for now we use second method (what you have),so we use SSH(secure shell)
+1. What you know ---> Username and Password
+2. What you have ---> RSA tokens
+3. What you are  ---> Palms,retina,fingerprints etc. for now we use second method(what you have),so we 
+   use SSH(secure shell)
 
-So here we need to generate (or) create a link between "LOCK and KEY" by using a command in gitbash "ssh-keygen -f <filename>" and press enter two times so there will be two files generated ".pub" and one more file with same name but "without extension" to unable extension go to controlpanel ---> file explorer options ---> view ---> unhide extensions for known files and then rename your private key with ".pem"
+So here we need to generate (or) create a link between "LOCK and KEY" by using a command in gitbash 
+"ssh-keygen -f <filename>" and press enter two times so there will be two files generated ".pub" and 
+one more file with same name but "without extension" to unable extension go to controlpanel
+file explorer options ---> view ---> unhide extensions for known files and then rename your private key 
+with ".pem"
+
 # Syntax for publickey is = ssh-rsa <code> Laptopname
 # Syntax for privatekey is = BEGIN OPENSSH PRIVATE KEY <code> END OPENSSH PRIVATE KEY
 
 So you have created a link now create a server in aws and connect to that server with these key
 
-Steps:-
---------
+Steps to connect to ssh-server
+-------------------------------
 1.Import keypair in aws by going to --> Network and security options --> keypairs --> 
   actions --> import key pair without any gaps
 2.Create a security group(firewall) for inbound --> all traffic--> 0.0.0.0/0(representation 
