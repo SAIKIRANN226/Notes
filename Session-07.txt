@@ -1,24 +1,27 @@
 Roboshop configure
 -------------------
-1. Web/frontend tier        ----> Stateless(if crashes,we can recover)
-2. App/Api/backend tier     ----> Stateless(if crashes,we can recover)
-3. DB tier                  ----> Statefull(if crashes,tough to recover)
+1. Web/frontend tier        ---->  Stateless(if crashes,we can recover)
+2. App/Api/backend tier     ---->  Stateless(if crashes,we can recover)
+3. DB tier                  ---->  Statefull(if crashes,tough to recover)
 
-CRUD over database(when you create a new user example in facebook)
--------------------------------------------------------------------
+"CRUD" over database(example when you create a new user in facebook)
+---------------------------------------------------------------------
 1. Create a user if iam new to FB
 2. Read user if i login 
 3. Update user if i update anything in the FB
 4. Delete user if i delete anything in the FB
 
-Nginx is used as "reverse proxy" in this project, we have RHEL=Fedora=centos=awslinux all are same flavoured but in this project siva has created his own AMI based on "centos8" browse more AMI's in Nvirgnia ----> search "devops-practice" ---> community AMI's ---> select "Centos-8-DevOps-Practice" this is not key based because we cannot create keys for every servers it is very tough so we are using username and password authentication. username is = centos; Password is = DevOps321
+Nginx(80) is used as "reverse proxy" in this project, we have RHEL=Fedora=centos=awslinux all are same flavoured but in this project siva has created his own AMI based on "centos8" browse more AMI's in 
+Nvirgnia ----> search "devops-practice" ---> community AMI's ---> select "Centos-8-DevOps-Practice" this 
+is not key based because we cannot create keys for every servers it is very tough so we are using username 
+and password authentication. Username is = centos; Password is = DevOps321
 
 1. Create security group for allowing all firewalls
-2. Create a web instance with devops-pratice with no keypair
+2. Create a web instance with devops-pratice with no keypair to start configuring roboshop project
 3. Now create putty session ---> given session name ---> connection data ---> username = centos ---> 
    appearence ---> change the font to 14 and save the session ---> click on centos and load
 4. Open super putty and connect to the web instance with public iP
-5. Now open documentation and follow the steps of web server
+5. Now open documentation and follow the steps of web server configuration
 6. Superputty we can create multiple tabs and we can also rename the instance
 7. We are using nginx(80) as webserver like http server or webserver are same, make sure nginx should
    take http not https where you are testing the URL of nginx server
