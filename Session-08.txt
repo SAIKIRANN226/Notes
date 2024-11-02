@@ -1,19 +1,22 @@
 DNS(Domain name system)
 ------------------------
+For example when you hit "joindevops.online" where will first request will go ?
+Browser ---> cache ---> OS ---> cache ---> ISP ---> cache ---> Root servers ---> TLD ---> NS ---> A record
+
 Domain registars
 -----------------
-godaddy,hostinger(cheap),aws etc..we are using aws cloud for records because it is friendly
+godaddy,hostinger(cheap),aws etc. we are using aws cloud for records because it is friendly
+Next go to route53 we can also buy domain from aws also but it very costly so we buy domain in hostinger 
+and we create records in aws, so go to route53 Dashboard ---> Hosted zone ---> Create hosted zone ---> After creating hosted zones you will get few name servers update this name servers in hostinger
+"A" record will match the IPaddress
 
-Next go to route53 we can also buy domain from aws also but it very costly so we buy domain in hostinger and we create records for in aws,so go to route53 ---> Dashboard ---> Hosted zone ---> register your domain ---> create hosted zone ---> saikiran.online like whatever ---> change nameservers in hostinger(DNS record ---> 
-
-Now create record
-------------------
-paste public IP in value
-ttl = 1 
-
+Now create record in aws
+-------------------------
+Paste public IP in value
+ttl = 1 ---> It is like chache
 To check whether the record is created or not "nslookup mongodb.joindevops.online"
 To check logs "tail -f /var/log/messages" you will get running logs
-To check all logs "less -f /vat/log/messages"
+To check all logs "less -f /var/log/messages"
 
 shift+g = go down
 gg = go up
