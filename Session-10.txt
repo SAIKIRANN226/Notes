@@ -10,7 +10,7 @@ Configuring all in this session at a time
 
 What is deployment wether it is manual or automation
 -----------------------------------------------------
-1. Developer will update the code in git and push as zip
+1. Developer will update the code in git and push as zip file
 2. Download the code
 3. Stop the server
 4. Remove old code
