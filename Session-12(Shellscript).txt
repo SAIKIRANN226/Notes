@@ -1,12 +1,14 @@
-# In linux we are automatically landing in the home directory that is just enter pwd then you
-  will get /c/users/user here defenitly you will have .ssh folder 
-# Why this ssh connection ? because we work with multiple github accounts so for every 
-  account logging with username and password is not a good pracitce so we prefer to use ssh 
-  based authentication here
-# Github ---> is nothing but a folder in internet with tracking capabilities
-# git branch -M main --> to change from master to main
-# Learn Dzone git commands
-# git add . ; git commit -m "proper message" ; git push -u origin master
+1. In linux we are automatically landing in the home directory to know that just "pwd" then 
+   you will get "/c/users/user(saikiran) here definitely you will have ".ssh" folder 
+2. Why this ssh authentication to the github to push the code ? Because we work with multiple github
+   accounts so for every account logging with username and password is not a good practice so we prefer 
+   to use ssh based authentication over username and password authentication
+3. Github ---> Is nothing but a folder in internet with tracking capabilities
+4. git branch -M main --> To change from master to main
+5. Learn Dzone git commands
+   https://dzone.com/articles/top-20-git-commands-with-examples
+   https://dzone.com/articles/top-35-git-commands-with-examples-and-bonus
+6. git add . ; git commit -m "proper message" ; git push -u origin master
 
 Shellscript(bash script)
 -------------------------
