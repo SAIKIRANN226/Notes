@@ -20,8 +20,8 @@ What is deployment wether it is manual or automation
 
 Synchronous vs Asynchronous
 ----------------------------
-http and https are ---> sync communication server should be always up and running, if servers not running 
-we get error code like 400/500. that is called synchronous
+http and https websites are ---> sync communication server should be always up and running, if servers 
+not running. we get error code like 400/500. that is called synchronous
 
 Asynchronous
 -------------
