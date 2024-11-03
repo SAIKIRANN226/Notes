@@ -1,27 +1,28 @@
 Project configuration
 ----------------------
-1.creating the server
-2.installing programming language
-3.downloading code / application
-4.creating directories and users
-5.installing dependencies
-6.start application
+1. Creating the server
+2. Installing programming languages
+3. Downloading code / application
+4. Creating directories and users
+5. Installing dependencies
+6. Start application
 
-Deployment/release process
----------------------------
-1.developer push the code
-2.stop the server
-3.remove/backup the old code
-4.download new code
-5.start the server
+Deployment / Release process
+-----------------------------
+1. Developer push the code
+2. Stop the server
+3. Remove/backup the old code
+4. Download new code
+5. Start the server
 
-The above is manual then what is the difference btw manual and automation
---------------------------------------------------------------------------
+The above is for manual process 
+--------------------------------
+Then what is the difference between manual and automation process ?
 Manual disadvantages:-
-1.downtime
-2.time consuming
-3.human erros 
-4.troubling shooting is tough like finding who did the mistakes,repeated tasks
+1. Downtime
+2. Time consuming
+3. Human erros 
+4. Trouble shooting is tough like finding who did the mistakes, and repeated tasks
 
 Programming ---> java,.net,python etc.
 Scripting ---> shell,python,ansible,terraform,kubernetes,docker
@@ -34,20 +35,21 @@ Conditions
 Functions
 Loops
 
-Algorithm thinking should be there in scripting,example:-installing git through scripting
-------------------------------------------------------------------------------------------
-1.check user have sudo access or not
-2.if not sudo through error
-3.if sudo proceed
-4.install package git
-5.we need to check explicitly wether installed or not 
-6.if error installation through the error otherwise say success
+Algorithm thinking should be there in scripting
+------------------------------------------------
+Example:- Installing git through scripting
+1. Check user have sudo access or not
+2. If not sudo throw the error
+3. If sudo proceed and then
+4. Install package "git"
+5. We need to check explicitly wether installed or not 
+6. If error in installation then throw the error, otherwise say success
 
 Shell scripting
 ----------------
-# Where to keep scripts? in git
+# Where to keep scripts? in github account
 # Generate a key-pair in gitbash
-# To connect to git we use keypair.publickey = should be in the server(centralGit), 
+# To connect to git we use keypair. publickey = should be in the server(centralGit), 
   privatekey with you
 # cat publickey and paste in github ---> settings ---> ssh and gpgkeys ---> new ssh-key paste 
   there
