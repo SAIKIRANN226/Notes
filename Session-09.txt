@@ -1,22 +1,28 @@
-ALl components first hit redis because it a cache server if the data is not available in redis then it will hit to the DB
+Overall configuration process
+------------------------------
+1. Configure all instances as per the documentation 
+2. Create records for all instances in the route53 and (Public_IP for only web and private_IP for 
+   remaining) and dont give the sub domain for web instance
+3. Dont forget to give all other information in the web 
 
-# Updating 127.0.0.1 to 0.0.0.0 in redis first unbind means remove "#" and then enter 
-  0.0.0.0, if you see another bind change there also
+ALL components first hit redis because it is a cache server if the data is not available in redis then it 
+will hit to the DB and in the redis we can see bind 127.0.0.1 and remove # and keep "bind 0.0.0.0 ::1" 
+wherever you see bind change it to 0.0.0.0
 
 Steps to install any application in linux
--------------------------------------------
-1.first we should have server 
-2.which ever application like nodejs,.net,java,python etc. any language
-3.install that programming language
-4.create a directory for this and create separate user for that application
-5.download the application,and also install dependencies,if it is nodejs it is "npm",if it 
-  java,"maven",for python"pip", for .net "nuget"after downloading how to run for that we 
-  giving in .service file "/etc/systemd/system/application.service"
-6.systemctl start application
-7.systemctl enable application
+------------------------------------------
+1. First we should have server or instance
+2. Which ever application like nodejs,.net,java,python etc. any language
+3. Install that programming language
+4. Create a directory for this and create separate user for that application
+5. Download the application, and also install dependencies, if it is nodejs it is "npm", if it 
+   java,"maven", for python"pip", for .net "nuget"after downloading how to run? for that we are
+   giving it in ".service file "/etc/systemd/system/application.service"
+6. Systemctl start application
+7. Systemctl enable application
 
 # npm will install dependencies and similarly mvn clean package will also install 
   dependencies and give a jar file
 
-# if we compile java ---> we get bytecode(jarfile),remaining languages like python,nodejs no
-  need to compile it will run directly
+# If we compile java ---> We get bytecode(jarfile), remaining languages like python,nodejs no need
+  to compile it will run directly
