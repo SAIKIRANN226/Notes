@@ -55,9 +55,9 @@ Every developer writes code in VS and pushes to the github for that we have two 
 # Generate a key-pair in gitbash
 # To connect to git we are using keypair authentication. 
   Publickey = should be in the server(centralGit), Privatekey with you
-# cat publickey and paste in github ---> Settings ---> ssh and gpgkeys ---> New ssh-key paste
-# keep your private key ---> There is .ssh folder if there is no folder create one in 
-  c/users/saikiran(user) ---> In this create a file with name of "config" with no extension 
+# Cat publickey and paste in github ---> Settings ---> ssh and gpgkeys ---> New ssh-key paste
+# Keep your private key ---> There is .ssh folder in user folder if there is no folder, create one 
+  in c/users/saikiran(user) ---> In this create a file with a name of "config" with no extension 
   and then paste the below content (or) you can search in google --> "git ssh config syntax"
 
 Host github.com
