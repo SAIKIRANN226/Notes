@@ -1,9 +1,9 @@
 Make sure Repository name you create in github and windows folder should be same
 ---------------------------------------------------------------------------------
-You should not do any changes or adding new files in server terminal,you can do one step back like after going to home folder(cd) like ~ ---> here you can store the logs for practicing as siva showed in the terminal,here in terminal if you get any errors or not working properly you can delete that folder and again clone from the github
+You should not do any changes or adding new files in server terminal, you can do one step back like after going to home folder(cd) like ~ ---> Here you can store the logs for practicing as siva showed in the terminal, here in terminal if you get any errors or not working properly you can delete that folder and again clone from the github
 
-Conditions(VS)
----------------
+08-conditions.sh
+=================
 "if" condition syntax
 
 if (expression) {
@@ -13,32 +13,35 @@ if (expression) {
    statement if expression is false
 }
 
-Installing mysql with shell(VS)
---------------------------------
+09-install-mysql.sh
+====================
 Steps
 ------
-1.check user is root(or)not
-2.if root
-    proceed
-  if not root
-    stop and say run with root user
-3.now install mysql
-4.check installed properly or not
-5.if success
-    then good
-  if not success
-    then show what is the error
+1. Check user is root(or)not
+2. Ff root
+     proceed
+   if not root
+     stop and say run with root user
+3. Now install mysql
+4. Check installed properly or not
+5. If success
+     then good
+   if not success
+     then show what is the error
 
-How to know if it is root user or not ? you just enter "id" in the server terminal with root access sudo -,there you can see root user has id zero (or) "id -u" then you get root ID,other than zero it is not root user.Shellscript wont stop if it faces error, it is our responsibility to stop and slove the error and then proceed,for that we have "exit status",that means we need to check previous command success or not for that we have special variable "$?" ---> if success it has "0" if failure "not 0"(otherthan 0 any number)
+How to know if it is root user or not ? you just enter "id" in the server terminal with root access 
+sudo -, There you can see root user has id zero (or) "id -u" then you get root ID,other than zero it is 
+not root user. Shellscript wont stop if it faces error, it is our responsibility to stop and slove the 
+error and then proceed,for that we have "exit status",that means we need to check previous command success 
+or not for that we have special variable "$?" ---> if success it has "0" if failure "not 0"(otherthan 0 any number)
 
-Functions(VS)
---------------
+10-functions.sh
+================
 We can put the repeated code in the functions, generally we keep functions under VARIABLES, we give args to the shellscript similarly we need to give inputs to the functions also
-
 You have run the script right? then where is that log ? there will be no logs in /var/log/messages,we need to store that logs otherwise we cannot troubleshoot,make sure you should not log in the current folder of server comeoutside and then do,this is just to show how it works rightnow
 
 Redirections(> symbol is for output redirection)
---------------------------------------------------
+-------------------------------------------------
 ls -ltr > temp.log ---> storing ls -ltr log in a temp.log file,here output is not in terminal,it is in temp.log to view this "cat temp.log"
 
 if you give a successfull(or)correct command(or)spelling mistake in commands like 
