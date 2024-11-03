@@ -21,8 +21,9 @@
 4. If git is not configured in the github account yet. Still developers can start writing their
    code in the VS untill git is ready and the they can push it to the git later.
 5. A normal folder will become git when you initialise it like "git init"
-6. Echo is only used for printing purpose
 
+01-hello-world.sh
+==================
 1. We develop code in vs 
 2. Using gitbash client we push the code to the github repository
 3. Create a server in aws
@@ -30,34 +31,43 @@
    for "clone", if you want only changes then "git pull"
 5. Go to the path where the shell script is, then 
 6. "sh <script-name>" we get the ouput
+7. Echo is only used for printing purpose
 
-Variables(VS)
---------------
+02-variables.sh
+================
 1. Dry concept don't repeat yourself
 2. We can give variables in capital letters but not mandatory,for calling a variable give "$"
-3. What ever you add the changes firt push it to the github then only pull from the server
+3. What ever you add the changes first push it to the github then only pull from the server
    git add . ; git commit -m "message" ; git push
 
+03-variables.sh
+================
 How do you run commands in shellscript and take output?
---------------------------------------------------------
-${command} ---> Usage => DATE=$(date)
-                         echo "script started executing at ${DATE}"
+${command} ---> Usage ===> DATE=$(date)
+                           echo "script started executing at ${DATE}"
 
-Arguments,args(VS)
--------------------
-We can give arguments outside the shell 
-Usage ---> "sh <script-name> ram raheem"
+04-variables.sh
+================
+We can give arguments outside the shell. Usage ---> "sh <script-name> ram raheem"
 
-For example we need to connect external systems like to connect to DB,we need username and password(VS-->05-variables.sh)
+05-variables
+=============
+For example if we want to connect to any external systems like DB we need username and password, 
+if we give username and password outside the shell everybody can see that. So to make confidential
+we have "read command"
 
-Data Types(VS)
----------------
+06-data-types.sh
+=================
 int,float,string etc.
-In this shell data type is not much important it will automatically consider which data type is.Usage in server:- sh <script-name> 100 200
+In shellscript data type is not much important, it will automatically consider which data type is.
+Usage in server:- "sh <script-name> 100 200"
 
-Arrays(VS)
------------
-Array index will start from 0,1,2,3....we have notation for "ALL" that is "@" 
-Usage:- sh 07-arrays.sh
+07-arrays.sh
+=============
+Array index will start from 0,1,2,3.... We have notation for "ALL" that is "@" 
+Usage:- "sh 07-arrays.sh"
 
-Important note:- If you make any changes in the code in VS if you save that changes by pressing ctrl+S then color will change to yellow.So to make normal then you must push the code to the github account
+Points to remember
+-------------------
+1. If you make any changes in the code in VS if you save that changes by pressing ctrl+S then colour 
+   will change to yellow.So to make normal then you must push the code to the github account
