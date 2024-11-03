@@ -1,11 +1,7 @@
-Make sure Repository name you create in github and windows folder should be same
----------------------------------------------------------------------------------
-You should not do any changes or adding new files in server terminal, you can do one step back like after going to home folder(cd) like ~ ---> Here you can store the logs for practicing as siva showed in the terminal, here in terminal if you get any errors or not working properly you can delete that folder and again clone from the github
+You should not do any changes or adding new files in server terminal, come one step back like after going to home folder(cd) like ~ ---> Here you can store the logs for practicing as siva showed in the terminal, here in terminal if you get any errors or not working properly you can delete that folder and again clone from the github
 
-08-conditions.sh
-=================
-"if" condition syntax
-
+08-conditions.sh ("if" condition syntax)
+=========================================
 if (expression) {
    statement if expression is true
 }
@@ -15,10 +11,12 @@ if (expression) {
 
 09-install-mysql.sh
 ====================
-Steps
-------
+Installing multiple packages using shellscript
+
+Algorithm for installing any package
+-------------------------------------
 1. Check user is root(or)not
-2. Ff root
+2. If root
      proceed
    if not root
      stop and say run with root user
@@ -69,3 +67,7 @@ RED ---> \e[31m
 GREEN ---> \e[32m
 YELLOW ---> \e[33m 
 NORMAL ---> \e[0m      To enable colors option you need to give "-e"
+
+Points to remember
+-------------------
+1. Make sure Repository name you create in github and windows folder should be same
