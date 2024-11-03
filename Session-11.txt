@@ -45,17 +45,20 @@ Example:- Installing git through scripting
 5. We need to check explicitly wether installed or not 
 6. If error in installation then throw the error, otherwise say success
 
-Shell scripting
-----------------
+Authentication to the github account to push the code
+------------------------------------------------------
+Every developer writes code in VS and pushes to the github for that we have two authentications they are
+1. Username and password ---> For every push it is a time taking process to enter username and password
+2. Username and key it is one time process which are below points
+
 # Where to keep scripts? in github account
 # Generate a key-pair in gitbash
-# To connect to git we use keypair. publickey = should be in the server(centralGit), 
-  privatekey with you
-# cat publickey and paste in github ---> settings ---> ssh and gpgkeys ---> new ssh-key paste 
-  there
-# keep your private key ---> there is .ssh folder if there is no folder create one in 
-  c/users/saikiran(user) ---> in this create a file with name of "config" with no extension 
-  and then paste the below content(or)you can search in google -->git ssh config syntax
+# To connect to git we are using keypair authentication. 
+  Publickey = should be in the server(centralGit), Privatekey with you
+# cat publickey and paste in github ---> Settings ---> ssh and gpgkeys ---> New ssh-key paste
+# keep your private key ---> There is .ssh folder if there is no folder create one in 
+  c/users/saikiran(user) ---> In this create a file with name of "config" with no extension 
+  and then paste the below content (or) you can search in google --> "git ssh config syntax"
 
 Host github.com
   HostName github.com
@@ -69,25 +72,26 @@ Host github.com
 When you create a new repo in github
 -------------------------------------
 To clone any repo we have "https and SSH"
-https --> you should give username and password(used by others to clone)
-SSH --> just private-key is enough,now we are using this(used by owners who created repo)
+https --> You should give username and password(used by others to clone)
+SSH --> Just private-key is enough, now we are using this method only(used by owners who created repo)
 
-Few GIT(global information tracking system) commands commonly used
---------------------------------------------------------------------
-It is a de-centralised(distributed)version control system,now a days everyone is using distributed because we can recover the data if lost.but not with centralised one which are 
-like TFS.
+Few GIT(global information tracking system)commands commonly used
+------------------------------------------------------------------
+It is a de-centralised(distributed)version control system, now a days everyone is using distributed 
+because we can recover the data if lost, but not with centralised one which are like TFS.
 # git init
 # git add
 # git commit -m "message"
 # git remote add origin 
 # git push origin master
 # Dont forget to configure your username and email by "git config --global"
-# We also have staging area in the git nothing but temperory area,send the code what is completed fornow(nothing git add command only)
+# We also have staging area in the git nothing but temperory area, send the code what is completed 
+  for now(nothing git add command only)
+# Now everything is set, developing in gitbash is not so good so we have IDE(integrated development 
+  environment)
 
-Now everything is set,developing in gitbash is not so good so we have IDE(integrated development environment)
-
-1.We have VS(IDE) in laptop and develop code in vs
-2.Push to GIT
-3.Pull in the server
-4.What ever a small change you want you must do in the VS-->push to git-->then pull in server
-5.Dont do any changes in the servers
+1. We have VS(IDE) in laptop and develop code in vs
+2. Push to GIT
+3. Pull in the server if any changes
+4. What ever a small change you want you must do in the VS --> Push to git--> Then pull in server
+5. Don't do any changes in the servers
