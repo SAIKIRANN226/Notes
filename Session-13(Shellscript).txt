@@ -2,10 +2,10 @@ You should not do any changes or adding new files in server terminal, come one s
 
 08-conditions.sh ("if" condition syntax)
 =========================================
-if (expression) {
+if(expression) {
    statement if expression is true
 }
-if (expression) {
+if(expression) {
    statement if expression is false
 }
 
