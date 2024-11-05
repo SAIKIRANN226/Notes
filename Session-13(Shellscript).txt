@@ -12,6 +12,7 @@ if(expression) {
 09-install-mysql.sh
 ====================
 Installing multiple packages using shellscript
+Usage:- "sudo sh installing.sh"
 
 Algorithm for installing any package
 -------------------------------------
