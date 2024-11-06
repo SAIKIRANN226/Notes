@@ -1,26 +1,39 @@
-Installing any number of packages using "loops" and Algorithm
---------------------------------------------------------------
+13-install-packages.sh
+=======================
+Installing any number of packages using "loops" instead of going to the script and again writing few 
+commands, we can install packages from the command line itself same like giving arguments outside the 
+script. And we keep these arguments in the "for loop" as shown in the script
+Usage:- "sh 13-install-packages.sh git mysql postfix etc."
+
+Algorithm to install packages
+------------------------------
 1. Check root user or not
-2. If root user then check package is installed or not,if installed skip it and tell user it 
-   is already installed,if not install it and validate
-3. if not root user throw the error
+2. If root user then check package is installed or not, To know if package is installed or not in the 
+   server just "yum list installed", to know anything particular then "yum list installed git", to check 
+   exit status of the previous command just "echo $?" if "0" it is installed, if installed skip it and 
+   tell user, it is already installed, if not install it and validate
+3. if not root user then throw the error
 
-# To know if package is installed or not in the server just "yum list installed",to know anything particular then "yum list installed git", to check exit status of the git just "echo $?" if "0" it is installed
-
-13-install-packages(VS)
-------------------------
 Roboshop shellscript(VS)
--------------------------
+=========================
+1. Mongodb
+2. Catalogue
+3. 
+
 SED editor(stream line editor)it is temporary editor it will not save
 ----------------------------------------------------------------------
-To change the configuration.for humans we have VIM editor but for scripts we have SED editor
-Example:-sed -e '1 a I am  learning DevOps'<file-name> ------> e=enable, a=append(after)if you want before first line then "i",1=line1.if want after 2nd line then "2 a".If you want permanent change then keep "i" in place of "e"
+To change the configuration for humans we have VIM editor but for scripts we have SED editor
+Example:- sed -e '1 a I am  learning DevOps'<file-name> ------> e=enable, a=append(after) if you want 
+before first line then "i", 1=line1. if want after 2nd line then "2 a". If you want permanent change 
+then keep "i" in place of "e"
 
 Lines update
 -------------
-sed -e 's/<word-to-find>/word-to-replace/' ---> first occurrence in the line
-sed -e 's/<word-to-find>/word-to-replace/g' ----> global for everything
+sed -e 's/<word-to-find>/word-to-replace/' ---> First occurrence in the line
+sed -e 's/<word-to-find>/word-to-replace/g' ----> Global for everything
 
-# How to check logs? ---> sudo less /var/log/messages
-# To check the ports "netstat -lntp"
-# Shellscript is nothing but put all the Linux commands in one file
+Points to remember
+-------------------
+1. How to check logs? ---> sudo less /var/log/messages
+2. To check the ports "netstat -lntp"
+3. Shellscript is nothing but put all the Linux commands in one file
