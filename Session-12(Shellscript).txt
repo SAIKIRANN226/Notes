@@ -1,48 +1,61 @@
-1. In linux we are automatically landing in the home directory to know that just "pwd" then 
-   you will get "/c/users/user(saikiran) here definitely you will have ".ssh" folder 
-2. Why this ssh authentication to the github to push the code ? Because we work with multiple github
-   accounts so for every account logging with username and password is not a good practice so we prefer 
-   to use ssh based authentication over username and password authentication
-3. Github ---> Is nothing but a folder in internet with tracking capabilities
-4. git branch -M main --> To change from master to main
-5. Learn Dzone git commands
+1. In linux when you open gitbash we are automatically landing in the home directory to know that 
+   just type "pwd" then you will land in "/c/users/user(saikiran), Here definitely you will have 
+   ".ssh" folder, if it is not there you need to create .ssh folder
+
+2. Why we use ssh authentication to connect github to push the code ? Because we work with multiple 
+   github accounts so for every account logging with username and password is not a good practice so 
+   we prefer to use ssh based authentication.
+
+3. Github is nothing but a folder in internet with tracking capabilities
+
+4. git branch -M main ---> To change from master to main
+
+5. Learn Dzone git commands from the below URL's
    https://dzone.com/articles/top-20-git-commands-with-examples
    https://dzone.com/articles/top-35-git-commands-with-examples-and-bonus
+
 6. git add . ; git commit -m "proper message" ; git push -u origin master
 
 "Shellscript" is also known as "Bashscript"
 --------------------------------------------
 1. #!/bin/bash ----> This we call it as shibang it is the first line to check the syntax of the 
-   shellscript, we need to give the location of bash which is "/bin/bash" but we write as #!/bin/bash 
-   apart from the first line if you see "#" anywhere it is commentout
-2. If you want git in visual studio only then go to view ---> terminal ---> select gitbash
+   shellscript, we need to give the location of bash which is "/bin/bash" but we write first line 
+   as #!/bin/bash apart from the first line, if you see "#" anywhere it is commentout
+
+2. If you want git in visual studio only then go to view ---> Terminal ---> Select gitbash
+
 3. If you enter wrong URL while pushing then we can set 
     "git remote set-url origin <url of the repository>"
-4. If git is not configured in the github account yet. Still developers can start writing their
-   code in the VS untill git is ready and the they can push it to the git later.
+
+4. If git is not configured in the github account yet, Still developers can start writing their
+   code in the VS untill git is ready and later they can push it to the git
+
 5. A normal folder will become git when you initialise it like "git init"
 
 01-hello-world.sh
 ==================
-1. We develop code in vs 
+1. We develop code in VisualStudio
+
 2. Using gitbash client we push the code to the github repository
-3. Create a server in aws
+
+3. Create a server in AWS
+
 4. Pull the code in server from github, or you can clone by using https, if it is a new repo go
    for "clone", if you want only changes then "git pull"
+
 5. Go to the path where the shell script is, then 
-6. "sh <script-name>" we get the ouput
+
+6. "sh <script-name>" then we get the output
+
 7. Echo is only used for printing purpose
 
 02-variables.sh
 ================
-1. Dry concept don't repeat yourself
-2. We can give variables in capital letters but not mandatory,for calling a variable give "$"
-3. What ever you add the changes first push it to the github then only pull from the server
-   git add . ; git commit -m "message" ; git push
-
+Dry concept don't repeat yourself, We can give variables in capital letters but not mandatory, for calling a variable give "$" , What ever you add the changes first push it to the github then only pull from the server
+ 
 03-variables.sh
 ================
-How do you run commands in shellscript and take output?
+How do you run commands in shellscript and take output ?
 ${command} ---> Usage ===> DATE=$(date)
                            echo "script started executing at ${DATE}"
 
@@ -58,16 +71,13 @@ we have "read command"
 
 06-data-types.sh
 =================
-int,float,string etc.
-In shellscript data type is not much important, it will automatically consider which data type is.
-Usage in server:- "sh <script-name> 100 200"
+int,float,string etc. In shellscript data type is not much important, it will automatically consider which data type is. Usage in server ---> "sh <script-name> 100 200"
 
 07-arrays.sh
 =============
-Array index will start from 0,1,2,3.... We have notation for "ALL" that is "@" 
-Usage:- "sh 07-arrays.sh"
+Array index will start from 0,1,2,3.... We have notation for "ALL" that is "@"
 
 Points to remember
 -------------------
 1. If you make any changes in the code in VS if you save that changes by pressing ctrl+S then colour 
-   will change to yellow.So to make normal then you must push the code to the github account
+   will change to yellow. So to make normal then you must push the code to the github account
