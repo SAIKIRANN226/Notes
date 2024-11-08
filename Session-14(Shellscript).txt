@@ -24,8 +24,8 @@ Roboshop shellscript(VS)
 6. Web ---> t2.micro
 7. Mysql ---> t3.small
 8. Shipping ---> t3.small
-9. RabbitMq
-10. Payment
+9. RabbitMq ---> t2.micro
+10. Payment ---> t2.micro
 11. Dispatch
 
 SED editor(stream line editor)it is temporary editor it will not save
