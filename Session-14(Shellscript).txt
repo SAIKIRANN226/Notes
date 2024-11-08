@@ -16,13 +16,13 @@ Algorithm to install packages
 
 Roboshop shellscript(VS)
 =========================
-1. Mongodb
-2. Catalogue
-3. User
-4. Redis
-5. Cart
-6. Web
-7. Mysql
+1. Mongodb ---> t3.small
+2. Catalogue ---> t2.micro
+3. User ---> t2.micro 
+4. Redis ---> t2.micro
+5. Cart ---> t2.micro
+6. Web ---> t2.micro
+7. Mysql 
 8. Shipping
 9. RabbitMq
 10. Payment
