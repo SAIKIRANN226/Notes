@@ -22,8 +22,8 @@ Roboshop shellscript(VS)
 4. User ---> t2.micro
 5. Cart ---> t2.micro
 6. Web ---> t2.micro
-7. Mysql 
-8. Shipping
+7. Mysql ---> t3.small
+8. Shipping ---> t3.small
 9. RabbitMq
 10. Payment
 11. Dispatch
