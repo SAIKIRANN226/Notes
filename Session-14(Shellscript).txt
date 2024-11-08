@@ -18,8 +18,8 @@ Roboshop shellscript(VS)
 =========================
 1. Mongodb ---> t3.small
 2. Catalogue ---> t2.micro
-3. User ---> t2.micro 
-4. Redis ---> t2.micro
+3. Redis ---> t2.micro 
+4. User ---> t2.micro
 5. Cart ---> t2.micro
 6. Web ---> t2.micro
 7. Mysql 
