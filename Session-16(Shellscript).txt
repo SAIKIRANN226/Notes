@@ -23,5 +23,20 @@ Create another disk for practice because in real time there will be more disks g
 Elastic Block Store ---> Volumes ---> Create volume ---> Attach to the instance
 So while creating disk there is one condition like for example disk should always near to the laptop
 Similarly here also disk should create in the same availability zone which server is created,when you 
-check in the server disk not showing, so you need to explicitly mount it 
+check in the server disk not showing, so you need to explicitly mount it we have a command "lsblk"
+and create a file system using "sudo file -s /dev/xvdf" ---> dev means devices then check wether it is 
+created or not "sudo lsblk -f" and then create a folder /data in the root and mount it 
+"sudo mount /dev/xvdf /data" 
+
+Commands to run in the server to mount the disk
+------------------------------------------------
+1. lsblk
+2. sudo file -s /dev/xvdf
+3. sudo lsblk -f 
+4. sudo mkfs -t xfs /dev/xvdf
+5. sudo mkdir /data
+6. sudo mount /dev/xvdf /data
+
+17-disk-usage.sh
+=================
 
