@@ -22,5 +22,6 @@ Command is "df -hT" if the disk usage goes above 70% we need to triggger a mail
 Create another disk for practice because in real time there will be more disks go to 
 Elastic Block Store ---> Volumes ---> Create volume ---> Attach to the instance
 So while creating disk there is one condition like for example disk should always near to the laptop
-Similarly here also disk should create in the same availability zone which server is created
+Similarly here also disk should create in the same availability zone which server is created,when you 
+check in the server disk not showing, so you need to explicitly mount it 
 
