@@ -1,7 +1,26 @@
-Algortithm for 
-------------------
-Deleting old log files and check disk usage and alert
+1. Deleting old log files and check disk usage and sending alerts
 
-We have folder where we are storing log files /tmp/shellscript-logs
-delete log files more than 14 days only .log extensions not any other files
+2. We have folder where we are storing log files /tmp/shellscript-logs
+
+3. Delete log files more than 14 days, only .log extensions not any other files
+
+Algorithm for deleting old log files
+-------------------------------------
+1. First decide what is Source-Directory 
+2. Search more than 14 days old .log files
+3. Delete rm -rf
+
+15-delete-old-log.sh
+=====================
+
+15-ifs.sh
+==========
+
+Disk usage
+-----------
+Command is "df -hT" if the disk usage goes above 70% we need to triggger a mail
+Create another disk for practice because in real time there will be more disks go to 
+Elastic Block Store ---> Volumes ---> Create volume ---> Attach to the instance
+So while creating disk there is one condition like for example disk should always near to the laptop
+Similarly here also disk should create in the same availability zone which server is created
 
