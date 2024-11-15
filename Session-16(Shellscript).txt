@@ -1,7 +1,4 @@
-For any programming or any scripting 
--------------------------------------
-It is all about variables/datatypes/conditions/loops/functions but with different syntax only we
-need to make sure with correct algorithm 
+For any programming language or any scripting. It is all about variables/datatypes/conditions/loops/functions but with different syntax, only we need to make sure with correct algorithm 
 
 Deleting old log files
 -----------------------
@@ -15,7 +12,7 @@ Algorithm for deleting old log files (or) simple script
 --------------------------------------------------------
 1. First decide what is Source-Directory or Folder where we are storing log files
 
-2. Search more than 14 days old .log files
+2. Search more than 14 days old only .log files not any other files
 
 3. Delete rm -rf
 
