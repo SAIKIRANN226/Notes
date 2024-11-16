@@ -1,48 +1,45 @@
-For any programming language or any scripting. It is all about variables/datatypes/conditions/loops/functions but with different syntax, only we need to make sure with correct algorithm 
+For any programming languages or any scripting. It is all about variables/datatypes/conditions/loops/functions but with different syntax, only we need to make sure with correct algorithm 
 
 Deleting old log files
 -----------------------
-1. Deleting old log files and check disk usage and sending alerts
+1. Deleting old log files, Check disk usage, Send email alerts
 
-2. We have folder where we are storing log files /tmp/shellscript-logs
+2. For example we have a folder, where we are storing log files /tmp/shellscript-logs
 
-3. Delete log files more than 14 days, only .log extensions not any other files
+3. Delete log files more than 14 days, only with ".log" extensions not any other files
 
 Algorithm for deleting old log files (or) simple script
 --------------------------------------------------------
 1. First decide what is Source-Directory or Folder where we are storing log files
 
-2. Search more than 14 days old only .log files not any other files
+2. Search more than 14 days old only with ".log" files not any other files
 
-3. Delete rm -rf
+3. Delete "rm -rf"
 
 15-delete-old-log.sh
 =====================
 
-15-ifs.sh
+16-ifs.sh
 ==========
 
 Disk usage
 -----------
-Command is "df -hT" if the disk usage goes above 70% we need to triggger a mail
-Create another disk for practice because in real time there will be more disks go to 
+Command is "df -hT" if the disk usage goes above 70% we need to triggger a mail, So create another disk for practice because in real time there will be more disks so go to aws console and then navigate to 
 Elastic Block Store ---> Volumes ---> Create volume ---> Attach to the instance
-So while creating disk there is one condition like for example disk should always near to the laptop
-Similarly here also disk should create in the same availability zone which server is created,when you 
-check in the server disk not showing, so you need to explicitly mount it we have a command "lsblk"
-and create a file system using "sudo file -s /dev/xvdf" ---> dev means devices then check wether it is 
-created or not "sudo lsblk -f" and then create a folder /data in the root and mount it 
+So while creating disk there is one condition like for example disk should always near to the laptop.
+Similarly here also disk should create in the same availability zone which server is created, when you 
+check in the server still created disk is not showing, so you need to explicitly mount it, we have a 
+command "lsblk" and create a file system using "sudo file -s /dev/xvdf" ---> dev means devices then check wether it is created or not "sudo lsblk -f" and then create a folder /data in the root and mount it 
 "sudo mount /dev/xvdf /data" 
 
 Commands to run in the server to mount the disk
 ------------------------------------------------
-1. lsblk
-2. sudo file -s /dev/xvdf
-3. sudo lsblk -f 
-4. sudo mkfs -t xfs /dev/xvdf
-5. sudo mkdir /data
-6. sudo mount /dev/xvdf /data
+1. lsblk ----> To make available
+2. sudo file -s /dev/xvdf ----> To create a file system
+3. sudo lsblk -f ----> To check wether the disk is functional or not
+4. sudo mkfs -t xfs /dev/xvdf ----> It is xfs type
+5. sudo mkdir /data ----> To create a data folder
+6. sudo mount /dev/xvdf /data ----> Mounting
 
 17-disk-usage.sh
 =================
-
