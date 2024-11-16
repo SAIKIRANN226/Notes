@@ -43,3 +43,6 @@ Commands to run in the server to mount the disk
 
 17-disk-usage.sh
 =================
+
+mail.sh
+========
