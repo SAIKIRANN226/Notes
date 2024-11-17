@@ -1,2 +1,22 @@
-Jenkins is CICD tool
----------------------
+Installation of jenkins (CICD tool)
+************************************
+1. Create one instance using t3.small AMI, because it is heavy application with default SG and 20gb
+
+2. Take jenkins Public_IP and connect in the superputty (username: centos ; password: DevOps321)
+
+3. Go to the "jenkins.io" click on download then select centos and run the shown 4 commands in the server.
+   Jenkins is developed on java so installing java is mandatory for the jenkins master, it is not 
+   mandatory to install java in the nodes
+
+4. systemctl start jenkins ; systemctl enable jenkins ; systemctl status jenkins
+
+5. Take jenkins instance_IP and open in chrome with jenkins port number 8080
+   usage:- 173.34.65:8080 in the chrome, if you are facing any error then you can see 
+   click on the "continue to site"
+
+6. Once you connected to jenkins, password will be in the shown path just cat in the server
+
+7. Install suggested plugins
+
+8. Set the username and password
+
