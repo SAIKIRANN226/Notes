@@ -2,7 +2,7 @@ Installation of jenkins (CICD tool)
 ************************************
 1. Create one instance using t3.small AMI, because it is heavy application with default SG and 20gb
 
-2. Take jenkins Public_IP and connect in the superputty (username: centos ; password: DevOps321)
+2. Take jenkins Public_IP and connect in the superputty (Username: centos ; Password: DevOps321)
 
 3. Go to the "jenkins.io" click on download then select centos and run the shown 4 commands in the server.
    Jenkins is developed on java so installing java is mandatory for the jenkins master, it is not 
@@ -11,16 +11,17 @@ Installation of jenkins (CICD tool)
 4. systemctl start jenkins ; systemctl enable jenkins ; systemctl status jenkins
 
 5. Take jenkins instance_IP and open in chrome with jenkins port number 8080
-   usage:- 173.34.65:8080 in the chrome, if you are facing any error then you can see 
+   Usage:- 173.34.65:8080 in the chrome, if you are facing any error then you can see
    click on the "continue to site"
 
-6. Once you connected to jenkins, password will be in the shown path just cat in the server
+6. Once you connected to jenkins, password will be in the shown path just cat in the server before
+   you need to be the root user "sudo su -"
 
 7. Install suggested plugins
 
 8. Set the username and password then start using jenkins
 
-Whatever we do in the jenkins we call it as job, nothing but it as some work to do, just create one 
+Whatever we do in the jenkins we call it as job, nothing but it has some work to do, just create one 
 sample job in the "Free-style" is nothing but everything you do it in UI this can be done easily like for example we can create terraform resources in the aws console also that is also nothing but free-style and later we started created resources through scripting, so now create a sample freestyle job take buildsteps 
 as "execute shell" apply and save then click on "buildnow' and check in the console output.
 
@@ -47,7 +48,7 @@ the git and build it, we call this as "GitOps" this is the best approch
 
 Create a project in the VS ----> Learn-Jenkins, jenkins script always start from capital letter "J"
 as "Jenkinsfile" and select job as "Pipeline script from SCM" in the jenkins UI and give the created 
-git URL. no need of credentials because it is public. and script path as same name as created "Jenkins"
+git URL. No need of credentials because it is public and script path as same name as created "Jenkins"
 
 Raw syntax of a pipeline interview-question
 ********************************************
@@ -88,19 +89,19 @@ for agent.
 How do you configure the Master-Agent architecture in jenkins ?
 ****************************************************************
 We have multiple agents we configure them through below options
-manage jenkins ---> nodes ---> create node in this we have one option called executors nothing but
+Manage jenkins ---> Nodes ---> Create node in this we have one option called executors nothing but
 how many jobs can be run at a time this depends on instance configuration as of now we put 3
-"remote root directory" generally jenkins as created a folder in which jennkins entire database is in /var/lib/jenkins/ , Similarly while creating agent we also need to give agent path 
+"remote root directory" generally jenkins as created a folder in which jenkins entire database is in /var/lib/jenkins/ , Similarly while creating agent we also need to give agent path 
 /home/centos/jenkins-agent because centos dont have sudo access in that path, it has only in the home
 folder or click on the question mark ? symbol there you can see how to give the path . Lables we can set 
 multiple lables as agent-1. and Launch methods we have two methods 1. Master asking agent to work
 2. Agent comming to master and asking for work. we can use any of them , as of now we are going to 
 Master asking agent to work that is nothing but "Launch agents via ssh" that means master is connecting
 to agent through ssh protocol then what is the host ? we need to give agent public_ip or private_ip ?
-we can give any of them but siva has taken private_IP. then configure the credentials using username:
+we can give any of them but siva has taken private_IP. Then configure the credentials using username:
 centos click on Treat username as secret and password: DevOps321, ID= ssh-auth, Host key verification 
-strategy ? ---> non-verifying verification startegy that means when you are creating first it will not 
-ask for prompt to yes. there must be java in the agents no need to have jenkins but java is mandatory 
+strategy ? ---> non-verifying verification startegy, that means when you are creating first it will not 
+ask for prompt to yes. There must be java in the agents no need to have jenkins but java is mandatory 
 in agents install using the same command which you have used in master, we can add any number of agents 
 like 1 agent is for java, 1 agent is for roboshop, 1 agent is for flipkart
 
@@ -108,6 +109,3 @@ How many agents you are using ?
 ********************************
 We are supporting multiple programming languages like java,python,nodesjs,.net for each language we have 
 2-2 agents
-
-
-
