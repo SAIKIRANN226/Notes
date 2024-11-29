@@ -1,6 +1,6 @@
 Installation of jenkins (CICD tool)
 ************************************
-1. Create one instance using t3.small AMI, because it is heavy application and default SG and 20gb
+1. Create 1 instance using t3.small AMI, because it is heavy application and default SG with 20gb
 
 2. Take jenkins Public_IP and connect in the superputty (Username: centos ; Password: DevOps321)
 
@@ -11,11 +11,11 @@ Installation of jenkins (CICD tool)
 4. systemctl start jenkins ; systemctl enable jenkins ; systemctl status jenkins
 
 5. Take jenkins instance_IP and open in chrome with jenkins port number 8080
-   Usage:- 173.34.65:8080 in the chrome, If you are facing any error proceed to click on the 
+   Usage:- 173.34.65:8080/ in the chrome, If you are facing any error proceed to click on the 
    "continue to site"
 
 6. Once you are connected to jenkins, password will be in the shown path just cat in the server 
-   before you need to be the root user "sudo su -" to cat the path
+   Note:- You need to be the root user "sudo su -" to cat the path
 
 7. Install suggested plugins
 
@@ -93,9 +93,9 @@ Manage jenkins ---> Nodes ---> Create node in this we have one option called exe
 how many jobs can be run at a time this depends on instance configuration as of now we put 3
 "remote root directory" generally jenkins as created a folder in which jenkins entire database is in /var/lib/jenkins/ , Similarly while creating agent we also need to give agent path which is
 /home/centos/jenkins-agent, because centos dont have sudo access in /var/lib/jenkins, it has only in the 
-home folder or click on the question mark ? symbol there you can see how to give the path . Lables we can
-set multiple lables as agent-1 and Launch methods are two, 1. Master asking agent to work
-2. Agent comming to master and asking for work. We can use any of them , as of now we are going to 
+home folder or click on the question mark ? symbol there you can see how to give the path. Labels we can
+set multiple lables as agent-1 and we have Launch methods 1. Master asking agent to work
+2. Agent comming to master and asking for work. We can use any of them , as of now we are going for 
 Master asking agent to work that is nothing but "Launch agents via ssh" that means master is connecting
 to agent through ssh protocol then what is the host ? Do we need to give agent public_ip or private_ip ?
 we can give any of them but siva took private_IP. Then configure the credentials using Username:
@@ -109,3 +109,15 @@ How many agents you are using ?
 ********************************
 We are supporting multiple programming languages like java,python,nodesjs,.net for each language we have 
 2-2 agents
+
+Triggers
+*********
+We have a "WebHook" is nothing but when there is an event occurs in one system then it should inform 
+to the other systems, it is called "event based communication" What is event in this scenario, when 
+developer pushes the code to git then we want pipeline to run automatically, Here we have two systems
+1.Git 2.Jenkins , event will come in git, So Git should have information about jenkins(URL), Go the 
+WebHook option in Github in your working repository only, click on add "WebHook" add the jenkins URL 
+like "http://12.233.34.53:8080/github-webhook/" ----> Payload URL , content type ---> application json,
+you have multiple events we can select according to our requirements as of now we selected "Pushes"
+Similarly in jenkins also we need to check then box "GitHub hook trigger for GITScm polling" and Now
+try to do changes and see wether it is working or not.
