@@ -19,13 +19,15 @@
    install plugin in the jenkins console also manage jenkins/plugins/available plugins, make sure to 
    restart jenkins to enable colors
 
-6. Jenkins pipeline when with parameters search in google 
+6. Jenkins pipeline when with parameters search in google, That means overall we can write CICD for 
+   infra also like vpc,sg,vpn etc.
 
-CICD should we keep infra ready to create CICD for applications? Project infra should be ready what 
+CICD, should we keep infra ready to create CICD for applications? Project infra should be ready what 
 are the project infra ? like vpc,sg,vpn,databases,app-alb,acm,web-alb etc. which ever are long term 
 that are project infra whichever are short term those are application infra, So before CICD for 
-applications we need to keep project infra ready, So now we should do CICD for catalogue , we should 
-have 1. catalogue application should be in git and 2. Write a jenkinsfile for this
+applications we need to keep project infra ready, So now we should do CICD for catalogue, we should have
+1. Catalogue application should be in git and 
+2. Write a jenkinsfile for this
 
 Stages for catalogue CICD
 --------------------------
