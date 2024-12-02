@@ -1,6 +1,6 @@
 Installation of jenkins (CICD tool)
 ************************************
-1. Create 1 instance using t3.small AMI, because it is heavy application and default SG with 20gb
+1. Create 1 instance using t3.small AMI, because it is heavy application and default SG with 30gb
 
 2. Take jenkins Public_IP and connect in the superputty (Username: centos ; Password: DevOps321)
 
