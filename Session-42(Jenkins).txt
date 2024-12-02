@@ -75,6 +75,17 @@ pipeline {
                }
           }
       }
+      post {
+          always {
+               echo 'I will always say hello'
+          }
+          failure {
+               echo 'This will run if failure'
+          }
+          success {
+               echo 'This will run if pipeline is success'
+          }
+      }
 }
 
 What is agent in jenkins
@@ -110,8 +121,6 @@ How many agents you are using ?
 We are supporting multiple programming languages like java,python,nodesjs,.net for each language we have 
 2-2 agents
 
-Go through the Parameters in Jenkinsfile VS
-
 Triggers
 *********
 We have a "WebHook" is nothing but when there is an event occurs in one system then it should inform 
@@ -123,3 +132,5 @@ like "http://12.233.34.53:8080/github-webhook/" ----> Payload URL , content type
 you have multiple events we can select according to our requirements as of now we selected "Pushes"
 Similarly in jenkins also we need to check then box "GitHub hook trigger for GITScm polling" and Now
 try to do changes and see wether it is working or not.
+
+Go through all the sections in Jenkinsfile VS 
