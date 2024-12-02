@@ -1,27 +1,25 @@
-1. Create a folder in agent-server in home folder (CD) "mkdir jenkins-agent" because we are creating
-   separate folders for resources
-
-2. If it is a small project every resources will be in one folder like sg.tf,vpc.tf etc. If it is a 
+1. If it is a small project every resources will be in one folder like sg.tf,vpc.tf etc. If it is a 
    big project then we can keep resources in separate folders(repos) like "roboshop-infra-dev", 
-   refreshing time is longer if we put all resources in one folder.
+   refreshing time will be longer if we put all resources in one folder. So we are creating a separate
+   folder in "agent-server" in home folder (CD) "mkdir jenkins-agent"
 
-3. Jenkinsfile for 01-vpc in roboshop-infra-dev
+2. Go through the Jenkinsfile in 01-vpc in roboshop-infra-dev
 
-4. Create ROBOSHOP(any) folder in jenkins UI and add VPC in this folder as pipeline project,
-   script path should be 01-vpc/jenkinsfile
+3. Create ROBOSHOP(anyname) folder in jenkins UI and add VPC in this folder as pipeline project,
+   script path should be 01-vpc/jenkinsfile, Similarly do for other also just for practice
 
-5. ERROR:: Terraform command not found that means it is running in the agent here we dont have 
+4. ERROR:: Terraform command not found that means it is running in the agent here we dont have 
    terraform so we need to install few tools like 1.terraform command(install terraform linux in google) 
    and should have 2.aws credentials also(just "aws configure" in server while configuring aws do not 
    configure through root user because master is connecting using centos it is not taking the sudo access, 
    master may not know everything but agent should know everything because agent will only work here, 
    however the logs will be showed in the jenkins-master but the running will be in the nodes
 
-6. To enable colours we have "ansiColor" Plugin keep "ansiColor('exterm') in the options aswel as 
+5. To enable colours we have "ansiColor" Plugin keep ansiColor('exterm') in the options aswel as 
    install plugin in the jenkins console also manage jenkins/plugins/available plugins, make sure to 
    restart jenkins
 
-7. Jenkins pipeline when with parameters search in google 
+6. Jenkins pipeline when with parameters search in google 
 
 CICD should we keep infra ready to create CICD for applications? Project infra should be ready what are the 
 project infra ? like vpc,sg,vpn,databases,app-alb,acm,web-alb etc. which ever are long term that are project infra whichever are short term those are application infra, So before CICD for applications we need to keep
