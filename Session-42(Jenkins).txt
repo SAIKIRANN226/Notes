@@ -110,6 +110,8 @@ How many agents you are using ?
 We are supporting multiple programming languages like java,python,nodesjs,.net for each language we have 
 2-2 agents
 
+Go through the Parameters in Jenkinsfile VS
+
 Triggers
 *********
 We have a "WebHook" is nothing but when there is an event occurs in one system then it should inform 
