@@ -62,6 +62,32 @@ CD (Continous Deployment)
 2. Refer Catalogue folder in VS. package.json and server.json is the main code of
    catalogue and write a Jenkinsfile for this catalogue and refer "Jenkinsfile.bkp"
 
+Storing the artifacts in nexus repository, we dont store code here, to only store like after 
+compiling the code the output of the code in the form of zip file, we use "sonatype nexus", for this 
+we need to create a instance with minumum 2gb ram with 30gb for that we need to use "t3.medium", 
+Generally these installations will be done by SRE Team but we need to know, Few companies uses "yum" repositories instead of downloading packages from the internet companies will put in the "yum repositories"
+to use them, Nexus is the single point of contact for the artifacts and libraries
+
+Commands to run in the nexus server
+************************************
+1. sudo su
+2. labauto
+3. Then select "nexus" or type "nexus"
+4. Select option no.2
+5. netstat -lntp ---> It will take sometime to the port number of nexus 8081
+6. systemctl status nexus
+7. Now take the IPaddress of the nexus server and paste in the chrome with 8081
+8. Sign in is same as Jenkins and enable anonymous access
+9. Now create a repository in the nexus for the catalogue to hold the catalogue artifacts
+10. Select "maven2(hosted)" this maven2 is popular format (watch from 1:16:57) 
+    Name: any name
+    Version policy: Release/Snapshot/Mixed ---> Snapshot=Dev env, Release=Prod env, select mixed
+    Layout policy: Permissive
+    Deployment policy: Allow redeploy becase in Dev env we deploy multiple times 
+11. Now you will get the URL where we can store the artifacts of catalogue 
+12. Remove workspace folder in pipeline in post section "deleteDir()" this is must
+
+
 
 
 
@@ -80,4 +106,4 @@ Points to remember
 *******************
 1. To get "stageview" in pipeline you need to install plugin called "stageview"
 2. Declarative pipeline is more simplified than scripted pipeline
-
+3. 
