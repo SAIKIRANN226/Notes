@@ -34,9 +34,7 @@ CICD, should we keep infra ready to create CICD for applications? Project infra 
 are the project infra ? like vpc,sg,vpn,databases,app-alb,acm,web-alb etc. which ever are long term 
 that are project infra whichever are short term those are application infra, So before CICD for 
 applications we need to keep project infra ready, So now we should do CICD for catalogue, for that we
-should have
-1. Catalogue application should be in git and 
-2. Write a jenkinsfile for this
+should have 1. Catalogue application should be in git and 2. Write a jenkinsfile for this
 
 CI (Continous Integration)
 ***************************
@@ -49,8 +47,9 @@ CI (Continous Integration)
 7. Deploy 
 8. Post Build
 
-Continous Integration is nothing but whenever developers pushes the code to the git continously, we should take the code and compile,build,scan,unitesting,and saving artifacts, If CI success then only we should go for
-CD
+Continous Integration is nothing but whenever developers pushes the code to the git continously, we 
+should take the code and compile,build,scan,unitesting,and saving artifacts, If CI success then only 
+we should go for CD
 
 CD (Continous Deployment)
 **************************
