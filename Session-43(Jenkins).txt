@@ -1,26 +1,35 @@
 1. If it is a small project every resources will be in one folder like sg.tf,vpc.tf etc. If it is a 
-   big project then we can keep resources in separate folders(repos) like "roboshop-infra-dev", 
-   refreshing time will be longer if we put all resources in one folder. So we are creating a separate
-   folder in "agent-server" in home folder (CD) "mkdir jenkins-agent"
+   big project then we can keep resources in separate folders(repos) like "roboshop-infra-dev",
+   refreshing time will be longer if we put all resources in one folder.
 
-2. Go through the Jenkinsfile in 01-vpc in roboshop-infra-dev
+2. Create remote root directory in the "Node server" in home-location(CD) because centOS doesnt have
+   sudo access in the /var/lib/jenkins location. "mkdir jenkins-agent". So path would be in the below
+   /home/centos/jenkins-agent
 
-3. Create ROBOSHOP(anyname) folder in jenkins UI and add VPC in this folder as pipeline project,
-   script path should be 01-vpc/jenkinsfile, Similarly do for other also just for practice
+3. Go through the Jenkinsfile in 01-vpc in roboshop-infra-dev
 
-4. ERROR:: Terraform command not found that means it is running in the agent here we dont have 
-   terraform so we need to install few tools like 1.terraform command(install terraform linux in google) 
-   and should have 2.aws credentials also(just "aws configure" in server while configuring aws do not 
-   configure through root user because master is connecting using centos it is not taking the sudo access, 
-   master may not know everything but agent should know everything because agent will only work here, 
-   however the logs will be showed in the jenkins-master but the running will be in the nodes
+4. Create ROBOSHOP(anyname) folder in jenkins UI and add VPC in this folder as pipeline project,
+   script path should be "01-vpc/jenkinsfile", Similarly do for other infra also just for practice
 
-5. To enable colours we have "ansiColor" Plugin keep ansiColor('exterm') in the options aswel as 
+5. ERROR:: Terraform command not found because it is running in the agent and agent dont have 
+   terraform, So we need to install few tools in node server, if you are using ony master then install 
+   it in master only like "terraform command(install terraform linux in google) and "aws credentials" 
+   also(just "aws configure" in server while configuring aws do not configure through root user because 
+   master is connecting using centos it is not taking the sudo access, master may not know everything 
+   but agent should know everything because agent will only work here, However the logs will be showed 
+   in the jenkins-master but the running will be in nodes
+
+6. To enable colours we have "ansiColor" Plugin keep ansiColor('exterm') in the options aswel as 
    install plugin in the jenkins console also manage jenkins/plugins/available plugins, make sure to 
    restart jenkins to enable colors
 
-6. Jenkins pipeline when with parameters search in google, That means overall we can write CICD for 
+7. Jenkins pipeline when with parameters search in google, That means overall we can write CICD for 
    infra also like vpc,sg,vpn etc.
+
+8. To create accesskey and secretkey go to the SecurityCredentials from the profile/users/click on 
+   your user(saikiranuser)/make sure delete old keys and create new keys and download the csv file
+   for future reference, because secretaccess key will be only showed once.
+   
 
 CICD, should we keep infra ready to create CICD for applications? Project infra should be ready what 
 are the project infra ? like vpc,sg,vpn,databases,app-alb,acm,web-alb etc. which ever are long term 
