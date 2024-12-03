@@ -33,12 +33,11 @@
 CICD, should we keep infra ready to create CICD for applications? Project infra should be ready what 
 are the project infra ? like vpc,sg,vpn,databases,app-alb,acm,web-alb etc. which ever are long term 
 that are project infra whichever are short term those are application infra, So before CICD for 
-applications we need to keep project infra ready, So now we should do CICD for catalogue, we should have
+applications we need to keep project infra ready, So now we should do CICD for catalogue, for that we
+should have
 1. Catalogue application should be in git and 
 2. Write a jenkinsfile for this
 
-Stages for catalogue CICD
---------------------------
 CI (Continous Integration)
 ***************************
 1. Clone then code
@@ -48,17 +47,19 @@ CI (Continous Integration)
 4. Build ---> zipfile
 5. We need to push to the nexus
 
-Continous Integration is nothing but when ever developers pushes the code to the git continously, we should take the code and compile,build,scan,unitesting,and saving artifacts, if CI success then only we should go for
+Continous Integration is nothing but whenever developers pushes the code to the git continously, we should take the code and compile,build,scan,unitesting,and saving artifacts, If CI success then only we should go for
 CD
 
-CD (COntinous Deployment)
+CD (Continous Deployment)
 **************************
 6. Deploy to Dev environment
 7. Functional test cases
 8. Publish the results
 
 1. Create one catalogue repo and keep the catalogue code in this folder 
-2. Refer Catalogue folder in VS with jenkinsfile
+2. Refer Catalogue folder in VS. package.json and server.json is the main code of
+   catalogue and write a Jenkinsfile for this catalogue and refer "Jenkinsfile.bkp"
+
 
 
 
