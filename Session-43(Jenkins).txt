@@ -30,7 +30,6 @@
    your user(saikiranuser)/make sure delete old keys and create new keys and download the csv file
    for future reference, because secretaccess key will be only showed once.
    
-
 CICD, should we keep infra ready to create CICD for applications? Project infra should be ready what 
 are the project infra ? like vpc,sg,vpn,databases,app-alb,acm,web-alb etc. which ever are long term 
 that are project infra whichever are short term those are application infra, So before CICD for 
