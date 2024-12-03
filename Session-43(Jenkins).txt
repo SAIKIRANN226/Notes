@@ -64,8 +64,8 @@ CD (Continous Deployment)
 Storing the artifacts in nexus repository, we dont store code here, to only store like after 
 compiling the code the output of the code in the form of zip file, we use "sonatype nexus", for this 
 we need to create a instance with minumum 2gb ram with 30gb for that we need to use "t3.medium", 
-Generally these installations will be done by SRE Team but we need to know, Few companies uses "yum" repositories instead of downloading packages from the internet companies will put in the "yum repositories"
-to use them, Nexus is the single point of contact for the artifacts and libraries
+Generally these installations will be done by SRE Team but we need to know, Few companies uses "yum" repositories instead of downloading libraries from the internet companies will put all libraries in 
+"yum repositories" to use them, Nexus is the single point of contact for the artifacts and libraries
 
 Commands to run in the nexus server
 ************************************
