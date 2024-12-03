@@ -87,23 +87,7 @@ Commands to run in the nexus server
 11. Now you will get the URL where we can store the artifacts of catalogue 
 12. Remove workspace folder in pipeline in post section "deleteDir()" this is must
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Points to remember
 *******************
 1. To get "stageview" in pipeline you need to install plugin called "stageview"
 2. Declarative pipeline is more simplified than scripted pipeline
-3. 
