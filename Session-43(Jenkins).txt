@@ -40,12 +40,14 @@ should have
 
 CI (Continous Integration)
 ***************************
-1. Clone then code
-2. Unit testing
-      scans like sonar scans
-3. Install dependencies
-4. Build ---> zipfile
-5. We need to push to the nexus
+1. Clone the code before this get the "version" if required
+2. Install Dependencies
+3. Unit tests
+4. Sonar scan
+5. Build
+6. Publish artifacts
+7. Deploy 
+8. Post Build
 
 Continous Integration is nothing but whenever developers pushes the code to the git continously, we should take the code and compile,build,scan,unitesting,and saving artifacts, If CI success then only we should go for
 CD
