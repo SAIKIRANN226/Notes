@@ -90,3 +90,4 @@ Points to remember
 *******************
 1. To get "stageview" in pipeline you need to install plugin called "stageview"
 2. Declarative pipeline is more simplified than scripted pipeline
+3. Node modules are mandatory to run the server.js
