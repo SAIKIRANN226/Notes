@@ -1,24 +1,17 @@
 Installation of jenkins (CICD tool)
 ************************************
 1. Create 1 instance using t3.small AMI, because it is heavy application and default SG with 30gb
-
 2. Take jenkins Public_IP and connect in the superputty (Username: centos ; Password: DevOps321)
-
 3. Go to the "jenkins.io" click on download then select centos and run the first 4 commands in the 
    server. Jenkins is developed on java, So installing java is mandatory for the jenkins master, it 
    is not mandatory to install java in the nodes or agents
-
 4. systemctl start jenkins ; systemctl enable jenkins ; systemctl status jenkins
-
 5. Take jenkins instance_IP and open in chrome with jenkins port number 8080
    Usage:- 173.34.65:8080/ in the chrome, If you are facing any error proceed to click on the 
    "continue to site"
-
 6. Once you are connected to jenkins, password will be in the shown path just cat in the server 
    Note:- You need to be the root user "sudo su -" to cat the path
-
 7. Install suggested plugins
-
 8. Set the username and password then start using jenkins
 
 Whatever we do in the jenkins we call it as job, nothing but it has some work to do, just create one 
@@ -132,5 +125,3 @@ like "http://12.233.34.53:8080/github-webhook/" ----> Payload URL , content type
 you have multiple events we can select according to our requirements as of now we selected "Pushes"
 Similarly in jenkins also we need to check then box "GitHub hook trigger for GITScm polling" and Now
 try to do changes and see wether it is working or not.
-
-Go through all the sections in Jenkinsfile VS 
