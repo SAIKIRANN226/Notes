@@ -1,1 +1,11 @@
-Semantic version
+To push artifacts to from jenkins to the nexus we need to download plugin called "Nexus artifact uploader" so for that we need to give the nexusURL and authentication 
+
+
+
+
+
+
+
+
+
+Industries will follow Semantic version like major version, minor version, patch version
