@@ -11,6 +11,21 @@ Algorithm for Catalogue CI(continous integration)
    to add nexus credentials in the manage jenkins
 7. This is CI part of catalogue
 
+General Deployment of any application
+**************************************
+1. Create the server
+2. Provision the server using ansible or any other scripting language
+3. Stop the server
+4. Take AMI
+5. Create Launch template version
+6. Refresh auto-scaling
+
+Previously ansible was downloading from the s3 bucket and version we are giving hardcode, Now ansible should
+download from the nexus and specific version so what should we give to the ansible ?
+1. Nexus location
+2. Artifact version 
+3. From terraform you should send artifact version to ansible
+
 
 
 
