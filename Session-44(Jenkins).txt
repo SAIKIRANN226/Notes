@@ -1,4 +1,4 @@
-To push artifacts to from jenkins to the nexus we need to download plugin called "Nexus artifact uploader" so for that we need to give the nexusURL and authentication 
+To push artifacts to from jenkins to the nexus we need to download plugin called "Nexus artifact uploader" so for that we need to give the nexusURL and authentication, make sure to add nexus credentials in the manage jenkins
 
 
 
