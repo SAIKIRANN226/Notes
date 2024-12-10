@@ -25,7 +25,7 @@ General Deployment of any application
 
 We need to create infrastructure first atleast we need to create vpc,sg,vpn,databases,app-alb, in order to work catalogue, and catalogue application can be done from the CICD
 
-Previously ansible was downloading the package from the s3 bucket and version we are giving hardcode, Now ansible should download artifact from the nexus and specific version so what should we give to the ansible ?
+Previously ansible was downloading the package from the s3 bucket and version we are giving hardcode, Now ansible should download artifact from the nexus and specific version so what should we give to the ansible?
 1. Nexus location
 2. Artifact version 
 
