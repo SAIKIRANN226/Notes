@@ -1,14 +1,14 @@
 Algorithm for Catalogue CI(continous integration)
 **************************************************
 1. Create EC2 for Jenkins-Master and connect to it
-2. Create EC2 for Agent and connect to it and install nodejs in it
-3. Create EC2 for Nexus and connect to it and download nexus through "labauto"
+2. Create EC2 for Agent and connect to it and install nodejs from the catalogue documentation
+3. Create EC2 for Nexus and connect to it and download nexus by using "labauto" command
 4. Configure Jenkins-Agent and install plugins like AnsiColor,StageView,Pipeline Utility steps,
    Nexus artifact uploader
 5. Create repo in nexus for catalogue to store our artifacts
-6. To push artifacts to from jenkins to the nexus we need to download plugin called 
-   "Nexus artifact uploader" so for that we need to give the nexusURL and authentication, make sure 
-   to add nexus credentials in the manage jenkins
+6. To push artifacts from jenkins to the nexus we need to download plugin called 
+   "Nexus artifact uploader" so for that we need to give the nexusURL and authentication, 
+   make sure to add nexus credentials in the manage jenkins
 7. This is CI part of catalogue
 
 General Deployment of any application
