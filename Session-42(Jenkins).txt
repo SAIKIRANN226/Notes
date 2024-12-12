@@ -3,14 +3,16 @@ Installation of jenkins (CICD tool)
 1. Create 1 instance using t3.small AMI, because it is heavy application and default SG with 30gb
 2. Take jenkins Public_IP and connect in the superputty (Username: centos ; Password: DevOps321)
 3. Go to the "jenkins.io" click on download then select centos and run the first 4 commands in the 
-   server. Jenkins is developed on java, So installing java is mandatory for the jenkins master, it 
-   is not mandatory to install java in the nodes or agents
+   server. Jenkins is developed on java, and  also installing java is mandatory in the agent no need 
+   to install jenkins in the agent, java is enough to work for agent, as Jenkins-Master not required 
+   to know everything but agent should know everything because actual work is done by agent, However 
+   logs will be shown in the Jenkins-Master
 4. systemctl start jenkins ; systemctl enable jenkins ; systemctl status jenkins
-5. Take jenkins instance_IP and open in chrome with jenkins port number 8080
+5. Take jenkins instance_PublicIP and open in chrome with jenkins port number 8080
    Usage:- 173.34.65:8080/ in the chrome, If you are facing any error proceed to click on the 
    "continue to site"
 6. Once you are connected to jenkins, password will be in the shown path just cat in the server 
-   Note:- You need to be the root user "sudo su -" to cat the path
+   Note:- You need to be the root user "sudo cat <path>"
 7. Install suggested plugins
 8. Set the username and password then start using jenkins
 
@@ -20,7 +22,7 @@ as "execute shell" apply and save then click on "buildnow' and check in the cons
 
 What is the difference between creating aws resources through the aws console and scripting ?
 **********************************************************************************************
-Advantanges that we can control the versions like if something goes wrong we can rollback the changes
+Advantanges are we can control the versions like if something goes wrong we can rollback the changes
 to the previous version and we have PR process to understand what is happening etc. When you create a 
 jobs in free-style we dont know who created ? who did the changes ? and restoring is difficult, and
 maintaining is difficult because it doesn't have any versions etc. So nobody is using free-style but 
@@ -32,12 +34,12 @@ Free-style job is no one preffering now everything you can do it from the consol
 for everyone to do changes and we dont understand who did what changes and it is very difficult to 
 restore to the normal stage because of this we moved to the pipeline.
 
-Now understand the pipeline syntax from the google just type "jenkins pipeline" and look at the first 
-link, Now create a job with pipeline select "hello-world" from the pipeline script just for sample and
+Now understand the pipeline syntax "jenkins pipeline" and look at the first 
+Now create a job with pipeline select "hello-world" from the pipeline script just for sample and
 build, you can add any number of stages in the hello-world script. Here if you put the pipeline in the 
 jenkins, then also everybody can come and do the changes, So we have another option called
-"Pipeline script from SCM". If you put this pipeline in the git then jenkins will automatically pull from 
-the git and build it, we call this as "GitOps" this is the best approch
+"Pipeline script from SCM". If you put this pipeline in the git then jenkins will automatically pull 
+from the git and build it, we call this as "GitOps" this is the best approch
 
 Create a project in the VS ----> Learn-Jenkins, jenkins script always start from capital letter "J"
 as "Jenkinsfile" and select job as "Pipeline script from SCM" in the jenkins UI and give the created 
@@ -85,29 +87,28 @@ What is agent in jenkins
 *************************
 For example 1 person can do ----> 1 acre of agriculture 
 If 100 acres ? ----> Then he will recruit employees and distribute the work,
-Similarly if you are using only one project then one "Jenkins-Master" is enough, If you have multiple 
-projects, one single jenkins server cannot handle the load alone, for that we have agents that is nothing
-but "Master ---> Agent". Here agent is nothing but another server, so create another server in the aws 
-for agent.
+Similarly if you are using only one project then 1 "Jenkins-Master" is enough, If you have multiple 
+projects, 1 Jenkins server cannot handle the load all alone, for that we have agents that is 
+nothing but "Master ---> Agent". Here agent is nothing but another server, so create another server 
+in the aws for agent.
 
 How do you configure the Master-Agent architecture in jenkins ?
 ****************************************************************
-We have multiple agents we configure them through below options
-Manage jenkins ---> Nodes ---> Create node in this we have one option called executors nothing but
+We have multiple agents we configure them through below options 
+Manage jenkins ---> Nodes ---> Create node in this we have one option called "executors" nothing but
 how many jobs can be run at a time this depends on instance configuration as of now we put 3
-"remote root directory" generally jenkins as created a folder in which jenkins entire database is in /var/lib/jenkins/ , Similarly while creating agent we also need to give agent path which is
-/home/centos/jenkins-agent, because centos dont have sudo access in /var/lib/jenkins, it has only in the 
-home folder or click on the question mark ? symbol there you can see how to give the path. Labels we can
-set multiple lables as agent-1 and we have Launch methods 1. Master asking agent to work
-2. Agent comming to master and asking for work. We can use any of them , as of now we are going for 
+"remote root directory" generally jenkins as created a folder in which jenkins entire database is in /var/lib/jenkins/ , Similarly while creating agent also we need to create a folder <agent> path which 
+is /home/centos/jenkins-agent, because centos dont have sudo access in /var/lib/jenkins, it has only 
+in the home folder or click on the question mark ? symbol there you can see how to give the path. 
+"Labels" we can set multiple lables as agent-1 and we have "Launch methods" 1. Master asking agent to 
+work 2. Agent comming to master and asking for work. We can use any of them , as of now we are going for 
 Master asking agent to work that is nothing but "Launch agents via ssh" that means master is connecting
 to agent through ssh protocol then what is the host ? Do we need to give agent public_ip or private_ip ?
 we can give any of them but siva took private_IP. Then configure the credentials using Username:
 centos click on Treat username as secret and Password: DevOps321, ID= ssh-auth, Host key verification 
-strategy ? ---> non-verifying verification startegy, that means when you are creating first it will not 
-ask for prompt to yes. There must be java in the agents no need to have jenkins but java is mandatory 
-in agents install using the same command which you have used in master, we can add any number of agents 
-like 1 agent is for java, 1 agent is for roboshop, 1 agent is for flipkart
+strategy ? ---> non-verifying verification startegy, that means when you are creating it will not ask 
+for prompt, we can add any number of agents like 1 agent is for java, 1 agent is for roboshop, 
+1 agent is for flipkart
 
 How many agents you are using ?
 ********************************
@@ -121,7 +122,7 @@ to the other systems, it is called "event based communication" What is event in 
 developer pushes the code to git then we want pipeline to run automatically, Here we have two systems
 1.Git 2.Jenkins , event will come in git, So Git should have information about jenkins(URL), Go the 
 WebHook option in Github in your working repository only, click on add "WebHook" add the jenkins URL 
-like "http://12.233.34.53:8080/github-webhook/" ----> Payload URL , content type ---> application json,
-you have multiple events we can select according to our requirements as of now we selected "Pushes"
-Similarly in jenkins also we need to check then box "GitHub hook trigger for GITScm polling" and Now
-try to do changes and see wether it is working or not.
+must be in the format like "http://12.233.34.53:8080/github-webhook/" ----> Payload URL , 
+Content type ---> Application json, you have multiple events we can select according to our requirements 
+as of now we selected "Pushes". Similarly in jenkins also we need to check then box "GitHub hook trigger 
+for GITScm polling" and Now try to do changes and see wether it is working or not.
