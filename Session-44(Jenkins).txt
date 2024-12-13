@@ -27,10 +27,7 @@ We need to create infrastructure first, we need to create atleast vpc,sg,vpn,dat
 to work catalogue, and catalogue application can be done from the CICD
 
 Previously ansible was downloading the package from the s3 bucket and version we are giving hardcode, Now ansible should download artifact from the nexus and specific version so what should we give to the ansible?
-1. Nexus location
-2. Artifact version 
-
-From terraform you should send artifact version to ansible. So write a separate job for "Catalogue-CD-Part" in the jenkins and also create a repo for "Catalogue-CD-Part" and write Jenkinsfile for this 
+"Nexus location and Artifact version" That means first it will call main playbook from the roles, So we need to send artifact version to the ansible playbook from the the terraform. So write a separate job for "Catalogue-CD-Part" (or) "Catalogue-deploy" we keep all the deployment scripts here, in the jenkins and also create a repo for "Catalogue-CD-Part" and write Jenkinsfile for this 
 
 
 
