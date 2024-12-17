@@ -17,7 +17,7 @@ Algorithm for Catalogue CD(continous deployment) ---> Catalogue-CD-Part(VS)
 General Deployment of any application
 --------------------------------------
 1. Create the server
-2. Provision the server using ansible or any other scripting language
+2. Provision the created server using ansible or any other scripting language
 3. Stop the server
 4. Take AMI
 5. Create Launch template version
