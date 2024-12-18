@@ -78,6 +78,12 @@ GREEN ---> G="\e[32m"
 YELLOW ---> Y="\e[33m"
 NORMAL ---> N="\e[0m" 
 
+11-logs.sh
+-----------
+
+12-loops.sh
+------------
+
 Points to remember
 *******************
 1. Make sure Repository name you create in github and windows folder should be same
