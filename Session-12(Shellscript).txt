@@ -24,6 +24,13 @@
       https ---> username and password
       ssh ---> just private-key 
 
+   f) Config syntax i have given for my created private-key 
+      Host github.com
+        HostName github.com
+        User git
+        PreferredAuthentications publickey
+        IdentityFile ~/saikiran.pem
+
 3. Github is nothing but a folder in internet with tracking capabilities
 
 4. "git branch -M main" ---> To change from master to main
