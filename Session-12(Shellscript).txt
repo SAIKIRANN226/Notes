@@ -53,14 +53,14 @@
 
 01-hello-world.sh
 ******************
-1. We develop code in VisualStudio
+1. We develop code (or) script in VisualStudio
 
-2. Using gitbash client we push the code to the github repository
+2. Using gitbash client we push the code (or) script to the github repository
 
 3. Create a server in AWS
 
 4. Pull the code in server from github if you want only changes,
-   clone the code if it is a new repoor you can clone by using https, if it is a new repo go
+   clone the code if it is a new repo you can clone by using https, if it is a new repo go
    for "clone", if you want only changes then "git pull"
 
 5. Go to the path where the shell script is, then 
