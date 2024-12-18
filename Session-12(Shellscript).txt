@@ -19,17 +19,16 @@
 
    d) Create a config file with no extension, in this config file keep the config syntax and give 
       the correct location of your private-key and also we can add multiple github accounts
+      Config syntax i have given for my created private-key 
+                Host github.com
+                  HostName github.com
+                  User git
+                  PreferredAuthentications publickey
+                  IdentityFile ~/saikiran.pem
 
    e) We have https and ssh in the repository, we use ssh authentication for pushing to the github
       https ---> username and password
-      ssh ---> just private-key 
-
-   f) Config syntax i have given for my created private-key 
-      Host github.com
-        HostName github.com
-        User git
-        PreferredAuthentications publickey
-        IdentityFile ~/saikiran.pem
+      ssh ---> just private-key
 
 3. Github is nothing but a folder in internet with tracking capabilities
 
