@@ -64,7 +64,7 @@
 8. Create a t2.micro server in AWS
 
 9. git clone <URL> in the server ---> Because we are cloning for the first time
-   cd <path-of-shellscript>
+   cd <name-of-shellscript>
    "sh <script-name>"
    git pull ---> If you want only changes
    echo is only used for printing purpose
