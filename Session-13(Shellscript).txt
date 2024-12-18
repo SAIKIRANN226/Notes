@@ -1,10 +1,10 @@
-You should not do any changes or adding new files in server terminal, come one step back like after going 
+You should not do any changes (or) adding new files in server terminal, come one step back like after going 
 to home folder(cd) like ~ ---> Here you can store the logs for practicing as siva showed in the terminal, 
-here in terminal if you get any errors or not working properly you can delete that folder and again clone 
+here in terminal if you get any errors (or) not working properly you can delete that folder and clone again
 from the github
 
 08-conditions.sh
-=================
+-----------------
 if(expression) {
    statement if expression is true
 }
@@ -13,7 +13,7 @@ if(expression) {
 }
 
 09-install-mysql.sh
-====================
+--------------------
 Installing multiple packages using shellscript. Usage:- "sudo sh installing.sh"
 
 Algorithm for installing any package
@@ -30,20 +30,18 @@ Algorithm for installing any package
    if not success
      then show what is the error
 
-How to know if it is root user or not ? you just enter "id" in the server terminal with root access 
+How to know if it is root user (or) not ? you just enter "id" in the server terminal with root access 
 sudo -, There you can see root user has id=0 (or) "id -u" then you get root ID, other than zero it is 
-not root user. Shellscript wont stop if it faces error, it is our responsibility to stop and slove the 
-error and then proceed, for that we have "exit status", that means we need to check previous command 
-success or not for that we have special variable "$?" ---> If success it has "0" if failure "not 0"
-(otherthan 0 any number)
+not root user. Shellscript wont stop if it faces any error, it is our responsibility to stop and slove 
+the error and then proceed, for that we have "exit status", that means we need to check previous 
+command success (or) not for that we have special variable "$?" ---> If success it has "0" if failure 
+"not 0" (otherthan 0 any number)
 
 10-functions.sh
-================
+----------------
 We can put the repeated code in the functions, generally we keep functions under VARIABLES, we give args 
-to the shellscript similarly we need to give inputs to the functions also
-You have run the script right ? then where is that log ? There will be no logs in /var/log/messages,
-we need to store that logs, otherwise we cannot troubleshoot, make sure you should not log in the current 
-folder of server comeoutside and then do, this is just to show how it works rightnow
+to the shellscript similarly we need to give inputs to the functions also. You have run the script right ? then where is that log ? There will be no logs in /var/log/messages, we need to store that logs, otherwise 
+we cannot troubleshoot, make sure you should not log in the current folder of server comeoutside and then do, this is just to show how it works rightnow
 
 Redirections(> symbol is for output redirection)
 -------------------------------------------------
@@ -80,5 +78,5 @@ YELLOW ---> Y="\e[33m"
 NORMAL ---> N="\e[0m" 
 
 Points to remember
--------------------
+*******************
 1. Make sure Repository name you create in github and windows folder should be same
