@@ -41,7 +41,7 @@ command success (or) not for that we have special variable "$?" ---> If success 
 ----------------
 We can put the repeated code in the functions, generally we keep functions under VARIABLES, we give args 
 to the shellscript similarly we need to give inputs to the functions also. You have run the script right ? then where is that log ? There will be no logs in /var/log/messages, we need to store that logs, otherwise 
-we cannot troubleshoot, make sure you should not log in the current folder of server comeoutside and then do, this is just to show how it works rightnow, For example just type "ls -ltr" in the terminal you can see all the files and when you "clear" it is gone, so we need to store that bby following below steps, not only 
+we cannot troubleshoot, make sure you should not log in the current folder of server comeoutside and then do, this is just to show how it works rightnow, For example just type "ls -ltr" in the terminal you can see all the files and when you "clear" it is gone, so we need to store that by following below steps, not only 
 ls -ltr we can do for any command
 
 Redirections(> symbol is for output redirection)
