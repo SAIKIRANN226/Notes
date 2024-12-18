@@ -1,6 +1,6 @@
 1. In linux when you open gitbash we are automatically landing in the home directory to know that 
    just type "pwd" then you will land in "/c/users/user(saikiran), Here definitely you will have 
-   ".ssh" folder, if it is not there you need to create .ssh folder
+   ".ssh" folder, if it is not there you need to create .ssh folder, it will be hidden so "ls -la"
 
 2. Why we use "ssh authentication" to connect github account to push the code ? Because we work with
    multiple github accounts so for every account logging with username and password is not a good 
