@@ -47,3 +47,4 @@ Points to remember
 3. Shellscript is nothing but put all the Linux commands in one file
 4. To remove any installed package in the server "sudo yum remove <package-name> -y"
 5. To check installed or not "yum list installed | grep <package_name>"
+6. To remove file "rm -rf <file-name>"
