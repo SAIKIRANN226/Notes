@@ -1,5 +1,5 @@
 13-install-packages.sh
-=======================
+-----------------------
 Installing any number of packages using "loops" instead of going to the script and again writing few 
 commands, we can install packages from the command line itself same like giving arguments outside the 
 script. And we keep these arguments in the "for loop" as shown in the script
@@ -15,7 +15,7 @@ Algorithm to install packages
 3. if not root user then throw the error
 
 Roboshop shellscript(VS)
-=========================
+-------------------------
 1. Mongodb ---> t3.small
 2. Catalogue ---> t2.micro
 3. Redis ---> t2.micro 
@@ -26,7 +26,7 @@ Roboshop shellscript(VS)
 8. Shipping ---> t3.small
 9. RabbitMq ---> t2.micro
 10. Payment ---> t2.micro
-11. Dispatch
+11. Dispatch ---> t2.micro
 
 SED editor(stream line editor)it is temporary editor it will not save
 ----------------------------------------------------------------------
@@ -41,7 +41,9 @@ sed -e 's/<word-to-find>/word-to-replace/' ---> First occurrence in the line
 sed -e 's/<word-to-find>/word-to-replace/g' ----> Global for everything
 
 Points to remember
--------------------
+*******************
 1. How to check logs? ---> sudo less /var/log/messages
 2. To check the ports "netstat -lntp"
 3. Shellscript is nothing but put all the Linux commands in one file
+4. To remove any installed package in the server "sudo yum remove <package-name> -y"
+5. To check installed or not "yum list installed | grep <package_name>"
