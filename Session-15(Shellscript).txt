@@ -1,11 +1,29 @@
 14-without-exit-status.sh
-==========================
+--------------------------
 The main disadvantage in shell scripting is we need to check every line through exit status, So to set automatically exit, we need to give "set -e" we have without exit status file in shell scripting
-here "e = automatically exit"
+here "e = automatically exit", mostly this wont work, so we dont use this method
 
 1. Instead of giving &>>logfile everywhere, we can give "exec &>>logfile" under logfile name
 
 2. To check the logs "sudo less /var/log/messages" we can check remote connections are successfully 
-   connected or not
+   connected or not in this logs
 
 3. unzip -o /tmp/we.zip ----> Here "o" is overwrite
+
+Roboshop shellscript(VS)
+-------------------------
+1. Mongodb ---> t3.small
+2. Catalogue ---> t2.micro
+3. Redis ---> t2.micro 
+4. User ---> t2.micro
+5. Cart ---> t2.micro
+6. Web ---> t2.micro
+7. Mysql ---> t3.small
+8. Shipping ---> t3.small
+9. RabbitMq ---> t2.micro
+10. Payment ---> t2.micro
+11. Dispatch ---> t2.micro
+
+Points to remember
+*******************
+1. Even after changing anything if it is still not reflecting then you need to restart "systemctl restart"
