@@ -27,4 +27,5 @@ Roboshop shellscript(VS)
 Points to remember
 *******************
 1. Even after changing anything if it is still not reflecting then you need to restart "systemctl restart"
-2. Make sure to add all internal servers in the web cofiguration in the last step
+2. Make sure to add all internal servers in the web cofiguration in the last step and make sure to 
+   restart after changing any configuration using "systemctl restart" command
