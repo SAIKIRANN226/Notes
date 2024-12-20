@@ -4,7 +4,7 @@ Deleting old log files
 -----------------------
 1. Deleting old log files, Check disk usage, Send email alerts
 
-2. For example we have a folder, where we are storing log files /tmp/shellscript-logs
+2. For example we have a folder, where we are storing log files
 
 3. Delete log files more than 14 days, only with ".log" extensions not any other files
 
@@ -18,13 +18,21 @@ Algorithm for deleting old log files (or) simple script
 
 15-delete-old-log.sh
 ---------------------
+1. Create a folder for logs "mkdir /tmp/shellscript-logs"
+2. Create few files with old date so that we can delete the old log files 
+3. Command to create files with old date "touch -d 20231201 <anyname.log>" year/month/date
+4. find . -type f -mtime +14 ---> f=only files, . means current directory
+5. find . -type f -mtime +14 -name "*.log" ---> we want all with .log extension files
+6. How to delete these files ? we use while loop to read command output
 
 16-ifs.sh
 ----------
+Generally we have "cat /etc/passwd" in this we have all the user information like user_id,group_id,user_name and many more other information, So how to read this whole information properly, we user IFS(Internal field separator)
 
 Disk usage
 -----------
-Command is "df -hT" if the disk usage goes above 70% we need to triggger a mail, So create another disk for practice because in real time there will be more disks so go to aws console and then navigate to 
+Command is "df -hT" if the disk usage goes above 70% we need to triggger a mail,So create another disk of 12gb
+for practice because in real time there will be more disks so go to aws console and then navigate to 
 Elastic Block Store ---> Volumes ---> Create volume ---> Attach to the instance
 So while creating disk there is one condition like for example disk should always near to the laptop.
 Similarly here also disk should create in the same availability zone which server is created, when you 
