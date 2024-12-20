@@ -20,7 +20,7 @@ Algorithm for deleting old log files (or) simple script
 ---------------------
 
 16-ifs.sh
-==========
+----------
 
 Disk usage
 -----------
@@ -42,7 +42,7 @@ Commands to run in the server to mount the disk
 6. sudo mount /dev/xvdf /data ----> Mounting
 
 17-disk-usage.sh
-=================
+-----------------
 
 mail.sh
-========
+--------
