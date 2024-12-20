@@ -56,4 +56,12 @@ Commands to run in the server to mount the disk
 
 mail.sh
 --------
-Mailing the above disk usage 
+1. Mailing the above disk usage to send alerts, sending mails from linux we have to install the
+   packages from gmail.MD document in concepts folder 
+2. We need from address and to address
+3. So open gmail in chrome go to profile/manage your google account/security/2-step verification/
+   turnon/app passwords/app-name(any)/copy the generated password this password is only for linux 
+   wont work for gmail 
+4. Remove spaces in password and put in the command xyz: your gmail without @gmail
+5. We can do mail formatting
+6. Converting text to html format from google websites
