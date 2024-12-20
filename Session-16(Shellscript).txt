@@ -56,3 +56,4 @@ Commands to run in the server to mount the disk
 
 mail.sh
 --------
+Mailing the above disk usage 
