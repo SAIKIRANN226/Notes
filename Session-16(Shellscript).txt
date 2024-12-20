@@ -29,16 +29,21 @@ Algorithm for deleting old log files (or) simple script
 ----------
 Generally we have "cat /etc/passwd" in this we have all the user information like user_id,group_id,user_name and many more other information, So how to read this whole information properly, we user IFS(Internal field separator)
 
-Disk usage
------------
-Command is "df -hT" if the disk usage goes above 70% we need to triggger a mail,So create another disk of 12gb
-for practice because in real time there will be more disks so go to aws console and then navigate to 
-Elastic Block Store ---> Volumes ---> Create volume ---> Attach to the instance
+17-disk-usage.sh
+-----------------
+Command is "df -hT" if the disk usage goes above 70% we need to triggger a mail,So create another disk 
+of 12gb for practice because in real time there will be more disks so go to aws console and then navigate 
+to Elastic Block Store ---> Volumes ---> Create volume ---> Action ---> Attach to the instance
 So while creating disk there is one condition like for example disk should always near to the laptop.
 Similarly here also disk should create in the same availability zone which server is created, when you 
-check in the server still created disk is not showing, so you need to explicitly mount it, we have a 
-command "lsblk" and create a file system using "sudo file -s /dev/xvdf" ---> dev means devices then check wether it is created or not "sudo lsblk -f" and then create a folder /data in the root and mount it 
-"sudo mount /dev/xvdf /data" 
+check in the server "df -hT" still created disk is not showing, so you need to explicitly mount it, we 
+have a command "lsblk" and to make usage create a file system using "sudo file -s /dev/xvdf" ---> dev means devices that means we are creating xvdf folder inside the devices folder, then check wether it is created 
+or not "sudo lsblk -f" and then run this command "sudo mkfs -t xfs /dev/xvdf" and then create a folder 
+in root folder "sudo mkdir /data" then mount it "sudo mount /dev/xvdf /data" 
+
+1. df -hT | grep xfs
+2. df -hT | grep tmp
+3. df -hT | grep -v tmp ---> -v means i dont want tmp files; | ---> or ; & ---> and
 
 Commands to run in the server to mount the disk
 ------------------------------------------------
@@ -48,9 +53,6 @@ Commands to run in the server to mount the disk
 4. sudo mkfs -t xfs /dev/xvdf ----> It is xfs type
 5. sudo mkdir /data ----> To create a data folder
 6. sudo mount /dev/xvdf /data ----> Mounting
-
-17-disk-usage.sh
------------------
 
 mail.sh
 --------
