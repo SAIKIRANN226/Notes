@@ -7,6 +7,14 @@ Installation of jenkins (CICD tool)
    to install jenkins in the agent, java is enough to work for agent, as Jenkins-Master not required 
    to know everything but agent should know everything because actual work is done by agent, However 
    logs will be shown in the Jenkins-Master
+   a)sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat/jenkins.repo
+   b)sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io-2023.key
+   c)sudo yum upgrade
+   d)sudo yum install fontconfig java-17-openjdk -y
+   e)sudo yum install jenkins -y
+   f)sudo systemctl enable jenkins
+   g)sudo systemctl start jenkins
+   h)sudo systemctl status jenkins
 4. systemctl start jenkins ; systemctl enable jenkins ; systemctl status jenkins
 5. Take jenkins instance_PublicIP and open in chrome with jenkins port number 8080
    Usage:- 173.34.65:8080/ in the chrome, If you are facing any error proceed to click on the 
