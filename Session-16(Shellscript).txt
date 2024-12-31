@@ -1,4 +1,5 @@
-For any programming languages (or) for any scripting. It is all about variables/datatypes/conditions/loops/functions but with different syntax, only we need to make sure with correct algorithm 
+For any programming languages (or) for any scripting. It is all about variables/datatypes/conditions/loops/functions but with a little different syntax, only we need to make 
+sure with correct algorithm 
 
 Deleting old log files
 ***********************
