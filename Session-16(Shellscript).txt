@@ -1,7 +1,7 @@
 For any programming languages (or) for any scripting. It is all about variables/datatypes/conditions/loops/functions but with different syntax, only we need to make sure with correct algorithm 
 
 Deleting old log files
------------------------
+***********************
 1. Deleting old log files, Check disk usage, Send email alerts
 
 2. For example we have a folder, where we are storing log files
@@ -9,7 +9,7 @@ Deleting old log files
 3. Delete log files more than 14 days, only with ".log" extensions not any other files
 
 Algorithm for deleting old log files (or) simple script
---------------------------------------------------------
+********************************************************
 1. First decide what is Source-Directory (or) Folder where we are storing log files
 
 2. Search more than 14 days old only with ".log" files not any other files
@@ -17,7 +17,7 @@ Algorithm for deleting old log files (or) simple script
 3. Delete "rm -rf"
 
 15-delete-old-log.sh
----------------------
+*********************
 1. Create a folder for logs "mkdir /tmp/shellscript-logs"
 2. Create few files with old date so that we can delete the old log files 
 3. Command to create files with old date "touch -d 20231201 <anyname.log>" year/month/date
@@ -26,11 +26,11 @@ Algorithm for deleting old log files (or) simple script
 6. How to delete these files ? we use while loop to read command output
 
 16-ifs.sh
-----------
+**********
 Generally we have "cat /etc/passwd" in this we have all the user information like user_id,group_id,user_name and many more other information, So how to read this whole information properly, we user IFS(Internal field separator)
 
 17-disk-usage.sh
------------------
+*****************
 Command is "df -hT" if the disk usage goes above 70% we need to triggger a mail,So create another disk 
 of 12gb for practice because in real time there will be more disks so go to aws console and then navigate 
 to Elastic Block Store ---> Volumes ---> Create volume ---> Action ---> Attach to the instance
@@ -46,7 +46,7 @@ in root folder "sudo mkdir /data" then mount it "sudo mount /dev/xvdf /data"
 3. df -hT | grep -v tmp ---> -v means i dont want tmp files; | ---> or ; & ---> and
 
 Commands to run in the server to mount the disk
-------------------------------------------------
+************************************************
 1. lsblk ----> To make available
 2. sudo file -s /dev/xvdf ----> To create a file system
 3. sudo lsblk -f ----> To check wether the disk is functional or not
@@ -55,7 +55,7 @@ Commands to run in the server to mount the disk
 6. sudo mount /dev/xvdf /data ----> Mounting
 
 mail.sh
---------
+********
 1. Mailing the above disk usage to send alerts, sending mails from linux we have to install the
    packages from gmail.MD document in concepts folder 
 2. We need from address and to address
