@@ -82,10 +82,14 @@ Improved way of deleting old log files
 4. Time ---> Optional, if he gives take it otherwise 14 days default
 5. Memory ---> Optional if he dint given then dont consider memory, if he gives then consider it
 
-Belwo is the usage of command
+Below is the usage of command
 ******************************
 old-logs.sh -s <source_dir> -a <archive/delete> -d <destination_dir> -t <no-of-days> -m <memory-in-mb>
 
 Algorithm to check for the above command
 *****************************************
+1. Wether the user has given proper command liek -s, -a, -t, -m check all these inputs, if he dont give
+   proper then tell him the correct usage
+2. Source directory exists or not 
+3. 
 
