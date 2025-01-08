@@ -1,9 +1,17 @@
-Crontab
---------
-It is used for scheduling the scripts instead of logging manually, it will target a particular directory
-which consist of more than 14 days old with ".log" extensions only, crontab has a particular syntax
-which consist of 5 stars like " 5 4 * * * " go and check crontab guru website 
+Crontab for deleting old log files
+-----------------------------------
+It is used for scheduling the scripts instead of logging manually,to delete old log files it will 
+target a particular directory which consist of more than 14 days old with ".log" extensions only, 
+but crontab has a particular syntax which consist of 5 stars like " 5 4 * * * " go and check crontab 
+guru website and you can see the examples provided in the website itself,Just see the crontab linux
+example in google
 
-How to create a timestamp file ?
----------------------------------
-"touch -d 20231201 cart.log"
+Usage of crontab and giving the location
+-----------------------------------------
+"crontab -e" and press enter this command should be run in the server, -e is editing just enter 5stars
+as of now * * * * * sh /home/centos/shell-script/15.delete-old-logs.sh Script location generally absolute 
+path and save the file :wq! To see logs "tail -f /var/log/cron" 
+
+Shellscript optargs 18-greetings.sh
+------------------------------------
+Generally we saw args like $1,$2 etc.
