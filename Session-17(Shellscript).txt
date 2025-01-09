@@ -14,4 +14,4 @@ path and save the file :wq! To see logs "tail -f /var/log/cron"
 
 Shellscript optargs 18-greetings.sh
 ------------------------------------
-Generally we saw args like $1,$2 etc.
+Generally we saw args like $1,$2 etc. Nothing but getting options
