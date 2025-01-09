@@ -41,8 +41,8 @@
 6. git add . ; git commit -m "proper message" ; git push -u origin master
 
 
-"Shellscript" is also known as "Bashscript"
---------------------------------------------
+Shellscript is also known as Bashscript
+----------------------------------------
 1. #!/bin/bash ----> This we call it as shibang it is the first line to check the syntax of the 
    shellscript, we need to give the location of bash which is "/bin/bash" but we write first line 
    as #!/bin/bash apart from the first line, if you see "#" anywhere it is commentout
@@ -71,6 +71,7 @@
 
 01-hello-world.sh
 ------------------
+Sample hello world script
 
 02-variables.sh
 ----------------
