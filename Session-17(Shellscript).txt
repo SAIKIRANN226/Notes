@@ -4,7 +4,7 @@ It is used for scheduling the scripts instead of logging manually,to delete old 
 target a particular directory which consist of more than 14 days old with ".log" extensions only, 
 but crontab has a particular syntax which consist of 5 stars like " 5 4 * * * " go and check crontab 
 guru website and you can see the examples provided in the website itself,Just see the crontab linux
-example in google
+example in the same website
 
 Usage of crontab and giving the location
 -----------------------------------------
