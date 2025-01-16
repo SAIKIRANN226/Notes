@@ -8,10 +8,12 @@ example in the same website
 
 Usage of crontab and giving the location
 -----------------------------------------
-"crontab -e" and press enter this command should be run in the server, -e is editing just enter 5stars
-as of now * * * * * sh /home/centos/shell-script/15.delete-old-logs.sh Script location generally absolute 
-path and save the file :wq! To see logs "tail -f /var/log/cron" 
+"crontab -e" and press enter this command should be run in the server, -e is editing just enter 5 stars
+as of now <stars and script location> below is the example of usage
+"* * * * * sh /home/centos/shell-script/15.delete-old-logs.sh" this line should be entered in the 
+editor and Script location generally absolute path and save the file :wq! To see logs 
+"tail -f /var/log/cron"  
 
 Shellscript optargs 18-greetings.sh
 ------------------------------------
-Generally we saw args like $1,$2 etc. Nothing but getting options
+Generally we saw args like $1,$2 etc. Nothing but sending the arguments as options 
