@@ -1,5 +1,12 @@
-# "https://github.com/daws-76s/concepts/blob/master/ansible.MD" ----> paste this URL in 
-   chrome you will redirect to that page of the content to know how ansible works
+Disadvantages in shellscipt
+----------------------------
+1. Shellscript will not work for linux distributions even though 99% commands may be same but 
+   you need to write separate script for those
+2. Scalability issues, for example we cannot configure more number of servers incase of big billion days
+3. Error handling, we need to do manually like writing functions,validations etc.
+4. Readablity issues, shellscript syntax is not easy to understand for everyone, if learned linux 
+   it will understand
+5. 
 
 1.What is configuration management?
 ------------------------------------
@@ -78,3 +85,8 @@ Open the server ---> git clone ---> cd ansible ---> ansible-playbook -i inventor
 02-nginx.yaml
 --------------
 Open the server ---> git clone ---> cd ansible ---> ansible-playbook -i inventory -e ansible _user=centos -e ansible_password=DevOps321 <file-name>
+
+Points to remember
+*******************
+https://github.com/daws-76s/concepts/blob/master/ansible.MD ----> Paste this URL in 
+chrome you will redirect to that page of the content to know how ansible works
