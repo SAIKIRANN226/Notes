@@ -114,3 +114,4 @@ Points to remember
 *******************
 https://github.com/daws-76s/concepts/blob/master/ansible.MD ----> Paste this URL in 
 chrome you will be redirected to the page of content to know how ansible works
+If you struck in the gitbash unable to enter any command then use ctr+C
