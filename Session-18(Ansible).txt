@@ -83,8 +83,10 @@ playbook and the syntax for the playbook is in YAML format, yet another markup l
 DTO(Data Transfer Object) transferring data from one system to another
 -----------------------------------------------------------------------
 Some of the markup languages are XML,HTML,JSON,YAML etc.
-Example if you give your Facebook credentials in your laptop browser then how the credentials is transferred to the Facebook ? Through XML format(extensive markup language) is the most used, and popular markup
-language is html (hyper text markup language), JSON (java script object notation) and YAML also
+Example if you give your Facebook credentials in your laptop browser then how the credentials is 
+transferred to the Facebook ? Through XML format(extensive markup language) is the most used, and 
+popular markup language is html (hyper text markup language), JSON (java script object notation) and 
+YAML also
 
 Markup languages
 -----------------
