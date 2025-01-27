@@ -46,8 +46,7 @@ following command "sshpass -p "DevOps321" ssh centos@nodeIP -C "curl <paste the 
 
 Push architecture(ansible is a push)
 -------------------------------------
-Configuration server ----> Main server it can connect to any number of remote servers, main configuration server pushes the configuration to the nodes without logging into the nodes in the background itself and ofcourse it is using ssh connection in the background, we only just make sure wether the connection is established successfully between nodes and ansible server
-Node-1,Node-2,Node-3 etc ----> Remote servers
+Configuration server ----> Main server it can connect to any number of remote servers, main configuration server pushes the configuration to the nodes without logging into the nodes in the background itself and ofcourse it is using ssh connection in the background, we only just make sure wether the connection is established successfully between nodes and ansible server. Node-1,Node-2,Node-3 etc ----> Remote servers
 
 Pull architecture(chef is a pull)
 ----------------------------------
