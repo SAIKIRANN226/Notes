@@ -1,6 +1,6 @@
 Disadvantages in shellscipt
 ----------------------------
-1. Shellscript will not work for linux distributions even though 99% commands may be same but 
+1. Shellscript will not work for all linux distributions even though 99% commands may be same but 
    you need to write separate script for separate distributions
 2. Scalability issues, for example we cannot configure more number of servers incase of big billion days
 3. Error handling, we need to do manually like writing functions,validations etc.
