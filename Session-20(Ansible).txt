@@ -1,8 +1,10 @@
 In this session we are configuring roboshop project with ansible
 ------------------------------------------------------------------
-1.Create a server and install ansible in it by "sudo yum install ansible -y",here from ansible we connect to the nodes
+1. Create a server and install ansible in it by "sudo yum install ansible -y",here from ansible 
+   we connect to the nodes
 
-Here sivakumar is creating the instances and also records using already created shellscript(roboshop.sh)as creating through ansible is some difficult he will show in the upcomming sessions.you need to give role to create the instances ---> actions/security/modifyIAM/select your role which you already created
+Here sivakumar is creating the instances and also records using already created shellscript(roboshop.sh)as creating through ansible is some difficult he will show in the upcomming sessions so you need to give role 
+to create the instances ---> actions/security/modifyIAM/select your role which you already created
 
 Delete the old records ---> hosted zones --> except NS and SOA
 
