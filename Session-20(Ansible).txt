@@ -24,4 +24,15 @@ ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=Dev
 1. inventory.ini
 2. mongodb.yaml/mongodb.repo
 3. catalogue.yaml/catalogue.service
-4. 
+
+
+Points to remember
+*******************
+1. In ansible i have used file module,dnf module,user module,get url modules etc.
+2. How to connect to mongodb from catalouge ? "mongo --host mongodb.daws76s.online"
+3. To check wether the data is there or not in catalogue ? 
+   "mongo --host mongodb.daws76s.online --quiet --eval 'db = db.getSiblingDB'("catalogue"); 
+   db.products.count()'
+4. Should check the above command in /app/schema folder
+5. To check wether the catalogue is connected to mongodb or not ?
+   sudo su - and then "tail -f /var/log/messages
