@@ -1,25 +1,37 @@
-First he mentioned about the google document of the classes
-------------------------------------------------------------
-
 Continuation of the roboshop configuration through ansible
-------------------------------------------------------------
-In roboshop.sh ---> there is a "UPSERT" previously it was create but this one if record exists it will edit, if not exists it will create
-and while running "roboshop.sh" file you will get the error "unable to locate credentials.you can configure credentials by running aws configure" that means you dint add the role for this ---> actions-->secuirty-->modifyIAM role-->add your already created role
+-----------------------------------------------------------
+In roboshop.sh ---> There is a "UPSERT" previously it was "create" now upsert ---> Means if record 
+exist it will edit, if not exist it will create and while running "roboshop.sh" file you will get 
+the error "unable to locate credentials you need to configure credentials by running aws configure" 
+that means you dint add the role for this ---> actions/secuirty/modifyIAM-role/add your already 
+created role to the ansible-server
 
-You can follow as per the document also but configuring by sequencing is recommended
---------------------------------------------------------------------------------------
-1.mongodb.yaml
-2.catalogue.yaml
-3.web.yaml ---> in web we need to add our publicIP address in hostedzone records
+You can follow as per the document also but configuring by sequence is recommended
+-----------------------------------------------------------------------------------
+1.mongodb.yaml/mongodb.repo
+2.catalogue.yaml/catalogue.service
+3.web.yaml/roboshop.conf ---> In web we need to add our publicIP address in hostedzone records
 4.redis.yaml
 5.user.yaml
 6.cart.yaml
-7.mysql.yaml
+7.mysql.yaml/mysql.repo
 8.shipping.yaml
 9.rabbitmq.yaml
 10.payment.yaml
 
 Command vs shell
 -----------------
-Shell--> it is like you login inside server and running the command,env variables and redirections symbols will work
-Command--> it is like running command ooutside the server,env variables and redirections symbols will not work
+Shell ---> It is like you login inside server and running the command, env variables and redirections
+           symbols will work
+Command ---> It is like running command ooutside the server, env variables and redirections 
+             symbols will not work,in command redirections will not work,it will work in shell
+
+
+Points to remember
+*******************
+1. First create ansible-server and intall ansible in it
+2. Run roboshop.sh script to create instances from the ansible-server only
+3. Clone the "roboshop-shell" to create the instances from the roboshop.sh script
+4. Run the roboshop.sh script
+5. Now clone roboshop-ansible project in the ansible-server only
+6. Run every module with the ansible command
