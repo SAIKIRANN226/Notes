@@ -43,6 +43,7 @@ now you are logged in node from the server instance successfully, you can do any
 the node server then "sshpass -p "DevOps321" ssh centos@nodeIP -C "echo hello > /tmp/hello.txt"", Here no need to login into the node from the server, you can also install packages without touching, for example 
 take any github repository like installing MySQL file copy the URL from the URL browser then enter the 
 following command "sshpass -p "DevOps321" ssh centos@nodeIP -C "curl <paste the URL> | sudo bash"
+Note: curl appears to point to the webpage of a GitHub repository, rather than a raw script file. To fix this, you should use the raw URL for the script file on GitHub. You can get the raw link by clicking the "Raw" button when viewing the file on GitHub.
 
 Push architecture(ansible is a push)
 -------------------------------------
