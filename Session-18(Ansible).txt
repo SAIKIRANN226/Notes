@@ -6,7 +6,7 @@ Disadvantages in shellscipt
 3. Error handling, we need to do manually like writing functions,validations etc.
 4. Readability issues, shellscript syntax is not easy to understand for everyone without learning linux
 5. Shell will only work for linux, not for external systems like aws,azure etc, we need to do manually
-   to work on external systems by using their particular commands or syntax
+   to work on external systems by using their particular modules (or) commands (or) syntax
 
 Advantages of ansible over shellscript
 ---------------------------------------
