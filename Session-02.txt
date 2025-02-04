@@ -22,7 +22,7 @@ white color is file
 CRUD(CREATE,READ,UPDATE,DELETE)
 --------------------------------
 So in entire software (or) you take any technology the background is CRUD. Example:- www.facebook.com, 
-login or signup or update etc. what ever you do CRUD will happen
+login (or) signup (or) update etc. what ever you do CRUD will happen in background
 
 Updating file with content
 ---------------------------
@@ -39,20 +39,20 @@ rm -r <folder-name> ---> Deletes the files also ("r" means recurrsive go inside 
 
 Copy command
 -------------
-cp <source where the file is> <destination>
+cp <source where the file is?> <destination>
 cp -r ---> recurssive
 
 Move command
 -------------
 mv ---> move
-with in the same folder if you use mv command, it works as a rename also. So mv command can also be used 
-for renaming 
+with in the same folder if you use mv command, it works as a rename also. So mv command can also 
+be used for renaming 
 
 grep command
 -------------
 grep <word-to-find> <file-name>
-Linux is case sensitive linux will treat DevOps and DEVOPS different to make this case insensitive(i) use
-"grep -i <word-to-find> <file-name>"
+Linux is a case sensitive. linux will treat DevOps and DEVOPS different to make this case insensitive(i) 
+use "grep -i <word-to-find> <file-name>"
 
 Piping symbol
 --------------
@@ -68,7 +68,6 @@ cut command
 ------------
 # https://github.com/saikiran-notes/blob/master/session.txt
 # To cut this we use "delimiter" here ":" and "/" are the delimiters, we get fragments in delimiter
-
 Command ==> cut -d / -f1
 Usage ==> "echo https://github.com/saikiran-notes/blob/master/session.txt | cut -d /f1"
 
@@ -76,7 +75,6 @@ awk command
 ------------
 Command ===> awk -F / '{print $1F}' 
 To get last fragment just use awk -F / '{print $NF}'
-
 awk will divide the data based on columns so we use the above command
 
 Head and tail commands
@@ -88,27 +86,28 @@ to get specific ==> head -n 1 <file-name>  == first line,similarly tail also
 VIM(visually improved editor)
 -------------------------------
 vim <file-name> then press "i" to enter the content or change the content
-to save that == :wq(write and quit)
-to not save == :q!
-to quit the file == :q
-to set numbers == :set nu
-to unset numbers == :set nonu
-clear last search highlight == :noh
+to save that ===> :wq(write and quit)
+to not save ===> :q!
+to quit the file ===> :q
+to set numbers ===> :set nu
+to unset numbers ===> :set nonu
+clear last search highlight ===> :noh
+You cannot go directly from "colon/command" mode to "insert" mode, you need to go to the "esc"mode first
 
-you cannot go directly from "colon/command" mode to "insert" mode, you need to go to the "esc"mode first
-
-Searching in the file
------------------------
+Searching in the file in server
+--------------------------------
 :/<word-to-search> ---> search from the top
 :?<word-to-search> ---> search from the bottom
-in ESC mode ---> shift+G = go to bottom,gg == will take to top
-"n" ---> pressing n n n ... will show whats next
+in ESC mode ---> shift+G ==> go to bottom, gg ==> will take to top
+"n" ---> pressing n n n ... will show what is next
 
-we use Ctrl+F ===> to find (or) search (or) replace in windows,but to replace in linux ":s/<word-to-find>/<word-to-replace>"replaces the word where your cursor is.this will replace only first occurance in the line,To replaces all use "/g", if you want any particular line then ":2s" s=substitute
+We use Ctrl+F ===> to find (or) search (or) replace in windows, but to replace in linux 
+":s/<word-to-find>/<word-to-replace>" replaces the word where your cursor is. This will replace only 
+first occurance in the line, To replaces all use "/g", if you want any particular line then 
+":2s" s=substitute
+Example:- ":%s/sbin/SBIN/g" ===> %s means all occurances
 
-:%s/sbin/SBIN/g === %s means all occurances
-
-where ever your curosor is just press "yy" it will copy
-just press "p" paste
-just press "u" undo
-just press "10p" 10 times copy
+Where ever your curosor is just press "yy" it will copy
+Just press "p" to paste
+Just press "u" to undo
+Just press "10p" it will copy 10 times
