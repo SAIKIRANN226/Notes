@@ -5,24 +5,24 @@ Mobile
 Phone
 Refrigerator
 Washing machine etc..
-We can call above all those also a computer because A computer has some characterstics like CPU,RAM,STORAGE etc. And when we connect these devices to internet(wifi) an IP address will be created to operate the computer (or) to compute with in the local and worldwide
+We can call above all those also a computer because A computer has some characterstics like CPU,RAM,STORAGE etc. and when we connect these devices to internet(wifi) an IP address will be created to operate the computer (or) to compute with in the local and worldwide
 
 www.facebook.com ---> Is a Server, based on the purpose like
 TV is used for Channels
-Mobile is user for calls
-Similarly Server is used for hosting applications to serve users/clients
+Mobile is used for calls
+Similarly Server is used for hosting applications to serve users (or) clients
 
 Client-Server Architecture
 ---------------------------
-Client = Who is requesting information
-Server = Who is giving information
-Example:- Phone and laptop "viceversa" when transferring media 
-Whole IT is a communication between clients and servers
+Client ---> Who is requesting information
+Server ---> Who is giving information
+Example:- Phone and laptop is "viceversa" when transferring media 
+Whole IT is communication between clients and servers
 
 Operating systems
 ------------------
 Windows OS ---> A bridge between user and hardware 
-User instructions ---> commands ---> 0/1 ---> hardware
+User instructions turn into ---> commands turn into ---> 0/1 ---> hardware
 OS will takcare of converting 0's and 1's
 
 Windows vs Linux
@@ -41,7 +41,7 @@ Authentication mechanisms to connect linux server
 --------------------------------------------------
 1. What you know ---> Username and Password
 2. What you have ---> RSA tokens
-3. What you are  ---> Palms,retina,fingerprints etc. for now we use second method(what you have),so we 
+3. What you are  ---> Palms,retina,fingerprints etc. as of now we use second method,so we 
    use SSH(secure shell)
 
 So here we need to generate (or) create a link between "LOCK and KEY" by using a command in gitbash 
@@ -58,15 +58,16 @@ So you have created a link now create a server in aws and connect to that server
 Steps to connect to ssh-server with keys in the gitbash 
 --------------------------------------------------------
 1. Import keypair in aws by going to --> Network and security options --> keypairs --> actions and 
-   import key pair without any gaps
-2. Create a security group (firewall) for inbound ---> all traffic ---> 0.0.0.0/0(representation 
+   import key pair(publickey) without any gaps
+2. Create a security group (firewall) for inbound ---> all traffic ---> 0.0.0.0/0 (representation 
    of internet)
 3. Launch instance with keypairs and take Amazon Linux 2AMI(HVM)
 
-Take public IP and username is "ec2-user" and "privatekey"
-{ssh -i <path-to-privatekey> username@IP} ===> usage {ssh -i saikiran.pem ec2-user@123.23.234.5} and this command should be enter in the gitbash in the pwd "c/Users/saikiran"
+Take public IP of the instance and username is "ec2-user" and "privatekey"
+{ssh -i <path-to-privatekey> username@IP} ===> usage {ssh -i saikiran.pem ec2-user@123.23.234.5} and 
+this command should be enter in the gitbash in the pwd "c/Users/saikiran"
 
-Gitbash ---> ssh client and also a mini linux
+Gitbash ---> is ssh client and also a mini linux
 Protocol ---> ssh(we have different protocols like https,http etc.)
 Port for ssh ---> 22
 Ec2 server ---> ssh server
