@@ -1,7 +1,9 @@
 Permissions
 ------------
 Important concept we use this heavily
-To practice the permissions create one server in aws and connect to it through keypair in gitbash,in that take any file or create a file using touch then try "ls-l" you have a file with some notation that is
+To practice the permissions create one server in aws and connect to it through keypair in gitbash,
+in that take any file (or) create a file using touch then try "ls-l" you have a file with some notation 
+that is
 
 -rw-rw-r--
 
@@ -9,13 +11,13 @@ To practice the permissions create one server in aws and connect to it through k
 file          user          group          others
                u              g              o
 
-We have three permissions like R,W,X(Read,Write,Execution access is used to run commands and shellscripts)
-In linux when you create a user a group with same name will be created
+We have three permissions like R,W,X (Read,Write,Execution. execution access is used to run commands 
+and shellscripts).In linux when you create a user a group with same name will be created
 
-# To give execution permission to user then "chmod u+x <file-name>"
-# Only for owner then "chmod g-rw <file-name>" removing read,write to group
-# To give access to all users to all groups then "chmod ugo+r <file-name>"
-# To remove write access to a group and inside folder then "chmod g-w -R <group-name>"
+1. To give execution permission to user then "chmod u+x <file-name>"
+2. Only for owner then "chmod g-rw <file-name>" removing read,write to group
+3. To give access to all users to all groups then "chmod ugo+r <file-name>"
+4. To remove write access to a group and inside folder then "chmod g-w -R <group-name>"
 
 Notations
 ----------
