@@ -12,24 +12,24 @@ file          user          group          others
                u              g              o
 
 We have three permissions like R,W,X (Read,Write,Execution. execution access is used to run commands 
-and shellscripts).In linux when you create a user a group with same name will be created
+and shellscripts). In linux when you create a user a group with same name will be created.
 
 1. To give execution permission to user then "chmod u+x <file-name>"
 2. Only for owner then "chmod g-rw <file-name>" removing read,write to group
-3. To give access to all users to all groups then "chmod ugo+r <file-name>"
+3. To give read access to all users to all groups then "chmod ugo+r <file-name>"
 4. To remove write access to a group and inside folder then "chmod g-w -R <group-name>"
 
 Notations
 ----------
-R--->4
-W--->2
-X--->1
+R---> 4
+W---> 2
+X---> 1
 
 Example
 --------
-u--->RWX
-g--->R
-o--->0
+u---> RWX
+g---> R
+o---> 0
 
 then "chmod 740 <file-name>"
 
