@@ -8,9 +8,9 @@ Washing machine etc..
 We can call above all those also a computer because A computer has some characterstics like CPU,RAM,STORAGE etc. and when we connect these devices to internet(wifi) an IP address will be created to operate the computer (or) to compute with in the local and worldwide
 
 www.facebook.com ---> Is a Server, based on the purpose like
-TV is used for Channels
+TV is used for Broadcasting
 Mobile is used for calls
-Similarly Server is used for hosting applications to serve users (or) clients
+Similarly Server is used for Hosting web applications to serve users (or) clients
 
 Client-Server Architecture
 ---------------------------
@@ -22,7 +22,7 @@ Whole IT is communication between clients and servers
 Operating systems
 ------------------
 Windows OS ---> A bridge between user and hardware 
-User instructions turn into ---> commands turn into ---> 0/1 ---> hardware
+User instructions will turn into ---> commands turn into ---> 0/1 ---> hardware
 OS will takcare of converting 0's and 1's
 
 Windows vs Linux
@@ -31,8 +31,8 @@ Windows ---> Graphics(Load increases on CPU,memory & everthing)
 Linux ---> Servers world(No graphics,Faster,reliable,lesscost,stability,security comes from 
 unix principles only)
 
-How to connect Linux servers ?
--------------------------------
+How to connect to Linux servers ?
+----------------------------------
 BOX = Linux server (or) Node
 LOCK = Public key(should be in aws-server)
 KEY = Private key(should be with you)
@@ -47,34 +47,33 @@ Authentication mechanisms to connect linux server
 So here we need to generate (or) create a link between "LOCK and KEY" by using a command in gitbash 
 "ssh-keygen -f <filename>" and press enter two times so there will be two files generated ".pub" and 
 one more file with same name but "without extension" to unable extension go to controlpanel
-file explorer options ---> view ---> unhide extensions for known files and then rename your private key 
+File explorer options ---> View ---> Unhide extensions for known files and then rename your private key 
 with ".pem"
-
 # Syntax for publickey is = ssh-rsa <code> Laptopname
 # Syntax for privatekey is = BEGIN OPENSSH PRIVATE KEY <code> END OPENSSH PRIVATE KEY
-
 So you have created a link now create a server in aws and connect to that server with these keys
 
 Steps to connect to ssh-server with keys in the gitbash 
 --------------------------------------------------------
-1. Import keypair in aws by going to --> Network and security options --> keypairs --> actions and 
-   import key pair(publickey) without any gaps
-2. Create a security group (firewall) for inbound ---> all traffic ---> 0.0.0.0/0 (representation 
+1. Import keypair in aws by going to --> Network and security options --> Keypairs --> Actions and 
+   Import key pair(publickey) without any gaps
+2. Create a security group(firewall) for inbound ---> All traffic ---> 0.0.0.0/0 (Representation 
    of internet)
 3. Launch instance with keypairs and take Amazon Linux 2AMI(HVM)
 
-Take public IP of the instance and username is "ec2-user" and "privatekey"
+Take publicIP of the instance and username is "ec2-user" (or) centos and "privatekey"
 {ssh -i <path-to-privatekey> username@IP} ===> usage {ssh -i saikiran.pem ec2-user@123.23.234.5} and 
 this command should be enter in the gitbash in the pwd "c/Users/saikiran"
-Note:- Use centos as username not ec2-user
+[Note:- Use centos as username not ec2-user ---> ssh -i saikiran.pem centos@123.23.234.5]
 
-Gitbash ---> is an ssh client and also a mini linux
+Gitbash ---> Is an ssh client and also a mini linux
 Protocol ---> ssh(we have different protocols like https,http etc.)
 Port number for ssh ---> 22
 Ec2 server ---> ssh server
 
-Cheapest region is "us-east-1" ---> latency(somewhat slow which is negligible). Every region has min 2 availability zones, Everything here we call as resources, like EC2(server). Where ever you are if you type 
-CD and enter you will go to user directory. "clear" command will clear all the lines, when you open gitbash bydefault it will be in the "/c/Users/saikiran" when ever you stuck in the gitbash just enter "ctrl+c"
+Cheapest region is "us-east-1" ---> latency is somewhat slow which is negligible. Every region has min 2 availability zones, Everything here we call as resources, like EC2(server). Where ever you are if you type 
+CD and enter you will go to user directory. "clear" command will clear all the lines, when you open gitbash bydefault you will be landed in the "/c/Users/saikiran" lcoation and when ever you stuck in the gitbash 
+just enter "ctrl+c"
 
 Absolute path and Relative path
 --------------------------------
