@@ -66,6 +66,7 @@ Steps to connect to ssh-server with keys in the gitbash
 Take public IP of the instance and username is "ec2-user" and "privatekey"
 {ssh -i <path-to-privatekey> username@IP} ===> usage {ssh -i saikiran.pem ec2-user@123.23.234.5} and 
 this command should be enter in the gitbash in the pwd "c/Users/saikiran"
+Note:- Use centos as username not ec2-user
 
 Gitbash ---> is an ssh client and also a mini linux
 Protocol ---> ssh(we have different protocols like https,http etc.)
