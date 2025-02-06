@@ -1,62 +1,63 @@
-In 3tier architecture we have
--------------------------------  
+In 3tier architecture model
+----------------------------
 Load balancer
      |   
      *
-Frontend servers :- Apache,nginx,IIS etc.Applications we deploy in frontend is 
+Frontend servers :- Apache,nginx,IIS etc. Applications we deploy in frontend is 
                     HTML,JS,reactJS,AngularJS
-Backend servers :- Jdboss,tomcat,weblogic etc.Applications we deploy in backend is 
-                   Java,.net,python etc.
-Database servers :- mssql,mysql,nosql,redis etc.
+Backend servers  :- Jdboss,tomcat,weblogic etc. Applications we deploy in backend is 
+                    Java,.net,python etc.
+Database servers :- sql,mysql,nosql,redis etc.
 
-Putty
-------
-We learned how to connect through ssh in gitbash,here in putty also ultimately should go 
-1.username
-2.privatekey/password
-3.ip address
-if we give above three what will putty do in background?so putty will take above three and it will issue a command "ssh -i <privatekey> username@IP"
-
-# In gitbash we call privatekey as ".pem" format,but in putty ".ppk" format(putty privatekey)
+"Putty" to connect to servers
+------------------------------
+We learned how to connect through ssh in gitbash, here in putty also ultimately should go 
+1. Username
+2. Privatekey/password
+3. IP_address
+If we give above three what will putty do in background ? so putty will take above three and it 
+will issue a command "ssh -i <path-to-privatekey> username@IP"
+In gitbash we call privatekey as ".pem" format, but in putty ".ppk" format(putty privatekey)
 
 Open puttygen
 --------------
-1.load .pem file
-2.click on save privatekey with .ppk extension
-3.open putty --> connection ---> ssh ---> Auth ---> credentials ---> load privatkey.ppk
-4.connection ---> data ---> username(ec2-user)...then go to session and save
-5.create a server in aws and take the ip and paste it putty(hostname) click on load
-6.to change the font open putty,appearence,change and then save
+1. Load .pem file
+2. Click on save privatekey with .ppk extension
+3. Open putty --> connection ---> ssh ---> auth ---> credentials ---> load privatkey.ppk
+4. Connection ---> data ---> username(ec2-user) ---> then go to session and save
+5. Create a server in aws and take the IP and paste it in putty(hostname) click on load
+6. To change the font open putty ---> appearence ---> change and then save
+We have extension for putty that is super putty, just create one sever in aws and connect in the 
+superputty try to install nginx,enable,start and check the IP in chrome if it is showing nginix (or) not,
+so where the html files will load in nginx ?  "/usr/share/nginx/html", so to go this folder "sudo su -" 
+then cd usr/share/nginx/html, here we can also put your own short html format
 
-We have extension for putty that is super putty,just create one sever in aws and connect in the superputty try to install nginx,start,enable,and check the ip in chrome if it is showing nginix (or) not,so where the html files will load in nginx?  "/usr/share/nginx/html", so to go this folder "sudo su -" then cd usr/share/nginx/html, here we can also put our own short html format
-
-1.generally frontend servers called as http servers open port No.80 ,hosts html or java 
-  based applications
-2.backend is also http servers but port No =8080, hosts like tomcat,jboss,.net,python
-3.these frontend and back will connect through API's
-4.for file transferring we use winscp
+1. Generally frontend servers called as http servers open port No.80 ,hosts html or java 
+   based applications
+2. Backend is also http servers but port No =8080, hosts like tomcat,jboss,.net,python
+3. These frontend and back will connect through API's
+4. For file transferring we use winscp
 
 Linux file system structure
--------------------------------
-Like "This PC" in windows in linux we have "cd /"
-boot ---> when server is getting started,server refers this directory and config from grub.config
-dev ---> external devices are mounted here expect motherboard
-etc ---> extra configuration 
-lib ---> libraries which consists of ".dll" extension
-home ---> all user directories are created here
-media ---> cdrive , d drive
-mnt ---> extra disk mounted here
-opt ---> optional manual installation of servers or applications will be downloaded here
-proc ---> running processes will be stored here with PID
-root ---> home folder
-run ---> when server starts uses this directory
-bin ---> stores commands like cat,vim,touch,cd etc.
-sbin ---> system commands like root access
-tmp ---> temporory files not important files stored here
-usr ---> all users will be here
-var ---> variables,log files
-
-When putty stucks then open putty first load your session then connection ---> give 30 in  seconds between...then go to session and save
+----------------------------
+"This PC" in windows, in linux we have "cd /"
+boot ---> When server is getting started, server refers this directory and config from grub.config
+dev ---> External devices are mounted here expect motherboard
+etc ---> Extra configuration 
+lib ---> Libraries which consists of ".dll" extension
+home ---> All user directories are created here
+media ---> C-drive , D-drive
+mnt ---> Extra disk mounted here
+opt ---> Optional manual installation of servers or applications will be downloaded here
+proc ---> Running processes will be stored here with PID
+root ---> Home folder
+run ---> When server starts uses this directory
+bin ---> Stores commands like cat,vim,touch,cd etc.
+sbin ---> System commands like root access
+tmp ---> Temporory files not important files stored here
+usr ---> All users will be here
+var ---> Variables,log files
+When putty stucks then open putty first load your session then connection ---> give 30 in seconds between...then go to session and save
 
 Symlink and hardlink(1:01:31)
 ------------------------------
@@ -66,3 +67,10 @@ Symlink ---> is nothing but a shortcut which targets the actual location. in the
 Symlink and actual file have their own inodes to check this "ls -li"
 
 But hardlink actual file and hardlink both are point to inode,how to give hardlink? "ln /home/ec2-user/hello hello-hard" if you dont give "s" it will become hardlink
+
+Points to remember
+*******************
+1. We use nginx as front-end servers because it can handle high traffic, it is often used as a 
+   reverse proxy, we used nginx only in all sessions
+2. IIS is only used for windows based infrastructure
+3. 
