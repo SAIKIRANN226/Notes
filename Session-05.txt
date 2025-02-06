@@ -1,5 +1,5 @@
-In 3tier architecture model
-----------------------------
+In 3tier architecture model we have
+------------------------------------
 Load balancer
      |   
      *
