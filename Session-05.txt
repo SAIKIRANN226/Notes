@@ -1,19 +1,9 @@
-In 3tier architecture model we have
-------------------------------------
-Load balancer
-     |   
-     *
-Frontend servers :- Apache,nginx,IIS etc. Applications we deploy in frontend is 
-                    HTML,JS,reactJS,AngularJS
-Backend servers  :- Jdboss,tomcat,weblogic etc. Applications we deploy in backend is 
-                    Java,.net,python etc.
-Database servers :- sql,mysql,nosql,redis etc.
-
 "Putty" to connect to servers
 ------------------------------
-We learned how to connect through ssh in gitbash, here in putty also ultimately should go 
+In previous sessions,we learned how authentication is happened while connecting to the linux servers
+in gitbash,ofcousre it is using ssh in the background,here in putty also obviously should go 
 1. Username
-2. Privatekey/password
+2. Privatekey/Password
 3. IP_address
 If we give above three what will putty do in background ? so putty will take above three and it 
 will issue a command "ssh -i <path-to-privatekey> username@IP"
