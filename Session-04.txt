@@ -101,6 +101,6 @@ Load balancer
      *
 Frontend servers :- Apache,nginx,IIS etc. Applications we deploy in frontend is 
                     HTML,JS,reactJS,AngularJS
-Backend servers  :- Jdboss,tomcat,weblogic etc. Applications we deploy in backend is 
+Backend servers  :- Jboss,tomcat,weblogic etc. Applications we deploy in backend is 
                     Java,.net,python etc.
 Database servers :- sql,mysql,nosql,redis etc.
