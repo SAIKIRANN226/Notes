@@ -6,8 +6,8 @@ in gitbash,ofcousre it is using ssh in the background,here in putty also obvious
 2. Privatekey/Password
 3. IP_address
 If we give above three what will putty do in background ? so putty will take above three and it 
-will issue a command "ssh -i <path-to-privatekey> username@IP"
-In gitbash we call privatekey as ".pem" format, but in putty ".ppk" format(putty privatekey)
+will issue a command "ssh -i <path-to-privatekey> username@IP".In gitbash we call privatekey as 
+".pem" format, but in putty ".ppk" format(putty privatekey)
 
 Open puttygen
 --------------
@@ -17,16 +17,29 @@ Open puttygen
 4. Connection ---> data ---> username(ec2-user) ---> then go to session and save
 5. Create a server in aws and take the IP and paste it in putty(hostname) click on load
 6. To change the font open putty ---> appearence ---> change and then save
-We have extension for putty that is super putty, just create one sever in aws and connect in the 
+We have extension for putty that is super putty, just create one server in aws and connect in the 
 superputty try to install nginx,enable,start and check the IP in chrome if it is showing nginix (or) not,
-so where the html files will load in nginx ?  "/usr/share/nginx/html", so to go this folder "sudo su -" 
-then cd usr/share/nginx/html, here we can also put your own short html format
+so where the html files will load in nginx ?  "/usr/share/nginx/html", we have index.html file 
+so to go this folder "sudo su -" then cd usr/share/nginx/html, here we can also put your own short 
+html format which should do in the server only
 
-1. Generally frontend servers called as http servers open port No.80 ,hosts html or java 
-   based applications
-2. Backend is also http servers but port No =8080, hosts like tomcat,jboss,.net,python
-3. These frontend and back will connect through API's
-4. For file transferring we use winscp
+1. Remove default index.html file in the server "rm index.html"
+2. Open winscp double click on the path location on top, which is in grey colour and paste the 
+   "/usr/share/nginx/html"
+3. Drag and drop the html files and folder to the right side mini windows in linux server
+4. You will get error while copy paste "permission is denied"
+5. ls -l and check html folder has write access to others ? 
+6. chmod o+w -R html/
+7. Makesure to restart nginx when you add any files to the folder
+
+Steps to install nginx (or) any other packages
+-----------------------------------------------
+1. sudo su -
+2. yum install nginx -y
+3. systemctl enable nginx
+4. systemctl start nginx
+5. systemctl status nginx
+6. systemctl restart nginx
 
 Linux file system structure
 ----------------------------
@@ -63,4 +76,8 @@ Points to remember
 1. We use nginx as front-end servers because it can handle high traffic, it is often used as a 
    reverse proxy, we used nginx only in all sessions
 2. IIS is only used for windows based infrastructure
-3. 
+3. We have "winscp" for file transfer, it is a mini windows for linux server 
+4. Generally frontend servers called as http servers open port No:80 ,hosts html (or) java 
+   based applications
+5. Backend is also http servers but port No:8080, hosts like tomcat,jboss,.net,python etc.
+6. These frontend and back will connect through API's
