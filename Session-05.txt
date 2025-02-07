@@ -66,7 +66,7 @@ every 30 seconds connection will be alive, you can give maximum 300
 
 Symlink and hardlink(1:01:31)
 ------------------------------
-Linux servers (or) computers they dont understand names 
+Linux servers (or) computers they dont understand names,they understand only numbers
 Inode is the representation of file and folder inside the memory(it is a number),so if you create a file and try ls -i then there is pointer with some number that is nothing file location,we dont have idea where that location is. that is handled by kernel
 
 Symlink ---> is nothing but a shortcut which targets the actual location. in the sameway we can also create a shortcut for a file by "ln -s <source-where is your file> <destination path>"  usage is "ln -s /home/ec2-user/hello /tmp/hello-soft"--->L=linked file,s=symbolic,here symlink point to different inode but location is always pointing to actual file,if we delete this file we lose link,but not with hardlink it is directly dealing with memory what ever the hardlinks or files to inode it will check for the reference untill unless all the linked files are delete 
