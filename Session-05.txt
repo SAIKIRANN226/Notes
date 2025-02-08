@@ -1,27 +1,27 @@
 "Putty" to connect to servers
 ------------------------------
 In previous sessions, we learned how authentication is happened while connecting to the linux servers
-in gitbash, ofcousre it is using ssh in the background, here in putty also obviously should go 
+in gitbash, ofcousre it is using ssh in the background, Here in putty also obviously should go 
 1. Username
 2. Privatekey/Password
 3. IP_address
 If we give above three what will putty do in background ? So putty will take above three and it 
 will issue a command "ssh -i <path-to-privatekey> username@IP". In gitbash we call privatekey as 
-".pem" format, but in putty ".ppk" format(putty privatekey)
+".pem" format, but in putty ".ppk" format(Putty Privatekey)
 
-Open puttygen
---------------
-1. Load .pem file which you have already created
+First open puttygen
+--------------------
+1. Load .pem file which you have already created (or) you can create a new one also
 2. Click on save privatekey with .ppk extension
-3. Open putty --> connection ---> ssh ---> auth ---> credentials ---> load privatkey.ppk
-4. Connection ---> data ---> username(ec2-user) ---> then go to session and save
-5. Create a server in aws and take the IP and paste it in putty(hostname) click on load to connect
-6. To change the font open putty ---> appearence ---> change and then save to make effect in superputty also
-We have extension for putty that is super putty, just create one server in aws and connect in the 
-superputty try to install nginx,enable,start and check the IP in chrome if it is showing nginix (or) not,
+3. Open putty --> connection ---> ssh ---> auth ---> credentials ---> load your saved .ppk file
+4. Connection ---> data ---> username(ec2-user) ---> then go to session and save(Important)
+5. Create a server in aws and take the IP and paste it in putty(Hostname) click on load to connect
+6. To change the font open putty ---> appearence ---> change and then save to make effect in superputty
+We have extension for putty that is super putty, Just create one server in aws and connect in the 
+superputty try to install nginx,enable,start and check the IP in chrome if it is showing nginx (or) not,
 so where the html files will load in nginx ?  "/usr/share/nginx/html", we have index.html file 
-so to go this folder "sudo su -" then cd usr/share/nginx/html, here we can also put your own short 
-html format which should do in the server only,
+so go to this folder "sudo su -" then cd usr/share/nginx/html, Here we can also put your own short 
+html format which should do in the server only.
 
 How to keep sample html website from the internet
 --------------------------------------------------
@@ -32,8 +32,8 @@ How to keep sample html website from the internet
 3. Drag and drop the html files and folder to the right side mini windows in linux server
 4. You will get error "permission is denied" while copy paste 
 5. ls -l and check html folder has write access to others ? 
-6. chmod o+w -R html/
-7. Makesure to restart nginx when you add any files to the folder
+6. chmod o+w -R html/ (-R means recursive go inside folder and change (or) delete everything)
+7. Make sure to restart nginx when you add any files to the folder
 
 Steps to install nginx (or) any other packages
 -----------------------------------------------
@@ -46,15 +46,15 @@ Steps to install nginx (or) any other packages
 
 Linux file system structure
 ----------------------------
-"This PC" in windows, in linux we have "cd /"
+"This PC" in windows, and in linux we have "cd /"
 boot ---> When server is getting started, server refers this directory and config from grub.config
 dev ---> External devices are mounted here expect motherboard
 etc ---> Extra configuration 
-lib ---> Libraries which consists of ".dll" extension
+lib ---> Libraries which consists of ".dll" extension (or) other extensions
 home ---> All user directories are created here
 media ---> C-drive , D-drive
 mnt ---> Extra disk mounted here
-opt ---> Optional manual installation of servers or applications will be downloaded here
+opt ---> Optional manual installation of servers (or) applications will be downloaded here
 proc ---> Running processes will be stored here with PID
 root ---> Home folder
 run ---> When server starts uses this directory
@@ -68,13 +68,16 @@ to give any value like 30, that means every 30 seconds connection will be alive,
 
 Symlink and hardlink(1:01:31)
 ------------------------------
-Linux servers (or) computers they dont understand names,they understand only numbers
-Inode is the representation of file and folder inside the memory(it is a number),so if you create a file and try ls -i then there is pointer with some number that is nothing file location,we dont have idea where that location is. that is handled by kernel
+Inode is the representation of file and folder inside the memory(It is a number), So if you create a file and try ls -i then there is pointer with some number that is nothing file location, We dont have idea where that location is ? That is handled by kernel.
 
-Symlink ---> is nothing but a shortcut which targets the actual location. in the sameway we can also create a shortcut for a file by "ln -s <source-where is your file> <destination path>"  usage is "ln -s /home/ec2-user/hello /tmp/hello-soft"--->L=linked file,s=symbolic,here symlink point to different inode but location is always pointing to actual file,if we delete this file we lose link,but not with hardlink it is directly dealing with memory what ever the hardlinks or files to inode it will check for the reference untill unless all the linked files are delete 
-Symlink and actual file have their own inodes to check this "ls -li"
-
-But hardlink actual file and hardlink both are point to inode,how to give hardlink? "ln /home/ec2-user/hello hello-hard" if you dont give "s" it will become hardlink
+Symlink ---> Is nothing but a shortcut which targets the actual location, In the same way we can also 
+create a shortcut for a file by "ln -s <source-where is your file> <destination path>"  
+Usage ===> "ln -s /home/ec2-user/hello /tmp/hello-soft" ---> l ==> linked file, s ==> symbolic, Here 
+symlink point to different inode but location is always pointing to actual file memory location, If we 
+delete this file we lose link, But not with hardlink it is directly dealing with memory what ever the hardlinks (or) files to inode it will check for the reference until unless all the linked files are 
+deleted. Symlink and actual file have their own inodes (or) different inodes to check this "ls -li". 
+But in hardlink actual file and hardlink both are pointing to same inode, How to give hardlink ? 
+Usage ===> "ln /home/ec2-user/hello hello-hard" if you dont give "s" it will become hardlink
 
 Points to remember
 *******************
