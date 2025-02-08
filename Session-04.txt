@@ -63,36 +63,41 @@ Trouble shooting process
 5. Check wether the firewall is opened or not ?
 6. Check if internet is working or not by "ping google.com (or) ping IPaddress"
 
-How to give admin access (or) any other access to linux user ?
----------------------------------------------------------------
-Example two types of users
-1.Linux admin team ---> full access
-2.DevOps team ---> limited sudo access
+How to give admin access (or) any other access to linux users ?
+----------------------------------------------------------------
+Example two types of users.
+Linux admin team ---> Full access
+DevOps team ---> Limited sudo access
 
-Create two groups :- admin,devops ---> groupadd admin,groupadd devops
-Create two users :- ramesh,suresh ---> useradd ramesh,useradd suresh
-Adding ramesh in admin :- usermod -g admin ramesh
-Adding suresh in devops :- usermod -g devops suresh
-To check their details :- id suresh, id ramesh
+1. Create two groups :- admin,devops ---> groupadd admin, groupadd devops
+2. Create two users :- ramesh,suresh ---> useradd ramesh, useradd suresh
+3. Create two passwords :- ramesh,suresh ---> passwd ramesh, passwd suresh
+4. Make password authentication to yes ---> vim /etc/ssh/sshd_config and systemctl restart sshd
+5. Add ramesh in admin team :- usermod -g admin ramesh
+6. Add suresh in devops team :- usermod -g devops suresh
+7. To check their details :- id suresh, id ramesh
 
-How to give access? ---> generally to give sudo access we have one file "/etc/sudoers" so "vim /etc/sudoers", it is not recommended to open this file as it crucial so linux has given one command to open file safely that is "visudo"
+Now how to give access ? 
+-------------------------
+Generally to give sudo access we have one file "/etc/sudoers" So "vim /etc/sudoers", It is not 
+recommended to open this file because it crucial so linux has given one command to open file safely 
+that is "visudo"
+1. Ramesh ---> Add him to wheel group (or) give admin full access, under wheelgroup enter
+   %admin ALL=(ALL)   ALL
+2. Suresh---> Add him to wheel group give required limited access
+   %devops  ALL=(ALL)  /usr/bin/yum,/usr/bin/systemctl
 
-Ramesh ---> add him to wheel group (or) give admin full access,under wheelgroup enter 
-%admin ALL=(ALL)   ALL
+This is like giving full admin access but we cannot give full access to everyone, we can give 
+only few limited access like "yum" command(To know where this command is installed "which yum" (or) 
+"which systemctl" command then open "visudo" under the %wheel group add this line 
+"%devops  ALL=(ALL)  /usr/bin/yum,/usr/bin/systemctl" So this way we can give limited access
 
-Suresh---> add him to wheel group give required limited access
-%devops  ALL=(ALL)  /usr/bin/yum,/usr/bin/systemctl
+Everytime opening "visudo" is also a risky, So linux has given one location ---> vim /etc/sudoers.d
+# vim /etc/sudoers.d/devops(created folder) ---> %devops  ALL=(ALL)  /usr/bin/yum,/usr/bin/systemctl
+# vim /etc/sudoers.d/admin(created folder) ---> %admin ALL=(ALL)   ALL
 
-Then set password for ramesh to connect to server,next change the password authentication by going to "vim /etc/ssh/sshd_config",then "systemctl restart sshd".this is giving of full admin access but we cannot give full access to all we can give only few access like "yum" command(to know where this command is installed "which yum" or "systemctl" command then open "visudo"under the %wheel group = "%devops  ALL=(ALL)  /usr/bin/yum,/usr/bin/systemctl" so this way we can give limited access
-
-Everytime opening "visudo" is also a risky,so linux has given one location that is cut the below 4 points and paste here ---> vim /etc/sudoers.d
-# %devops  ALL=(ALL)  /usr/bin/yum,/usr/bin/systemctl
-# %admin ALL=(ALL)   ALL
-# vim /etc/sudoers.d/devops(created folder) --> paste it here
-# vim /etc/sudoers.d/admin(created folder) ---> paste it here
-
-3tier architecture(52:33)
----------------------------
+3Tier architecture(52:33)
+--------------------------
 Load balancer
      |   
      *
@@ -101,3 +106,9 @@ Frontend servers :- Apache,nginx,IIS etc. Applications we deploy in frontend is
 Backend servers  :- Jboss,tomcat,weblogic etc. Applications we deploy in backend is 
                     Java,.net,python etc.
 Database servers :- sql,mysql,nosql,redis etc.
+
+Points to remember
+*******************
+1. Why adding in the wheel group only ? Because wheel group has admin access
+2. To change password authentication to yes "vim /etc/ssh/sshd_config" make sure to restart
+   "systemctl restart sshd"
