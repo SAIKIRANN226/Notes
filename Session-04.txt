@@ -112,3 +112,4 @@ Points to remember
 1. Why adding in the wheel group only ? Because wheel group has admin access
 2. To change password authentication to yes "vim /etc/ssh/sshd_config" make sure to restart
    "systemctl restart sshd"
+3. https://github.com/daws-76s/roboshop-documentation ---> 3-Tier architecture diagram
