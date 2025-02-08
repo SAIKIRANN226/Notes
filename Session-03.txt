@@ -2,8 +2,8 @@ Permissions
 ------------
 Important concept we use this heavily {make sure do this in server to get required result}
 To practice the permissions create one server in aws and connect to it through keypair in gitbash,
-in that take any file (or) create a file using touch then try "ls-l" you have a file with some notation 
-that is
+in that take any file (or) create a file using touch then try "ls-l" you have a file with some 
+notation that is
 
 - rw- rw- r--
 
@@ -11,8 +11,8 @@ that is
 file          user          group          others
                u              g              o
 
-We have three permissions like R,W,X (Read,Write,Execution. Execution access is used to run commands 
-and shellscripts). In linux when you create a user a group with same name will be created.
+We have three permissions like R,W,X (Read,Write,Execution). Execution access is used to run 
+shellscripts and commands. In linux when you create a user a group with same name will be created.
 
 1. To give execution permission to user then "chmod u+x <file-name>"
 2. Only for owner then "chmod g-rw <file-name>" removing read,write to group
