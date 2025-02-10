@@ -1,7 +1,7 @@
 1. In linux when you open gitbash we are automatically landing in the home directory to know that 
    just type "pwd" then you can see your landed location "/c/users/user(saikiran), Here definitely 
    you will have ".ssh" folder, If it is not there you need to create .ssh folder, It will be hidden 
-   so to check this enter the command "ls -la"
+   so to check this enter the following command "ls -la"
 2. Why we use "ssh authentication" to connect github account to push the code ? Because we work with
    multiple github accounts so for every account logging with username and password is not a good 
    practice so we prefer to use "ssh based authentication".
@@ -12,21 +12,21 @@
    b) Cat Public-key, copy the code and go to the github settings /SSH and GPG Keys/New SSH key/
       give any name and paste without any gaps
    c) Keep your Private-key in ".ssh" folder if it is not created you have to create it in user 
-      directory like "C:\Users\saikiran\.ssh" and
+      directory like "C:\Users\saikiran\.ssh"
    d) Create a config file with no extension in .ssh folder, in this config file keep the config 
       syntax and give the correct location of your Private-key and also we can add multiple 
-      github accounts. Config syntax i have given for my created Private-key 
+      github accounts. Below is the config syntax i have given for my created Private-key 
                 Host github.com
                   HostName github.com
                   User git
                   PreferredAuthentications publickey
                   IdentityFile ~/saikiran.pem
    e) We have https and ssh to the repository, We use ssh authentication for pushing to the github
-      https ---> Username and Password, clone https URL when you have only read access
+      https ---> Username and Password, clone https URL when you have read only access
       ssh ---> Just private-key, you can clone if you are the owner of the respository
       Prefer https while cloning the repository
 3. Github is nothing but a folder in internet with tracking capabilities
-4. "git branch -M main" ---> To change from master to main
+4. git branch -M main ---> To change from master to main
 5. Learn Dzone git commands from the below URL's
    https://dzone.com/articles/top-20-git-commands-with-examples
    https://dzone.com/articles/top-35-git-commands-with-examples-and-bonus
@@ -62,13 +62,12 @@ Dry concept don't repeat yourself, We can give variables in capital letters but 
  
 03-variables.sh
 ----------------
-How do you run commands in shellscript and take output ?
-${command} ---> Usage ===> DATE=$(date)
-                           echo "script started executing at ${DATE}"
+How do you run commands in shellscript and take output ? ${command}, Usage ===> DATE=$(date)
+echo "script started executing at ${DATE}"
 
 04-variables.sh
 ----------------
-We can give arguments outside the shell. Usage ---> "sh <script-name> ram raheem"
+We can give arguments outside the shell. Usage ===> "sh <script-name> ram raheem"
 
 05-variables
 -------------
@@ -78,7 +77,7 @@ we have "read command"
 
 06-data-types.sh
 -----------------
-int,float,string etc. In shellscript data type is not much important, it will automatically consider which data type is. Usage in server ---> "sh <script-name> 100 200"
+Int,float,string etc. In shellscript data type is not much important, it will automatically consider which data type is. Usage in server ---> "sh <script-name> 100 200"
 
 07-arrays.sh
 -------------
