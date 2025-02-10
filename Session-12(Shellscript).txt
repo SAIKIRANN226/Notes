@@ -21,7 +21,7 @@
                   User git
                   PreferredAuthentications publickey
                   IdentityFile ~/saikiran.pem
-   e) We have https and ssh in the repository, We use ssh authentication for pushing to the github
+   e) We have https and ssh to the repository, We use ssh authentication for pushing to the github
       https ---> Username and Password, clone https URL when you have only read access
       ssh ---> Just private-key, you can clone if you are the owner of the respository
       Prefer https while cloning the repository
@@ -41,7 +41,7 @@ Shellscript is also known as Bashscript
 3. If you enter wrong URL while pushing to github then we can set using below command
     "git remote set-url origin <url of the repository>"
 4. If git is not configured in the github account yet, Still developers can start writing their
-   code in the VS untill git is ready and later they can push it to the git
+   code in the VS until git is ready and later they can push it to the git
 5. A normal folder will become git when you initialise by using command "git init"
 6. We develop code (or) script in VisualStudio
 7. Using gitbash client we push the code (or) script to the github repository
