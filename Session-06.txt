@@ -1,9 +1,4 @@
-1.Public_IP vs Private_IP
---------------------------
-If you type "ipconfig" you will get all details, ipv4 is my private_IP, IP under default gateway is modem.
-ipv4 are exhausting and we are upgrading ipv6 till then we can use ipv4. We have 2power32 IP address if we allocate all these we get problems so they bought "NAT" network address translation 
-latency ---> is time to respond
-
+1. Public_IP vs Private_IP ?
 2. Fiber exchange points ?
 3. How internet is working ?
 4. Monolithic vs Microservices ?
@@ -12,6 +7,10 @@ latency ---> is time to respond
 
 Points to remeber
 ******************
-To connect from one server to another server we use "telnet <to-which-IPaddress> port"
-Usage ===> telnet 3.34.345.0 8080
-If telnet is not installed ---> sudo yum install telnet -y
+1. To connect from one server to another server we use "telnet <to-which-IPaddress> port"
+   Usage ===> telnet 3.34.345.0 8080
+2. If telnet is not installed ---> sudo yum install telnet -y
+3. If you type "ipconfig" you will get all details, IPv4 is my private_IP, IP under default 
+   gateway is modem. IPv4 are exhausting and we are upgrading to IPv6 till then we can use IPv4. 
+   We have 2power32 IPaddresses, If we allocate all these we get problems so they bought "NAT" 
+   Network Address Translation, However Latency will be come what slow is nothing but time to respond
