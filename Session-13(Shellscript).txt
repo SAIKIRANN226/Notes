@@ -35,9 +35,7 @@ command success (or) not for that we have special variable "$?" ---> If success 
 10-functions.sh
 ----------------
 We can put the repeated code in the function, Generally we keep functions under VARIABLES, We give args 
-to the shellscript similarly we need to give inputs to the functions also. You have run the script right ? then where is that log ? There will be no logs in /var/log/messages, we need to store that logs, otherwise 
-we cannot troubleshoot, make sure you should not log in the current folder of server come outside and 
-then do, this is just to show how it works rightnow, For example just type "ls -ltr" in the terminal you 
+to the shellscript similarly we need to give inputs to the functions also. You have run the script right ? then where is that log ? There will be no logs in less /var/log/messages, we need to store that logs, otherwise we cannot troubleshoot, make sure you should not log in the current folder of server come outside and then do, this is just to show how it works rightnow, For example just type "ls -ltr" in the terminal you 
 can see all the files and when you "clear" it is gone, so we need to store that by following below steps, 
 not only ls -ltr we can do for any command
 
@@ -45,15 +43,14 @@ Redirections(> symbol is for output redirection)
 -------------------------------------------------
 1. ls -ltr > temp.log ---> Storing ls -ltr log in a temp.log file, Here output is not in terminal,
    it is in temp.log to view this "cat temp.log"
-
-2. If you give a successfull(or)correct command(or)spelling mistake in commands like 
+2. If you give a successfull (or) correct command (or) spelling mistake in commands like 
    "ls -ltrrrrsd temp.log"
    "any-command > temp.log"  ---> Bydefault success output only stores here
    1 ---> Success = usage(ls -ltr 1> temp.log)
    2 ---> Failure = usage(ls -ltr 2> temp.log) ---> It is a success command because there is no spelling 
-   mistake, so it  wont be in the temp.log, if (ls -ljtsssfs 2> temp.log) now it will store because it is 
+   mistake, So it  wont be in the temp.log, If (ls -ljtsssfs 2> temp.log) now it will store because it is 
    wrong(failure) command
-   &> ---> Both wether it is success or not it will store in the temp.log
+   &> ---> Both wether it is success (or) not it will store in the temp.log
    &>> ----> It will append the new log
    To open the log file "less <logfile-name>"
 
@@ -67,8 +64,8 @@ $N ---> Nth arg
 $@ ---> All arguments
 $# ---> To know how many args are passed
 
-Colors
--------
+Colours
+--------
 To enable colors option you need to give "-e" and it should be in double qotes
 RED ---> R="\e[31m"
 GREEN ---> G="\e[32m"
@@ -77,9 +74,11 @@ NORMAL ---> N="\e[0m"
 
 11-logs.sh
 -----------
+If you type "date --help" you will get the date format
 
 12-loops.sh
 ------------
+It is used to repeat a block of code multiple times to automate the tasks
 
 Points to remember
 *******************
@@ -87,5 +86,4 @@ Points to remember
 2. You should not do any changes (or) adding new files in server terminal, come one step back like 
    after going to home folder(cd) like ~ ---> Here you can store the logs for practicing as siva 
    showed in the terminal, here in terminal if you get any errors (or) not working properly you 
-   can delete that folder and clone again from the github
-
+   can delete that folder and clone again from the github.
