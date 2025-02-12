@@ -4,10 +4,8 @@ The main disadvantage in shell scripting is we need to check every line through 
 here "e = automatically exit", mostly this wont work, so we dont use this method
 
 1. Instead of giving &>>logfile everywhere, we can give "exec &>>logfile" under logfile name
-
 2. To check the logs "sudo less /var/log/messages" we can check remote connections are successfully 
    connected or not in this logs
-
 3. unzip -o /tmp/we.zip ----> Here "o" is overwrite
 
 Roboshop shellscript(VS)
