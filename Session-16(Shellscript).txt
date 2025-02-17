@@ -1,53 +1,54 @@
-For any programming languages (or) for any scripting. It is all about variables/datatypes/conditions/loops/functions but with a little different syntax, only we need to make 
-sure with correct algorithm 
+For any programming languages (or) for any scripting. It is all variables/datatypes/conditions/loops
+and functions but with a little different syntax, Only we need to make sure with correct algorithm 
 
-Deleting old log files
-***********************
-1. Deleting old log files, Check disk usage, Send email alerts
+Deleting old log files more than 14 days old
+---------------------------------------------
+1. Delete old log files, Check disk usage and Send email alerts
 
-2. For example we have a folder, where we are storing log files
+2. For example we have a folder, Where we are storing log files
 
-3. Delete log files more than 14 days, only with ".log" extensions not any other files
+3. Delete log files more than 14 days, Only with ".log" extensions not any other files
 
 Algorithm for deleting old log files (or) simple script
-********************************************************
-1. First decide what is Source-Directory (or) Folder where we are storing log files
+--------------------------------------------------------
+1. First decide what is your Source-Directory (or) Folder where we are storing log files
 
 2. Search more than 14 days old only with ".log" files not any other files
 
-3. Delete "rm -rf"
+3. Then Delete "rm -rf"
 
 15-delete-old-log.sh
-*********************
+---------------------
 1. Create a folder for logs "mkdir /tmp/shellscript-logs"
-2. Create few files with old date so that we can delete the old log files 
+2. Create few files with old date, so that we can delete the old log files 
 3. Command to create files with old date "touch -d 20231201 <anyname.log>" year/month/date
 4. find . -type f -mtime +14 ---> f=only files, . means current directory
 5. find . -type f -mtime +14 -name "*.log" ---> we want all with .log extension files
-6. How to delete these files ? we use while loop to read command output
+6. How to delete these files ? We use while loop to read command output
 
 16-ifs.sh
-**********
-Generally we have "cat /etc/passwd" in this we have all the user information like user_id,group_id,user_name and many more other information, So how to read this whole information properly, we user IFS(Internal field separator)
+----------
+Generally we have "cat /etc/passwd" in this we have all the users information like user_id,group_id,
+user_name and many more other information, So how to read this whole information properly, we use 
+IFS(Internal field separator)
 
 17-disk-usage.sh
-*****************
-Command is "df -hT" if the disk usage goes above 70% we need to triggger a mail,So create another disk 
+-----------------
+Command is "df -hT" if the disk usage goes above 70% we need to triggger a mail, So create another disk 
 of 12gb for practice because in real time there will be more disks so go to aws console and then navigate 
 to Elastic Block Store ---> Volumes ---> Create volume ---> Action ---> Attach to the instance
 So while creating disk there is one condition like for example disk should always near to the laptop.
-Similarly here also disk should create in the same availability zone which server is created, when you 
-check in the server "df -hT" still created disk is not showing, so you need to explicitly mount it, we 
-have a command "lsblk" and to make usage create a file system using "sudo file -s /dev/xvdf" ---> dev means devices that means we are creating xvdf folder inside the devices folder, then check wether it is created 
-or not "sudo lsblk -f" and then run this command "sudo mkfs -t xfs /dev/xvdf" and then create a folder 
-in root folder "sudo mkdir /data" then mount it "sudo mount /dev/xvdf /data" 
+Similarly here also disk should create in the same availability zone which server is created, When you 
+check in the server "df -hT" still created disk is not showing, So you need to explicitly mount it, We 
+have a command "lsblk" and to make into usage create a file system using "sudo file -s /dev/xvdf" ---> dev means devices that means we are creating xvdf folder inside the devices folder, Then check wether it is created or not "sudo lsblk -f" and then run this command "sudo mkfs -t xfs /dev/xvdf" and then create a 
+folder in root folder "sudo mkdir /data" then mount it "sudo mount /dev/xvdf /data" 
 
 1. df -hT | grep xfs
 2. df -hT | grep tmp
 3. df -hT | grep -v tmp ---> -v means i dont want tmp files; | ---> or ; & ---> and
 
 Commands to run in the server to mount the disk
-************************************************
+------------------------------------------------
 1. lsblk ----> To make available
 2. sudo file -s /dev/xvdf ----> To create a file system
 3. sudo lsblk -f ----> To check wether the disk is functional or not
@@ -56,7 +57,7 @@ Commands to run in the server to mount the disk
 6. sudo mount /dev/xvdf /data ----> Mounting
 
 mail.sh
-********
+--------
 1. Mailing the above disk usage to send alerts, sending mails from linux we have to install the
    packages from gmail.MD document in concepts folder in linux in home folder CD, in this Postfix will
    hit gmail API ; cyrus-sasl-plain will set authentication ; mailx is a command to send mail, so thats
@@ -74,7 +75,7 @@ mail.sh
    the Converting text to html format from google websites
 
 Improved way of deleting old log files
-***************************************
+---------------------------------------
 1. Instead of deleting only one particular folder user has to enter source directory
 2. Action ---> We will ask user wether we should archive or delete instead of deleting log files of 
    14 days which is not good 
@@ -83,11 +84,11 @@ Improved way of deleting old log files
 5. Memory ---> Optional if he dint given then dont consider memory, if he gives then consider it
 
 Below is the usage of command
-******************************
+------------------------------
 old-logs.sh -s <source_dir> -a <archive/delete> -d <destination_dir> -t <no-of-days> -m <memory-in-mb>
 
 Algorithm to check for the above command
-*****************************************
+-----------------------------------------
 1. Wether the user has given proper command liek -s, -a, -t, -m check all these inputs, if he dont give
    proper then tell him the correct usage
 2. Source directory exists or not 
