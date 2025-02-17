@@ -4,17 +4,13 @@ and functions but with a little different syntax, Only we need to make sure with
 Deleting old log files more than 14 days old
 ---------------------------------------------
 1. Delete old log files, Check disk usage and Send email alerts
-
 2. For example we have a folder, Where we are storing log files
-
 3. Delete log files more than 14 days, Only with ".log" extensions not any other files
 
 Algorithm for deleting old log files (or) simple script
 --------------------------------------------------------
 1. First decide what is your Source-Directory (or) Folder where we are storing log files
-
 2. Search more than 14 days old only with ".log" files not any other files
-
 3. Then Delete "rm -rf"
 
 15-delete-old-log.sh
@@ -23,13 +19,13 @@ Algorithm for deleting old log files (or) simple script
 2. Create few files with old date, so that we can delete the old log files 
 3. Command to create files with old date "touch -d 20231201 <anyname.log>" year/month/date
 4. find . -type f -mtime +14 ---> f=only files, . means current directory
-5. find . -type f -mtime +14 -name "*.log" ---> we want all with .log extension files
+5. find . -type f -mtime +14 -name "*.log" ---> we want all with .log extension files only
 6. How to delete these files ? We use while loop to read command output
 
 16-ifs.sh
 ----------
 Generally we have "cat /etc/passwd" in this we have all the users information like user_id,group_id,
-user_name and many more other information, So how to read this whole information properly, we use 
+user_name and many more other information, So how to read this whole information properly, We use 
 IFS(Internal field separator)
 
 17-disk-usage.sh
@@ -49,7 +45,7 @@ folder in root folder "sudo mkdir /data" then mount it "sudo mount /dev/xvdf /da
 
 Commands to run in the server to mount the disk
 ------------------------------------------------
-1. lsblk ----> To make available
+1. lsblk ----> To make available (or) disk is added
 2. sudo file -s /dev/xvdf ----> To create a file system
 3. sudo lsblk -f ----> To check wether the disk is functional or not
 4. sudo mkfs -t xfs /dev/xvdf ----> It is xfs type
