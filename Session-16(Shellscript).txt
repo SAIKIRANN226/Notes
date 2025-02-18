@@ -55,11 +55,11 @@ Commands to run in the server to mount the disk
 
 mail.sh
 --------
-1. Mailing the above disk usage to send alerts, sending mails from linux we have to install the
-   packages from gmail.MD document in concepts folder in linux in home folder CD, in this Postfix will
-   hit gmail API ; cyrus-sasl-plain will set authentication ; mailx is a command to send mail, so thats
-   why we need to install these packages from gmail.MD; shift+G ---> go down in the config file and 
-   add the given small config and save :wq!
+1. Mailing the above disk usage to send alerts, sending mails from linux we have to configure email
+   install the packages from gmail.MD document in concepts folder in linux in home folder CD, in this 
+   Postfix will hit gmail API ; cyrus-sasl-plain will set authentication ; mailx is a command to 
+   send mail, so thats why we need to install these packages from gmail.MD; shift+G ---> go down in 
+   the config file and add the given small config and save :wq!
 2. We need from address and to address
 3. So open gmail in chrome go to profile/manage your google account/security/2-step verification/
    turnon/app passwords/app-name(any)/copy the generated password this password is only for linux 
