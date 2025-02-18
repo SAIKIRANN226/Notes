@@ -66,7 +66,7 @@ mail.sh
    wont work for gmail 
 4. Remove spaces in password and put in the place of xyz: your gmail without "@gmail" and put in the
    vim /etc/postfix/sasl_passwd
-5. We can do mail formatting
+5. We can do mail formatting for better format with color coding
 6. Converting text to html format from google websites
 7. Just write what ever you want from the compose mesg with required colors and copy that paste in 
    the Converting text to html format from google websites
