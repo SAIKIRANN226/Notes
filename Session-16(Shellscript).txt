@@ -11,17 +11,18 @@ Algorithm for deleting old log files (or) simple script
 --------------------------------------------------------
 1. First decide what is your Source-Directory (or) Folder where we are storing log files
 2. Search more than 14 days old only with ".log" files not any other files
-3. Then Delete "rm -rf"
+3. Then Delete "rm -rf" , Below is the simple script to delete old log files
 
 15-delete-old-log.sh
 ---------------------
-1. Create a folder for logs "mkdir /tmp/shellscript-logs"
-2. Create few files with old date, so that we can delete the old log files 
+1. Create a folder for logs "mkdir /tmp/shellscript-logs" in cd location in server
+2. Create few files with old date in the folder, So that we can delete the old log files 
 3. Command to create files with old date "touch -d 20231201 <anyname.log>" year/month/date
-4. find . -type f -mtime +14 ---> f=only files, . means current directory
-5. find . -type f -mtime +14 -name "*.log" ---> we want all with .log extension files only
-6. How to delete these files ? We use while loop to read command output
-
+4. find . -type f -mtime +14 ---> f ---> Only files, . means current directory
+5. find . -type f -mtime +14 -name "*.log" ---> We want all with .log extension files only
+6. How to delete these files ? We can also use "rm -rf" but we use while loop to read command 
+   output line by line 
+   
 16-ifs.sh
 ----------
 Generally we have "cat /etc/passwd" in this we have all the users information like user_id,group_id,
@@ -39,16 +40,18 @@ check in the server "df -hT" still created disk is not showing, So you need to e
 have a command "lsblk" and to make into usage create a file system using "sudo file -s /dev/xvdf" ---> dev means devices that means we are creating xvdf folder inside the devices folder, Then check wether it is created or not "sudo lsblk -f" and then run this command "sudo mkfs -t xfs /dev/xvdf" and then create a 
 folder in root folder "sudo mkdir /data" then mount it "sudo mount /dev/xvdf /data" 
 
-1. df -hT | grep xfs ----> Disk types
+Finding different types of disks using grep command
+----------------------------------------------------
+1. df -hT | grep xfs
 2. df -hT | grep tmp
-3. df -hT | grep -v tmp ---> -v means i dont want lines with tmp disks; | ---> or ; & ---> and
+3. df -hT | grep -v tmp ---> -v means i dont want lines with tmp words; | ---> or ; & ---> and
 4. df -hT | grep -vE 'tmp|File'
 
 Commands to run in the server to mount the disk
 ------------------------------------------------
 1. lsblk ----> To make available (or) disk is added
 2. sudo file -s /dev/xvdf ----> To create a file system
-3. sudo lsblk -f ----> To check wether the disk is functional or not
+3. sudo lsblk -f ----> To check wether the disk is functional (or) not ?
 4. sudo mkfs -t xfs /dev/xvdf ----> It is xfs type
 5. sudo mkdir /data ----> To create a data folder
 6. sudo mount /dev/xvdf /data ----> Mounting
