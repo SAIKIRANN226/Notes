@@ -59,29 +59,32 @@ Commands to run in the server to mount the disk
 mail.sh
 --------
 1. Mailing the above disk usage to send alerts, sending mails from linux we have to configure email
-   install the packages from gmail.MD document in concepts folder in linux in home folder CD, in this 
-   Postfix will hit gmail API ; cyrus-sasl-plain will set authentication ; mailx is a command to 
-   send mail, so thats why we need to install these packages from gmail.MD; shift+G ---> go down in 
-   the config file and add the given small config and save :wq!
-2. We need from address and to address
-3. So open gmail in chrome go to profile/manage your google account/security/2-step verification/
-   turnon/app passwords/app-name(any)/copy the generated password this password is only for linux 
+   install the packages from gmail.MD document in concepts folder in linux in home folder CD, but in
+   real time company will give mail server details to configure and in this, we need to configure
+   gmail. Postfix will hit gmail API ; cyrus-sasl-plain will set authentication ; mailx is a command 
+   to send mail, So thats why we need to install these packages from gmail.MD; shift+G ---> go down 
+   in the config file and append the given small config and save :wq!
+2. We need "from" address and "to" address
+3. So open gmail in chrome go to Profile/manage your google account/security/2-step verification/
+   turn-on/app passwords/app-name(any)/copy the generated password this password is only for linux 
    wont work for gmail 
-4. Remove spaces in password and put in the place of xyz: your gmail without "@gmail" and put in the
-   vim /etc/postfix/sasl_passwd
+4. Remove spaces in password and put "from" address in the place of xyz: your gmail without "@gmail" 
+   and put in the "vim /etc/postfix/sasl_passwd"
 5. We can do mail formatting for better format with color coding
 6. Converting text to html format from google websites
-7. Just write what ever you want from the compose mesg with required colors and copy that paste in 
-   the Converting text to html format from google websites and put it in a template, we need to 
-   call mail.sh
+7. Just write what ever you want from the compose mesg with required colors and copy that and paste 
+   in the converting text to html format from google websites and put the converted text to html lines 
+   in a template and we can call whenever required using mail.sh, to call mail.sh we need to use 
+   sh mail.sh "DevOps Team" "High Disk Usage" "$message" "info@joindevops.com" "ALERT High Disk Usage"
+   in 17-disk-usage.sh
 
 Improved way of deleting old log files
 ---------------------------------------
-1. Instead of deleting only one particular folder user has to enter source directory
+1. Instead of deleting only one particular folder, user has to enter source directory
 2. Action ---> We will ask user wether we should archive or delete instead of deleting log files of 
    14 days which is not good 
 3. If he select archive ---> Where is the destination directory ?
-4. Time ---> Optional, if he gives take it otherwise 14 days default
+4. Time ---> Optional, if he gives take it otherwise, 14 days default
 5. Memory ---> Optional if he dint given then dont consider memory, if he gives then consider it
 
 Below is the usage of command
@@ -90,10 +93,9 @@ old-logs.sh -s <source_dir> -a <archive/delete> -d <destination_dir> -t <no-of-d
 
 Algorithm to check for the above command
 -----------------------------------------
-1. Wether the user has given proper command like -s, -a, -t, -m check all these inputs, if he dont give
+1. Wether the user has given proper command like -s, -a, -t, -m check all these inputs, If he dont give
    proper then tell him the correct usage
-2. Source directory exists or not 
-3. Destination directory exists or not
-4. If he dont give destination directory through the error 
-5. Then archive or delete
-
+2. Source directory exists (or) not ?
+3. Destination directory exists (or) not ?
+4. If he dont give destination directory throw the error 
+5. Then archive (or) delete.
