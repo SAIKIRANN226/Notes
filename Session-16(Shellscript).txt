@@ -69,7 +69,8 @@ mail.sh
 5. We can do mail formatting for better format with color coding
 6. Converting text to html format from google websites
 7. Just write what ever you want from the compose mesg with required colors and copy that paste in 
-   the Converting text to html format from google websites
+   the Converting text to html format from google websites and put it in a template, we need to 
+   call mail.sh
 
 Improved way of deleting old log files
 ---------------------------------------
@@ -86,8 +87,10 @@ old-logs.sh -s <source_dir> -a <archive/delete> -d <destination_dir> -t <no-of-d
 
 Algorithm to check for the above command
 -----------------------------------------
-1. Wether the user has given proper command liek -s, -a, -t, -m check all these inputs, if he dont give
+1. Wether the user has given proper command like -s, -a, -t, -m check all these inputs, if he dont give
    proper then tell him the correct usage
 2. Source directory exists or not 
-3. 
+3. Destination directory exists or not
+4. If he dont give destination directory through the error 
+5. Then archive or delete
 
