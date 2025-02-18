@@ -1,19 +1,81 @@
 Crontab is for deleting old log files
 --------------------------------------
-It is used for scheduling the scripts instead of logging manually,to delete old log files it will 
+It is used for scheduling the scripts instead of logging manually, to delete old log files it will 
 target a particular directory which consist of more than 14 days old with ".log" extension only, 
 but crontab has a particular syntax which consist of 5 stars like " 5 4 * * * " go and check crontab 
-guru website and you can see the examples provided in the website itself,Just see the crontab linux
+guru website and you can see the examples provided in the website itself, Just see the crontab linux
 example in the same website
 
 Usage of crontab and giving the location
 -----------------------------------------
-"crontab -e" and press enter this command should be run in the server, -e is editing just enter 5 stars
-as of now <stars and script location> below is the example of usage
+"crontab -e" and press enter this command should be run in the server, -e is editing just 
+enter 5 stars as of now <stars and script location> below is the example of usage
 "* * * * * sh /home/centos/shell-script/15.delete-old-logs.sh" this line should be entered in the 
-editor and Script location generally absolute path and save the file :wq! To see logs 
-"tail -f /var/log/cron"  
+editor and Script location generally we give absolute path and save the file :wq! 
+To see logs "tail -f /var/log/cron"  
+
+What is crontab ?
+------------------
+Crontab is used to schedule the scripts we will trigger to delete old log files everyday in our servers
 
 Shellscript optargs 18-greetings.sh
 ------------------------------------
 Generally we saw args like $1,$2 etc. Nothing but sending the arguments as options 
+
+Shellscript as a Native linux command
+--------------------------------------
+If you want to run the shellscript as a native command linux instead of "sh 18-greetings.sh" we have
+path for every operating system "echo $PATH" nothing but if you install any softwares in these PATHS
+automatically windows (or) linux will pick up from this PATH, So you need to keep script in that PATH
+If you put your script in "/usr/local/bin" you no need to give "sh" while running the script.
+So "sudo cp 18-greetings.sh /usr/local/bin/greeting(copied as a greeting name), and you need to give
+executive access by "sudo chmod +x /usr/local/bin/greeting", Now if you are in any folder otherthan 
+the script folder just run by using name "greeting" (or) greeting -n sai -w "good evening"
+
+Automating the creation of aws instances and route53 records
+-------------------------------------------------------------
+1. We need to create ec2 instance using manually 
+2. mongodb,mysql,shipping t3.small remaining t2.micro
+3. Creating route53 records, if web PublicIP, if not web PrivateIP
+
+We need to write a script for the above manually steps to automate, for this we have "aws command line"
+Before this we need to have authentication, We have IAM in this IAM we have Authentication and Authorization
+Authentication ---> You have username/password, you can go to common area in the company
+Authorization ---> You need to prove your authorization to enter in to the project bays, in other words
+                   like permissions, different permissions for TL,Manager,Sr,Engineer etc. we call these
+                   as ROLES, these roles will be changing every year (or) few years after, Persmissions
+                   are tagged to these roles. like for example
+Team Manager ---> Has super admin
+Team Lead ---> Has admin
+Senior Engineers ---> Normal access
+Trainee ---> Just read access 
+
+Authentication 
+---------------
+Here User is a person and he has Username/Password
+
+Authorization
+--------------
+Here Role and Permissions, What is the role of user ? and what are the Persmissions attached to that role
+
+Permissions
+------------
+We have nouns and verbs
+We have resources in aws ---> ec2,vpc,route53,cdn,IAM etc. In this resources we have
+                              nouns ---> web,catalogue,cart,hostedzone etc.
+                              verbs (or) actions ---> create resource,update,delete nothing but CRUD
+
+We can give authorization like below
+-------------------------------------
+Sivakumar(Trainee) ----> EC2(resource) ---> Web(instance) ---> READ access only
+Manish(Junior DevOps) ----> EC2(resource) ---> Web(instance) ---> READ and UPDATE access only
+Mahesh(Senior Engineer) ---> EC2(resource) ---> Web(instance) ---> READ and "CRU" access not delete
+Aditya(Team Lead) ----> EC2(resource) ---> All instances ---> READ and "CRU" access only not delete
+Suman(Team manager) ----> EC2(resource) ---> All instances ---> READ and "CRUD" including delete
+
+Resources should also have access to access another resource, For that we have "roles to resources"
+like for example if you have created one EC2 and this EC2 instance should go and create other new
+instances (or) route53 records, So we need to give role to the EC2 by going to IAM click on roles
+create role and select EC2 as a use case/next/amazonEc2fullaccess/
+
+
