@@ -78,4 +78,8 @@ Not only for persons, Resources should also have access to access another resour
 create other new instances (or) route53 records, So we need to give role to the EC2 by going to IAM 
 click on roles create role and select EC2 as a use case/next/amazonEc2fullaccess/
 
+Command to create instance 
+---------------------------
+aws ec2 run-instances --image-id ami-xxxxxxxx --count 1 --instance-type t2.micro --security-group-ids sg-903004f8
+
 
