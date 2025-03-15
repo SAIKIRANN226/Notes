@@ -61,9 +61,9 @@ Here Role and Permissions, What is the role of user ? and what are the Persmissi
 Permissions
 ------------
 We have nouns and verbs
-We have resources in aws ---> ec2,vpc,route53,cdn,IAM etc. In this resources we have
-                              nouns ---> web,catalogue,cart,hostedzone etc.
-                              verbs (or) actions ---> create resource,update,delete nothing but CRUD
+We have resources in aws ---> Ec2,vpc,route53,cdn,IAM etc. In this resources we have
+                              Nouns ---> web,catalogue,cart,hostedzone etc.
+                              Verbs (or) actions ---> create resource,update,delete nothing but CRUD.
 
 We can give authorization like below
 -------------------------------------
@@ -73,9 +73,9 @@ Mahesh(Senior Engineer) ---> EC2(resource) ---> Web(instance) ---> READ and "CRU
 Aditya(Team Lead) ----> EC2(resource) ---> All instances ---> READ and "CRU" access only not delete
 Suman(Team manager) ----> EC2(resource) ---> All instances ---> READ and "CRUD" including delete
 
-Resources should also have access to access another resource, For that we have "roles to resources"
-like for example if you have created one EC2 and this EC2 instance should go and create other new
-instances (or) route53 records, So we need to give role to the EC2 by going to IAM click on roles
-create role and select EC2 as a use case/next/amazonEc2fullaccess/
+Not only for persons, Resources should also have access to access another resource, For that we have 
+"roles to resources" like for example if you have created one EC2 and this EC2 instance should go and 
+create other new instances (or) route53 records, So we need to give role to the EC2 by going to IAM 
+click on roles create role and select EC2 as a use case/next/amazonEc2fullaccess/
 
 
