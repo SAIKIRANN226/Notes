@@ -5,14 +5,14 @@ Disadvantages in shellscipt
 2. Scalability issues, for example we cannot configure more number of servers incase of big billion days
 3. Error handling, we need to do manually like writing functions,validations etc.
 4. Readability issues, shellscript syntax is not easy to understand for everyone without learning linux
-5. Shell will only work for linux, not for external systems like aws,azure etc. we need to do manually
+5. Shell will only work for linux, not for external systems like aws,azure etc. We need to do manually
    to work on external systems by using their particular modules (or) commands (or) syntax
 
 Advantages of ansible over shellscript
 ---------------------------------------
 1. It is a configuration management tool
 2. Application deployment
-3. Cloud provisioning and orchestration(But not recommended)
+3. Cloud provisioning and orchestration (But not recommended)
 
 What is configuration management ?
 -----------------------------------
@@ -25,45 +25,47 @@ Application Deployment basic steps
 3. Download the new code
 4. Restart the server
 
-Cloud provisioning and orchestration(But not recommended)
-----------------------------------------------------------
-It can also connect to external systems like aws,azure,gcp,gitlab etc. to create instances but 
+Cloud provisioning and orchestration (But not recommended)
+-----------------------------------------------------------
+It can also connect to external systems like aws,azure,gcp,gitlab etc. To create instances but 
 this is not recommended because ansible is only intended for configuration and application deployment
 
 Idempotence Behaviour
 ---------------------- 
 If you run program multiple times, that can create samething multiple times, where as in ansible if the 
 user does not exist then it will create, if exist it will ignore, that means even if you run program 
-infinite times it will not create any damage. Definition:- Providing same results irrespective of the number of executions is called idempotence.
+infinite times it will not create any damage. Definition:- Providing same results irrespective of the 
+number of executions is called idempotence.
 
 Just create 2 servers in aws example server and node
 -----------------------------------------------------  
 Now take the node IP and go to the server instance "sshpass -p "DevOps321" ssh centos@nodeIp", So 
 now you are logged in node from the server instance successfully, you can do anything here(or)exit from 
 the node server then "sshpass -p "DevOps321" ssh centos@nodeIP -C "echo hello > /tmp/hello.txt"", Here no need to login into the node from the server, you can also install packages without touching, for example 
-take any github repository like installing MySQL file copy the URL from the URL browser then enter the 
+take any github repository like installing MySQL file copy the URL from the URL tab then enter the 
 following command "sshpass -p "DevOps321" ssh centos@nodeIP -C "curl <paste the URL> | sudo bash"
-Note: curl appears to point to the webpage of a GitHub repository, rather than a raw script file. To fix this, you should use the raw URL for the script file on GitHub. You can get the raw link by clicking the "Raw" button when viewing the file on GitHub.
+Note: Curl appears to point to the webpage of a GitHub repository, rather than a raw script file. To fix this, you should use the raw URL for the script file on GitHub. You can get the raw link by clicking the "Raw" button when viewing the file on GitHub.
 
-Push architecture(ansible is a push)
--------------------------------------
-Configuration server (or) ansible-server (or) Main server ----> It can connect to any number of remote servers, main configuration server pushes the configuration to the nodes without logging into the nodes in the background itself and ofcourse it is using ssh connection in the background, we only just make sure wether the connection is established successfully between nodes and ansible server. 
-Here Node-1,Node-2,Node-3 etc. are nothing but ----> Remote servers
+PUSH architecture (Ansible is a PUSH)
+--------------------------------------
+Configuration server (or) ansible-server (or) Main server ----> It can connect to any number of remote servers, main configuration server pushes the configuration to the nodes without logging into the nodes in the background itself and ofcourse it is using ssh connection in the background, we only just make sure wether the connection is established successfully between nodes and ansible server. Here Node-1,Node-2,
+Node-3 etc. are nothing but ----> Remote servers
 
-Pull architecture(chef is a pull)
-----------------------------------
-How do we configure pull based in chef ? We will configure agents in the nodes to check every 1 hour, it is checking 24*7 that means bandwidth will be waste, resources consumption like CPU,memory etc. will be high
-and also There is one advantage in pull architecture in some scenarios
+PULL architecture (Chef is a PULL)
+-----------------------------------
+How do we configure pull based in chef ? We will configure agents in the nodes to check every 1 hour, 
+it will check 24*7 that means bandwidth will be waste, resources consumption like CPU,memory etc. will 
+be high and also there is one advantage in pull architecture in some scenarios
 
-Push architecture(ansible is a push)
--------------------------------------
+PUSH architecture (Ansible is a PUSH)
+--------------------------------------
 1. Installing ansible in the ansible server ? "sudo yum install ansible -y", where ever the ansible is 
    installed we call it has a ansible server
 2. To connect to node from the ansible server then 
    "ansible -i nodeIP, all -e ansible_user=centos -e ansible_password=DevOps321 -m ping"
    Here "i" is inventory we can give multiple servers so as of now we have given "all". It is just 
-   checking wether the connection is established between ansible and node, ansible is sending ping 
-   and node is sending back pong that means connection is success
+   checking wether the connection is established between ansible and node, ansible is sending "ping"
+   and node is sending back "pong" that means connection is success
 3. Best example for Pull vs Push is a courier from delhi to hyd
 
 Example of installing nginx in the node server from the ansible server
