@@ -31,8 +31,8 @@ Cloud provisioning and orchestration(But not recommended)
 It can also connect to external systems like aws,azure,gcp,gitlab etc. to create instances but 
 this is not recommended because ansible is only intended for configuration and application deployment
 
-Idempotence Behaviour
----------------------- 
+Ansible has Idempotence Behaviour
+----------------------------------
 If you run program multiple times, that can create samething multiple times, where as in ansible if the 
 user does not exist then it will create, if exist it will ignore, that means even if you run program 
 infinite times it will not create any damage. Definition:- Providing same results irrespective of the 
