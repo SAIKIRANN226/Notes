@@ -1,6 +1,6 @@
 03.multi-play.yaml
 -------------------
-Here giving "-" in the ansible playbook means it is list of plays(or)yaml always start with "-"
+Here giving "-" in the ansible playbook means it is list of plays. yaml always start with "-"
 
 For example create 2 servers
 -----------------------------
@@ -13,7 +13,7 @@ For example create 2 servers
 
 Variables concept
 ------------------
-Dry concept,that means dont repeat yourself,variables we keep a aside from the code so that code will not get disturb when we are doing changes,variables holds a value you can use it anywhere.So to call a variable in ansible we use two flower brases {{ }} ,we can use this variables in play level and can be used anywhere in the task level
+Dry concept,that means dont repeat yourself,variables we keep a aside from the code so that code will not get disturb when we are doing changes,variables holds a value you can use it anywhere.So to call a variable in ansible we use two flower brases {{ }},we can use this variables in play level and can be used anywhere in the task level
 
 04.variables.yaml 
 05.variables-task.yaml
