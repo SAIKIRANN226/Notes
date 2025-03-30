@@ -47,6 +47,10 @@ take any github repository like installing MySQL file copy the URL from the URL 
 following command "sshpass -p "DevOps321" ssh centos@nodeIP -C "curl <paste the URL> | sudo bash"
 Note: Curl appears to point to the webpage of a GitHub repository, rather than a raw script file. To fix this, you should use the raw URL for the script file on GitHub. You can get the raw link by clicking the "Raw" button when viewing the file on GitHub.
 
+1. sshpass -p DevOps321 ssh centos@NodeIP
+2. sshpass -p DevOps321 ssh centos@NodeIP -C "echo hi saikiran > /tmp/sai.txt"
+3. sshpass -p DevOps321 ssh centos@NodeIP -C "curl <URL> | sudo bash"
+
 PUSH architecture(Ansible is a PUSH)
 -------------------------------------
 Configuration server (or) ansible-server (or) Main server ----> It can connect to any number of remote servers, main configuration server pushes the configuration to the nodes without logging into the nodes in the background itself and ofcourse it is using ssh connection in the background, we only just make sure wether the connection is established successfully between nodes and ansible server. Here Node-1,Node-2,
