@@ -1,18 +1,19 @@
-Disadvantages in shellscipt
-----------------------------
+Disadvantages in Shellscript
+-----------------------------
 1. Shellscript will not work for all linux distributions even though 99% commands may be same but 
-   you need to write separate script for separate distributions
+   you need to write separate script for separate distributions, We have hundreds of linux
+   distributions for example:- debian,centos,ubuntu,rhel etc.
 2. Scalability issues, for example we cannot configure more number of servers incase of big billion days
 3. Error handling, we need to do manually like writing functions,validations etc.
 4. Readability issues, shellscript syntax is not easy to understand for everyone without learning linux
-5. Shell will only work for linux, not for external systems like aws,azure etc. We need to do manually
-   to work on external systems by using their particular modules (or) commands (or) syntax
+5. Shell will only work for linux, not for external systems like aws,azure etc. We need work manually
+   on external systems by using their particular modules (or) commands (or) syntax
 
 Advantages of ansible over shellscript
 ---------------------------------------
 1. It is a configuration management tool
 2. Application deployment
-3. Cloud provisioning and orchestration (But not recommended)
+3. Cloud provisioning and orchestration(But not recommended)
 
 What is configuration management ?
 -----------------------------------
@@ -25,9 +26,9 @@ Application Deployment basic steps
 3. Download the new code
 4. Restart the server
 
-Cloud provisioning and orchestration (But not recommended)
------------------------------------------------------------
-It can also connect to external systems like aws,azure,gcp,gitlab etc. To create instances but 
+Cloud provisioning and orchestration(But not recommended)
+----------------------------------------------------------
+It can also connect to external systems like aws,azure,gcp,gitlab etc. to create instances but 
 this is not recommended because ansible is only intended for configuration and application deployment
 
 Idempotence Behaviour
@@ -46,19 +47,19 @@ take any github repository like installing MySQL file copy the URL from the URL 
 following command "sshpass -p "DevOps321" ssh centos@nodeIP -C "curl <paste the URL> | sudo bash"
 Note: Curl appears to point to the webpage of a GitHub repository, rather than a raw script file. To fix this, you should use the raw URL for the script file on GitHub. You can get the raw link by clicking the "Raw" button when viewing the file on GitHub.
 
-PUSH architecture (Ansible is a PUSH)
---------------------------------------
+PUSH architecture(Ansible is a PUSH)
+-------------------------------------
 Configuration server (or) ansible-server (or) Main server ----> It can connect to any number of remote servers, main configuration server pushes the configuration to the nodes without logging into the nodes in the background itself and ofcourse it is using ssh connection in the background, we only just make sure wether the connection is established successfully between nodes and ansible server. Here Node-1,Node-2,
 Node-3 etc. are nothing but ----> Remote servers
 
-PULL architecture (Chef is a PULL)
------------------------------------
+PULL architecture(Chef is a PULL)
+----------------------------------
 How do we configure pull based in chef ? We will configure agents in the nodes to check every 1 hour, 
 it will check 24*7 that means bandwidth will be waste, resources consumption like CPU,memory etc. will 
 be high and also there is one advantage in pull architecture in some scenarios
 
-PUSH architecture (Ansible is a PUSH)
---------------------------------------
+PUSH architecture(Ansible is a PUSH)
+-------------------------------------
 1. Installing ansible in the ansible server ? "sudo yum install ansible -y", where ever the ansible is 
    installed we call it has a ansible server
 2. To connect to node from the ansible server then 
@@ -75,8 +76,8 @@ Here ---> (present = install ; --become = root user ; m = module ; a = arguments
 
 To start the server = "ansible -i nodeIP, all -e ansible_user=centos -e ansible_password=DevOps321 --become -m service -a "name=nginx state=started/stopped/restarted"  
 
-Shell script (vs) Ansible
---------------------------
+Shellscript (vs) Ansible
+-------------------------
 In linux everything we call as ---> Commands
 In ansible we call as ----> Modules
 Here we run one by one commands to install whatever, so instead we put these commands alltogether in 
