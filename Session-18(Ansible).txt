@@ -60,7 +60,8 @@ PULL architecture(Chef is a PULL)
 ----------------------------------
 How do we configure pull based in chef ? We will configure agents in the nodes to check every 1 hour, 
 it will check 24*7 that means bandwidth will be waste, resources consumption like CPU,memory etc. will 
-be high and also there is one advantage in pull architecture in some scenarios
+be high and also there is one advantage in pull architecture in some scenarios, this point shiva will
+discuss in the future sessions
 
 Installing ansible and connecting to node 
 ------------------------------------------
