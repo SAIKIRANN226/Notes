@@ -18,11 +18,18 @@ Refer Roboshop-ansible in VS
 -----------------------------
 ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321 mongodb.yaml
 
-Preferences
-------------
-1. Mongodb
-2. Catalogue
-3. 
+You can follow as per the document also but configuring by sequence is recommended
+-----------------------------------------------------------------------------------
+1. mongodb.yaml/mongodb.repo
+2. catalogue.yaml/catalogue.service
+3. web.yaml/roboshop.conf ---> In web we need to add our publicIP address in hostedzone records
+4. redis.yaml
+5. user.yaml
+6. cart.yaml
+7. mysql.yaml/mysql.repo
+8. shipping.yaml
+9. rabbitmq.yaml
+10. payment.yaml
 
 Points to remember
 *******************
