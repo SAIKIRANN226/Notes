@@ -8,24 +8,23 @@ created role to the ansible-server
 
 You can follow as per the document also but configuring by sequence is recommended
 -----------------------------------------------------------------------------------
-1.mongodb.yaml/mongodb.repo
-2.catalogue.yaml/catalogue.service
-3.web.yaml/roboshop.conf ---> In web we need to add our publicIP address in hostedzone records
-4.redis.yaml
-5.user.yaml
-6.cart.yaml
-7.mysql.yaml/mysql.repo
-8.shipping.yaml
-9.rabbitmq.yaml
-10.payment.yaml
+1. mongodb.yaml/mongodb.repo
+2. catalogue.yaml/catalogue.service
+3. web.yaml/roboshop.conf ---> In web we need to add our publicIP address in hostedzone records
+4. redis.yaml
+5. user.yaml
+6. cart.yaml
+7. mysql.yaml/mysql.repo
+8. shipping.yaml
+9. rabbitmq.yaml
+10. payment.yaml
 
 Command vs shell
 -----------------
 Shell ---> It is like you login inside server and running the command, env variables and redirections
            symbols will work
-Command ---> It is like running command ooutside the server, env variables and redirections 
+Command ---> It is like running command outside the server, env variables and redirections 
              symbols will not work,in command redirections will not work,it will work in shell
-
 
 Points to remember
 *******************
