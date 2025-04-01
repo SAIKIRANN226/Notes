@@ -34,3 +34,5 @@ Points to remember
 4. Run the roboshop.sh script
 5. Now clone roboshop-ansible project in the ansible-server only
 6. Run every module with the ansible command
+7. We created functions in the shell to avoid the repetition of the code, so similarly in 
+   ansible we have roles 
