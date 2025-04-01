@@ -19,8 +19,8 @@ Dry concept,that means dont repeat yourself,variables we keep a aside from the c
 05.variables-task.yaml
 06.variables-from-files.yaml
 07.variables-from promt.yaml
-08.vars_frominventory.yaml
-09.vars_fromArgs.yaml
+08.vars-from-inventory.yaml
+09.vars-from-Args.yaml
 10.var.preference.yaml So we have these many variables right ? So which one will be preferred 
    first and then followed by other ?
 11.datatypes.yaml
