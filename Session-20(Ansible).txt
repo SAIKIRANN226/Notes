@@ -1,14 +1,10 @@
 In this session we are configuring roboshop project with ansible
-------------------------------------------------------------------
-1. Create a server and install ansible in it by "sudo yum install ansible -y",here from ansible 
-   we connect to the nodes
-
-Here siva is creating the instances and also records using already created shellscript(roboshop.sh)as 
-creating through ansible is some difficult he will show in the upcomming sessions so you need to give 
-role to create the instances ---> actions/security/modifyIAM/select your role which you already created
-and then run the roboshop.sh script "sh roboshop.sh" to create instances
-
-Delete the old records if exists ---> hosted zones --> except NS and SOA
+-----------------------------------------------------------------
+Create a server and install ansible in it by "sudo yum install ansible -y", from ansible we connect 
+to the nodes and here siva is creating the instances and also records using already created shellscript(roboshop.sh) as creating through ansible is somewhat difficult he will show in the upcoming sessions. So just copy the https URL from the github of roboshop.sh and clone in the ansible server 
+and go to the roboshop location and run this command "sh roboshop.sh" before this you need to give 
+role to the ansible server to create the instances ---> Actions/security/modifyIAM/select your role 
+which you have already created or create a new one and then run the roboshop.sh script "sh roboshop.sh" to create instances, before this delete the old records if exists ---> hosted zones --> Except NS and SOA.
 
 Now create roboshop project
 -----------------------------
@@ -16,20 +12,22 @@ Now create roboshop project
 2. Create repo with same name
 3. Git init
 4. Git remote add origin URL
+5. Make sure inventory.ini has all IP addresses
 
 Refer Roboshop-ansible in VS
 -----------------------------
 ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321 mongodb.yaml
 
-1. inventory.ini
-2. mongodb.yaml/mongodb.repo
-3. catalogue.yaml/catalogue.service
-
+Preferences
+------------
+1. Mongodb
+2. Catalogue
+3. 
 
 Points to remember
 *******************
 1. In ansible i have used file module,dnf module,user module,get url modules etc.
-2. How to connect to mongodb from catalouge ? "mongo --host mongodb.daws76s.online"
+2. How to connect to mongodb from catalouge ? "mongo --host mongodb.daws76s.online" and use "exit"
 3. To check wether the data is there or not in catalogue ? 
    "mongo --host mongodb.daws76s.online --quiet --eval 'db = db.getSiblingDB'("catalogue"); 
    db.products.count()'
