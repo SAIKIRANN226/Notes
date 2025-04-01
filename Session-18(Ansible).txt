@@ -114,12 +114,12 @@ Inventory is a list of hosts that ansible server can connect to the different co
 01-playbook.yaml
 -----------------
 Open the server ---> Git clone ---> CD ansible then enter the below command
-ansible-playbook -i inventory -e ansible _user=centos -e ansible_password=DevOps321 <file-name>
+ansible-playbook -i inventory -e ansible_user=centos -e ansible_password=DevOps321 <file-name>
 
 02-nginx.yaml
 --------------
 Open the server ---> Git clone ---> CD ansible then enter the below command
-ansible-playbook -i inventory -e ansible _user=centos -e ansible_password=DevOps321 <file-name>
+ansible-playbook -i inventory -e ansible_user=centos -e ansible_password=DevOps321 <file-name>
 
 Points to remember
 *******************
