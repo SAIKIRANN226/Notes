@@ -1,82 +1,88 @@
-Permissions
-------------
+Permissions in Linux
+---------------------
 Important concept we use this heavily {make sure do this in server to get required result}
 To practice the permissions create one server in aws and connect to it through keypair in gitbash,
-in that take any file (or) create a file using touch then try "ls-l" you have a file with some 
-notation that is
+in that take any file (or) create a file using touch then try "ls -l" you have a file with some 
+notation that is below.
 
 - rw- rw- r--
 
--             rw-            rw-            r--
+ -             rw-            rw-            r--
 file          user          group          others
                u              g              o
 
-We have three permissions like R,W,X (Read,Write,Execution). Execution access is used to run 
+We have three permissions like R,W,X (Read,Write,Execution).Execution access is used to run 
 scripts and commands. In linux when you create a user a group with same name will be created.
 1. To give execution permission to user then "chmod u+x <file-name>"
 2. Only for owner then "chmod g-rw <file-name>" removing read,write to group
 3. To give read access to all users to all groups then "chmod ugo+r <file-name>"
-4. To remove write access to a group and inside folder then "chmod g-w -R <group-name>"
+4. To remove write access to a group and inside folder also then "chmod g-w -R <group-name>"
 
-Notations of permissions
--------------------------
-R ---> 4
+Notations of Different Permissions
+-----------------------------------
+R ---> 4 
 W ---> 2
 X ---> 1
 
-Example of notations
----------------------
-u ---> RWX
-g ---> R
-o ---> 0 
-Usage ===> "chmod 740 <file-name>"
+Example of notations to a File
+-------------------------------
+u ---> RWX (User should have Read,Write,Execute access)
+g ---> R (Group should have only Read access)
+o ---> 0 (Others should have zero access) and Usage ===> "chmod 740 <file-name>"
 
 User management
 ----------------
-Creating users and giving access to the servers with password authentication mechanism
+Creating Users and giving access to the servers we have two methods
+1. Password authentication mechanism
+2. SSH access authentication mechanism
 
-Example Ramesh joined in DevOps team
+1. Password authentication mechanism
 -------------------------------------
+Example Ramesh joined in DevOps team
 1. Create user by "useradd <user-name>", Here you will get permission denied so add with root 
-   user by "sudo su -" (or) "sudo useradd <user-name>"
+   user by "sudo su -" (or) "sudo useradd <ramesh>"
 2. Create password for ramesh by "passwd ramesh", to check whether user is created or not we  
-   can check all user entries in "cat /etc/passwd" here userID is the first number and second number 
-   is the group ID (or) to get clear details just "id ramesh" to get groups ------> "getent group"
+   can check all user entries in "cat /etc/passwd" here UserID is the first number and second number 
+   is the groupID and third number is othergroupsID (or) to get clear details just "id ramesh", to 
+   get groups ---> "getent group", to get only a particular group then "getent group <group-name>.
    If this ramesh wants to connect to the server using IPaddress we need to change a configuration 
    by going to "vim /etc/ssh/sshd_config" in gitbash only, Here by default linux is disabled for 
-   loginthrough password authentication no , so make this yes, then "systemctl restart sshd".
-   Must restart the service then only user will get access
-3. "sshd -t" will know any mistakes have done in the previous command checks syntax of file
-4. So now how will ramesh login(connect) to the server ? "ssh ramhesh@IP"
+   login through password authentication no, So make this yes, then "systemctl restart sshd". Must 
+   restart the service then only user will get access
+3. sshd -t ---> Will know any mistakes have done in the previous command, checks syntax of file
+4. So now how will ramesh login(connect) to the server ? ---> "ssh ramesh@IP"
 
-Creating users and giing access with ssh access
-------------------------------------------------
-1. Create raheem user and give access through privatekey authentication mechanism
-2. I will ask the raheem to give his public key through mail
-3. cd /home/raheem/here we will create folder "mkdir .ssh" create a file inside .ssh folder 
-   "vim authorised_key" paste the raheem public key here, ask him to create keypair. Then
-   "chmod 400 authorised_key" and give "chmod 400 authorised_key" so that raheem can only read
-    he cant write because it is better to put read only to protect the file
-   "chmod -R 700 .ssh" and change the ownership also "chown -R raheem:raheem(group) .ssh"
+2. SSH access authentication mechanism
+---------------------------------------
+1. Create raheem user and give access through Privatekey authentication mechanism
+2. I will ask the raheem to give his Public key through mail
+3. cd /home/raheem/ enter this command in gitbash after connecting to the server, here we will 
+   create folder "mkdir .ssh" and then "chmod -R 700 .ssh" here only User(raheem) has RWX(7) 
+   access and others have zero access, and also make the .ssh folder to raheem ownership by
+   "chown -R raheem:raheem(group) .ssh" now create a file inside .ssh folder "vim authorized_key" 
+   paste the raheem public key here, ask him to create keypair for this. Then change modification
+   to "chmod 400 authorized_key" so that raheem can only read, he cant write because it is better 
+   to put read only to protect the file
 4. 7 --> RWX , 0 --> group , 0 --> others ===> "chmod -R 700 .ssh" to .ssh folder
-We will tell raheem that your username is configured and we will give him the IP then raheem will 
-login using this command "ssh -i raheem raheem@IP"
+5. Now we will tell raheem that your username is configured and we will give him the IPaddress
+   then raheem will login using this command "ssh -i raheem raheem@IP" Here first raheem is his
+   Privatekey and second reheem is Username
 
 Group(groupadd group-name)
 ---------------------------
-1. "groupadd <group-name>"  ---> Usage ===> groupadd DevOps
-2. Add ramhesh to the DevOps group by "usermod -g DevOps ramesh" 
-   [Note:- Every user will have a primary group and secondary group]
+1. groupadd <group-name> ---> Usage ===> groupadd DevOps
+2. Add ramesh to the DevOps group by "usermod -g DevOps ramesh" 
+   [Note:- Every user will have a Primary group and Secondary group]
 3. chown ---> Even file owner also cannot run this command, only sudo user can change the 
    ownership, so how to change the ownership, below are the commands
           "chown <user>:<group> <file-name>" ---> For file
           "chown <user>:<group> -R <folder-name>" ---> For folder
 4. We will create testing group(Temperory) and give ramesh access to testing group by
-   "usermod -gG testing ramhesh"
+   "usermod -gG testing ramesh"
    a = appending
    g = Primary group
    G = Secondary group(used for giving temperory access)
-5. After his work is done to remove ramesh by "gpasswd -d testing ramesh" deletes ramesh from 
+5. After his work is done then remove ramesh by "gpasswd -d testing ramesh" deletes ramesh from 
    testing group, if ramesh exit from the company then make sure he logout from the server and  
    delete from the group "groupdel ramesh" ---> Deleting the group
 6. useradd --help
@@ -84,34 +90,23 @@ Group(groupadd group-name)
 8. This all process may be done by devops but generally we have dedicated linux admin they will
    take care of this user creations etc.
 
-Process management(37:59)
---------------------------
-1. Everything in linux is a process, a process id is created and reported back
-2. Work will come from high level to low level
-3. "ps"---> command, when you give "ps" command for that also it is created processID(PID)
-4. Example:- I need to create a process id of "echo hello"
-     2345 ---> result is given to the bash terminal ---> 3720
-5. To know all process id's "ps -ef"
-6. To know if any particular process is running (or) not "ps -ef | grep jenkins"
-7. To block the screen "sleep10"
-8. We have two process
-   Foreground process ---> It will block terminal
-   Background process ---> Background running but not block(sleep20 &)
-9. When process struck kill the process ---> "kill PID" do not kill parent process id 1st
+Process management(37:59 to 54:09)
+-----------------------------------
+1. ps -ef
+2. To know if any particular process is running (or) not "ps -ef | grep jenkins"
+3. When process struck kill the process ---> "kill PID" do not kill parent process id 1st
    is PID second one is parent id. If even kill cannot kill then forcefull terminate "kill -9 PID"
-10. This is generally used for troubleshooting, for example if nodejs project is not running we 
-    need to check wether it is running or not 
 
 Package management
 -------------------
-To install packages get sudo access "sudo su -"
+To install packages get sudo access first "sudo su -"
 "yum" command is used to install packages which we can see in RHEL,fedora,centos,awslinux etc. But 
 aws linux added onemore command that is "amazon-linux-extras" we can use both
 
 Usages of package management
 -----------------------------
 "yum install <package-name>"
-"yum list installed" to grep anything particular "yum list installed | grep git"
+"yum list installed" shows all installed,to grep anything particular "yum list installed | grep git"
 "yum list available" (or) to get wordcount "yum list available | wc -l"
 "yum search <package-name>"
 "yum remove <package-name> -y"
