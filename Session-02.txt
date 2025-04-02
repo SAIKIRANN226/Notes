@@ -2,7 +2,7 @@ Basic Linux commands
 ---------------------
 ls ---> list subdirectories
 cd ---> change directory
-cd ..---> one step back
+cd .. ---> one step back
 / ---> root directory
 - ---> file
 w ---> write
@@ -35,19 +35,17 @@ Remove file and folder
 -----------------------
 rm <file-name> ---> Deletes the file
 rmdir <folder-name> ---> Deletes the empty folder
-rm -r <folder-name> ---> Deletes the files also ("r" means recurrsive go inside and delete everything)
+rm -r <folder-name> ---> Deletes the files also ("r" means recursive go inside and delete everything)
 
 Copy command(cp)
 -----------------
 cp <source where the file is?> <destination>
-cp -r ---> recurssive
-Usage:- "cp sample /Videos"
+cp -r ---> recursive and Usage:- "cp sample /Videos"
 
 Move command(mv)
 -----------------
 With in the same folder if you use mv command, it works as a rename also. So mv command can also 
-be used for renaming 
-Usage:- "mv sample /Videos"
+be used for renaming and Usage:- "mv sample /Videos"
 
 grep command
 -------------
@@ -63,7 +61,8 @@ wget vs curl commands
 ----------------------
 wget is nothing but "get from web"
 wget ===> Used to download the file like example chrome .exe file
-curl ===> Downloads the content directly on the terminal without downloading file, we use this more, for example take your any session URL from git and try 
+curl ===> Downloads the content directly on the terminal without downloading file, we use this more, for example take your any session URL from git and try make sure use only RAW URL of the session
+Usage ===> curl <RAW URL of the session>
 
 cut command
 ------------
