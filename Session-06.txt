@@ -1,3 +1,5 @@
+This session has only theory part
+----------------------------------
 1. Public_IP vs Private_IP ?
 2. Fiber exchange points ?
 3. How internet is working ?
