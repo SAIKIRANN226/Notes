@@ -1,61 +1,40 @@
-Service management(Example posting a letter from Delhi --> Hyd) --> 05:40
---------------------------------------------------------------------------
-Watch from 05:40, We have 0-65,535 ports are there in computer including mobiles(Consider 
-it is apartment), If you dont give port number it will halt at the apartment(0-65,535 ports),
-We have different blocks in apartment like ssh(22),http(80),https(443),msql(3306),SMTP(25),like popular protocols and ports nginx is http protocol port no.80, Search for popular protocols in google and 
-know about them
-
-Example of how the system (or) linux server is connecting ?
-------------------------------------------------------------
-ssh -i <private-key> ec2-user@IPaddress
-1. First request will reach to IPaddress
-2. System will check user is connecting to which protocol ? like anything running ssh process
-   with port no.22
-3. Then it will check the user and privatekey is correct or not ? (or) authentication will be
-   checked by system
-4. If authentication is passed then we able to connect to it
-
-Example of how we connect to www.facebook.com:443 ?
-----------------------------------------------------
-1. First request go to fb ipaddress
-2. System will check any https process is running in 443 or not ?
-3. If running login page will be showed
-
 Algorithm for connecting to instance
 -------------------------------------
 1. Keygenerate
 2. Import publickey
 3. Firewall
 4. Instance created
-5. Connected
-If we follow algorithm troubleshooting will be easy nothing but writing yourself in a 
-notes in general language
+5. Connected. If we follow algorithm, troubleshooting will be easy nothing but writing yourself in a 
+   notes in general language
+
+Service management
+-------------------
+Watch from (05:40 to 17:50)
 
 1. Install nginx "sudo amazon-linux-extras install nginx1 -y" ---> Package installing
-2. "systemctl start nginx" ---> This how running a package into a service
+2. "systemctl start nginx" ---> This how to make a package into a service
 3. "systemctl status nginx"---> To know if it is running or not (or) we can also check with
-   process, "ps -ef | grep nginx"
+   process also "ps -ef | grep nginx"
 4. "systemctl stop nginx"---> To stop the service
 5. "systemctl enable nginx"---> Automatically services will run
 6. "systemctl disable nginx" ---> Will disable nginx
 
 Network managment
 ------------------
-Network statistics "netstat -lntp"
+Network statistics "netstat -lntp" this command is used to check if ports are running (or) not.
    l ---> Listing means ports waiting for connections,
    n ---> Shows IPaddresses instead of hostnames (or) services, 
    t ---> Shows only TCP connections ignore UDP,
    p ---> Shows the process ID (PID) and the name of the program that is using the socket.
-If netstat is not installed then install it,this command is used to check if ports are running (or) not.
-"sudo yum install net-tools". To check their process also then take "sudo netstat -lntp". To check 
-wether the netstat is installed (or) not ? Just enter "netstat"
+If netstat is not installed then install it, "sudo yum install net-tools". To check their process also 
+then use "sudo netstat -lntp". To check wether the netstat is installed (or) not ? Just enter "netstat"
 
 Trouble shooting process
 -------------------------
 1. Check system resources like 
    CPU memory high consumption ---> Generally we check this in task manager, But in terminal 
-   just "top" command
-   hardisk full ---> "df -hT"
+   Just "top" command
+   Hardisk full ---> "df -hT"
    RAM full ---> "free --help" If ram is using more and more we need to kill it and restart
 2. Check if the process is running or not ? ---> "ps -ef | grep nginx"
 3. Wether the port is opened or not ? ---> "netstat -lntp"
@@ -72,19 +51,19 @@ DevOps team ---> Limited sudo access
 1. Create two groups :- admin,devops ---> groupadd admin, groupadd devops
 2. Create two users :- ramesh,suresh ---> useradd ramesh, useradd suresh
 3. Create two passwords :- ramesh,suresh ---> passwd ramesh, passwd suresh
-4. Make password authentication to yes ---> vim /etc/ssh/sshd_config and systemctl restart sshd
+4. Make password authentication to yes ---> "vim /etc/ssh/sshd_config" and "systemctl restart sshd"
 5. Add ramesh in admin team :- usermod -g admin ramesh
-6. Add suresh in devops team :- usermod -g devops suresh
+6. Add suresh in devops team :- usermod -g DevOps suresh
 7. To check their details :- id suresh, id ramesh
 
-Now how to give access ? 
--------------------------
+Now how to give access ? all the below process is done in git after connecting to instance
+-------------------------------------------------------------------------------------------
 Generally to give sudo access we have one file "/etc/sudoers" So "vim /etc/sudoers", It is not 
-recommended to open this file because it crucial so linux has given one command to open file safely 
-that is "visudo"
-1. Ramesh ---> Add him to wheel group (or) give admin full access, under wheelgroup enter
+recommended to open this file because it is crucial so linux has given one command to open file 
+safely that is "visudo"
+1. Ramesh ---> Add him to wheel group (or) give admin full access, under wheelgroup enter the below
    %admin ALL=(ALL)   ALL
-2. Suresh---> Add him to wheel group give required limited access
+2. Suresh---> Add him to wheel group give required limited access, enter the below command
    %devops  ALL=(ALL)  /usr/bin/yum,/usr/bin/systemctl
 
 This is like giving full admin access but we cannot give full access to everyone, we can give 
@@ -102,7 +81,7 @@ Load balancer
      |   
      *
 Frontend servers :- Apache,nginx,IIS etc. Applications we deploy in frontend is 
-                    HTML,JS,reactJS,AngularJS
+                    HTML,JS,reactJS,AngularJS etc.
 Backend servers  :- Jboss,tomcat,weblogic etc. Applications we deploy in backend is 
                     Java,.net,python etc.
 Database servers :- sql,mysql,nosql,redis etc.
