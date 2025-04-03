@@ -71,8 +71,8 @@ Symlink and hardlink(1:01:31)
 ------------------------------
 Inode is the representation of file and folder inside the memory(It is a number), So if you create a file and try ls -i then there is pointer with some number that is nothing file location, We dont have idea where that location is ? That is handled by kernel.
 
-Symlink ---> Is nothing but a shortcut which targets the actual location, In the same way we can also 
-create a shortcut for a file by "ln -s <source-where is your file> <destination path>"  
+Symlink ---> Is nothing but a shortcut which targets the actual location, In the same way we 
+can also create a shortcut for a file by "ln -s <source-where is your file> <destination path>"  
 Usage ===> "ln -s /home/ec2-user/hello /tmp/hello-soft" ---> l ==> linked file, s ==> symbolic, Here 
 symlink point to different inode but location is always pointing to actual file memory location, If we 
 delete this file we lose link, But not with hardlink it is directly dealing with memory what ever the hardlinks (or) files to inode it will check for the reference until unless all the linked files are 
