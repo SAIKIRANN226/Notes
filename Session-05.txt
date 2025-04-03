@@ -6,17 +6,18 @@ in gitbash, ofcousre it is using ssh in the background, Here in putty also obvio
 2. Privatekey/Password
 3. IP_address
 If we give above three what will putty do in background ? So putty will take above three and it 
-will issue a command "ssh -i <path-to-privatekey> username@IP". In gitbash we call privatekey as 
+will issue a command "ssh -i <path-to-privatekey> username@IP". In gitbash we call Privatekey as 
 ".pem" format, but in putty ".ppk" format(Putty Privatekey)
 
 First open puttygen
 --------------------
 1. Load .pem file which you have already created (or) you can create a new one also
-2. Click on save privatekey with .ppk extension
+2. Click on save Privatekey with .ppk extension
 3. Open putty --> connection ---> ssh ---> auth ---> credentials ---> load your saved .ppk file
 4. Connection ---> data ---> username(ec2-user) ---> then go to session and save(Important)
 5. Create a server in aws and take the IP and paste it in putty(Hostname) click on load to connect
-6. To change the font open putty ---> appearence ---> change and then save to make effect in superputty
+6. To change the font open putty ---> appearence ---> change and then save to make effect in superputty.
+
 We have extension for putty that is super putty, Just create one server in aws and connect in the 
 superputty try to install nginx,enable,start and check the IP in chrome if it is showing nginx (or) not,
 so where the html files will load in nginx ?  "/usr/share/nginx/html", we have index.html file 
@@ -27,8 +28,8 @@ How to keep sample html website from the internet
 --------------------------------------------------
 1. Remove default index.html file in the server "rm index.html" and download sample html website
    from the internet
-2. Open winscp double click on the path location on top, which is in grey colour and paste the 
-   "/usr/share/nginx/html"
+2. Open winscp double click on the path location on top rightside, which is in grey colour and 
+   paste this location "/usr/share/nginx/html"
 3. Drag and drop the html files and folder to the right side mini windows in linux server
 4. You will get error "permission is denied" while copy paste 
 5. ls -l and check html folder has write access to others ? 
@@ -48,7 +49,7 @@ Linux file system structure
 ----------------------------
 "This PC" in windows, and in linux we have "cd /"
 boot ---> When server is getting started, server refers this directory and config from grub.config
-dev ---> External devices are mounted here expect motherboard
+dev ---> External devices are mounted here except motherboard
 etc ---> Extra configuration 
 lib ---> Libraries which consists of ".dll" extension (or) other extensions
 home ---> All user directories are created here
@@ -62,7 +63,7 @@ bin ---> Stores commands like cat,vim,touch,cd etc.
 sbin ---> System commands like root access
 tmp ---> Temporory files not important files stored here
 usr ---> All users will be here
-var ---> Variables,log files
+var ---> Variables,log files etc.
 When putty stucks (or) unable to enter any command then open putty first load your session then go to connection ---> give 30 in seconds then go to session and save, generally we have value 0 you need 
 to give any value like 30, that means every 30 seconds connection will be alive, you can give maximum 300
 
