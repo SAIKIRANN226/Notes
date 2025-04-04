@@ -1,5 +1,5 @@
-Roboshop configure
--------------------
+Configuring roboshop project
+-----------------------------
 1. Web/frontend tier        ---->  Stateless(if crashes,we can recover)
 2. App/Api/backend tier     ---->  Stateless(if crashes,we can recover)
 3. DB tier                  ---->  Statefull(if crashes,tough to recover)
@@ -20,13 +20,16 @@ and password authentication. Username is = centos; Password is = DevOps321
 1. Create a security group, allow all traffic and 0.0.0.0/0 just for practice only
 2. Create a web instance with devops-practice with no keypair to start configuring roboshop project
 3. Now create putty session ---> give session name ---> connection data ---> username = centos ---> 
-   appearence ---> change the font to 14 and save the session ---> click on centos and load and then
-   paste the IPaddress then click on open
-4. Open super putty and connect to the web instance with public iP
+   appearence ---> change the font to 14 and save the session ---> click on centos, but here you have 
+   already created saikiran session so click on saikiran and load and then paste the IPaddress above
+   and then click on open
+4. Open super putty and connect to the web instance with public IP
 5. Now open documentation and follow the steps of web server configuration
 6. Superputty we can create multiple tabs and we can also rename the instance
-7. We are using nginx(80) as webserver like http server or webserver are same, make sure nginx 
-   should take http not https where you are testing the URL of nginx server
+7. We are using nginx(80) as webserver it is http server, make sure nginx should take 
+   http not https where you are testing the URL of nginx server, other webservers may use https like 
+   facebook.com or google.com and many others also but nginx also supports to https but mostly used 
+   as http server only
 8. yum,dnf ---> Used to install packages but dnf is preffered in manual configuration because dnf
    consume very less memory
 9. In the server where does the nginx configuration is saved ? "cd /etc/nginx/" vim nginx.conf
@@ -37,7 +40,7 @@ and password authentication. Username is = centos; Password is = DevOps321
 Forward proxy
 --------------
 Forward proxy is servers are not aware of clients behind VPN, like anonymous access to hide our identity,
-forward proxies cant understand real clients. Security ---> Companies can impose restrictions not to use particular sites, and to monitor internet behaviour, Here clients are aware of proxy, servers are not aware(Example:- Commonly used vpn's by people)
+forward proxies cant understand real clients. Security ---> Companies can impose restrictions not to use particular sites, and to monitor internet behaviour, Here clients(we) are aware of proxy, servers are not aware(Example:- Commonly used vpn's by the people)
 
 Reverse proxy
 --------------
@@ -82,3 +85,5 @@ Points to remember
 6. How to find a particular folder or something ---> find . -name "*nginx*" Here . is current folder
    searching with particular name called nginx
 7. To check all logs "less -f /var/log/messages"
+8. A web server is software and hardware that uses HTTP and other protocols to respond to client 
+   requests made over the World Wide Web, displaying website content like text, images, and applications
