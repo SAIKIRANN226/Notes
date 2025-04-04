@@ -3,9 +3,10 @@ Roboshop configure
 1. Web/frontend tier        ---->  Stateless(if crashes,we can recover)
 2. App/Api/backend tier     ---->  Stateless(if crashes,we can recover)
 3. DB tier                  ---->  Statefull(if crashes,tough to recover)
+Web and API will only work when DB is in existence, So that CRUD over DB will happen
 
-"CRUD" over database(example when you create a new user in facebook)
----------------------------------------------------------------------
+"CRUD" over Database(Example when you create a new user in facebook)
+--------------------------------------------------------------------- 
 1. Create a user if iam new to FB
 2. Read user if i login 
 3. Update user if i update anything in the FB
@@ -16,44 +17,67 @@ Nvirgnia ----> search "devops-practice" ---> community AMI's ---> select "Centos
 is not key based because we cannot create keys for every servers it is very tough so we are using username 
 and password authentication. Username is = centos; Password is = DevOps321
 
-1. Create security group for allowing all firewalls
-2. Create a web instance with devops-pratice with no keypair to start configuring roboshop project
-3. Now create putty session ---> given session name ---> connection data ---> username = centos ---> 
-   appearence ---> change the font to 14 and save the session ---> click on centos and load
+1. Create a security group, allow all traffic and 0.0.0.0/0 just for practice only
+2. Create a web instance with devops-practice with no keypair to start configuring roboshop project
+3. Now create putty session ---> give session name ---> connection data ---> username = centos ---> 
+   appearence ---> change the font to 14 and save the session ---> click on centos and load and then
+   paste the IPaddress then click on open
 4. Open super putty and connect to the web instance with public iP
 5. Now open documentation and follow the steps of web server configuration
 6. Superputty we can create multiple tabs and we can also rename the instance
-7. We are using nginx(80) as webserver like http server or webserver are same, make sure nginx should
-   take http not https where you are testing the URL of nginx server
-8. yum,dnf ---> Used to install packages but dnf is preffered in manual configuration because dnf consume
-   very less memory
+7. We are using nginx(80) as webserver like http server or webserver are same, make sure nginx 
+   should take http not https where you are testing the URL of nginx server
+8. yum,dnf ---> Used to install packages but dnf is preffered in manual configuration because dnf
+   consume very less memory
 9. In the server where does the nginx configuration is saved ? "cd /etc/nginx/" vim nginx.conf
 10. Where does the default content will be saved in the nginx server ? "cd usr/share/nginx/html/" in 
-    this folder we have index.html file, Here we need to delete this default content and put our 
-    own content
+    this folder we have index.html file, Here we need to delete this default content and we can keep
+    our own content which must be in html format you can search in google.
 
 Forward proxy
 --------------
 Forward proxy is servers are not aware of clients behind VPN, like anonymous access to hide our identity,
-forward proxies cant understand real clients. Security ---> Companies can impose restrictions not to use particular sites, and to monitor internet behaviour, Here clients are aware of proxy, servers are not aware(Example:- vpn's)
+forward proxies cant understand real clients. Security ---> Companies can impose restrictions not to use particular sites, and to monitor internet behaviour, Here clients are aware of proxy, servers are not aware(Example:- Commonly used vpn's by people)
 
 Reverse proxy
 --------------
-Clients are not aware of server side(Example:- nginx ---> Loadbalancer)
-Applications use reverse proxy to secure their code like example nginx uses reverse proxy
+Clients(We) are not aware of server side(Example:- nginx ---> Loadbalancer)
+Applications use reverse proxy to secure their code like example nginx uses reverse proxy.
 
-Famous HTTP status
--------------------
-200 ---> Success
-300 ---> Redirect
-400 ---> Client side errors(purely client side error)
-500 ---> Server side errors(purely prject side error)
+Famous HTTP status codes
+-------------------------
+100 To 199 ---> Informational responses
+200 To 299 ---> Success 
+300 To 399 ---> Redirect 
+400 To 499 ---> Client(We) side errors(Purely client side error) 
+500 To 599 ---> Server side errors(Purely project side error) 
 
-Caching(50:01)
----------------
+Roboshop configuration
+-----------------------
+Better to follow below sequences (or) you can follow according to the document
+1. Mongodb ---> t3.small
+2. Catalogue ---> t2.micro
+3. Redis ---> t2.micro 
+4. User ---> t2.micro
+5. Cart ---> t2.micro
+6. Web ---> t2.micro
+7. Mysql ---> t3.small
+8. Shipping ---> t3.small
+9. RabbitMq ---> t2.micro
+10. Payment ---> t2.micro
+11. Dispatch ---> t2.micro
 
-# Now create Mongodb(t3.medium) instance and configure it  
-# Then create Catalogue instance and configure it 
-# How to check the running logs ? "tail -f /var/log/messages"
-# Where is the reverse proxy configuration ? "vim /etc/nginx/default.d/roboshop.conf"
-# Whenever you do any changes makesure "systemctl restart nginx"
+Caching
+--------
+Watch from (50:01) just to understand what is cache?
+
+Points to remember
+*******************
+1. Whenever you update the configuration you must restart the nginx
+2. How to check the running logs ? "tail -f /var/log/messages"
+3. Where is the reverse proxy configuration ? "vim /etc/nginx/default.d/roboshop.conf"
+4. Whenever you do any changes makesure "systemctl restart nginx"
+5. 127.0.0.1 this IP belongs to localhost nothing but mongodb server this will come while
+   configuring the mongodb
+6. How to find a particular folder or something ---> find . -name "*nginx*" Here . is current folder
+   searching with particular name called nginx
