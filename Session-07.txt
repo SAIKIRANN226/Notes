@@ -43,8 +43,10 @@ forward proxies cant understand real clients. Security ---> Companies can impose
 
 Reverse proxy
 --------------
-Clients(We) are not aware of server side(Example:- nginx ---> Loadbalancer)
-Applications use reverse proxy to secure their code like example nginx uses reverse proxy.
+Clients(We) are not aware of server side(Example:- nginx ---> Loadbalancer), for example when we login
+to facebook.com we are not aware that from where the information is comming from, because facebook will
+not give access to their DB or API to know, So to protect their applications they use reverse proxy
+to secure their code, similarly in roboshop project also nginx is used as reverse proxy.
 
 Famous HTTP status codes
 -------------------------
