@@ -26,10 +26,9 @@ and password authentication. Username is = centos; Password is = DevOps321
 4. Open super putty and connect to the web instance with public IP
 5. Now open documentation and follow the steps of web server configuration
 6. Superputty we can create multiple tabs and we can also rename the instance
-7. We are using nginx(80) as webserver it is http server, make sure nginx should take 
-   http not https where you are testing the URL of nginx server, other webservers may use https like 
-   facebook.com or google.com and many others also but nginx also supports to https but mostly used 
-   as http server only
+7. We are using nginx(80) as webserver it is http server, make sure nginx should take http not https
+   where you are testing the URL of nginx server, other webservers may use https like facebook.com or 
+   google.com and many others also but nginx also supports to https but mostly used as http server only
 8. yum,dnf ---> Used to install packages but dnf is preffered in manual configuration because dnf
    consume very less memory
 9. In the server where does the nginx configuration is saved ? "cd /etc/nginx/" vim nginx.conf
