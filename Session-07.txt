@@ -81,3 +81,4 @@ Points to remember
    configuring the mongodb
 6. How to find a particular folder or something ---> find . -name "*nginx*" Here . is current folder
    searching with particular name called nginx
+7. To check all logs "less -f /var/log/messages"
