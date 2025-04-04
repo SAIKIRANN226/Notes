@@ -22,3 +22,4 @@ Points to remember
 1. shift+g = go down
 2. gg = go up
 3. q = quit
+4. Hostinger login with mothukurusaikiran4@gmail.com
