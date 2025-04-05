@@ -11,7 +11,7 @@ notation that is below.
 file          user          group          others
                u              g              o
 
-We have three permissions like R,W,X (Read,Write,Execution).Execution access is used to run 
+We have three permissions like R,W,X(Read,Write,Execution).Execution access is used to run the
 scripts and commands. In linux when you create a user a group with same name will be created.
 1. To give execution permission to user then "chmod u+x <file-name>"
 2. Only for owner then "chmod g-rw <file-name>" removing read,write to group
@@ -111,3 +111,9 @@ Usages of package management
 "yum search <package-name>"
 "yum remove <package-name> -y"
 To install nginx "yum install nginx -y" (or) "amazon-linux-extras install nginx1 -y"
+
+Points to remember
+*******************
+1. ps -ef | grep jenkins
+2. yum and dnf command used to install packages
+3. Configuration file will be in vim /etc/ssh/sshd_config
