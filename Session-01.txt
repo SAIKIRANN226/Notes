@@ -25,7 +25,7 @@ OS will takcare of converting 0's and 1's
 
 Windows vs Linux
 -----------------
-Windows ---> Graphics(Load increases on CPU,memory & everthing)
+Windows ---> Graphics(Load increases on CPU,memory & everything)
 Linux ---> Servers world(No graphics,Faster,reliable,lesscost,stability,security comes from 
 unix principles only)
 
