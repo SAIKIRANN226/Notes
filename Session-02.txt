@@ -111,3 +111,10 @@ Where ever your curosor is just press "yy" it will copy
 Just press "p" to paste
 Just press "u" to undo
 Just press "10p" it will copy 10 times
+
+Points to remember
+*******************
+1. curl downloads content directly on the terminal
+2. grep -i <word-to-find> <file-name>
+3. :/<word-to-find> ---> in the server from the top
+4. :/? <word-to-find> ---> in the server from the bottom
