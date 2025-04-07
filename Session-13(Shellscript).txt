@@ -16,13 +16,13 @@ Algorithm for installing any package
 1. Check user is root (or) not ?
 2. If root
      proceed
-   if not root
+   If not root
      stop and say run with root user
 3. Now install mysql
 4. Check wether the package installed properly (or) not ?
 5. If success
      then good
-   if not success
+   If not success
      then show what is the error
 
 How to know if it is root user (or) not ? You just enter "id" in the server terminal with root access 
@@ -42,13 +42,14 @@ steps, not only ls -ltr we can do for any command.
 Redirections(> symbol is for output redirection)
 -------------------------------------------------
 1. ls -ltr > temp.log ---> Storing ls -ltr log in a temp.log file, Here output is not in terminal,
-   it is in temp.log to view this "cat temp.log"
-2. If you give a successfull (or) correct command (or) spelling mistake in commands like 
+   it is in temp.log to view this "cat temp.log", Usage in the server terminal will be below
+   example go to cd location then "ls -la > /tmp/temp.log(created new file in tmp folder"
+2. If you give a successful (or) correct command (or) spelling mistake in commands like 
    "ls -ltrrrrsd temp.log"
    "any-command > temp.log"  ---> Bydefault success output only stores here
    1 ---> Success = usage(ls -ltr 1> temp.log)
    2 ---> Failure = usage(ls -ltr 2> temp.log) ---> It is a success command because there is no spelling 
-   mistake, So it  wont be in the temp.log, If (ls -ljtsssfs 2> temp.log) now it will store because it is 
+   mistake, So it wont be in the temp.log, If (ls -ljtsssfs 2> temp.log) now it will store because it is 
    wrong(failure) command
    &> ---> Both wether it is success (or) not it will store in the temp.log
    &>> ----> It will append the new log
