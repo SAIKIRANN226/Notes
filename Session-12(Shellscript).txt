@@ -21,12 +21,12 @@
                   User git
                   PreferredAuthentications publickey
                   IdentityFile ~/saikiran.pem
-   e) We have https and ssh to the repository, We use ssh authentication for pushing to the github
-      https ---> Username and Password, clone https URL when you have read only access
-      ssh ---> Just private-key, you can clone if you are the owner of the respository
-      Prefer https while cloning the repository
+   e) We have HTTPS and SSH to the repository, we use ssh authentication for pushing to the github
+      HTTPS ---> Username and Password, clone https URL when you have read only access
+      SSH ---> Just Private-key, you can clone if you are the owner of the respository
+      Prefer HTTPS while cloning the repository
 3. Github is nothing but a folder in internet with tracking capabilities
-4. git branch -M main ---> To change from master to main
+4. git branch -M main ---> To change from master to main (or) main to master
 5. Learn Dzone git commands from the below URL's
    https://dzone.com/articles/top-20-git-commands-with-examples
    https://dzone.com/articles/top-35-git-commands-with-examples-and-bonus
@@ -81,9 +81,9 @@ Int,float,string etc. In shellscript data type is not much important, it will au
 
 07-arrays.sh
 -------------
-Array index will start from 0,1,2,3.... We have notation for "ALL" that is "@"
+Array index will start from 0,1,2,3.... we have notation for "ALL" that is "@"
 
 Points to remember
 *******************
 1. If you make any changes in the code in VS if you save that changes by pressing ctrl+S then colour 
-   will change to yellow. So to make normal then you must push the code to the github account
+   will change to yellow.So to make normal then you must push the code to the github account
