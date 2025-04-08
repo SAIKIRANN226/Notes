@@ -1,5 +1,5 @@
-For any programming languages (or) for any scripting. It is all variables/datatypes/conditions/loops
-and functions but with a little different syntax, Only we need to make sure with correct algorithm 
+For any programming languages (or) for any scripting. It is all about variables/datatypes/conditions
+loops and functions but with a little different syntax, Only we need to make sure with correct algorithm 
 
 Deleting old log files more than 14 days old
 ---------------------------------------------
@@ -99,3 +99,7 @@ Algorithm to check for the above command
 3. Destination directory exists (or) not ?
 4. If he dont give destination directory throw the error 
 5. Then archive (or) delete.
+
+Points to remember
+*******************
+1. 
