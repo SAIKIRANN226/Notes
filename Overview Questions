@@ -1,2 +1,26 @@
-1. Why we use "SSH based authentication to connect to the servers and how do we connect ?
-2. 
+- Where do we land when you open gitbash ? in home directory
+- Where is the home directory ?
+- How to know your present working directory ?
+- Where will the .ssh folder ? 
+- Why we use "SSH based authentication to connect to push the code in the github and how do we connect ?
+- How do we generate or command to create a new key_pair in gitbash ?
+- Where should be private_key location ?
+- How to enable file extension ?
+- Where to paste the public_key in github while making ssh authentication ?
+- Which one should we prefer while cloning HTTPS or SSH ?
+- Command to change from master to main or main to master ?
+- What is shebang ?
+- If you enter wrong URL while pushing to github what is the command to set ?
+- What are variables in shellscript ?
+- How do we call a variable in shellscript ?
+- How do you command in shellscript and take output ?
+- Data type in shellscript is mandatory ?
+- What is the notation for all in array ?
+- What is the notation for how many args are passed ? 
+- How to know if you are root user or not ?
+- How do we stop the error and solve using a special variable and what is it ?
+- Why we use the functions in shellscript ? and where do we keep the functions ?
+- What are redirections > ? how do we store the logs of a script ?
+- What are special variables ? $? , $0 , $@ , $# , $1 , $2 , $3..... $N
+- How to enable colours in shellscript ?
+- 
