@@ -23,4 +23,12 @@
 - What are redirections > ? how do we store the logs of a script ?
 - What are special variables ? $? , $0 , $@ , $# , $1 , $2 , $3..... $N
 - How to enable colours in shellscript ?
+- Shellscript command to remove any package ? sudo dnf remove <package-name>
+- What is SED ?
+- How to check logs ? sudo less /var/log/messages
+- How to check ports ? netstat-lntp
+- How to remove any installed package in server ? sudo yum remove <package-name> -y
+- How to check package is installed or not ? yum list installed | grep nginx
+- How do we set automatically exit in the shellscript ? set -e 
+- Instead of giving &>>logfile everywhere, We can give "exec &>>logfile" under logfile name
 - 
