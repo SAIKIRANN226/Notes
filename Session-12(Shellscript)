@@ -27,7 +27,8 @@
       Prefer HTTPS while cloning the repository
 3. Github is nothing but a folder in internet with tracking capabilities
 4. git branch -M main ---> To change from master to main (or) main to master
-5. Learn Dzone git commands from the below URL
+5. Learn Dzone git commands from the below URL's
+   https://dzone.com/articles/top-20-git-commands-with-examples
    https://dzone.com/articles/top-35-git-commands-with-examples-and-bonus
 6. git add . ; git commit -m "proper message" ; git push -u origin master
 
