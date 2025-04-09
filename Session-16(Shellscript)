@@ -17,12 +17,15 @@ Algorithm for deleting old log files (or) simple script
 ---------------------
 1. Create a folder for logs "mkdir /tmp/shellscript-logs" in cd location in server
 2. Create few files with old date in the folder, So that we can delete the old log files 
-3. Command to create files with old date "touch -d 20231201 <anyname.log>" year/month/date
+3. Command to create files with old date "touch -d 20231201 <anyname.log>"
 4. find . -type f -mtime +14 ---> f ---> Only files, . means current directory
 5. find . -type f -mtime +14 -name "*.log" ---> We want all with .log extension files only
 6. How to delete these files ? We can also use "rm -rf" but we use while loop to read command 
    output line by line 
-   
+7. You can search in chatgpt like write a shell script to delete old log files in a folder morethan 
+   14 days old, you will get the script then copy and adjust according to your requirement and it
+   worked for me 
+
 16-ifs.sh
 ----------
 Generally we have "cat /etc/passwd" in this we have all the users information like user_id,group_id,
