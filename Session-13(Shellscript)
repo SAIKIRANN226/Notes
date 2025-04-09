@@ -74,12 +74,7 @@ YELLOW ---> Y="\e[33m"
 NORMAL ---> N="\e[0m" 
 
 11-logs.sh
------------
-If you type "date --help" you will get the date format
-
 12-loops.sh
-------------
-It is used to repeat a block of code multiple times to automate the tasks
 
 Points to remember
 *******************
