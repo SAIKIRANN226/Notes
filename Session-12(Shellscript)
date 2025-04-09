@@ -52,39 +52,17 @@ Shellscript is also known as Bashscript
    git pull ---> If you want only changes
    echo is only used for printing purpose
 
+Go through the below scripts in VS
+-----------------------------------
 01-hello-world.sh
-------------------
-Sample hello world script
-
 02-variables.sh
-----------------
-Dry concept don't repeat yourself, We can give variables in capital letters but not mandatory, for calling a variable give "$" , What ever you add the changes first push it to the github then pull from the server
- 
 03-variables.sh
-----------------
-How do you run commands in shellscript and take output ? ${command}, Usage ===> DATE=$(date)
-echo "script started executing at ${DATE}" (or) Capturing the output of a command in a variable
-and also we can redirect output using > or >> for append
-
 04-variables.sh
-----------------
-We can give arguments outside the shell. Usage ===> "sh <script-name> ram raheem"
-
 05-variables
--------------
-For example if we want to connect to any external systems like DB we need username and password, 
-if we give username and password outside the shell everybody can see that. So to make confidential
-we have "read command"
-
 06-data-types.sh
------------------
-Int,float,string etc. In shellscript data type is not much important, it will automatically consider which data type is. Usage in server ---> "sh <script-name> 100 200"
-
 07-arrays.sh
--------------
-Array index will start from 0,1,2,3.... we have notation for "ALL" that is "@"
 
 Points to remember
 *******************
 1. If you make any changes in the code in VS if you save that changes by pressing ctrl+S then colour 
-   will change to yellow.So to make normal then you must push the code to the github account
+   will change to yellow. So to make normal then you must push the code to the github account.
