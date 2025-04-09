@@ -63,7 +63,8 @@ Dry concept don't repeat yourself, We can give variables in capital letters but 
 03-variables.sh
 ----------------
 How do you run commands in shellscript and take output ? ${command}, Usage ===> DATE=$(date)
-echo "script started executing at ${DATE}"
+echo "script started executing at ${DATE}" (or) Capturing the output of a command in a variable
+and also we can redirect output using > or >> for append
 
 04-variables.sh
 ----------------
