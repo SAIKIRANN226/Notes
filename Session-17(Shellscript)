@@ -41,8 +41,9 @@ Automating the creation of aws instances and route53 records
 3. Creating route53 records, if web PublicIP, if not web PrivateIP
 
 We need to write a script for the above manually steps to automate, for this we have "aws command line"
-Before this we need to have authentication, We have IAM in this IAM we have Authentication and Authorization
-Authentication ---> You have username/password, you can go to common area in the company
+nothing but creating instances from aws command line instead of aws console, Before this we need to have authentication, We have IAM in this IAM we have Authentication and Authorization, In every server we
+have aws command line
+Authentication --> You have username/password, you can go to common area in the company
 Authorization ---> You need to prove your authorization to enter in to the project bays, in other words
                    like permissions, different permissions for TL,Manager,Sr,Engineer etc. we call these
                    as ROLES, these roles will be changing every year (or) few years after, Persmissions
@@ -112,3 +113,7 @@ We can also improve above script like
 Points to remember
 *******************
 1. To see the logs of crontab "tail -f /var/log/cron" 
+2. Instance creating another instances we have two ways
+   a) Create one user and aws configure
+   b) Create a role and attach to this instance
+3. Go through "roboshop.sh" in vs
