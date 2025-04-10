@@ -20,7 +20,8 @@ Crontab is used to schedule the scripts we will trigger to delete old log files 
 
 Shellscript optargs 18-greetings.sh
 ------------------------------------
-Generally we saw args like $1,$2 etc. Nothing but sending the arguments as options 
+Generally we saw args like $1,$2 etc. Nothing but sending the arguments as options, like for example
+groupadd -aG, -aG is nothing but options.
 
 Shellscript as a Native linux command
 --------------------------------------
@@ -30,7 +31,8 @@ automatically windows (or) linux will pick up from this PATH, So you need to kee
 If you put your script in "/usr/local/bin" you no need to give "sh" while running the script.
 So "sudo cp 18-greetings.sh /usr/local/bin/greeting(copied as a greeting name), and you need to give
 executive access by "sudo chmod +x /usr/local/bin/greeting", Now if you are in any folder otherthan 
-the script folder just run by using name "greeting" (or) greeting -n sai -w "good evening"
+the script folder just run by using name "greeting" (or) greeting -n sai -w "good evening", do this steps
+in "cd 18-greetings.sh location"
 
 Automating the creation of aws instances and route53 records
 -------------------------------------------------------------
@@ -106,3 +108,7 @@ Improvements
 We can also improve above script like 
 1. If web get publicIP and create records
 2. Check if records already exists, If exists update, If not exists then create
+
+Points to remember
+*******************
+1. To see the logs of crontab "tail -f /var/log/cron" 
