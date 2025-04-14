@@ -30,7 +30,6 @@ For example if you buy a new laptop, you need to install softwares and setup lik
 - Setting permissions.
 - Creation of systemctl services.
 As a DevOps engineer we need to do this effectively. Basically CRUD over the server.
-
 Creation of configuration --> should be fast and accurate
 Update the configuration --> any changes in configuration should be rolled out asap.
 Delete the configuration --> delete the configuration if not required.
