@@ -6,31 +6,6 @@ and go to the roboshop location and run this command "sh roboshop.sh" before thi
 role to the ansible server to create the instances ---> Actions/security/modifyIAM/select your role 
 which you have already created or create a new one and then run the roboshop.sh script "sh roboshop.sh" to create instances, before this delete the old records if exists ---> hosted zones --> Except NS and SOA.
 
-Now create roboshop project
------------------------------
-1. Create folder in VS "roboshop-ansible"
-2. Create repo with same name
-3. Git init
-4. Git remote add origin URL
-5. Make sure inventory.ini has all IP addresses
-
-Refer Roboshop-ansible in VS
------------------------------
-ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321 mongodb.yaml
-
-You can follow as per the document also but configuring by sequence is recommended
------------------------------------------------------------------------------------
-1. mongodb.yaml/mongodb.repo
-2. catalogue.yaml/catalogue.service
-3. web.yaml/roboshop.conf ---> In web we need to add our publicIP address in hostedzone records
-4. redis.yaml
-5. user.yaml
-6. cart.yaml
-7. mysql.yaml/mysql.repo
-8. shipping.yaml
-9. rabbitmq.yaml
-10. payment.yaml
-
 Points to remember
 *******************
 1. In ansible i have used file module,dnf module,user module,get url modules etc.
