@@ -31,9 +31,10 @@ For example if you buy a new laptop, you need to install softwares and setup lik
 - Creation of systemctl services.
 As a DevOps engineer we need to do this effectively. Basically CRUD over the server.
 Creation of configuration --> should be fast and accurate
+Read the configuration --> it is easy to read the configuration of server through ansible playbooks.
 Update the configuration --> any changes in configuration should be rolled out asap.
 Delete the configuration --> delete the configuration if not required.
-Read the configuration --> it is easy to read the configuration of server through ansible playbooks.
+
 
 Application Deployment basic steps
 -----------------------------------
