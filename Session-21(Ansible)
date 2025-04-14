@@ -15,7 +15,7 @@ Command ---> It is like running command outside the server, env variables and re
 
 Points to remember
 *******************
-1. First create ansible-server and intall ansible in it
+1. First create ansible-server and install ansible in it
 2. Run roboshop.sh script to create instances from the ansible-server only
 3. Clone the "roboshop-shell" to create the instances from the roboshop.sh script
 4. Run the roboshop.sh script
