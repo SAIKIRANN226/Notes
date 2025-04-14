@@ -8,10 +8,12 @@ Disadvantages in Shellscript
 4. Readability issues, shellscript syntax is not easy to understand for everyone without learning linux
 5. Shell will only work for linux, not for external systems like aws,azure etc. we need to work manually
    on external systems by using their particular modules (or) commands (or) syntax.
+6. Shellscript will not manage sensitive information like passwords,keys etc.
 
 Advantages of ansible over shellscript
 ---------------------------------------
-1. It is a configuration management tool
+Ansible is an open-source automation tool used for
+1. Configuration management tool
 2. Application deployment
 3. Cloud provisioning and Orchestration(But not recommended). It can also connect to external systems 
    like aws,azure,gcp,gitlab etc. to create instances but this is not recommended because ansible is 
@@ -19,7 +21,20 @@ Advantages of ansible over shellscript
 
 What is configuration management ?
 -----------------------------------
-For example if you buy a new laptop, you need to install softwares and setup like username and passwords and connect to wifi etc. This is nothing but configuring your new laptop what you required. So similarly in linux also, to make server ready for application deployment is called configuring the server, not yet over we need to create users,folders,installing few packages,setting up permissions etc. This is called configuration management.
+For example if you buy a new laptop, you need to install softwares and setup like username and passwords and connect to wifi etc. This is nothing but configuring your new laptop what you required. So similarly in linux also, before deploying application we need to make the server ready. For example
+- Installing packages
+- Installing Programming languages
+- Installing build tools.
+- Installing Application Runtime.
+- Creation of users, folders, etc.
+- Setting permissions.
+- Creation of systemctl services.
+As a DevOps engineer we need to do this effectively. Basically CRUD over the server.
+
+Creation of configuration --> should be fast and accurate
+Update the configuration --> any changes in configuration should be rolled out asap.
+Delete the configuration --> delete the configuration if not required.
+Read the configuration --> it is easy to read the configuration of server through ansible playbooks.
 
 Application Deployment basic steps
 -----------------------------------
