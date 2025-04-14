@@ -13,9 +13,9 @@ Advantages of ansible over shellscript
 ---------------------------------------
 1. It is a configuration management tool
 2. Application deployment
-3. Cloud provisioning and Orchestration(But not recommended). It can also connect to external systems like 
-   aws,azure,gcp,gitlab etc. to create instances but this is not recommended because ansible is only intended 
-   for configuration management and application deployment
+3. Cloud provisioning and Orchestration(But not recommended). It can also connect to external systems 
+   like aws,azure,gcp,gitlab etc. to create instances but this is not recommended because ansible is 
+   only intended for configuration management and application deployment
 
 What is configuration management ?
 -----------------------------------
