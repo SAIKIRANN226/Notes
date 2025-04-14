@@ -35,7 +35,6 @@ Read the configuration --> it is easy to read the configuration of server throug
 Update the configuration --> any changes in configuration should be rolled out asap.
 Delete the configuration --> delete the configuration if not required.
 
-
 Application Deployment basic steps
 -----------------------------------
 1. Stop the server 
