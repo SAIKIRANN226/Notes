@@ -1,7 +1,8 @@
-ansible.cfg ---> refer from VS
---------------------------------
-It is a configuration file we can control everything from here,if we give ansible --version we can see from the configuration is loading
-https://docs.ansible.com/ansible/latest/reference_appendices/config.html ---> preferences
+"ansible.cfg" It is a configuration file we can control everything from here, if we enter "ansible --version" we can see from where the configuration file is loading, we have preferences below.
+1. ANSIBLE_CONFIG (environment variable if set)
+2. ansible.cfg (in the current directory)
+3. ~/.ansible.cfg (in the home directory)
+4. /etc/ansible/ansible.cfg
 
 Tags.yaml
 -------------
