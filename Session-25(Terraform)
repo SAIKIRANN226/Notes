@@ -118,3 +118,7 @@ Points to remember
    https://github.com/daws-76s/terraform
 3. Go through the session-01 in terraform VS we have created ec2 with security group along 
    with the variables
+4. In provider we can give access_key and secret_key under region to authenticate, when you push 
+   to github then github will send emails to notify, but it is not recommended because anyone can 
+   use your aws account and they can create anything in aws. So thats why we downloaded awsCLI to
+   authenticate to aws account which is a secure way.
