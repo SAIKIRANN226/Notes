@@ -1,50 +1,41 @@
-Go through the session-01 in VS which is created EC2 with SG using variables
------------------------------------------------------------------------------
-Note:-And dont forget to put ".gitignore" better to put in the root folder in terraform not only in terraform root folder for example if you are creating any other new folder then you need to put there also,because when you hit "terraform init" then terraform will download the provider and this provider memory is almost 350mb.github is only to store code not software (or)exe files,so github will automatically reject,so thats why .gitignore is important here
+Note:- Dont forget to put ".gitignore" better to put in the root folder in terraform not only in terraform root folder for example if you are creating any other new folder then you need to put there also, because 
+when you hit "terraform init" then terraform will download the provider and this provider memory is almost 350mb. Github is only to store code not software (or) .exe files, so github will automatically reject, so thats why .gitignore is important here
 
 Variables(VS)
 --------------
-If it is strating from the flower brases {} ---> it is a map type
+If it is strating from the flower brases {} ---> It is a map type.
 
 Terraform.tfvars
 -----------------
 instance_type = "t3.small" 
 
-# if you dont give the default value in the variables.tf,terraform will ask for the 
-  prompt,so if you create a terraform.tfvars and declare value it will overwrite this tfvars
-  so terraform will take this value. we can declare values in the variables.tf and we can 
-  give the values in the terraform.tfvars
-
-# generally terraform.tfvars is used to overwrite the default values in variables.tf
-
-# we can also give from the command prompt by using the below command
-  "terraform plan -var="instance_type=t3.medium"
-
-# here terraform.tfvars name is not mandatory we can use any name like saikiran.tfvars and 
-  this will become file and we can pass variable file by using below command
-
-# terraform plan -var-file="saikiran.tfvars"
-
-# environment variable 
+1. If you dont give the default value in the variables.tf, terraform will ask for the prompt, so if you 
+   create a terraform.tfvars and declare value, it will overwrite this tfvars, so terraform will take this 
+   value. We can declare values in the variables.tf and we can also give the values in the terraform.tfvars
+2. Generally terraform.tfvars is used to overwrite the default values in variables.tf
+3. We can also give from the command prompt by using the below command
+   "terraform plan -var="instance_type=t3.medium"
+4. Here terraform.tfvars name is not mandatory we can use any name like saikiran.tfvars and this will become 
+   file and we can pass variable file by using "terraform plan -var-file="saikiran.tfvars"
+5. Environment variable 
 
 Conditions(VS)
 --------------
 if(expression) {
 	if true this will run
 }
-else{
+else {
 	if false this will run
 } 
 
 We have one line condition also that is 
 ----------------------------------------
-expression ? "this will run if true" : "this will run if false" ---> terraform will follow 
-this only
+Expression ? "this will run if true" : "this will run if false" ---> Terraform will follow this only
 
-Loops(2types)
---------------
-1.count based loop --> to iterate list like creating multipe instances
-2.foreach loop --> to iterate maps like creating route53 records
+Loops are two types
+--------------------
+1. count based loop --> To iterate list like creating multipe instances
+2. foreach loop --> To iterate maps like creating route53 records
 
 Functions(VS)
 --------------
@@ -54,4 +45,11 @@ Example:- max(5,12,23) --> max is the function and we are giving inputs 5,12,23 
 
 Locals
 -------
-Locals is just like variables but it has some extra capabilities,you can keep functions and expressions,conditions inside a local and use them
+Locals is just like variables but it has some extra capabilities, you can keep functions and expressions,conditions inside a local and use them.
+
+Points to remember
+*******************
+1. You need to see the output.tf also in count folder VS, output is nothing but attributes reference,
+   we can see this in terraform document, like for example you have created ec2 instance but we need 
+   to know few ouput like what is publicIP or privateIP etc. Output block is used to print the output
+   of the resources in the terminal
