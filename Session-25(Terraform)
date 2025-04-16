@@ -122,3 +122,5 @@ Points to remember
    to github then github will send emails to notify, but it is not recommended because anyone can 
    use your aws account and they can create anything in aws. So thats why we downloaded awsCLI to
    authenticate to aws account which is a secure way.
+5. Important point to remember, you no need to push to the github, you can directly save the terraform
+   file and run the terraform commands in gitbash and later you can push to the github to save the files.
