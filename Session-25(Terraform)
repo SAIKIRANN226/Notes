@@ -2,13 +2,10 @@ Terraform is a popular Infrastructure as code(IaC)
 ---------------------------------------------------
 Terraform is an open-source tool developed by HashiCorp. Instead of going into AWS Console and manually creating an EC2 instance, we can create by writing terraform script, in olden days people used "CFengine" 
 and rightnow people are using chef, puppet, ansible, terraform etc. Till now we configured our project
-manually, shellscript, ansible, but we prefer ansible as a configuration management if it is large project.
-Because ansible can connect to more number of servers easily from one single ansible server
-
-Why we din't prefer manuall configuration ?
---------------------------------------------
-1. Because it is a time taking process, manually logging in the servers is timetaking
-2. We get more human errors 
+manually, and also using shellscript, ansible, but we prefer ansible as a configuration management if it 
+is large project. Because ansible can connect to more number of servers easily from one single ansible 
+server. Why we din't prefer manuall configuration ? Because it is a time taking process, manually logging 
+in the servers is timetaking and also we get more human errors.
 
 Advantages of terraform
 ------------------------
@@ -22,23 +19,23 @@ Advantages of terraform
 
 Version control
 ----------------
-Since it is code, we can maintain in Git to version control. We can completely maintain the history of infra and collaboration is easy. We can also rollback to the previous version incase of any production failure
+Since it is code, we can maintain in Git to control version. We can completely maintain the history of infra and collaboration is easy. We can also rollback to the previous version incase of any production failure
 
 Consistent infrastructure
 --------------------------
 Same code will work in all environments like dev,sit,uat,prod. Real time scenario like code is working in 
 dev or uat or pre-prod but not working in prod, for this issue we use terraform.
 
-Automated Infrastructure(CRUD)over the infrastructure
-------------------------------------------------------
+Automated Infrastructure(CRUD) over the infrastructure
+-------------------------------------------------------
 Create the infra
 Read the infra
 Update the infra
 Delete the infra
 
-Inventory management
+Inventory Management
 ---------------------
-Inventory management in Terraform nothing but tracking and managing the various infrastructure resources that Terraform provisions and maintains. Terraform itself doesn't have a built-in inventory management system, but it provides several features and practices that help in managing and keeping track of infrastructure resources. If we create infra manually it is very tough to maintain the inventory of resources in different regions. But by seeing terraform you can easily tell the resources you are using in which regions.For example if the project is going big. When you login to aws we can see more resources like multiple VPC's, multiple route 53, multiple EC2, multiple load balancers, CDN's, s3 buckets etc. If the client ask for the full details of the project we cannot show one by one in the aws and giving the report is very tough and that is also not a good practice, instead of showing in the aws console we can maintain from the above points, which can be seen in VS in the form of folders of above resources.
+Inventory Management in Terraform is nothing but tracking and managing the various infrastructure resources that Terraform provisions and maintains. Terraform itself doesn't have a built-in inventory management system, but it provides several features and practices that help in managing and keeping track of infrastructure resources. If we create infra manually it is very tough to maintain the inventory of resources in different regions. But by seeing terraform you can easily tell the resources you are using in which regions. For example if the project is going big. When you login to aws we can see more resources like multiple VPC's, multiple route 53, multiple EC2, multiple load balancers, CDN's, s3 buckets etc. If the client ask for the full details of the project we cannot show one by one in the aws and giving the report is very tough and that is also not a good practice, instead of showing in the aws console we can maintain from the above points, which can be seen in VS in the form of folders of above resources.
 
 Cost optimization
 ------------------
@@ -46,19 +43,19 @@ Cost optimization
 2. Automatic dependency management, for example if we need to create route53 records, ec2 servers 
    should be in the running, take those IP and then paste in the route53, that means route53 is 
    depending on ec2 servers, so we can create resources and terraform will takecare of dependencies.
-3. Terraform modules ---> You can create terraform code as modules, other project can also use it
-   without writing from the scratch
+3. Terraform modules ---> You can create terraform code as modules, other so that project can also 
+   use it without writing from the scratch
 4. Terraform is also a hybrid cloud that means you can create infra in aws, azure, GCP not only 
    cloud, terraform can also work with any other popular tools in the market, you can see in the 
-   terraform providers, it can work with many other providers. or you can write your own module 
-   and connect with the terrform also. Not only resources we can also create repos, branches etc.
-   with terraform.
+   terraform providers website, it can work with many other providers or you can write your own 
+   module and connect with the terrform also. Not only resources we can also create repos, branches 
+   etc. with terraform.
 The above all are the terraform understanding(Interview Question). It is a declarative way of creating infrastructure, what is declarative ---> whatever you write you get it if you write correct syntax, and 
 it is easy syntax and no need to follow the sequence in the code. If anybody edit manually in the aws console, and we find it is very difficult to trace who did it, but in terraform if anybody did changes 
 and we can restore infrastructure immediately by just one command, then we can discuss who did it later
 
-From here we create Infrastructure using terraform not manually 
----------------------------------------------------------------- 
+From here we create Infrastructure using terraform
+---------------------------------------------------
 1. Download terraform from google mostly AMD64 windows, if you download and extract you will 
    get .exe file
 2. Move that .exe file in your desired location, downloading is not enough still it will show 
@@ -72,7 +69,7 @@ From here we create Infrastructure using terraform not manually
 
 We write code in VS ---> then we push to github ---> then we push to the aws, but in order to push to the 
 aws we need authentication for that we have "awsCLI" for this go to the google and search "aws cli install" just run shown commands in "cmd" from the command prompt, then test "aws --version" in cmd aswel as in 
-gitbash select windows to install not linux or macos. So to connect we need to create a terraform user --> IAM/users/create(next)/attch policies directly and select administrator access/ --> click on your created user/security credentials/create accesskey/click on command line interface(CLI)/copy the accesskey and secretkey then -----> "aws configure" in gitbash --> these credentials will be saved in --> windowsC/users
+gitbash select windows to install not linux or macos. So to connect we need to create a terraform user IAM/users/create(next)/attach policies directly and select administrator access/ --> click on your created user/security credentials/create accesskey/click on command line interface(CLI)/copy the accesskey and secretkey then -----> "aws configure" in gitbash --> these credentials will be saved in --> windowsC/users
 /user/.aws folder
 
 Lets create ec2 instance
@@ -80,23 +77,23 @@ Lets create ec2 instance
 resource "what resource" "name of your resource" {
 
 }
+
 1. This syntax we call HCL(Hashicorp Configuration Language) 
 2. Here also we have variables/conditions/loops/functions/datatypes
 3. So rightnow we are using terraform for the aws so search terraform providers --> Select aws 
    provider if you dont give the provider terraform will not know to work with which provider ? 
    and .tf is the extension of terraform file
-
-# In VS go through session-01/ec2.tf,provider.tf,varibles.tf ---> Just type "terraform ec2 in the google"
-# Where to run the terraform commands ? ---> where ever .tf files exists, like for example go
-  the directory session01/ec2/ec2.tf and provider.tf ---> Here you should run the command
-# "Just go through session-01 in the VS" where ec2 with SG is created using terraform
+4. In VS go through session-01/ec2.tf,provider.tf,varibles.tf ---> Just type "terraform ec2 in the google"
+5. Where to run the terraform commands ? ---> where ever .tf files exists, like for example go
+   the directory session01/ec2/ec2.tf and provider.tf ---> Here you should run the command
+6. Just go through session-01 in the VS, where ec2 with SG is created using terraform
 
 Terraform commands
 -------------------
 1. terraform init --> Initialize the provider, it will download the aws plugins or provider in
    ".terraform" folder is created to download the provider
 2. terraform plan --> Terraform will calculate full details and show it or it is just a plan
-   it will not create, it will show the preview of the changes thats it
+   it will not create, it will show the preview of the changes.
 3. terraform apply --> Now it will create
 4. terraform apply -auto-approve --> Not ask for prompt
 5. terraform destroy -auto-approve --> Not ask for prompt
@@ -108,17 +105,16 @@ variable "name-of-variable" {
      type = datatype
      default = "default value"
 }
+
 Terraform will automatically consider which datatype is so no need to give datatype but for practice we need 
 
 Points to remember
 *******************
 1. https://registry.terraform.io/providers/hashicorp/aws/3.34.0/docs/resources/security_group
    terraform registry website to see all examples
-2. Just go through the "README" file in the sivagithub terraform
-   https://github.com/daws-76s/terraform
-3. Go through the session-01 in terraform VS we have created ec2 with security group along 
-   with the variables
-4. In provider we can give access_key and secret_key under region to authenticate, when you push 
+2. Just go through the "README" file in the sivagithub terraform "https://github.com/daws-76s/terraform"
+3. Go through the session-01 in terraform VS we have created ec2 with security group along with variables
+4. In provider we can give access_key and secret_key under region to authenticate to aws, when you push 
    to github then github will send emails to notify, but it is not recommended because anyone can 
    use your aws account and they can create anything in aws. So thats why we downloaded awsCLI to
    authenticate to aws account which is a secure way.
