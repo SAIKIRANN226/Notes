@@ -3,7 +3,7 @@ when you hit "terraform init" then terraform will download the provider and this
 
 Variables(VS)
 --------------
-If it is strating from the flower brases {} ---> It is a map type.
+If it is starting from the flower brases {} ---> It is a map type.
 
 Terraform.tfvars
 -----------------
@@ -34,22 +34,23 @@ Expression ? "this will run if true" : "this will run if false" ---> Terraform w
 
 Loops are two types
 --------------------
-1. count based loop --> To iterate list like creating multipe instances
-2. foreach loop --> To iterate maps like creating route53 records
+1. Count based loop --> To iterate list like creating multiple instances
+2. Foreach loop --> To iterate maps like creating multiple route53 records
 
 Functions(VS)
 --------------
-It will do some work,if we give some input and it will take this input and give output.
-here in terraform we cannot create our own functions but terraform itself has some functions we need to use that only
-Example:- max(5,12,23) --> max is the function and we are giving inputs 5,12,23 then terraform will give output that is 23, similarly we have other functions also, and we have used lenght function --> length(var.instance_names)
+It will do some work, if we give some input and it will take this input and give output. Here in terraform 
+we cannot create our own functions but terraform itself has some functions we need to use that only
+Example:- max(5,12,23) --> max is the function and we are giving inputs 5,12,23 then terraform will give output that is 23, similarly we have other functions also, and we have used length function below --> length(var.instance_names)
 
 Locals
 -------
-Locals is just like variables but it has some extra capabilities, you can keep functions and expressions,conditions inside a local and use them.
+Locals is just like variables but it has some extra capabilities, you can keep functions,expressions,
+and conditions inside a local and use them anywhere in the script
 
 Points to remember
 *******************
 1. You need to see the output.tf also in count folder VS, output is nothing but attributes reference,
    we can see this in terraform document, like for example you have created ec2 instance but we need 
-   to know few ouput like what is publicIP or privateIP etc. Output block is used to print the output
+   to know few output like what is PublicIP or PrivateIP etc. Output block is used to print the output
    of the resources in the terminal
