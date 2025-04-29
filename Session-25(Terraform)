@@ -45,7 +45,7 @@ Cost optimization
 2. Automatic dependency management, for example if we need to create route53 records, ec2 servers 
    should be in the running, take those IP and then paste in the route53, that means route53 is 
    depending on ec2 servers, so we can create resources and terraform will takecare of dependencies.
-3. Terraform modules ---> You can create terraform code as modules, other so that project can also 
+3. Terraform modules ---> You can create terraform code as modules, so that other projects can also 
    use it without writing from the scratch
 4. Terraform is also a hybrid cloud that means you can create infra in aws, azure, GCP not only 
    cloud, terraform can also work with any other popular tools in the market, you can see in the 
