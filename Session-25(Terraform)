@@ -27,8 +27,9 @@ Consistent infrastructure
 Same code will work in all environments like dev,sit,uat,prod. Real time scenario like code is working in 
 dev or uat or pre-prod but not working in prod, for this issue we use terraform.
 
-Automated Infrastructure(CRUD) over the infrastructure
--------------------------------------------------------
+Automated Infrastructure(CRUD)
+-------------------------------
+Basically CRUD over the infrastructure like below
 Create the infra
 Read the infra
 Update the infra
