@@ -122,3 +122,4 @@ Points to remember
 5. Important point to remember, you no need to push to the github, you can directly save the terraform
    file and run the terraform commands in gitbash and later you can push to the github to save the files.
    later green colour will change to the normal colour
+6. Dont push the accesskey and secretkey to the github or internet for safety
