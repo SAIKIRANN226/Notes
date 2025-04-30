@@ -22,33 +22,34 @@ What is the terraform responsibility ? Whatever we write it will create ---> Not
 1. Declarative state = Our desired state
 2. Current state is Whatever terraform has created which will be in "terraform.tfstate"
 3. Desired state == Current state should be equal
-4. If you do terraform apply again then terraform will check current state, if Current state = Desired state 
-   then it will not take any action
+4. If you do terraform apply again then terraform will check current state, if Current state = Desired 
+   state then it will not take any action
 5. If Current state is not equal to Desired state then it will create
 6. If terraform is doing any changes, then terraform will create a terraform.tfstate.lock to lock the 
    terraform.tfstate file so that nobody will touch terraform.tfstate file while terraform is doing 
    changes because terraform us using that file at the time of doing changes
-7. terraform.tfstate is in my laptop iam pushing it to the github, another devops engineer cloned my repo 
-   and run it again, both are running terraform apply, so here duplicates may come, some got error as already 
-   exists. I have terraform.tfstate and devops engineer has terraform.tfstate, Both have no connection then 
-   terraform will compare my state and devops person state then duplicates may come for some resources, and 
-   some resources get error as already exists. So for this we have central state file to check the infra 
-   exists or not ? 
+7. terraform.tfstate is in my laptop iam pushing it to the github, another devops engineer cloned my 
+   repo and run it again, both are running terraform apply, so here duplicates may come, some got error
+   as already exists. I have terraform.tfstate and devops engineer has terraform.tfstate, Both have no 
+   connection then terraform will compare my state and devops person state then duplicates may come for 
+   some resources, and some resources get error as already exists. So for this we have central state 
+   file to check the infra exists or not ? 
 8. terraform.tfstate is a crucial file, should not delete
-9. We have two disadvantages one is "Collaboration environment" like terraform will have no 
-   idea about infra created, if multiple persons are working on same infra, it will try to create duplicates 
-   or erros may also come and another one is "Security" tfstate is a crucial file, if you keep it in local it 
-   may be updated or deleted by mistake, for this we have a central state that is "s3 bucket"(Remote Storage)
+9. We have two disadvantages one is "Collaboration environment" like terraform will have no idea 
+   about infra created, if multiple persons are working on same infra, it will try to create duplicates 
+   or erros may also come and another one is "Security" tfstate is a crucial file, if you keep it in local 
+   it may be updated or deleted by mistake, for this we have a central state that is "s3 bucket"(Remote 
+   Storage)
 
 Creating a s3 bucket and locking the bucket
 --------------------------------------------
 1. Bucket name should be unique
 2. By using "dynamodb" ---> Create table to lock the bucket and make sure partition key should be in the 
    same letters = "LockID"
-3. But right now we need remote state, we can also use "terraform cloud" but it is chargeable or we can also 
-   use s3 bucket from aws which is more popular or for every cloud like gcp also we have option. So we use 
-   terraform s3 state for that, Just type in google terraform s3 remote state and take that configuration and 
-   put it inside in the provider or we can call as backend also
+3. But right now we need remote state, we can also use "terraform cloud" but it is chargeable or we can 
+   also use s3 bucket from aws which is more popular or for every cloud like gcp also we have option. 
+   So we use terraform s3 state for that, Just type in google terraform s3 remote state and take that 
+   configuration and put it inside in the provider or we can call as backend also
 
 Points to remember
 *******************
@@ -56,4 +57,4 @@ Points to remember
 2. Configuration is nothing but a script if we write more lines of script we say configuration is increasing
 3. Interview question ? We are using s3bucket with dynamodb locking using because local state will not work 
    because it will create duplicates and errors and also for better collaboration and security will not be 
-   there inside the local so that is why we have to keep it safely in the remote storage like s3 bucket
+   there inside the local so that is why we have to keep it safely in the remote storage like s3 bucket.
