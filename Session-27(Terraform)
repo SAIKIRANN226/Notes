@@ -59,3 +59,4 @@ Points to remember
 3. Interview question ? We are using s3bucket with dynamodb locking using because local state will not work 
    because it will create duplicates and errors and also for better collaboration and security will not be 
    there inside the local so that is why we have to keep it safely in the remote storage like s3 bucket.
+4. S3 buckets are chargeable in aws so delete after practice
