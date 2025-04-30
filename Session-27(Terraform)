@@ -1,47 +1,59 @@
-Note:-If you are facing push error in the github you can forcefull push by using 
-"git push -f origin master"
+Locals in terraform
+--------------------
+Count.index will not have access in the locals, we can only put in the count.tf, basically locals is 
+nothing but keeping expressions,conditions,functions inside the locals, then how to call a local? "local.instance_type"
 
-Locals
--------
-Count.index will not have access in the locals,we can only put in the count.tf,basically expressions,conditions,functions can be put in the locals,then how to call a local? "local.instance_type"
-
-Data-sources(VS)
+Data-Sources(VS)
 -----------------
-Terraform is connecting to lot of providers like aws,azure,gcp and everything,so these providers contains lot of data like regions,availability zones,ec2 etc. All these are changing dynamically,so data-source is used to query the data dynamically from the providers,aswel as from the existing resources,using this information we can create another resources also
-Example:-AMI's ID's will be changing when ever there is a new patch released by the aws,so to fetch ami automatically using data-source. just search in the google "Terraform query"
+Terraform is connecting to lot of providers like aws,azure,gcp and everything. So these providers contains lot of data like regions,availability zones,ec2 etc. All these are changing dynamically, so data-source is used to query the data dynamically from the providers, for Example:- AMI's ID's will be changing when ever there is a new patch released by the aws, so to fetch ami automatically we use data-source. Just search in the google "Terraform query ami". If anybody created resources manually, by taking this resources information we can create another resources also by using data-source or by using terraform query. Data-sources is useful to query the dynamic data from the provider aswel as to query the existing resource information so using this information we can create another resources
 
 Foreach loop(VS)
 -----------------
-1.Conditions ---> mostly to iterate list for list we used count and count.index(special vars)
-2.Foreach ---> mostly to iterate maps for maps we used that is "for_each"
-3.Dynamic loop ---> creating a resources multiple times we used count,and foreach loop example creating instances and route53 records,so in the securityGroup if you want to add a new rule (or) multiple ports likes 80,443,22 in ingress (or) egress blocks so that block will be repeating as many rules you want to add.if a block is repeating more times you can keep that block in a variable and call dynamic loop
+1. Conditions ---> Mostly to iterate list for list we used count and count.index(special vars)
+2. Foreach ---> Mostly to iterate maps for maps we used that is "for_each"
+3. Dynamic loop ---> Creating a resources multiple times we used count, and foreach loop example creating 
+   instances and route53 records, so in the securitygroup if you want to add a new rule (or) multiple ports 
+   likes 80,443,22 in ingress (or) egress blocks so that block will be repeating as many rules you want to 
+   add. If a block is repeating more times you can keep that block in a variable and call dynamic loop
 
-Terraform state(State and remote state)
+Terraform state(State and Remote state)
 ----------------------------------------
-What is the terraform responsibility? what ever we write it will create ---> declarative
-1.Declarative state = Our desired state
-2.Current state is Whatever terraform has created in "terraform.tfstate"
-3.Desired == Current state should be equal
+What is the terraform responsibility ? Whatever we write it will create ---> Nothing but Declarative
+1. Declarative state = Our desired state
+2. Current state is Whatever terraform has created which will be in "terraform.tfstate"
+3. Desired state == Current state should be equal
+4. If you do terraform apply again then terraform will check current state, if Current state = Desired state 
+   then it will not take any action
+5. If Current state is not equal to Desired state then it will create
+6. If terraform is doing any changes, then terraform will create a terraform.tfstate.lock to lock the 
+   terraform.tfstate file so that nobody will touch terraform.tfstate file while terraform is doing 
+   changes because terraform us using that file at the time of doing changes
+7. terraform.tfstate is in my laptop iam pushing it to the github, another devops engineer cloned my repo 
+   and run it again, both are running terraform apply, so here duplicates may come, some got error as already 
+   exists. I have terraform.tfstate and devops engineer has terraform.tfstate, Both have no connection then 
+   terraform will compare my state and devops person state then duplicates may come for some resources, and 
+   some resources get error as already exists. So for this we have central state file to check the infra 
+   exists or not ? 
+8. terraform.tfstate is a crucial file, should not delete
+9. We have two disadvantages one is "Collaboration environment" like terraform will have no 
+   idea about infra created, if multiple persons are working on same infra, it will try to create duplicates 
+   or erros may also come and another one is "Security" tfstate is a crucial file, if you keep it in local it 
+   may be updated or deleted by mistake, for this we have a central state that is "s3 bucket"(Remote Storage)
 
-# If you do terraform apply again then terraform will check current state,if current state = 
-  desired state then it will not take any action
-# If current state is not equal to desired state then it will create
-# terraform.tfstate is in my laptop iam pushing it to the github,another devops engineer 
-  cloned my repo and run it again,both are running terraform apply,so here duplicates may 
-  come,some got error as already exists.i have terraform.tfstate and devops engineer has 
-  terraform.tfstate.so for this we have central state file to check the infra exists or not.
-# terraform.tfstate is a crucial file,should not delete
-# Collabaration ---> terraform will have no idea about the infra created,if multiple persons 
-  are working on same infra it will try to create duplicates and errors may also come and 
-  another disadvantage is security. tfstate is a crucial file if you keep it in local it may 
-  deleted or updated by mistake,so for that we have central state that is "s3 bucket"(remote
-  storage)
+Creating a s3 bucket and locking the bucket
+--------------------------------------------
+1. Bucket name should be unique
+2. By using "dynamodb" ---> Create table to lock the bucket and make sure partition key should be in the 
+   same letters = "LockID"
+3. But right now we need remote state, we can also use "terraform cloud" but it is chargeable or we can also 
+   use s3 bucket from aws which is more popular or for every cloud like gcp also we have option. So we use 
+   terraform s3 state for that, Just type in google terraform s3 remote state and take that configuration and 
+   put it inside in the provider or we can call as backend also
 
-Create a s3 bucket
--------------------
-Bucket name should be unique
-
-Lock the bucket
-----------------
-By using "dynamodb" ---> create table to lock the bucket and make sure partion key should be in the same letters = "LockID"
-Just type in google terraform s3 remote state and take that configuration and put it in VS it is backend inside provider
+Points to remember
+*******************
+1. If you are facing push error in the github you can forcefull push by using "git push -f origin master"
+2. Configuration is nothing but a script if we write more lines of script we say configuration is increasing
+3. Interview question ? We are using s3bucket with dynamodb locking using because local state will not work 
+   because it will create duplicates and errors and also for better collaboration and security will not be 
+   there inside the local so that is why we have to keep it safely in the remote storage like s3 bucket
