@@ -54,7 +54,8 @@ Creating a s3 bucket and locking the bucket
 Points to remember
 *******************
 1. If you are facing push error in the github you can forcefull push by using "git push -f origin master"
-2. Configuration is nothing but a script if we write more lines of script we say configuration is increasing
+2. Configuration is nothing but a script if we write more lines of script we say configuration is 
+   increasing
 3. Interview question ? We are using s3bucket with dynamodb locking using because local state will not work 
    because it will create duplicates and errors and also for better collaboration and security will not be 
    there inside the local so that is why we have to keep it safely in the remote storage like s3 bucket.
