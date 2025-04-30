@@ -1,97 +1,98 @@
-# Use different key names in s3 buckets like in the previous you used different key "foreach" 
-  you can use as per your wish but not with same key names because it will merge all.
-# If you are facing any error in pushing the code to the github use the below command
-    "git remote set-url origin <URL>"
-# If the code in vs is in full green colour that means the repository is not yet ready in 
-  the github when repo is ready then it will turn to normal colour after pushing to git
+How to create multiple environments with terraform in 3 ways
+-------------------------------------------------------------
+1. Tfvars ---> Is used to overwrite the defaults values in variables.tf
+2. Workspaces 
+3. Different Repos for different environments
 
-How to create multiple environments with terraform(3ways)
-----------------------------------------------------------
-1.tfvars ---> using to overwrite the default variables from variables.tf
-2.workspaces ---> terraform workspace list (show the list)
-3.different repos for different environments
-
+1. Tfvars method
+-----------------
 For example we want mongodb-dev, redis-dev
                     mongodb-dev.daws76s.online
                     mongodb-redis.daws76s.online
-
-# Same code but with different configuration,that means we need to control only variables for
-  different env's by using tfvars
-# Different buckets to maintain states by creating different folders "dev,prod". what do you
-  think? using different buckets for dev and prod(or)same buckets? different is the best,we 
-  can also use same but we make sure different evn's should not get disturbed
-# How do we maintain different buckets?by creating two folders dev/prod in "AWSconsole" and
+# Same code but with different configuration, that means we need to control only variables for different 
+  env's by using tfvars
+# Different buckets to maintain states by creating different folders "dev,prod". what do you think ? Using 
+  different buckets for dev and prod or same buckets ? different is the best, we can also use same but we 
+  make sure different evn's should not get disturbed
+# How do we maintain different buckets ? By creating two buckets dev/prod in "AWSconsole" and
   create dynamodb tables for two
 
-So we have web-dev,web-prod other than that we get web-qa like that,how to control this?
------------------------------------------------------------------------------------------
-1.if key starts with web then we can write a condition using terraform inbuilt function that 
-  that is ---> startswith(each.key, "web")
-2.When you do terraform init ---> backend will also be there,so here you have multiple 
-  environments,so use "terraform init -backend-config=dev/backend.tf"
-3.terraform plan -var-file=dev/dev.tfvras ---> if you dont mention the file name it will load
-  default variables
-4.terraform apply -var-file=dev/dev.tfvars
-5.terraform destory -var-file=dev/dev.tfvars
+Controlling environments using variables
+-----------------------------------------
+So we have web-dev,web-prod other than that we get web-qa like that,how to control this ?
+1. If key starts with web then we can write a condition using terraform inbuilt function that is
+   startswith(each.key, "web")
+2. When you do terraform init ---> backend will also be there, so here you have multiple environments, 
+   so use "terraform init -backend-config=dev/backend.tf"
+3. terraform plan -var-file=dev/dev.tfvras ---> If you dont mention the file name it will load 
+   default variables
+4. terraform apply -var-file=dev/dev.tfvars
+5. terraform destory -var-file=dev/dev.tfvars
 
-So when you do for the next one prod (or) other env then you need to reconfigure by using below command,(OR) when you are switching from one env to another you must reinitialize
+So when you do for the next one prod (or) other env then you need to reconfigure by using below command, or when you are switching from one env to another you must reinitialize by using below command
 "terraform init -reconfigure -backend-config=prod/backend.tf"
+[Note:- when you forgot to give the -var-file then terraform will take default variables which is in variables.tf, so in this you comment out the default variables then terraform will prompt for the variables, so you will get know that i forgot to give varfile
 
-[Note:- when you forgot to give the -var-file then terraform will take default variables which is in variables.tf so in this you comment out the default variables then terraform will prompt for the variables,so you will get know that i forgot to give varfile]
+2. Workspaces method
+---------------------
+We can manage multiple environments using single code (or) same code, only few backends will support 
+this, s3 is one of them. If you want to know workspace commands just "terraform workspace". How to create workspace ? ---> terraform workspace new dev --> do it in gitbash
 
-2.Workspaces
--------------
-We can manage multiple environments using single code (or) same code,only few backends will support this s3 is one of them.if you want to know workspace commands just "terraform workspace".How to create workspace? ---> terraform workspace new dev --> do it in gitbash
+When you are using terraform it has default variable that is "terraform.workspace", so if you are 
+in dev then its value is "terraform.workspace --> dev" , if you are in prod then its value will become "terraform.workspace --> prod". So you need to write lookup function this function works as if you 
+pass key we can get that value
 
-When you are using terraform it has default variable that is "terraform.workspace",so if you are in dev then its value is "terraform.workspace --> dev" , if you are in prod then its value is "terraform.workspace --> prod".so you need to write lookup function this function works as if you pass key we can get that value
+In tfvars example there are two separate buckets were created like dev/prod, but in workspaces there is only default bucket "env:/" inside it it will automatically create dev/prod workspaces
 
-In tfvars example there are two separate buckets were created like dev/prod,but in workspaces there is only default bucket "env:/" inside it it will automatically create dev/prod spaces
-
-3.Creating different repos for different environments
-------------------------------------------------------
+3. Creating different repos for different environments
+-------------------------------------------------------
 
 Which approch is best ?
 ------------------------
-1. pros ---> same code
-   cons ---> same code for multiple environments,you need to be very careful because whatever        
-             changes you do that will apply to all env's also
-2. pros ---> same code
-   cons ---> same code for multiple environments,you need to be very careful because whatever        
-             changes you do that will apply to all env's also.
-             Terraform is also maintaining same bucket that may cause errors and difficult to 
-             maintain, difficult to maintain variables
-3. pros ---> since everything is different you no need to worry
-   cons ---> you need to maintain code duplication 2 repos, if it is big project or crucial
-             project better to maintain this method
+1. Pros ---> same code
+   Cons ---> same code for multiple environments, you need to be very careful because whatever changes you 
+             do that will apply to all env's also
+2. Pros ---> same code
+   Cons ---> same code for multiple environments, you need to be very careful because whatever changes you 
+             do that will apply to all env's also. Terraform is also maintaining same bucket that may cause 
+             errors and difficult to maintain variables
+3. Pros ---> since everything is different you no need to worry
+   Cons ---> you need to maintain code duplication 2 repos, if it is big project or crucial project better 
+             to maintain this method, or we can go for remaining 2 methods
 
 Provisioners is only for ec2 instances
-----------------------------------------
-2 types :- 1.local-exec---> local to where you are running terraform command(laptop),if you  
-           run terraform command from the linux server.what will be the local here? local      
-           will be linux server
-           [Note:- local-exec will run only one time so to again this you need to destroy]
+---------------------------------------
+2 types :- 1. local-exec ---> local to where you are running terraform command(laptop) in laptop is 
+           nothing but gitbash, then local is your current laptop, if you run terraform command from the 
+           linux server. What will be the local here ? local will be linux server
+           [Note:- local-exec will run only one time, to run again you need to destroy first]
+           2. remote-exec ---> This will run inside the server, first you should connect to the 
+           server, then you can run anything inside the server.
+Provisioners are useful to integrate terraform with configuration management tools like ansible and also enable a keyword called "self"
 
-           2.remote-exec---> this will run inside the server,first you should connect to the 
-           server,then you can run anything inside the server.
-# Provisioners are useful to integrate terraform with configuration management tools like 
-  ansible.
+What is difference between terraform and ansible ?
+---------------------------------------------------
+Ansible ---> Is intendent for configuration management, what are the main input for the configuration 
+             management ? ---> server must be created, so if you have server available wether it is 
+             onpremise or in cloud, then we can use ansible to configure the server
+Terraform ---> Responsibility is to create server nothing but infrastructure creation, server
+               configuration is nothing but configuration management.
+So server created then we handover the IP address to ansible, it will takecare of the provisioning or
+configuration management, if you integrate terraform and ansible you will get end-end automation using provisioners. Note:- We can also create ec2 instances using ansbile but it does not have state file as terraform does, thats why terraform is perfect for creation of infra.
 
-What is difference between terraform and ansible?
---------------------------------------------------
-Ansible ---> is intendent for configuration management,what are the main input for the
-             configuration management?---> server must be created,so if you have server
-             available wether it is onpremise or in cloud, then we can use ansible to 
-             configure the server
-Terraform ---> responsibility is to create server nothing but infrastructure creation; server
-               configuration is nothing but configuration management
+Creation time and Destroy time
+-------------------------------
+Creation time ---> This local exec will run when server is created when we apply
+Destroy time ---> At the time of destory
+Why we use this creation time and destroy time ? To trigger other systems like sending emails when servers created (or) when destoryed.
 
-So server created then we handover the IP address to ansible,it will takecare of the provisioning(or)configuration management,if you integrate terraform and ansible you will get end-end automation using provisioners
-
-Note:- we can also create ec2 instances using ansbile but it does not have state file as terraform does,thats why terraform is perfect for creation of infra
-
-Creation time ---> this local exec will run when server is created when we apply
-Destroy time ---> at the time of destory
-
-Why we use this creation time and destroy time?
-------------------------------------------------
-To trigger other systems like sending emails when servers created(or)when destoryed.
+Points to remember
+*******************
+1. Use different key names in s3 buckets like in the previous you used different key "foreach" you can use 
+   as per your wish but not with the same key names because it will merge all.
+2. If you are facing any error in pushing the code to the github use the below command
+    "git remote set-url origin <URL>"
+3. If the code in VS is in full green colour that means the repository is not yet ready in the github, 
+   when repo is ready then it will turn to normal colour after pushing to git
+4. We can write multiple provisioners also like for example "on_failure = continue" nothing but same as
+   ignore errors in ansible
