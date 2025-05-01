@@ -29,20 +29,13 @@ So we have web-dev,web-prod other than that we get web-qa like that, how to cont
 4. terraform apply -var-file=dev/dev.tfvars
 5. terraform destory -var-file=dev/dev.tfvars
 
-So when you do for the next one prod (or) other env then you need to reconfigure by using below command, or when you are switching from one env to another you must reinitialize by using below command
-"terraform init -reconfigure -backend-config=prod/backend.tf"
-[Note:- when you forgot to give the -var-file then terraform will take default variables which is in variables.tf, so in this you comment out the default variables then terraform will prompt for the variables, so you will get know that i forgot to give varfile
+So when you do for the next one prod (or) other env then you need to reconfigure or when you are switching from one env to another you must reinitialize by using below command. "terraform init -reconfigure -backend-config=prod/backend.tf". [Note:- when you forgot to give the -var-file then terraform will take default variables which is in variables.tf, so in this you comment out the default variables then terraform will prompt for the variables, so you will get know that i forgot to give varfile
 
 2. Workspaces method
 ---------------------
 We can manage multiple environments using single code (or) same code, only few backends will support 
-this, s3 is one of them. If you want to know workspace commands just "terraform workspace". How to create workspace ? ---> terraform workspace new dev --> do it in gitbash
-
-When you are using terraform it has default variable that is "terraform.workspace", so if you are 
-in dev then its value is "terraform.workspace --> dev" , if you are in prod then its value will become "terraform.workspace --> prod". So you need to write lookup function this function works as if you 
-pass key we can get that value
-
-In tfvars example there are two separate buckets were created like dev/prod, but in workspaces there is only default bucket "env:/" inside it it will automatically create dev/prod workspaces
+this, s3 is one of them. If you want to know workspace commands just "terraform workspace". How to create workspace ? ---> "terraform workspace new dev" --> do it in gitbash. When you are using terraform it has default variable that is "terraform.workspace", so if you are in dev then its value of "terraform.workspace become --> dev", if you are in prod then its value of "terraform.workspace --> will become prod". So you 
+need to write lookup function this function works as if you pass key we can get that value. In tfvars example there are two separate buckets were created like dev/prod, but in workspaces there is only one default bucket "env:/" inside it will automatically create dev/prod workspaces.
 
 3. Creating different repos for different environments
 -------------------------------------------------------
