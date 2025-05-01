@@ -95,7 +95,8 @@ Terraform commands
 1. terraform init --> Initialize the provider, it will download the aws plugins or provider in
    ".terraform" folder is created to download the provider
 2. terraform plan --> Terraform will calculate full details and show it or it is just a plan
-   it will not create, it will show the preview of the changes.
+   it will not create, it will show the preview of the changes. Terraform compares the infra between 
+   declared and existing. This is only plan terraform will not create
 3. terraform apply --> Now it will create
 4. terraform apply -auto-approve --> Not ask for prompt
 5. terraform destroy -auto-approve --> Not ask for prompt
