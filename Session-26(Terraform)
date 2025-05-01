@@ -55,3 +55,4 @@ Points to remember
    we can see this in terraform document, like for example you have created ec2 instance but we need 
    to know few output like what is PublicIP or PrivateIP etc. Output block is used to print the output
    of the resources in the terminal
+2. Important point is that you must save all files of terraform then only run the terraform commands
