@@ -1,25 +1,25 @@
 How to create multiple environments with terraform in 3 ways
 -------------------------------------------------------------
-1. Tfvars ---> Is used to overwrite the defaults values in variables.tf
+1. Tfvars ---> Is used to overwrite the default values in variables.tf
 2. Workspaces 
-3. Different Repos for different environments
+3. Different Repos for different Environments
 
 1. Tfvars method
 -----------------
-For example we want mongodb-dev, redis-dev
-                    mongodb-dev.daws76s.online
-                    mongodb-redis.daws76s.online
-# Same code but with different configuration, that means we need to control only variables for different 
+For example we want mongodb-dev, shipping-dev, etc.
+                    mongodb-dev.daws76s.online, mongodb-prod.daws76s.online, etc.
+                    shipping-dev.daws76s.online, shipping-prod.daws76s.online etc.
+# Same code but with different configuration, that means we need to control using variables for different 
   env's by using tfvars
 # Different buckets to maintain states by creating different folders "dev,prod". what do you think ? Using 
-  different buckets for dev and prod or same buckets ? different is the best, we can also use same but we 
-  make sure different evn's should not get disturbed
-# How do we maintain different buckets ? By creating two buckets dev/prod in "AWSconsole" and
-  create dynamodb tables for two
+  different buckets for dev and prod or same buckets ? different is the best, we can also use same buckets 
+  but we make sure different evn's should not get disturbed
+# How do we maintain different buckets ? By creating two buckets for dev and prod in "AWSconsole" and also
+  create dynamodb tables for dev and prod
 
 Controlling environments using variables
 -----------------------------------------
-So we have web-dev,web-prod other than that we get web-qa like that,how to control this ?
+So we have web-dev,web-prod other than that we get web-qa like that, how to control this ?
 1. If key starts with web then we can write a condition using terraform inbuilt function that is
    startswith(each.key, "web")
 2. When you do terraform init ---> backend will also be there, so here you have multiple environments, 
