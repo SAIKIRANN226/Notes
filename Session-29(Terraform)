@@ -1,31 +1,25 @@
-Terraform best practices
--------------------------
-For naming the resources in the terraform search in google
-
 Modules development
 --------------------
-# Dry,dont repeat yourself
-# Code reuse,no need to write infra for every project from the scratch,example see the
-  "terraform-modules" in the VS
-# Module syntax is 
+1. Dry,dont repeat yourself
+2. For example we created infrastructure for a project nothing but we write a terraform code for this 
+   infra right ? If we have another project do we write the terraform code from the scratch ? no we reuse 
+   the code, no need to write infra for every project from the scratch ---> "Terraform-Modules" in the VS
+3. Module syntax is 
       module "name" {
-	source = "../ec2" ---> example actually it is one step back
+	source = "../ec2" ---> Actually it is one step back
       }
-# Provider will not be there in the module developing
+4. Provider will not be there in the module developing
 
-2 types of modules
--------------------
-1.Customized modules for our organisation,this will create by central team in cloud
-2.Open source modules
+Two types of modules and Two types of roles
+--------------------------------------------
+1. Customized modules for our organisation, this will create by central team in cloud.
+2. Open source modules
+A). Module Developer --> Who develops the module
+B). Module User --> Who consumes the module
+[Note:- Put one README.md file to provide the documentation on the module]
 
-2 roles
---------
-1.Module developer --> who develops module
-2.Module user --> who consumes module
-Note:-Put one README.md file to provide the documentation on the module
-
-1.VPC(virtual private cloud)
------------------------------
+VPC(Virtual Private Cloud)
+---------------------------
 Watch from ---> (26:09 to 1:14:13)
 
 Difference between public subnet and private subnet?
@@ -86,3 +80,9 @@ So what ever we have created all these by manually in the aws,we should create t
 Minimum you need to create resources in two availability zones so that you can save from yourself from the natural disasters, that means you need to keep public and private subnets aswel as remaining subnets in two availability zones,if the company is having budget then we can create servers in both zones(or)create one and transfer to other zones in case of any natural disasters alert, 
 
 Note:- AWS wont charge for VPC's,subnets,route tables,it only charges when you are creating server
+
+Points to remember
+*******************
+1. Terraform best practices like naming the resources in the terraform search in google
+2. We used open source modules sometimes and we have dedicated cloud team who develops module 
+   and we use them.
