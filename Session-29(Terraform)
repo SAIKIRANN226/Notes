@@ -22,8 +22,8 @@ VPC(Virtual Private Cloud)
 ---------------------------
 Watch from ---> (26:09 to 1:14:13)
 
-Difference between public subnet and private subnet?
------------------------------------------------------
+Difference between Public_subnet and Private_subnet ?
+------------------------------------------------------
 Subnets who have connection(route)to the internet gateway are publicsubnets,subnets who dont have internet gateway(route)are privatesubnets.
 
 Create roboshop network(VPC)
