@@ -33,8 +33,9 @@ So when you do for the next one prod (or) other env then you need to reconfigure
 ---------------------
 We can manage multiple environments using single code (or) same code, only few backends will support 
 this, s3 is one of them. If you want to know workspace commands just "terraform workspace". How to create workspace ? ---> "terraform workspace new dev" --> do it in gitbash. When you are using terraform it has default variable that is "terraform.workspace", so if you are in dev then its value of "terraform.workspace become --> dev", if you are in prod then its value of "terraform.workspace --> will become prod". So you 
-need to write lookup function this function works as if you pass key we can get that value. In tfvars example there are two separate buckets were created like dev/prod, but in workspaces there is only one default 
-bucket "env:/" inside it will automatically create dev/prod workspaces.
+need to write lookup function this function works as if you pass key we can get that value. In tfvars 
+example there are two separate buckets were created like dev/prod, but in workspaces there is only one 
+default bucket "env:/" inside it will automatically create dev/prod workspaces.
 
 3. Creating different repos for different environments
 -------------------------------------------------------
