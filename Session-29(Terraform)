@@ -2,8 +2,9 @@ Modules development
 --------------------
 1. Dry,dont repeat yourself
 2. For example we created infrastructure for a project nothing but we write a terraform code for this 
-   infra right ? If we have another project do we write the terraform code from the scratch ? no we reuse 
-   the code, no need to write infra for every project from the scratch ---> "Terraform-Modules" in the VS
+   infra right ? If we got another new project do we write the terraform code from the scratch ? no we 
+   reuse the code, so no need to write the infra for every project from the scratch go through the code 
+   of "Terraform-Modules" in the VS
 3. Module syntax is 
       module "name" {
 	source = "../ec2" ---> Actually it is one step back
@@ -14,9 +15,8 @@ Two types of modules and Two types of roles
 --------------------------------------------
 1. Customized modules for our organisation, this will create by central team in cloud.
 2. Open source modules
-A). Module Developer --> Who develops the module
-B). Module User --> Who consumes the module
-[Note:- Put one README.md file to provide the documentation on the module]
+"Module Developer" --> Who develops the module and "Module User" --> Who consumes the module
+[Note:- Put one README.md file to provide the documentation on the module how to use it by others]
 
 VPC(Virtual Private Cloud)
 ---------------------------
@@ -24,65 +24,57 @@ Watch from ---> (26:09 to 1:14:13)
 
 Difference between Public_subnet and Private_subnet ?
 ------------------------------------------------------
-Subnets who have connection(route)to the internet gateway are publicsubnets,subnets who dont have internet gateway(route)are privatesubnets.
+Subnets who have access(route)to the internet gateway are public_subnets, subnets who dont have 
+access(route) to the internet gateway are private_subnets or Which are attached to internet gateway 
+are called public_subnets, which are not attached to the internet gateway are called private_subnets, 
+here Internetgateway is nothing but arch in village example.
 
-Create roboshop network(VPC)
+Create Roboshop Network(VPC)
 -----------------------------
-1.Create VPC network ---> you need to give CIDR while creating vpc nothing but like pin code
-  here siva has given 10.0.0.0/16,so this ip address is public(or)private?so internet
-  has given some "private ip address range" you can search in google you find three ranges
-  and that is only allocated to private ip not public, so from this siva selected starting 
-  from 10.
-2.AWS has given minimum 16-28,if you want to create a vpc atleast you need to give 
-  10.0.0.0/28 ---> 28 bits are for network,remaining 2power4=16,we can configure 16servers
-  when you are taking vpc atleast you need to create 16 servers.
-3.Maximum we can take 10.0.0.0/16 ---> 16 bits are for network,16bits are for hosts(65K)
+Create VPC network for Roboshop Project ---> You need to give CIDR while creating vpc nothing but like 
+pin code of a village, here siva has given 10.0.0.0/16, so this IP is public or private ? so internet
+has given some "private ip_address range" you can search in google there you find three ranges and those 
+only allocated to private_ip not public, there you can see 24,20,16 bit-blocks, these are only for private_ip not for public_ip, even ISP people will configure your private address in any range among these three bit-blocks, as of now you can select any one for your VPC, so from this siva selected starting from 10. Atleast you need to create 16 servers to use VPC, 10.0.0.0/28 ---> 16 servers, 10.0.0.0/16 ---> 65k servers, generally we give 10.0.0.0/16 only, because it does not cost anything, so we can go for maximum
 
-Create roboshop public subnet
-------------------------------
-# Here in "IPV4 subnet CIDR block" section you can give 10.0.1.0/24
+Create Roboshop Public_subnet and Private_subnet
+-------------------------------------------------
+Here in "IPV4 subnet CIDR block" section you can give 10.0.1.0/24 ---> Public
+Here in "IPV4 subnet CIDR block" section you can give 10.0.2.0/24 ---> Private
 
-Create roboshop private subnet
--------------------------------
-# Here in "IPV4 subnet CIDR block" section you can give 10.0.2.0/24
+Create Public and Private route_tables
+---------------------------------------
+Make sure you select your created VPC not default for all the above subnets and tables
 
-Create public route table and private route table
---------------------------------------------------
-# Make sure you select your created VPC not default for all the above subnets and tables
-
-Create Internet gateway(just like modem)
+Create Internet gateway(Just like Modem)
 -----------------------------------------
-# Make sure attach this internet gateway to your VPC
+Make sure attach this Internet gateway to your VPC, you can see the option on top as soon as you created.
 
-Now associate
---------------
-# Click on the public subnet ---> select Route table ---> edit route table association --->
-  then associate with public route table which you have already created
-# Do same for the private subnet also
+Now associate route_tables to the respective subnets
+-----------------------------------------------------
+Click on the created public_subnet ---> select Route table ---> edit route table association ---> then associate with public route_table which you have already created and do same for the private_subnet also. Select public route_table which you have created, then click on Routes --> edit routes ---> add route ---> In destination section give internet notation (0.0.0.0/0) ---> and Internet gateway in the Target section ---> select default from the drop down under the internet gateway only ---> then save changes. That means public_IP got the internet access and we dint given internet access to private that is the difference.
 
-When you select public route table which you have created,then click on Routes --> edit routes ---> add route ---> In destination give internet notation (0.0.0.0/0) ---> Internet gateway in the Target section ---> select default from the drop down ---> save changes
-
-That means public IP got the internet access and we dint given internet access to private that is the difference
-
-Edit subnet settings
----------------------
-Click on the private subnet ---> actions ---> edit subnet settings 
-Enable public ip address(do not enable this)but you need to enable this in public subnet
-
-We can create web server in the public subnet and remaining severs like cart,shipping etc.. can be created in the private subnets
+Enable auto-asign public Ipv4 address
+--------------------------------------
+This must be enable to only public_subnet, not for the private_subnet because it is not required, you can do this by Click on the public_subnet ---> actions ---> edit subnet settings, just check the box. [Note:- We need to create web server in the public_subnet and remaining severs like cart,shipping etc. can be created in the private_subnets]
 
 Create a subnet for database
 -----------------------------
 10.0.3.0/24 and create database route table and attach it to the database subnet
 
-So what ever we have created all these by manually in the aws,we should create this by using terraform
-
-Minimum you need to create resources in two availability zones so that you can save from yourself from the natural disasters, that means you need to keep public and private subnets aswel as remaining subnets in two availability zones,if the company is having budget then we can create servers in both zones(or)create one and transfer to other zones in case of any natural disasters alert, 
-
-Note:- AWS wont charge for VPC's,subnets,route tables,it only charges when you are creating server
+So what ever we have created all these by manually in the aws, we should create this by using terraform and Minimum you need to create resources in two availability zones so that you can save from yourself from the natural disasters, that means you need to keep public and private subnets aswel as remaining subnets in two availability zones, if the company is having budget then we can create servers in both zones(or)create one and transfer(move or create in another zone in case of any natural disasters alert)
 
 Points to remember
 *******************
 1. Terraform best practices like naming the resources in the terraform search in google
 2. We used open source modules sometimes and we have dedicated cloud team who develops module 
    and we use them.
+3. How do you check internet is working or not ? "ping google.com"
+4. Ipv4 is 32bit and Ipv6 is 64 bit 
+5. To know the system IP address "ipconfig" in cmd, here you can see ipv4 address, can anybody connect to 
+   my laptop using this ? and there is also another IP in last that is Private_IP address of modem, modem 
+   as publicIP and another privateIP (or) "Modem ===> Public_IP ---> What is my IP ; Private_IP ---> last 
+   IPaddress in ipconfig"
+6. What is your actual IPaddress ? Just type in google "what is my IP", if you want to connect to my 
+   laptop you can connect using this IP address
+7. Your created VPC is Isolated even aws dont have access to it
+8. AWS wont charge for VPC's,subnets,route tables, it only charges when you are creating server
