@@ -56,8 +56,8 @@ The above all are the terraform understanding(Interview Question). It is a decla
 it is easy syntax and no need to follow the sequence in the code. If anybody edit manually in the aws console, and we find it is very difficult to trace who did it, but in terraform if anybody did changes 
 and we can restore infrastructure immediately by just one command, then we can discuss who did it later
 
-From here we create Infrastructure using terraform
----------------------------------------------------
+Terraform installation and setup
+---------------------------------
 1. Download terraform from google mostly AMD64 windows, if you download and extract you will 
    get .exe file
 2. Move that .exe file in your desired location, downloading is not enough still it will show 
