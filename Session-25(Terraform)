@@ -71,8 +71,7 @@ Terraform installation and setup
 
 We write code in VS ---> then we push to github ---> then we push to the aws, but in order to push to the 
 aws we need authentication for that we have "awsCLI" for this go to the google and search "aws cli install" just run shown commands in "cmd" from the command prompt, then test "aws --version" in cmd aswel as in 
-gitbash select windows to install not linux or macos. So to connect we need to create a terraform user IAM/users/create(next)/attach policies directly and select administrator access/ --> click on your created user/security credentials/create accesskey/click on command line interface(CLI)/copy the accesskey and secretkey then -----> "aws configure" in gitbash --> these credentials will be saved in --> windowsC/users
-/user/.aws folder
+gitbash select windows to install not linux or macos. So to connect we need to create a terraform user or administrator user by going to IAM/users/create(next)/attach policies directly and select administrator access/ --> click on your created user/security credentials/create accesskey/click on command line interface(CLI)/copy the accesskey and secretkey then -----> "aws configure" in gitbash --> these credentials will be saved in --> windowsC/users/user/.aws folder
 
 Lets create ec2 instance
 -------------------------
