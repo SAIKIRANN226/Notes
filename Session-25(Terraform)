@@ -37,7 +37,8 @@ Delete the infra
 
 Inventory Management
 ---------------------
-Inventory Management in Terraform is nothing but tracking and managing the various infrastructure resources that Terraform provisions and maintains. Terraform itself doesn't have a built-in inventory management system, but it provides several features and practices that help in managing and keeping track of infrastructure resources. If we create infra manually it is very tough to maintain the inventory of resources in different regions. But by seeing terraform you can easily tell the resources you are using in which regions. For example if the project is going big. When you login to aws we can see more resources like multiple VPC's, multiple route 53, multiple EC2, multiple load balancers, CDN's, s3 buckets etc. If the client ask for the full details of the project we cannot show one by one in the aws and giving the report is very tough and that is also not a good practice, instead of showing in the aws console we can maintain from the above points, which can be seen in VS in the form of folders of above resources.
+Inventory Management in Terraform is nothing but tracking and managing the various infrastructure 
+resources that Terraform provisions and maintains. Terraform itself doesn't have a built-in inventory management system, but it provides several features and practices that help in managing and keeping track of infrastructure resources. If we create infra manually it is very tough to maintain the inventory of resources in different regions. But by seeing terraform you can easily tell the resources you are using in which regions. For example if the project is going big. When you login to aws we can see more resources like multiple VPC's, multiple route 53, multiple EC2, multiple load balancers, CDN's, s3 buckets etc. If the client ask for the full details of the project we cannot show one by one in the aws and giving the report is very tough and that is also not a good practice, instead of showing in the aws console we can maintain from the above points, which can be seen in VS in the form of folders of above resources.
 
 Cost optimization
 ------------------
@@ -84,10 +85,10 @@ resource "what resource" "name of your resource" {
 3. So rightnow we are using terraform for the aws so search terraform providers --> Select aws 
    provider if you dont give the provider terraform will not know to work with which provider ? 
    and .tf is the extension of terraform file
-4. In VS go through session-01/ec2.tf,provider.tf,varibles.tf ---> Just type "terraform ec2 in the google"
-5. Where to run the terraform commands ? ---> where ever .tf files exists, like for example go
-   the directory session01/ec2/ec2.tf and provider.tf ---> Here you should run the command
-6. Just go through session-01 in the VS, where ec2 with SG is created using terraform
+4. Just go through session-01/ec2.tf,provider.tf,varibles.tf in the VS, where ec2 with SG is created 
+   using terraform, Just type "terraform ec2 in the google"
+5. Where to run the terraform commands ? ---> Where ever .tf files exists, like for example go
+   the directory session01/ec2/ec2.tf and provider.tf ---> Here you should run the command.
 
 Terraform commands
 -------------------
