@@ -1,11 +1,6 @@
 Terraform is a popular Infrastructure as code(IaC)
 ---------------------------------------------------
-Terraform is an open-source tool developed by HashiCorp. Instead of going into AWS Console and manually creating an EC2 instance, we can create by writing terraform script, in olden days people used "CFengine" 
-and rightnow people are using chef, puppet, ansible, terraform etc. Till now we configured our project
-manually, and also using shellscript, ansible, but we prefer ansible as a configuration management if it 
-is large project. Because ansible can connect to more number of servers easily from one single ansible 
-server. Why we din't prefer manuall configuration ? Because it is a time taking process, manually logging 
-in the servers is timetaking and also we get more human errors.
+Terraform is an open-source tool developed by HashiCorp. Instead of going into AWS Console and manually creating an EC2 instance or any other resoources, we can create by writing terraform script, in olden days people used "CFengine" and rightnow people are using chef, puppet, ansible, terraform etc. Till now we configured our project manually, and also using shellscript, ansible, but we prefer ansible as a configuration management if it is large project. Because ansible can connect to more number of servers easily from one single ansible server. Why we din't prefer manuall configuration ? Because it is a time taking process, manually logging in the servers is timetaking and also we get more human errors.
 
 Advantages of terraform
 ------------------------
