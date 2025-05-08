@@ -1,9 +1,9 @@
-Overview of yesterday's session
---------------------------------
+Overview of previous session
+-----------------------------
 1. Create VPC 
 2. Create Internet gateway and attach to the VPC
 3. Create public and private subnets
-4. Create route tables(public,private,database)and associate it with their respective subnets with two 
+4. Create route tables(public,private,database)and associate it with their respective subnets in two 
    regions 1a and 1b.
 5. Add internet gateway route in the public_route table
 6. Enable auto-asign public Ipv4 address only in the public_subnet not in the private_subnet.
@@ -23,7 +23,9 @@ az-2 = another database subnet = 10.0.22.0/24 ---> us-east-1b
 
 "NAT Gateway" is used to enable outgoing internet
 --------------------------------------------------
-If we need to update any package or download something in the private subnets, for this we need to connect to internet. But what traffic is this ? is it OUTGOING? or INCOMING?. If sever wants to download something then it is OUTGOING traffic, INCOMING traffic is already disabled in the private_subnets. So if we want to go outside and download safely we have something called "NAT Gateway" --> This should be created in the public subnet(1a or 1b) because we have given internet access to the public_subnets, creating NAT Gateway is not enough we need to add routes to the private_subnets route tables then only they private_subnets can access internet and download anything. [Note:- Here when you create a NAT gateway, aws will create instance in the background(we dont have access to that) that means NAT and elasticIP is chargeable, Before creating NAT gateway we have one rule because created background IP address is dynamic whenever you off and on, it will change the IP address, for that we need to create elastic IP, So create elasticIP address first --> Then create NAT Gateway. Creating is not enough you need to add in the route tables(private and database)then only you will get access to the internet(Destination= 0.0.0.0/0,Target= NAT gateway).
+If we need to update any package or download something in the private subnets, for this we need to connect 
+to internet. But what traffic is this ? is it OUTGOING? or INCOMING?. If sever wants to download something then it is OUTGOING traffic, INCOMING traffic is already disabled in the private_subnets. So if we want to go outside and download safely we have something called "NAT Gateway" --> This should be created in the public subnet(1a or 1b) because we have given internet access to the public_subnets, creating NAT Gateway is not enough we need to add routes to the private_subnets route tables then only they private_subnets can access internet and download anything. [Note:- Here when you create a NAT gateway, aws will create instance in the background(we dont have access to that) that means NAT and elasticIP is chargeable, Before creating NAT gateway we have one rule because created instance in the background IP address is dynamic whenever you off 
+and on, it will change the IP address, for that we need to create elastic IP, So create elasticIP address first --> Then create NAT Gateway. Creating is not enough you need to add in the route tables(private and database)then only you will get access to the internet(Destination= 0.0.0.0/0,Target= NAT gateway).
 
 VPC peering
 ------------
