@@ -11,11 +11,13 @@ Then how to call a local ---> "local.instance_type"
 
 Data-Sources(VS)
 -----------------
-Terraform is connecting to lot of providers like aws,azure,gcp and everything. So these providers contains 
-lot of data like regions,availability zones,ec2 etc. All these are changing dynamically, so data-source is used to query the data dynamically from the providers, for Example:- AMI ID's are changing when ever 
-there is a new patch released by the aws, so to fetch ami automatically we use data-source. Just search in 
-the google "Terraform query ami". If anybody created resources manually, by taking this resource information we can create another resource also by using data-source or by using terraform query. Data-source is useful 
-to query the dynamic data from the provider aswel as from the existing resource information, so using this information we can create another resources.
+Terraform is connecting to lot of providers like aws,azure,gcp and everything. So these providers 
+contains lot of data like regions,availability zones,ec2 etc. All these are changing dynamically, so 
+data-source is used to query the data dynamically from the providers, for Example:- AMI ID's are 
+changing when ever there is a new patch released by the aws, so to fetch ami automatically we use 
+data-source. Just search in the google "Terraform query ami". If anybody created resources manually, 
+by taking this resource information we can create another resource also by using data-source or by using terraform query. Data-source is useful to query the dynamic data from the provider aswel as from the
+existing resource information, so using this information we can create another resources.
 
 Loops
 ------
