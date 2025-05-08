@@ -1,11 +1,11 @@
 Modules development
 --------------------
 1. Dry,dont repeat yourself
-2. For example we created infrastructure for a project nothing but we write a terraform code for this 
-   infra right ? If we got another new project do we write the terraform code from the scratch ? no we 
+2. For example we created infrastructure for a project, nothing but we wrote a terraform code for this 
+   infra right ? If we got another new project, do we write the terraform code from the scratch ? no we 
    reuse the code, so no need to write the infra for every project from the scratch go through the code 
-   of "Terraform-Modules" in the VS
-3. Module syntax is 
+   of "Terraform-Modules" in the VS.
+3. Module syntax is below
       module "name" {
 	source = "../ec2" ---> Actually it is one step back
       }
