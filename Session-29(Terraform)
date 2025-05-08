@@ -1,22 +1,22 @@
 Modules development
 --------------------
-1. Dry,dont repeat yourself
+1. Dry concept, dont repeat yourself.
 2. For example we created infrastructure for a project, nothing but we wrote a terraform code for this 
    infra right ? If we got another new project, do we write the terraform code from the scratch ? no we 
-   reuse the code, so no need to write the infra for every project from the scratch go through the code 
-   of "Terraform-Modules" in the VS.
+   dont write the code from the scratch we reuse the code, so no need to write the infra for every 
+   project from the scratch, go through the code of "Terraform-Modules" in the VS.
 3. Module syntax is below
       module "name" {
 	source = "../ec2" ---> Actually it is one step back
       }
-4. Provider will not be there in the module developing
+4. Provider will not be there in module developing.
 
 Two types of modules and Two types of roles
 --------------------------------------------
 1. Customized modules for our organisation, this will create by central team in cloud.
-2. Open source modules
-"Module Developer" --> Who develops the module and "Module User" --> Who consumes the module
-[Note:- Put one README.md file to provide the documentation on the module how to use it by others]
+2. Open source modules. "Module Developer" --> Who develops the module and "Module User" --> Who 
+   consumes the module. [Note:- Put one README.md file to provide the documentation on the module how 
+   to use it by others]
 
 VPC(Virtual Private Cloud)
 ---------------------------
@@ -24,17 +24,17 @@ Watch from ---> (26:09 to 1:14:13)
 
 Difference between Public_subnet and Private_subnet ?
 ------------------------------------------------------
-Subnets who have access(route)to the internet gateway are public_subnets, subnets who dont have 
+Subnets who have access(route) to the internet gateway are public_subnets, subnets who dont have 
 access(route) to the internet gateway are private_subnets or Which are attached to internet gateway 
 are called public_subnets, which are not attached to the internet gateway are called private_subnets, 
 here Internetgateway is nothing but arch in village example.
 
 Create Roboshop Network(VPC)
 -----------------------------
-Create VPC network for Roboshop Project ---> You need to give CIDR while creating vpc nothing but like 
+Create VPC network for Roboshop Project ---> You need to give CIDR while creating VPC, nothing but like 
 pin code of a village, here siva has given 10.0.0.0/16, so this IP is public or private ? so internet
 has given some "private ip_address range" you can search in google there you find three ranges and those 
-only allocated to private_ip not public, there you can see 24,20,16 bit-blocks, these are only for private_ip not for public_ip, even ISP people will configure your private address in any range among these three bit-blocks, as of now you can select any one for your VPC, so from this siva selected starting from 10. Atleast you need to create 16 servers to use VPC, 10.0.0.0/28 ---> 16 servers, 10.0.0.0/16 ---> 65k servers, generally we give 10.0.0.0/16 only, because it does not cost anything, so we can go for maximum
+only allocated to private_ip not for public_ip, there you can see 24,20,16 bit-blocks, these are only for private_ip not for public_ip, even ISP people will configure your private_ip address in any range among these three bit-blocks, as of now you can select any one for your VPC, so from this siva selected starting from 10. Atleast you need to create 16 servers to use VPC, 10.0.0.0/28 ---> 16 servers, 10.0.0.0/16 ---> 65k servers, generally we give 10.0.0.0/16 only, because it does not cost anything, so we can go for maximum.
 
 Create Roboshop Public_subnet and Private_subnet
 -------------------------------------------------
@@ -59,9 +59,9 @@ This must be enable to only public_subnet, not for the private_subnet because it
 
 Create a subnet for database
 -----------------------------
-10.0.3.0/24 and create database route table and attach it to the database subnet
+10.0.3.0/24 and create database route table and attach it to the database subnet.
 
-So what ever we have created all these by manually in the aws, we should create this by using terraform and Minimum you need to create resources in two availability zones so that you can save from yourself from the natural disasters, that means you need to keep public and private subnets aswel as remaining subnets in two availability zones, if the company is having budget then we can create servers in both zones(or)create one and transfer(move or create in another zone in case of any natural disasters alert)
+So what ever we have created all these by manually in the aws, we should create this by using terraform and minimum you need to create resources in two availability zones so that you can save from yourself from the natural disasters, that means you need to keep public and private subnets aswel as remaining subnets in two availability zones, if the company is having budget then we can create servers in both zones(or)create one and transfer(move or create in another zone in case of any natural disasters alert)
 
 Points to remember
 *******************
@@ -75,6 +75,6 @@ Points to remember
    as publicIP and another privateIP (or) "Modem ===> Public_IP ---> What is my IP ; Private_IP ---> last 
    IPaddress in ipconfig"
 6. What is your actual IPaddress ? Just type in google "what is my IP", if you want to connect to my 
-   laptop you can connect using this IP address
+   laptop you can connect using this IP address.
 7. Your created VPC is Isolated even aws dont have access to it
-8. AWS wont charge for VPC's,subnets,route tables, it only charges when you are creating server
+8. AWS wont charge for VPC's,subnets,route tables, it only charges when you are creating server.
