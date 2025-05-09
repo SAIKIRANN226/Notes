@@ -5,8 +5,8 @@ files or directories to ignore (i.e., not track or commit) in your repository so
 2. Skip auto-generated or local-only files.
 3. Keep the repository clean and portable
 
-Variables(VS)
---------------
+Variables in terraform(VS)
+---------------------------
 If it is starting from the flower brases {} ---> It is a map type. and below are the preferences
 1. command line ---> terraform plan -var="instance_type=t3.small"
 2. -var-file ---> terraform plan -var-file="saikiran.tfvars"
@@ -14,10 +14,8 @@ If it is starting from the flower brases {} ---> It is a map type. and below are
 4. ENV variables
 If you dont find in any of the above then terraform will prompt for the value
 
-Terraform.tfvars
------------------
-instance_type = "t3.small" 
-
+Terraform.tfvars, instance_type = "t3.small" 
+---------------------------------------------
 1. If you dont give the default value in the variables.tf, terraform will ask for the prompt, so if you 
    create a terraform.tfvars and declare value in it, then it will overwrite variables.tf, so terraform 
    will take this value only. We can declare values in the variables.tf and we can also give the values 
@@ -52,7 +50,7 @@ Functions(VS)
 It will do some work, if we give some input and it will take this input and give us output. Here in 
 terraform we cannot create our own functions but terraform itself has some functions we need to use that 
 only Example:- max(5,12,23) --> max is the function and we are giving inputs 5,12,23 then terraform will 
-give output that is 23, similarly we have other functions also, and we have used length function below "length(var.instance_names)" this will calculate the length automatically in list
+give output that is 23, similarly we have other functions also, and we have used length function below "length(var.instance_names)" this will calculate the length in list automatically.
 
 Locals
 -------
@@ -69,7 +67,7 @@ Points to remember
 1. You need to see the output.tf also in count folder VS, output is nothing but attributes reference,
    we can see this in terraform document, like for example you have created ec2 instance but we need 
    to know few output like what is PublicIP or PrivateIP etc. Output block is used to print the output
-   of the resources in the terminal
-2. Important point is that you must save all files of terraform then only run the terraform commands
+   of the resources in the terminal.
+2. Important point is that you must save all files of terraform then only run the terraform commands.
 3. How to See Git directory size ? "du -sh .git" useful when it is slow while pushing to the github
    but still i dont get it need to know this later.
