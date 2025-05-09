@@ -17,4 +17,31 @@
 - Go through the session-01 in terraform VS we have created ec2 with security group along with variables
 - Can we give authentication like accesskey and secretkey to aws in provider under region section ? 
 - What happeb if we push secret keys to the github ?
+- Why to put .gitignore file in terraform working folder ?
+- Go through the variables in VS 
+- What are variable preferences in order ? 
+- Why we use output in terraform code ?
+- What is the use of terraform.tfvars ?
+- Is terraform.tfvars name is mandatory ? 
+- Write a sample condition syntax ?
+- Write a sample count based loop script ?
+- Write a sample for_each based loop script ?
+- What is functions and what functions have you used in terraform ? we used length,startswith,split,join
+- Why is locals ? why we use them ? and what is the local syntax to use in script ?
+- What is output.tf and why it is used ?
+- How to see git directory size using command ?
+- What is Data-Sources ? and why we use them ?
+- Can we create another resources from data-sources ?
+- Can we query the data from the existing resources using data-sources ?
+- What is dynamic-loop ? 
+- What is declarative state, desired state, current state in terraform ?
+- Where does the current state resources will be saved in ?
+- When does the terraform will create "terraform.tfstate.lock" file ?
+- I have terraform.tfstate file in my laptop and other person devops engineer has terraform.tfstate ?
+- What we use for central state file in aws ?
+- Why we should not keep terraform.tfstate file in local ?
+- What are the two disadvantages of keeping terraform.tfstate file local ?
+- So thats why we use s3 bucket with dynamodb table locking.
+- What are the other tfstate files we can use ?
+- Other name of remote storage or s3bucket ?
 - 
