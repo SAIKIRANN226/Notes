@@ -15,8 +15,8 @@ Two types of modules and Two types of roles
 --------------------------------------------
 1. Customized modules for our organisation, this will create by central team in cloud.
 2. Open source modules. "Module Developer" --> Who develops the module and "Module User" --> Who 
-   consumes the module. [Note:- Put one README.md file to provide the documentation on the module how 
-   to use it by others]
+   consumes the module. [Note:- Put one README.md file to provide the documentation on the 
+   module how to use it by others]
 
 VPC(Virtual Private Cloud)
 ---------------------------
