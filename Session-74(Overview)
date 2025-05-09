@@ -1,0 +1,20 @@
+- What is terraform ? and explain in full details ?
+- What has used in olden days instead of terraform ? and what are using rightnow ?
+- Why we dint preferred manual configuration ?
+- How many ways we configured our roboshop project ?
+- Why we prefer ansible as a configuration management if it is large project ?
+- Advantages of terraform ? V,C,A,I,C,A,M,H
+- How do you setup terraform ?
+- Command to test aws version in cmd or gitbash ?
+- Where the accesskey and secretkey will be saved ?
+- What is the terraform syntax to create any resources ?
+- What we call the syntax of terraform ?
+- Why we use terraform providers ? and what is the extension of terraform ?
+- Where to run the terraform commands ?
+- What are the terraform commands ? and what is the functionality ?
+- What is the syntax of variable ?
+- Will terraform consider automatically which data-type is ?
+- Go through the session-01 in terraform VS we have created ec2 with security group along with variables
+- Can we give authentication like accesskey and secretkey to aws in provider under region section ? 
+- What happeb if we push secret keys to the github ?
+- 
