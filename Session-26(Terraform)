@@ -55,12 +55,12 @@ give output that is 23, similarly we have other functions also, and we have used
 Locals
 -------
 Locals is just like variables but it has some extra capabilities, you can keep functions,expressions,
-and conditions inside a local and use them anywhere in the script and the locals syntax is below
- locals {
-   name = "saikiran"
-   training = "devops"
-   instance_type = var.isProd ? "t3.small" : "t2.micro"
- }
+and conditions inside a local and use them anywhere in the script and the locals syntax is below.
+          locals {
+             name = "saikiran"
+             training = "devops"
+             instance_type = var.isProd ? "t3.small" : "t2.micro"
+          }
 
 Points to remember
 *******************
