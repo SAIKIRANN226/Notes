@@ -6,7 +6,7 @@
 - Why we dint preferred manual configuration ?
 - Advantages of terraform ? V,C,A,I,C,A,M,H ? 
 - What is declarative in terraform ?
-- How do you setup terraform ? terraform download, give path in system environment variables , 
+- How do you setup terraform ? terraform download, give path in system environment variables, 
   download AWS CLI2, 
 - How do you configure the aws in gitbash ?
 - Command to test aws version in cmd or gitbash ?
