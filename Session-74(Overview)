@@ -7,7 +7,8 @@
 - Advantages of terraform ? V,C,A,I,C,A,M,H ? 
 - What is declarative in terraform ?
 - How do you setup terraform ? terraform download, give path in system environment variables, 
-  download AWS CLI2, 
+  download AWS CLI2, create terraform user or administrator user accesskey and secret keys, aws configure
+- What extension do we download to enable colors in terraform ?
 - How do you configure the aws in gitbash ?
 - Command to test aws version in cmd or gitbash ?
 - Where the accesskey and secretkeys will be saved ?
@@ -18,11 +19,11 @@
 - What are the terraform commands ? and what is the functionality of them ?
 - What is the syntax of variable ?
 - Will terraform consider automatically which data-type is ?
-- Go through the session-01 in terraform VS we have created ec2 with security group along with variables
+- Go through the session-01 in terraform VS we have created ec2 with security group along with variables.
 - Can we give authentication like accesskey and secretkey to aws in provider under region section ? 
 - What will happen if we push secret keys to the github ?
 - Why to put .gitignore file in terraform working folder ?
-- Go through the variables in VS 
+- Go through the variables in VS.
 - What are variable preferences in order ? 
 - Why we use output in terraform code ?
 - What is the use of terraform.tfvars ?
