@@ -61,9 +61,10 @@ Make sure attach this Internet gateway to your VPC, you can see the option on to
 
 Enable auto-asign public Ipv4 address
 --------------------------------------
-This must be enable to only public_subnet, not for the private_subnet because it is not required, you can 
-do this by Click on the public_subnet ---> actions ---> edit subnet settings, just check the box. [Note:- We need to create web server in the public_subnet and remaining severs like cart,shipping etc. can be 
-created in the private_subnets]
+This must be enable to only public_subnet, not for the private_subnet because it is not required, you 
+can do this by Click on the public_subnet ---> actions ---> edit subnet settings, just check the box. 
+[Note:- We need to create web server in the public_subnet and remaining severs like cart,shipping etc. 
+can be created in the private_subnets]
 
 Create a subnet for database
 -----------------------------
