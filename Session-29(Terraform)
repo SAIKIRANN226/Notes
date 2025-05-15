@@ -79,11 +79,10 @@ Points to remember
    and we use them.
 3. How do you check internet is working or not ? "ping google.com"
 4. Ipv4 is 32bit and Ipv6 is 64 bit 
-5. To know the system IP address "ipconfig" in cmd, here you can see ipv4 address, can anybody connect to 
-   my laptop using this ? and there is also another IP in last that is Private_IP address of modem, modem 
-   as publicIP and another privateIP (or) "Modem ===> Public_IP ---> What is my IP ; Private_IP ---> last 
-   IPaddress in ipconfig"
+5. Modem(Internet Gateway) ---> Public_ip and Private_ip, Public_ip is nothing but just type what is my 
+   ip in google there you can see Ipv4 address that is your public_ip, not ipv6. What is your private_ip 
+   just "ipconfig" in cmd there you can see IPv4 address under Under wireless LAN adapter Wifi.
 6. What is your actual IPaddress ? Just type in google "what is my IP", if you want to connect to my 
-   laptop you can connect using this IP address.
-7. Your created VPC is Isolated even aws dont have access to it
+   laptop you can connect using this IP address. you cannot connect with private_ip address
+7. Your created VPC is Isolated even aws dont have access to it.
 8. AWS wont charge for VPC's,subnets,route tables, it only charges when you are creating server.
