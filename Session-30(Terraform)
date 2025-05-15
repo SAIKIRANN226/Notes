@@ -2,10 +2,10 @@ Overview of Previous Session
 -----------------------------
 1. Create VPC 
 2. Create Internet gateway and attach to the VPC
-3. Create Public, Private, Database subnets
+3. Create Public, Private, Database subnets (Atleast 2-AZ resources for High Availability)
 4. Create route tables (Public,Private,Database) and associate it with their respective subnets in two 
    regions 1a and 1b.
-5. Add internet gateway route in the public_route table
+5. Add Internet Gateway route in the Public_route table because internet should be enabled.
 6. Enable auto-asign public Ipv4 address only in the public_subnet not in the private_subnet.
    [Note:- When you create VPC, aws will automatically create default route table(10.0.0.0/16) to 
    communicate between subnets]
@@ -13,19 +13,18 @@ Overview of Previous Session
 High Availability
 ------------------
 az-1 = one public_subnet     = 10.0.1.0/24 ---> us-east-1a
-az-2 = another public subnet = 10.0.2.0/24 ---> us-east-1b
+az-2 = another public_subnet = 10.0.2.0/24 ---> us-east-1b
 
-az-1 = one private subnet     = 10.0.11.0/24 ---> us-east-1a
-az-2 = another private subnet = 10.0.12.0/24 ---> us-east-1b
+az-1 = one private_subnet     = 10.0.11.0/24 ---> us-east-1a
+az-2 = another private_subnet = 10.0.12.0/24 ---> us-east-1b
 
-az-1 = one database subnet     = 10.0.21.0/24 ---> us-east-1a
-az-2 = another database subnet = 10.0.22.0/24 ---> us-east-1b
+az-1 = one database_subnet     = 10.0.21.0/24 ---> us-east-1a
+az-2 = another database_subnet = 10.0.22.0/24 ---> us-east-1b
 
 "NAT Gateway" is used to enable outgoing internet
 --------------------------------------------------
 If we need to update any package or download something in the private subnets, for this we need to connect 
-to internet. But what traffic is this ? is it OUTGOING? or INCOMING?. If sever wants to download something then it is OUTGOING traffic, INCOMING traffic is already disabled in the private_subnets. So if we want to go outside and download safely we have something called "NAT Gateway" --> This should be created in the public subnet(1a or 1b) because we have given internet access to the public_subnets, creating NAT Gateway is not enough we need to add routes to the private_subnets route tables then only they private_subnets can access internet and download anything. [Note:- Here when you create a NAT gateway, aws will create instance in the background(we dont have access to that) that means NAT and elasticIP is chargeable, Before creating NAT gateway we have one rule because created instance in the background IP address is dynamic whenever you 
-off and on, it will change the IP address, for that we need to create elastic IP, So create elasticIP address first --> Then create NAT Gateway. Creating is not enough you need to add in the route tables(private and database)then only you will get access to the internet(Destination= 0.0.0.0/0,Target= NAT gateway).
+to internet. But what traffic is this ? is it OUTGOING? or INCOMING?. If server wants to download something then it is OUTGOING traffic, INCOMING traffic is already disabled in the private_subnets. So if we want to go outside and download safely we have something called "NAT Gateway" --> This should be created in the public subnet(1a or 1b) because we have given internet access to the public_subnets, creating NAT Gateway is not enough we need to add routes between private_subnets and to Internet gateway(NAT) which is in public_subnet. Then only they private_subnets can access internet and download anything. Like for example if only one of the private_subnets wants to connect to internet then this private_subnet should have a road(route) to internet gateway(NAT) which is in public_subnet. So like that which ever private_subnets like data base subnet or any other private_subnets wants to connect to internet they should add route to the NAT gateway which is in public_subnet. By clicking on the private_subnet/routes/edit routes/add route/0.0.0.0/0/NAT Gateway in Target section/select default in dropdown. [Note:- Here when you create a NAT gateway, aws will create instance in the background(we dont have access to that) that means NAT and elasticIP is chargeable, Before creating NAT gateway we have one rule because created instance in the background has IP address which is dynamic whenever you off and on, it will change the IP address, for that we need to create elastic IP, So create elasticIP address first --> Then create NAT Gateway. Creating is not enough you need to add in the route tables(Private and Database)then only you will get access to the internet(Destination= 0.0.0.0/0,Target= NAT gateway,Select default one in dropdown under Target section only). [Note:- If you want static IPaddress we need to pay money, like for example even your home public_ip is dynamic it is changing everytime, so if you want static home ipaddress you need to pay to the ISP provider.
 
 VPC peering
 ------------
@@ -44,7 +43,7 @@ VPC in different region and another account
 
 Below is the example
 ---------------------
-So let us take "Requestor VPC = Roboshop VPC ; Acceptor VPC = Default VPC". Now create VPC peering connection, after creating in the same account you need to accept request in the "Actions" option. Take example of villages now you have created a road(peering connection) between two villages, but if you want to connect to streets(subnets) so connect all street with roads of VPC peering road, this is nothing but routes in VPC, generally when you are connecting to 2 villages we need to get pin codes of 2 villages in the destination and give peering connection in the target, add in all public and private and main route table explicitly. [Note:- Both sides should have roads(routes)]. Like for example go to the VPC main route table there edit routes in destination give the other VPC CIDR to connect and target should be peering connection and under the peering connection select the dropdown option and save it. If it is still not reflecting then add new route in every route table explicitly. Incase if you want only routes to private subnets then you can add
+So let us take "Requestor VPC = Roboshop VPC ; Acceptor VPC = Default VPC". Now create VPC peering connection, after creating in the same account you need to accept request in the "Actions" option. Take example of villages now you have created a main road(Peering Connection) between two villages, but if you want to connect to streets(subnets) to main road, so connect all streets roads to the VPC peering road, this is nothing but routes in VPC, generally when you are connecting to 2 villages we need to get pin codes of 2 villages in the destination and give peering connection in the target, add in all public and private and main route table explicitly. [Note:- Both sides should have roads(routes)]. Like for example go to the VPC main route table there edit routes in destination give the other VPC CIDR to connect and target should be peering connection and under the peering connection select the dropdown option and save it. If it is still not reflecting then add new route in every route table explicitly. Incase if you want only routes to private subnets then you can add
 routes in only private subnets.
 
 Terraform-aws-vpc Module development in VS
