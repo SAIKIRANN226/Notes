@@ -51,8 +51,9 @@ Click on the created public_subnet ---> select Route table ---> edit route table
 
 Giving internet access to the public_subnets
 ---------------------------------------------
-Select public route_table which you have created, then click on Routes --> edit routes ---> add route ---> In destination section give internet notation (0.0.0.0/0) ---> and Internet gateway in the Target section and select default from the drop down under the internet gateway only ---> then save changes. That means public
-subnet got the internet access and we dint given internet access to private subnet that is the difference.
+Select public route_table which you have created, then click on Routes/edit routes/add route ---> In destination section give internet notation (0.0.0.0/0) ---> and Internet gateway in the Target section 
+and select default from the drop down under the internet gateway only ---> then save changes. That means 
+public subnet got the internet access and we dint given internet access to private subnet that is the difference.
 
 Create Internet gateway(Just like Modem)
 -----------------------------------------
