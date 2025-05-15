@@ -1,9 +1,9 @@
-Overview of previous session
+Overview of Previous Session
 -----------------------------
 1. Create VPC 
 2. Create Internet gateway and attach to the VPC
-3. Create public and private subnets
-4. Create route tables(public,private,database)and associate it with their respective subnets in two 
+3. Create Public, Private, Database subnets
+4. Create route tables (Public,Private,Database) and associate it with their respective subnets in two 
    regions 1a and 1b.
 5. Add internet gateway route in the public_route table
 6. Enable auto-asign public Ipv4 address only in the public_subnet not in the private_subnet.
