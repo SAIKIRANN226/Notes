@@ -20,7 +20,62 @@ Two types of modules and Two types of roles
 
 VPC(Virtual Private Cloud)
 ---------------------------
-Watch from ---> (26:09 to 1:14:13)
+Amazon VPC (Virtual Private Cloud) is a virtual network that you create in AWS. It’s your own isolated 
+section of the AWS cloud where you can launch AWS resources (like EC2 instances, databases, etc.) in a 
+secure and controlled environment. Think of it like your own private data center in aws cloud. Breaking
+main building blocks of vpc as below 
+
+Subnets ----> Divides your VPC into smaller networks. Can be public or private
+Route tables ---> Controls how traffic is routed within the VPC and outside (like to the internet).
+Internet Gateway (IGW) ---> Allows public internet access to resources in public subnets.
+NAT Gateway / Instance ---> Lets private subnets access the internet without being exposed.
+Security Groups ---> Act as firewalls for instances (e.g., EC2).
+Network ACLs ---> Act as firewalls for subnets.
+Elastic IP ---> A public static IP you can assign to an instance.
+
+How VPC works is the below diagram
+-----------------------------------
+                    Internet
+                       |
+              +------------------+
+              |  Internet Gateway|
+              +------------------+
+                       |
+                   [ Public Subnet ]
+                  /     |       \
+                 /      |        \
+             EC2-1    EC2-2     ...
+                       |
+               [ Private Subnet ]
+                    (e.g., DB)
+Public subnet: Resources (like EC2) that need internet access.
+Private subnet: Resources (like databases) that shouldn’t be exposed to the internet.
+Use NAT to allow internet outbound traffic from private subnet without allowing inbound traffic.
+
+Why we use VPC
+---------------
+Isolation & Security ---> Fully control traffic in/out of your resources
+Custom IP Addressing ---> Use your own IP ranges (CIDR blocks)
+Control Access ---> With security groups, NACLs, and route tables
+Hybrid Connectivity ---> Connect on-premises data centers using VPN or AWS Direct Connect
+
+Example use case
+-----------------
+You want to host a web app:
+1. Frontend (EC2 or Load Balancer) in a public subnet
+2. Backend (database) in a private subnet
+3. Use security groups to allow only the frontend to talk to the backend
+4. Use a NAT Gateway so the backend can update packages via the internet, but isn’t reachable 
+   from the outside
+
+Summary of the VPC
+-------------------
+VPC ---> A private network in AWS
+Subnet ---> A segment within a VPC (can be public or private)
+IGW ---> Provides internet access to public subnets
+NAT ---> Allows outbound internet from private subnet
+Security Group ---> Instance-level firewall
+Route Table ---> Controls network traffic routes
 
 Difference between Public_subnet and Private_subnet ?
 ------------------------------------------------------
@@ -28,6 +83,10 @@ Subnets who have access(route) to the internet gateway are public_subnets, subne
 access(route) to the internet gateway are private_subnets or Which are attached to internet gateway 
 are called public_subnets, which are not attached to the internet gateway are called private_subnets, 
 here Internetgateway is nothing but arch in village example.
+
+CIDR(Classless Inter-Domain Routing)
+-------------------------------------
+It is used to allocate IP addresses efficiently, like dividing the large IP blocks into small subnets.
 
 Create Roboshop Network(VPC)
 -----------------------------
@@ -86,5 +145,3 @@ Points to remember
    laptop you can connect using this IP address. you cannot connect with private_ip address
 7. Your created VPC is Isolated even aws dont have access to it.
 8. AWS wont charge for VPC's,subnets,route tables, it only charges when you are creating server.
-9. CIDR --> Classless Inter-Domain Routing, it is used to allocate IP addresses efficiently, like
-   dividing the large IP blocks into small subnets.
