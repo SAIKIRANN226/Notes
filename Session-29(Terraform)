@@ -86,3 +86,5 @@ Points to remember
    laptop you can connect using this IP address. you cannot connect with private_ip address
 7. Your created VPC is Isolated even aws dont have access to it.
 8. AWS wont charge for VPC's,subnets,route tables, it only charges when you are creating server.
+9. CIDR --> Classless Inter-Domain Routing, it is used to allocate IP addresses efficiently, like
+   dividing the large IP blocks into small subnets.
