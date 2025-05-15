@@ -48,5 +48,20 @@
 - What are the two disadvantages of keeping terraform.tfstate file local ?
 - So thats why we use s3 bucket with dynamodb table locking.
 - What are the other tfstate files we can use ?
-- Other name of remote storage or s3bucket ?
+- Another name of remote storage or s3bucket ?
+- What is module development in terraform ?
+- Go through the terraform modules in the VS.
+- What is module syntax ?
+- Is provider there in the module developing folder ?
+- What are the two types of modules and two types of roles ?
+- Is it important to put README.md file while developing the module ?
+- Difference between public_subnet and private_subnet ?
+- What is Internet Gateway in real time scenario ? How does wifi will come to our home ?
+- Another name of internet gateway in our home ? and who will configure this ?
+- Do we need to put our shipping,cart,catalogue etc except web server in public_subnet ?
+- What are roads in village example ?
+- What is mean by route_table ? 
+- How to ping the google or any other website to check wether the internet is working or not ?
+- IP_address is nothing but Network + Server IP
+- What is NAT ? Network address translation ?
 - 
