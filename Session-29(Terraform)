@@ -45,13 +45,13 @@ Create Public and Private route_tables
 ---------------------------------------
 Make sure you select your created VPC not default for all the above subnets and tables
 
-Create Internet gateway(Just like Modem)
------------------------------------------
-Make sure attach this Internet gateway to your VPC, you can see the option on top as soon as you created.
-
 Now associate route_tables to the respective subnets
 -----------------------------------------------------
 Click on the created public_subnet ---> select Route table ---> edit route table association ---> then associate with public route_table which you have already created and do same for the private_subnet also. Select public route_table which you have created, then click on Routes --> edit routes ---> add route ---> In destination section give internet notation (0.0.0.0/0) ---> and Internet gateway in the Target section and select default from the drop down under the internet gateway only ---> then save changes. That means public_IP got the internet access and we dint given internet access to private that is the difference.
+
+Create Internet gateway(Just like Modem)
+-----------------------------------------
+Make sure attach this Internet gateway to your VPC, you can see the option on top as soon as you created.
 
 Enable auto-asign public Ipv4 address
 --------------------------------------
