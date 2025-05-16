@@ -73,10 +73,11 @@ Name = Saikiran
 
 Resource tags this is also a map
 ---------------------------------
-Similarly we have different tags like vpc tags, subnet tags, nat tags etc. But we want both tags, for 
-example we have Name = Mothkur in resource tags compared to Name = Saikiran in common tags, what will happen if we merge common tags and resource tags ? then resource tags only applicable that means Name = Mothkur in resource tags will be considered. So for this we have function in terraform that is "terraform merge"
-"tags = merge(var.common_tags, var.vpc_tags)", we can merge as many maps we want. So now we are developing 
-VPC module thats why we use vpc_tags in code.
+Similarly we have different tags like vpc tags, subnet tags, nat tags etc. But we want both tags, 
+for example we have Name = Mothkur in resource tags compared to Name = Saikiran in common tags, what 
+will happen if we merge common tags and resource tags ? then resource tags only applicable that means 
+Name = Mothkur in resource tags will be considered. So for this we have function in terraform that is "terraform merge" ---> "tags = merge(var.common_tags, var.vpc_tags)", we can merge as many maps 
+we want. So now we are developing VPC module thats why we use vpc_tags in code.
 
 Points to remember
 *******************
