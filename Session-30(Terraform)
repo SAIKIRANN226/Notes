@@ -2,7 +2,7 @@ Overview of Previous Session
 -----------------------------
 1. Create VPC 
 2. Create Internet gateway and attach to the VPC
-3. Create Public, Private, Database subnets (Atleast 2-AZ resources for High Availability)
+3. Create Public, Private, Database subnets (Atleast in 2-AZ resources for High Availability)
 4. Create route tables (Public,Private,Database) and associate it with their respective subnets in two 
    regions 1a and 1b.
 5. Add Internet Gateway route in the Public_route table because internet should be enabled.
