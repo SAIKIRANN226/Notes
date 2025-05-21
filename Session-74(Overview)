@@ -1,4 +1,4 @@
-- What is terraform ? and why we call Infrastructure as Code(IaC) ?
+- What is terraform ? and why we call Infrastructure as Code(IaC) ? and why we use ?
 - What has used in olden days instead of terraform ? and what are using rightnow ?
 - In how many ways we configured our roboshop project ?
 - Why we prefer ansible as a configuration management if it is a large project ?
