@@ -6,11 +6,11 @@ How to create multiple environments with terraform in 3 ways
 
 1. Tfvars method
 -----------------
-For example we want web-dev, shipping-dev, etc.
-                    web-prod, shipping-prod, etc.
-                    mongodb-dev, mongodb-prod, etc.
-Domain names are mongodb-dev.daws76s.online, mongodb-prod.daws76s.online, etc.
-                 shipping-dev.daws76s.online, shipping-prod.daws76s.online etc.
+For example we want web-dev/mongodb-dev/catalogue-dev/redis-dev/user-dev/cart-dev etc.
+                    web-qa/mongodb-qa/catalogue-qa/redis-qa/user-qa/cart-qa etc.
+                    web-uat/mongodb-uat/catalogue-uat/redis-uat/user-uat/cart-uat etc.
+                    web-prod/mongodb-prod/catalogue-prod/redis-prod/user-prod/cart-prod etc.
+Domain names are ---> web-dev.megacitysai.fun, mongodb-qa.megacitysai.fun, etc.
 
 Same code but with different configuration, that means we need to control using variables for different 
 env's by using tfvars. Different buckets to maintain states by creating different folders "dev,prod". 
