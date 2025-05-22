@@ -75,10 +75,11 @@ Ansible ---> Is intended for configuration management, what is the main input fo
              management ? ---> server must be created, so if you have server available wether it is 
              onpremise or in cloud, then we can use ansible to configure the server, server configuration 
              is nothing but configuration management.
-Terraform ---> Responsibility is to create server nothing but infrastructure creation. So server created 
-               then we handover the IPaddress to ansible, it will takecare of the provisioning or                             configuration management, if you integrate terraform and ansible you will get end-end                          automation using provisioners. [Note:- We can also create ec2 instances using ansbile but 
+Terraform ---> Responsibility is to create server nothing but infrastructure creation. So server 
+               created then we handover the IPaddress to ansible, it will takecare of the provisioning 
+               or configuration management, if you integrate terraform and ansible you will get end-end                      automation using provisioners. [Note:- We can also create ec2 instances using ansbile but 
                it does not have state file as terraform does, that is why terraform is perfect for 
-               creation of infra].
+               creation of infrastructure].
 
 Creation time and Destroy time
 -------------------------------
