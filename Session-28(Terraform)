@@ -77,7 +77,7 @@ Provisioners are useful to integrate terraform with configuration management too
 What is difference between Terraform and Ansible ?
 ---------------------------------------------------
 Ansible ---> Is intended for configuration management, what is the main input for the configuration 
-management ? ---> server must be created, so if you have server available wether it is onpremise or in 
+management ? server must be created, so if you have server available wether it is onpremise or in 
 cloud, then we can use ansible to configure the server, server configuration is nothing but configuration management.
 
 Terraform ---> Responsibility is to create server nothing but infrastructure creation. So server created 
