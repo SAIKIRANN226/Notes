@@ -61,6 +61,7 @@ and conditions inside a local and use them anywhere in the script and the locals
              training = "devops"
              instance_type = var.isProd ? "t3.small" : "t2.micro"
           }
+Then how to call a local ---> "local.instance_type"
 
 Points to remember
 *******************
