@@ -19,7 +19,7 @@ we can also use one bucket for both dev and prod, but we make sure different evn
 
 Controlling environments using variables
 -----------------------------------------
-So we have web-dev, web-prod other than that we get web-qa etc. How to control this ?
+So we have web-dev, web-qa, web-uat, web-prod. How to control this ?
 
 1. If key starts with web then we can write a condition using terraform inbuilt function that is
    startswith(each.key, "web")
