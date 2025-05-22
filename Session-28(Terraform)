@@ -13,28 +13,27 @@ Domain names are ---> mongodb-dev.daws76s.online, mongodb-prod.daws76s.online, e
                       shipping-dev.daws76s.online, shipping-prod.daws76s.online etc.
 Same code but with different configuration, that means we need to control using variables for different 
 env's by using tfvars. Different buckets to maintain states by creating different folders "dev,prod". 
-what do you think ? Using different buckets for dev and prod, or same buckets ? different is the best, 
-we can also use same buckets but we make sure different evn's should not get disturbed. How do we maintain different buckets ? By creating two buckets for dev and prod in "AWSconsole" and also create dynamodb
-tables for dev and prod.
+What do you think ? Using different buckets for dev and prod, or one bucket ? different is the best, 
+we can also use one bucket for both dev and prod, but we make sure different evn's should not get disturbed. How do we maintain different buckets ? By creating two buckets for dev and prod in "AWSconsole" and also create dynamodb tables for dev and prod.
 
 Controlling environments using variables
 -----------------------------------------
-So we have web-dev,web-prod other than that we get web-qa like that, how to control this ?
+So we have web-dev, web-prod other than that we get web-qa etc. How to control this ?
 1. If key starts with web then we can write a condition using terraform inbuilt function that is
    startswith(each.key, "web")
 2. When you do terraform init ---> Backend will also be there, so here you have multiple environments, 
    so use "terraform init -backend-config=dev/backend.tf"
 3. terraform plan -var-file=dev/dev.tfvars ---> If you dont mention the file name it will load 
-   default variables
+   default variables.
 4. terraform apply -var-file=dev/dev.tfvars
 5. terraform destory -var-file=dev/dev.tfvars
-So when you do for the next one prod (or) other env then you need to reconfigure or when you are switching from one env to another you must reinitialize by using this command. "terraform init -reconfigure -backend-config=prod/backend.tf". [Note:- when you forget to give the -var-file then terraform will take default variables which is in variables.tf, now you comment out the default variables then terraform will prompt for the variables, so you will get know that i forgot to give varfile.
+So when you do for the next one prod (or) other env then you need to reconfigure or when you are switching from one env to another you must reinitialize by using this command. "terraform init -reconfigure -backend-config=prod/backend.tf". [Note:- when you forget to give the -var-file then terraform will take default variables which is in variables.tf, now you comment out the default variables then terraform will prompt for the values, so you will get know that you forgot to give varfile.
 
 2. Workspaces method
 ---------------------
 We can manage multiple environments using single code (or) same code, only few backends will support 
 this, s3 is one of them. If you want to know workspace commands just "terraform workspace". How to create workspace ? ---> "terraform workspace new dev" --> do it in gitbash. When you are using terraform it has default variable that is "terraform.workspace", so if you are in dev then its value of "terraform.workspace become --> dev", if you are in prod then its value of "terraform.workspace --> will become prod". So you 
-need to write lookup function this function works as if you pass key we can get that value. In tfvars 
+need to write lookup function, this function works as if you pass key we can get that value. In tfvars 
 example there are two separate buckets were created like dev/prod, but in workspaces there is only one 
 default bucket "env:/" inside it will automatically create dev/prod workspaces.
 
@@ -54,11 +53,11 @@ Which approch is best ?
              errors and difficult to maintain variables
 3. Pros ---> since everything is different you no need to worry
    Cons ---> you need to maintain code duplication 2 repos, if it is big project or crucial project better 
-             to maintain this method, or we can go for remaining 2 methods
+             to maintain this method, or we can go for remaining 2 methods.
 
-Provisioners is only for ec2 instances
+Provisioners is only for Ec2 instances
 ---------------------------------------
-2 types :- 1. local-exec ---> local to where you are running terraform command(laptop) in laptop is 
+2 types :- 1. local-exec ---> local to where you are running terraform command (laptop) in laptop is 
            nothing but gitbash, then local is your current laptop, if you run terraform command from the 
            linux server. What will be the local here ? local will be the linux server. [Note:- local-exec 
            will run only one time, to run again you need to destroy first] (or) The local-exec provisioner 
@@ -66,19 +65,20 @@ Provisioners is only for ec2 instances
            (not the remote EC2 or server). It's commonly used for tasks like calling scripts, triggering 
            tools, or debugging.
            2. remote-exec ---> This will run inside the server, first you should connect to the 
-           server, then you can run anything inside the server. or remote-exec provisioner in Terraform, 
+           server, then you can run anything inside the server (or) remote-exec provisioner in Terraform, 
            which runs commands on the remote resource (like an EC2 instance) after it's created.
-Provisioners are useful to integrate terraform with configuration management tools like ansible and also enable a keyword called "self"
+Provisioners are useful to integrate terraform with configuration management tools like ansible to get end to end automation, and also enable a keyword called "self"
 
-What is difference between terraform and ansible ?
+What is difference between Terraform and Ansible ?
 ---------------------------------------------------
-Ansible ---> Is intendent for configuration management, what is the main input for the configuration 
+Ansible ---> Is intended for configuration management, what is the main input for the configuration 
              management ? ---> server must be created, so if you have server available wether it is 
-             onpremise or in cloud, then we can use ansible to configure the server
-Terraform ---> Responsibility is to create server nothing but infrastructure creation, server
-               configuration is nothing but configuration management.
-So server created then we handover the IPaddress to ansible, it will takecare of the provisioning or
-configuration management, if you integrate terraform and ansible you will get end-end automation using provisioners. [Note:- We can also create ec2 instances using ansbile but it does not have state file as terraform does, thats why terraform is perfect for creation of infra]
+             onpremise or in cloud, then we can use ansible to configure the server, server configuration 
+             is nothing but configuration management.
+Terraform ---> Responsibility is to create server nothing but infrastructure creation. So server created 
+               then we handover the IPaddress to ansible, it will takecare of the provisioning or                             configuration management, if you integrate terraform and ansible you will get end-end                          automation using provisioners. [Note:- We can also create ec2 instances using ansbile but 
+               it does not have state file as terraform does, that is why terraform is perfect for 
+               creation of infra].
 
 Creation time and Destroy time
 -------------------------------
@@ -93,6 +93,6 @@ Points to remember
 2. If you are facing any error in pushing the code to the github use the below command
     "git remote set-url origin <URL>"
 3. If the code in VS is in full green colour that means the repository is not yet ready in the github, 
-   when repo is ready then it will turn to normal colour after pushing to git
+   when repo is ready then it will turn to normal colour after pushing to git.
 4. We can write multiple provisioners also like for example "on_failure = continue" nothing but same as
    ignore errors in ansible.
