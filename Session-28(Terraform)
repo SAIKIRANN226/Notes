@@ -35,10 +35,10 @@ So when you do for the next one prod (or) other env then you need to reconfigure
 2. Workspaces method
 ---------------------
 We can manage multiple environments using single code (or) same code, only few backends will support 
-this, s3 is one of them. If you want to know workspace commands just "terraform workspace". How to create workspace ? ---> "terraform workspace new dev" --> do it in gitbash. When you are using terraform it has default variable that is "terraform.workspace", so if you are in dev then its value of "terraform.workspace become --> dev", if you are in prod then its value of "terraform.workspace --> will become prod". So you 
-need to write lookup function, this function works as if you pass key we can get that value. In tfvars 
+this, s3 is one of them. If you want to know workspace commands just "terraform workspace". How to create workspace ? ---> "terraform workspace new dev" --> do it in gitbash. When you are using terraform it has default variable that is "terraform.workspace", so if you are in dev then the value of terraform.workspace becomes --> dev, if you are in prod then its value of terraform.workspace --> will becomes prod. So you 
+need to write lookup function, this function works as, if you pass key we can get that value. In tfvars 
 example there are two separate buckets were created like dev/prod, but in workspaces there is only one 
-default bucket "env:/" inside it will automatically create dev/prod workspaces.
+default bucket "env:/" inside, it will automatically create dev/prod workspaces.
 
 3. Creating different repos for different environments
 -------------------------------------------------------
@@ -58,42 +58,36 @@ Which approch is best ?
    Cons ---> you need to maintain code duplication 2 repos, if it is big project or crucial project better 
              to maintain this method, or we can go for remaining 2 methods.
 
-Provisioners is only for Ec2 instances
----------------------------------------
-2 types :- 1. local-exec ---> local to where you are running terraform command (laptop) in laptop is 
-           nothing but gitbash, then local is your current laptop, if you run terraform command from the 
-           linux server. What will be the local here ? local will be the linux server. [Note:- local-exec 
-           will run only one time, to run again you need to destroy first] (or) The local-exec provisioner 
-           in Terraform allows you to run a local shell command on the machine where Terraform is being run 
-           (not the remote EC2 or server). It's commonly used for tasks like calling scripts, triggering 
-           tools, or debugging.
+Provisioners (2types) is only for Ec2 instances
+------------------------------------------------
+1. local-exec ---> The local-exec provisioner runs commands or scripts on the local machine where Terraform 
+is executed (i.e., the machine running the terraform apply command). It does not interact directly with the remote resource being provisioned. (or) local to where you are running terraform command (laptop) in laptop 
+is nothing but gitbash, then local is your current laptop, if you run terraform command from the linux server. What will be the local here ? local will be the linux server. [Note:- local-exec will run only one time, to run again you need to destroy first] (or) The local-exec provisioner in Terraform allows you to run a local 
+shell command on the machine where Terraform is being run (not the remote EC2 or server). It's commonly used for tasks like calling scripts, triggering tools, or debugging.
 
-           2. remote-exec ---> This will run inside the server, first you should connect to the 
-           server, then you can run anything inside the server (or) remote-exec provisioner in Terraform, 
-           which runs commands on the remote resource (like an EC2 instance) after it's created.
-
-Provisioners are useful to integrate terraform with configuration management tools like ansible to get end to end automation, and also enable a keyword called "self"
+2. remote-exec ---> This will run inside the server, first you should connect to the server, then you can 
+run anything inside the server (or) remote-exec provisioner in Terraform, which runs commands on the remote resource (like an EC2 instance) after it's created. Provisioners are useful to integrate terraform with configuration management tools like ansible to get end to end automation, and also enable a keyword called "self"
 
 What is difference between Terraform and Ansible ?
 ---------------------------------------------------
 Ansible ---> Is intended for configuration management, what is the main input for the configuration 
-management ? server must be created, so if you have server available wether it is onpremise or in 
+management ? server must be created, so if you have server available, wether it is onpremise or in 
 cloud, then we can use ansible to configure the server, server configuration is nothing but configuration management.
 
 Terraform ---> Responsibility is to create server nothing but infrastructure creation. So server created 
-then we handover the IPaddress to ansible, it will takecare of the provisioning or configuration management, if you integrate terraform and ansible you will get end-end automation using provisioners. [Note:- We can also create ec2 instances using ansbile but it does not have state file as terraform does, that is why terraform is perfect for creation of infrastructure].
+then we handover the server IPaddress to ansible, it will takecare of the provisioning or configuration management, if you integrate terraform and ansible you will get end-end automation using provisioners. [Note:- We can also create ec2 instances using ansbile but it does not have state file as terraform does, that is why terraform is perfect for creation of infrastructure only].
 
 Creation time and Destroy time
 -------------------------------
 Creation time ---> This local exec will run right after the server is created when we apply.
 Destroy time ---> At the time of destory.
 
-Why we use this creation time and destroy time ? To trigger other systems like sending emails when servers created (or) when destoryed.
+Why we use this Creation time and Destroy time ? To trigger other systems like sending emails when servers created (or) when destoryed.
 
 Points to remember
 *******************
-1. Use different key names in s3 buckets like in the previous you used different key "foreach" you can use 
-   as per your wish but not with the same key names because it will merge all.
+1. Use different key names in s3 bucket like in the previous you have used different key "foreach" 
+   you can use as per your wish but not with the same key names because it will merge all.
 2. If you are facing any error in pushing the code to the github use the below command
     "git remote set-url origin <URL>"
 3. If the code in VS is in full green colour that means the repository is not yet ready in the github, 
