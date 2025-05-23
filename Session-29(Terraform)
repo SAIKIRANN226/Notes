@@ -35,6 +35,7 @@ Elastic IP ---> A public static IP you can assign to an instance.
 
 How VPC works is the below diagram
 -----------------------------------
+
                    "Internet" is nothing but a service provider (airtel,jio,actfiber etc.)
                        |
               +------------------+
@@ -48,6 +49,7 @@ How VPC works is the below diagram
                        |
                [ Private Subnet ]
                    (e.g., DB)
+
 Public subnet: Resources (like EC2) that need internet access. So that public can access their websites.
 Private subnet: Resources (like databases) that shouldn’t be exposed to the internet.
 Use NAT to allow internet outbound traffic from private subnet without allowing inbound traffic.
@@ -59,9 +61,8 @@ Custom IP Addressing ---> Use your own IP ranges (CIDR blocks)
 Control Access ---> With security groups, NACLs, and route tables
 Hybrid Connectivity ---> Connect on-premises data centers using VPN or AWS Direct Connect
 
-Example of a use case
-----------------------
-You want to host a web app:
+Example of a use case if you want to host a web app
+----------------------------------------------------
 1. Frontend (EC2 or Load Balancer) in a public subnet
 2. Backend (database) in a private subnet
 3. Use security groups to allow only the frontend to talk to the backend
@@ -86,8 +87,10 @@ here Internetgateway is nothing but arch in village example and router in home e
 
 CIDR (Classless Inter-Domain Routing)
 --------------------------------------
-It is used to allocate IP addresses efficiently, like dividing the large IP_blocks into small subnets.
-Practical Example in DevOps. For suppose you’re setting up an AWS VPC
+It is used to allocate IP addresses efficiently, like dividing the large CIDR block into small networks.
+Nothing but assigning individual IP addresses from VPC CIDR block (e.g., 10.0.1.0/24) efficiently to the resources like ec2, containers in dockers, VMs, load balancers, or databases and also to the subnets in 
+VPC. Practical Example in DevOps. For suppose you’re setting up an AWS VPC as below.
+
 1. VPC CIDR: 10.0.0.0/16 (65,536 IPs).
 2. Subnets
    Public subnet: 10.0.1.0/24 (256 IPs for web servers).
