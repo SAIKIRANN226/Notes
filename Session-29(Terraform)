@@ -7,7 +7,7 @@ Modules development
    infra for every project from the scratch, go through the code of "Terraform-Modules" in the VS.
 3. Module syntax is below
       module "name-of-module" {
-	source = "../ec2" ---> Actually .. means it is one step back
+	source = "../ec2"
       }
 4. Provider will not be there in module developing.
 
@@ -16,18 +16,18 @@ Two types of modules and Two types of roles
 1. Customised modules for our organisation, this will create by central team in cloud.
 2. Open source modules. "Module Developer" --> Who develops the module and "Module User" Who 
    consumes the module. [Note:- Put one README.md file to provide the documentation on the 
-   module how to use it by others]
+   module how to use it by others, purely its DevOps responsibility]
 
-VPC(Virtual Private Cloud)
----------------------------
-Amazon VPC (Virtual Private Cloud) is a virtual network that you create in AWS. It’s your own isolated 
-section of the AWS cloud where you can launch AWS resources (like EC2 instances, databases, etc.) in a 
-secure and controlled environment. Think of it like your own private data center in aws cloud. Breaking
-main building blocks of vpc as below 
+VPC (Virtual Private Cloud)
+----------------------------
+Amazon VPC is a virtual network that you create in AWS. It’s your own isolated section of the AWS 
+cloud where you can launch AWS resources (like EC2 instances, databases, etc.) in a secure and 
+controlled environment. Think of it like your own private data center in aws cloud. Breaking main 
+building blocks of vpc as below 
 
 Subnets ----> Divides your VPC into smaller networks. Can be public or private
 Route tables ---> Controls how traffic is routed within the VPC and outside (like to the internet).
-Internet Gateway (IGW) ---> Allows public internet access to resources in public subnets.
+Internet Gateway (IGW) ---> Allows public to access internet to resources in public subnets.
 NAT Gateway / Instance ---> Lets private subnets access the internet without being exposed.
 Security Groups ---> Act as firewalls for instances (e.g., EC2).
 Network ACLs ---> Act as firewalls for subnets.
@@ -35,32 +35,32 @@ Elastic IP ---> A public static IP you can assign to an instance.
 
 How VPC works is the below diagram
 -----------------------------------
-                    Internet
+                   "Internet" is nothing but a service provider (airtel,jio,actfiber etc.)
                        |
               +------------------+
-              |  Internet Gateway|
+              | Internet Gateway | is nothing but router in home which is connected to public_subnets
               +------------------+
                        |
-                   [ Public Subnet ]
+                [ Public Subnet ]
                   /     |       \
                  /      |        \
-             EC2-1    EC2-2     ...
+             EC2-1    EC2-2      ...
                        |
                [ Private Subnet ]
-                    (e.g., DB)
-Public subnet: Resources (like EC2) that need internet access.
+                   (e.g., DB)
+Public subnet: Resources (like EC2) that need internet access. So that public can access their websites.
 Private subnet: Resources (like databases) that shouldn’t be exposed to the internet.
 Use NAT to allow internet outbound traffic from private subnet without allowing inbound traffic.
 
-Why we use VPC
----------------
+Why we use VPC in aws ?
+------------------------
 Isolation & Security ---> Fully control traffic in/out of your resources
 Custom IP Addressing ---> Use your own IP ranges (CIDR blocks)
 Control Access ---> With security groups, NACLs, and route tables
 Hybrid Connectivity ---> Connect on-premises data centers using VPN or AWS Direct Connect
 
-Example use case
------------------
+Example of a use case
+----------------------
 You want to host a web app:
 1. Frontend (EC2 or Load Balancer) in a public subnet
 2. Backend (database) in a private subnet
@@ -70,30 +70,38 @@ You want to host a web app:
 
 Summary of the VPC
 -------------------
-VPC ---> A private network in AWS
+VPC ---> A private network in AWS, or a private data center
 Subnet ---> A segment within a VPC (can be public or private)
 IGW ---> Provides internet access to public subnets
-NAT ---> Allows outbound internet from private subnet
+NAT Gateway ---> Allows outbound internet from private subnet
 Security Group ---> Instance-level firewall
 Route Table ---> Controls network traffic routes
 
 Difference between Public_subnet and Private_subnet ?
 ------------------------------------------------------
-Subnets who have access(route) to the internet gateway are public_subnets, subnets who dont have 
-access(route) to the internet gateway are private_subnets or Which are attached to internet gateway 
+Subnets who have access (route) to the internet gateway are public_subnets, subnets who dont have 
+access (route) to the internet gateway are private_subnets or subnets are attached to internet gateway 
 are called public_subnets, which are not attached to the internet gateway are called private_subnets, 
-here Internetgateway is nothing but arch in village example.
+here Internetgateway is nothing but arch in village example and router in home example.
 
-CIDR(Classless Inter-Domain Routing)
--------------------------------------
-It is used to allocate IP addresses efficiently, like dividing the large IP blocks into small subnets.
+CIDR (Classless Inter-Domain Routing)
+--------------------------------------
+It is used to allocate IP addresses efficiently, like dividing the large IP_blocks into small subnets.
+Practical Example in DevOps. For suppose you’re setting up an AWS VPC
+1. VPC CIDR: 10.0.0.0/16 (65,536 IPs).
+2. Subnets
+   Public subnet: 10.0.1.0/24 (256 IPs for web servers).
+   Private subnet: 10.0.2.0/24 (256 IPs for databases). etc like that
+3. Security group rule: Allow HTTP traffic from 0.0.0.0/0 (any IP) to the public subnet.
 
-Create Roboshop Network(VPC)
------------------------------
+Create Roboshop Network (VPC)
+------------------------------
 Create VPC network for Roboshop Project ---> You need to give CIDR while creating VPC, nothing but like 
 pin code of a village, here siva has given 10.0.0.0/16, so this IP is public or private ? so internet
 has given some "private ip_address range" you can search in google there you find three ranges and those 
-only allocated to private_ip not for public_ip, there you can see 24,20,16 bit-blocks, these are only for private_ip not for public_ip, even ISP people will configure your private_ip address in any range among these three bit-blocks, as of now you can select any one for your VPC, so from this siva selected starting from 10. Atleast you need to create 16 servers to use VPC, 10.0.0.0/28 ---> 16 servers, 10.0.0.0/16 ---> 65k servers, generally we give 10.0.0.0/16 only, because it does not cost anything, so we can go for maximum.
+only allocated to private_ip not for public_ip, there you can see 24,20,16 bit-blocks, these are only for private_ip not for public_ip, even ISP people will configure your private_ip address in any range among 
+these 3 bit-blocks, as of now you can select any one for your VPC, so from this siva selected starting from 10. Atleast you need to create 16 servers to use VPC, 10.0.0.0/28 ---> 16 servers, 10.0.0.0/16 ---> 65k servers, generally we give 10.0.0.0/16 only, because it does not cost anything, so we can go for maximum.
+So you can take VPC CIDR as 10.0.0.0/16 while creating in aws.
 
 Create Roboshop Public_subnet and Private_subnet
 -------------------------------------------------
@@ -102,7 +110,7 @@ Here in "IPV4 subnet CIDR block" section you can give 10.0.2.0/24 ---> Private
 
 Create Public and Private route_tables
 ---------------------------------------
-Make sure you select your created VPC not default for all the above subnets and tables
+Make sure you select your created VPC, not default for all the above subnets and tables
 
 Now associate route_tables to the respective subnets
 -----------------------------------------------------
@@ -114,22 +122,20 @@ Select public route_table which you have created, then click on Routes/edit rout
 and select default from the drop down under the internet gateway only ---> then save changes. That means 
 public subnet got the internet access and we dint given internet access to private subnet that is the difference.
 
-Create Internet gateway(Just like Modem)
------------------------------------------
+Create Internet gateway (router)
+---------------------------------
 Make sure attach this Internet gateway to your VPC, you can see the option on top as soon as you created.
 
 Enable auto-asign public Ipv4 address
 --------------------------------------
-This must be enable to only public_subnet, not for the private_subnet because it is not required, you 
-can do this by Click on the public_subnet ---> actions ---> edit subnet settings, just check the box. 
-[Note:- We need to create web server in the public_subnet and remaining severs like cart,shipping etc. 
-can be created in the private_subnets]
+This must be enable to only public_subnet, not for the private_subnet because it is not required for private_subnet, you can do this by click on the public_subnet ---> actions ---> edit subnet settings, 
+just check the box. [Note:- We need to create web server in the public_subnet and remaining severs like cart,shipping etc. can be created in the private_subnets]
 
 Create a subnet for database
 -----------------------------
 10.0.3.0/24 and create database route table and attach it to the database subnet.
 
-So what ever we have created all these by manually in the aws, we should create this by using terraform and minimum you need to create resources in two availability zones so that you can save from yourself from the natural disasters, that means you need to keep public and private subnets aswel as remaining subnets in two availability zones, if the company is having budget then we can create servers in both zones(or)create one and transfer(move or create in another zone in case of any natural disasters alert)
+So what ever we have created all these by manually in the aws, we should create this by using terraform and you need to create resources in minimum two availability zones, so that you can save from yourself from the natural disasters, that means you need to keep public and private subnets aswel as remaining subnets in two availability zones, if the company is having budget then we can create servers in both zones (or) create one and transfer (move or create in another zone in case of any natural disasters alert).
 
 Points to remember
 *******************
@@ -138,10 +144,14 @@ Points to remember
    and we use them.
 3. How do you check internet is working or not ? "ping google.com"
 4. Ipv4 is 32bit and Ipv6 is 64 bit 
-5. Modem(Internet Gateway) ---> Public_ip and Private_ip, Public_ip is nothing but just type what is my 
-   ip in google there you can see Ipv4 address that is your public_ip, not ipv6. What is your private_ip 
-   just "ipconfig" in cmd there you can see IPv4 address under Under wireless LAN adapter Wifi.
-6. What is your actual IPaddress ? Just type in google "what is my IP", if you want to connect to my 
-   laptop you can connect using this IP address. you cannot connect with private_ip address
+5. Router (Internet Gateway) ---> It has Public_ip and Private_ip, Public_ip is nothing but just 
+   type what is my ip in google there you can see Ipv4 address that is your public_ip, not ipv6. What 
+   is your private_ip just "ipconfig" in cmd there you can see IPv4 address under Under wireless LAN 
+   adapter Wifi.
+6. What is your actual IPaddress ? Just type in google "what is my IP", if anybody wants to connect
+   to my laptop you can connect using this IP address only. you cannot connect with private_ip address.
 7. Your created VPC is Isolated even aws dont have access to it.
 8. AWS wont charge for VPC's,subnets,route tables, it only charges when you are creating server.
+9. We can create as many private subnets we want, however for functionality purpose we have only 
+   two subnets which is public and private subnets.
+10. Watch from 26:11 to 1:14:21 to understand how VPC works
