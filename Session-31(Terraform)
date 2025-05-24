@@ -32,6 +32,9 @@ For example according to the diagram mongodb should accept connections only from
 so we need to create a special security group to the mongodb like it should have a name like roboshop-dev-mongodb, and ingress rules like accept connections only from catalogue and user module. etc similarly we
 need to create for other modules also.
 
+We also need VPN, we cannot connect directly to the instances which are present in the private subnets, so
+create a VPN in default VPC, then connect to VPN in your laptop then only you can access instances.
+
 Points to remember
 *******************
 - We need terraform to create 100 % project of the infrastructure, not just by creating few resources 
