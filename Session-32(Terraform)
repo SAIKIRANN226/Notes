@@ -1,5 +1,33 @@
-In this class creating SG modules and creating all security groups
---------------------------------------------------------------------
-roboshop-terraform ---> folder in VS
+- In last session we completely developed vpc module and started using it, in this session we are going to 
+  create security group module and creating all security groups for all components.
+- We created a folder "Roboshop-terraform" in |VS| and inside this folder we are creating separate folders 
+  for every resources to reduce the refresh time because if our infrastructure becomes big, refreshing the 
+  resources will take some time, so to reduce the refresh time we are creating in separate folders. In simple
+  words like if we keep all resources in a single folder, incase if we do any small change also, it will take
+  time to refresh all the resources and maintenance will also be easy.
+- So go through the 01-vpc, 02-sg, 03-vpn, 04-ec2 code in |VS| one by one
+- What is main input required to create a SG ? We want VPC_ID, in which vpc you are creating SG, 
+  here vpc and sg are in different folders, if it was in same folder we can easily get the vpc_id, but 
+  these are in different folders, For example if they are in separate folders then they are completely 
+  like different projects, for example like in big companies there will be a separate team for vpc, 
+  and for SG like that. How do you get vpc_id by going out from the sg folder, for that we have a service
+  called "SSM Parameter" in "AWS systems manager" in this we need to create a key-value pair, and we can 
+  refer in the security group to the vpc_id. SSM Parameter is like configuration storage, different 
+  applications can store the configuration and also different application can refer the configuration.
+  It is like central storage for the configuration.
+- So first store the vpc_id in ssm parameter store, so create a file called "parameter.tf" in 01-vpc
+  then write a code. Search in google "ssm parameter store in terraform"
 
-# SSM parameter store ---> we can store key-value pair,it is like a configuration store
+
+
+
+
+
+
+
+
+Points to remember
+*******************
+- Data sources is used to query the data dynamically from the providers and for existing resource also 
+  but to query the existing resource we need to give some input like vpc_id, this vpc_id we cant get 
+  from the data source, but we used data source only to query the default vpc_id
