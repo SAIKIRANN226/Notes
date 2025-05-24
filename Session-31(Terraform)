@@ -17,7 +17,8 @@ In this session we have created below resources using terraform code instead of 
   present in different companies, then we need VPC peering connection. So users can decide if peering is
   required or not ? if required they have to give peering VPC id, if they are not giving we can consider
   default VPC. For example consider Requestor --> Roboshop and Acceptor --> User provided VPC or Default 
-  VPC. If acceptor VPC is not in our control, can we get the access to add route ? no, so we need to inform      them to write an acceptor code in their terraform.
+  VPC. If acceptor VPC is not in our control, can we get the access to add route ? no, so we need to 
+  inform them to write an acceptor code in their terraform.
 - Next adding the routes.
 
 Now successfully we developed the module, and we now push it to the internet (github), so now my written
