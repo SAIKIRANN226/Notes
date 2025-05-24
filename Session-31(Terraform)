@@ -14,7 +14,10 @@ In this session we have created below resources using terraform code instead of 
   one company, they tie up with multiple companies and these companies deals different module like one
   company is dealing web module, another is dealing cart module, another is dealing shipping module etc.
   That means these companies have different accounts, so to collaborate with other VPC's which are 
-  present in different companies, then we need VPC peering connection.
+  present in different companies, then we need VPC peering connection. So users can decide if peering is
+  required or not ? if required they have to give peering VPC id, if they are not giving we can consider
+  default VPC.
+- For example consider Requestor --> Roboshop and Acceptor --> User provided VPC or Default VPC
 
 # Before creating route tables and association, we are creating EIP and NATgateway and
   remaining
