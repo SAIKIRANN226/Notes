@@ -1,9 +1,21 @@
-# We need terraform to create 100% project using terraform not just creating VPC,SG etc.
-# In this class we continue from creating database subnet
+In this session we have created below resources using terraform code instead of creating manually in aws.
+- VPC 
+- Internet Gateway
+- Public, Private and Database subnets
+- Database subnet group since database has different behaviour
+- Elastic_ip
+- NAT Gateway
+- Public, Private, and Database route tables
+- Added Public, Private, and Database routes
+- Public, Private, and Database route table associations
+
 # Before creating route tables and association, we are creating EIP and NATgateway and
   remaining
 # How to refer terraform module in github? ---> source = "git::<https URL>ref=main
 
-Terraform-aws-vpc ---> is a module we are developing
-Terraform-vpc-test ---> is we are testing wether the module is working or not
-
+Points to remember
+*******************
+- We need terraform to create 100 % project of the infrastructure, not just by creating few resources 
+  like VPC or SG etc.
+- In this class we continue from creating database subnet.
+- 
