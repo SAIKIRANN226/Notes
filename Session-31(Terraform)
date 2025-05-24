@@ -8,6 +8,13 @@ In this session we have created below resources using terraform code instead of 
 - Public, Private, and Database route tables
 - Added Public, Private, and Database routes
 - Public, Private, and Database route table associations
+- Next thing is peering ? it may not require for everyone, when this peering is useful ? bydefault
+  peering connection between two VPC's is not possible, if we want to connect with the resources which 
+  are in another VPC, then you require peering, for example big projects like banking they dont depend on
+  one company, they tie up with multiple companies and these companies deals different module like one
+  company is dealing web module, another is dealing cart module, another is dealing shipping module etc.
+  That means these companies have different accounts, so to collaborate with other VPC's which are 
+  present in different companies, then we need VPC peering connection.
 
 # Before creating route tables and association, we are creating EIP and NATgateway and
   remaining
