@@ -26,6 +26,12 @@ module is in internet, if someone wants to use this, then you should refer it th
 "source = "git"::<https URL>ref=main", so when you do "terraform init" the module will be downloaded in the
 testing code and terraform will create a with a folder called "module" automatically.
 
+How the security groups we are going to use ?
+----------------------------------------------
+For example according to the diagram mongodb should accept connections only from catalogue and user module
+so we need to create a special security group to the mongodb like it should have a name like roboshop-dev-mongodb, and ingress rules like accept connections only from catalogue and user module. etc similarly we
+need to create for other modules also.
+
 Points to remember
 *******************
 - We need terraform to create 100 % project of the infrastructure, not just by creating few resources 
