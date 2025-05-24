@@ -16,16 +16,24 @@ In this session we have created below resources using terraform code instead of 
   That means these companies have different accounts, so to collaborate with other VPC's which are 
   present in different companies, then we need VPC peering connection. So users can decide if peering is
   required or not ? if required they have to give peering VPC id, if they are not giving we can consider
-  default VPC.
-- For example consider Requestor --> Roboshop and Acceptor --> User provided VPC or Default VPC
+  default VPC. For example consider Requestor --> Roboshop and Acceptor --> User provided VPC or Default VPC
+  If acceptor VPC is not in our control, can we get the access to add route ? no, so we need to inform them
+  to write an acceptor code in their terraform.
+- Next adding the routes.
 
-# Before creating route tables and association, we are creating EIP and NATgateway and
-  remaining
-# How to refer terraform module in github? ---> source = "git::<https URL>ref=main
+Now successfully we developed the module, and we now push it to the internet (github), so now my written
+module is in internet, if someone wants to use this, then you should refer it through the github, by using
+"source = "git"::<https URL>ref=main", so when you do "terraform init" the module will be downloaded in the
+testing code and terraform will create a with a folder called "module" automatically.
 
 Points to remember
 *******************
 - We need terraform to create 100 % project of the infrastructure, not just by creating few resources 
   like VPC or SG etc.
 - In this class we continue from creating database subnet.
-- 
+- First create Elastic IP and then create NAT gateway.
+- We have open source modules also, like search in google "terraform aws vpc module", terraform only
+  provides us.
+- We can create example folder and keep all the testing code in it, so that it will be easy for everyone
+  to use the module.
+- Till now we used allow-all for security group for practice from next session we follow correct practice.
