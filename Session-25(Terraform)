@@ -75,7 +75,7 @@ Lets create ec2 instance
 resource "what resource" "name of your resource" {
 
 }
-- This syntax we call HCL(Hashicorp Configuration Language) 
+- This syntax we call HCL (Hashicorp Configuration Language) 
 - Here also we have variables/conditions/loops/functions/datatypes
 - So rightnow we are using terraform for the aws so search terraform providers --> Select aws 
   provider if you dont give the provider terraform will not know to work with which provider ? 
