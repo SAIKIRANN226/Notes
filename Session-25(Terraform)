@@ -1,17 +1,17 @@
-Terraform is a popular Infrastructure as code(IaC)
----------------------------------------------------
+Terraform is a popular Infrastructure as code (IaC)
+----------------------------------------------------
 Terraform is an open-source tool developed by HashiCorp. Instead of going into AWS console and manually creating an EC2 instance or any other resources, we can create by writing terraform script, in olden days people used "CFengine" and rightnow people are using chef, puppet, ansible, terraform etc. Till now we configured our project manually, also using shellscript, ansible, but we prefer ansible as a configuration management if it is large project. Because ansible can connect to more number of servers easily from one single ansible server, we can also call controller machine. Why we din't prefer manual configuration ? Because manually logging in the servers is a timetaking process and also we get more human errors.
 
 Advantages of terraform
 ------------------------
-1. Version control
-2. Consistent infra
-3. Automated Infra CRUD
-4. Inventory Management
-5. Cost Optimisation
-6. Automatic dependency management
-7. Modular Infra
-8. Hybrid cloud
+- Version control
+- Consistent infra
+- Automated Infra CRUD
+- Inventory Management
+- Cost Optimisation
+- Automatic dependency management
+- Modular Infra
+- Hybrid cloud
 
 Version control
 ----------------
@@ -23,8 +23,8 @@ Often we face the problem of different configurations in different environments 
 will work in all environments like dev,sit,uat,prod. Real time scenario like code is working in dev or uat 
 or pre-prod but not working in prod, to solve this issue we use terraform.
 
-Automated Infrastructure(CRUD)
--------------------------------
+Automated Infrastructure (CRUD)
+--------------------------------
 Basically CRUD over the infrastructure. Using terraform we can create entire infra in minutes reducing the human errors. Updating infra using terraform is also easy. Using Terraform we can delete infra in minutes.
 Create the infra
 Read the infra
@@ -38,34 +38,34 @@ resources that Terraform provisions and maintains. Terraform itself doesn't have
 
 Cost optimization
 ------------------
-1. When you need infra you can create in minutes. When you don't you can delete in minutes, so you can 
-   save the cost (or) Create when required, delete when not required
-2. Automatic dependency management, for example if we need to create route53 records, ec2 servers 
-   should be in the running, take those IP and then paste in the route53, that means route53 is 
-   depending on ec2 servers, so we can create resources and terraform will takecare of dependencies.
-3. Terraform modules ---> You can create terraform code as modules, so that other projects can also 
-   use it without writing from the scratch
-4. Terraform is also a hybrid cloud that means you can create infra in aws, azure, GCP not only 
-   cloud, terraform can also work with any other popular tools in the market, you can see in the 
-   terraform providers website, it can work with many other providers or you can write your own 
-   module and connect with the terrform also. Not only resources we can also create repos, branches 
+- When you need infra you can create in minutes. When you don't you can delete in minutes, so you can 
+  save the cost (or) Create when required, delete when not required
+- Automatic dependency management, for example if we need to create route53 records, ec2 servers 
+  should be in the running, take those IP and then paste in the route53, that means route53 is 
+  depending on ec2 servers, so we can create resources and terraform will takecare of dependencies.
+- Terraform modules ---> You can create terraform code as modules, so that other projects can also 
+  use it without writing from the scratch
+- Terraform is also a hybrid cloud that means you can create infra in aws, azure, GCP not only 
+  cloud, terraform can also work with any other popular tools in the market, you can see in the 
+  terraform providers website, it can work with many other providers or you can write your own 
+  module and connect with the terrform also. Not only resources we can also create repos, branches 
    etc. with terraform.
-The above all are the terraform understanding(Interview Question). It is a declarative way of creating infrastructure, what is declarative ---> whatever you write you get it if you write correct syntax, and 
+The above all are the terraform understanding (Interview Question). It is a declarative way of creating infrastructure, what is declarative ---> whatever you write you get it if you write correct syntax, and 
 it is easy syntax and no need to follow the sequence in the code. If anybody edit manually in the aws console, and we find it is very difficult to trace who did it, but in terraform if anybody did changes 
 and we can restore infrastructure immediately by just one command, then we can discuss who did it later
 
 Terraform installation and setup
 ---------------------------------
-1. Download terraform from google mostly AMD64 windows, if you download and extract you will 
-   get .exe file
-2. Move that .exe file in your desired location, downloading is not enough still it will show 
-   terraform command not found.
-3. Take this downloaded path and give it in the "system environment variable"
-4. Search in the laptop ---> Edit the system environment variables --> environment variables -->
-   select or click on the path in the system variables --> edit --> new --> paste it here
-5. If you give the terraform command it will check all paths you have given in the environment
-   variables, if it avaiable then terraform command will work
-6. Install "hashicorp terraform extension" to get colors
+- Download terraform from google mostly AMD64 windows, if you download and extract you will 
+  get .exe file
+- Move that .exe file in your desired location, downloading is not enough still it will show 
+  terraform command not found.
+- Take this downloaded path and give it in the "system environment variable"
+- Search in the laptop ---> Edit the system environment variables --> environment variables --> select 
+  or click on the path in the system variables --> edit --> new --> paste it here
+- If you give the terraform command it will check all paths you have given in the environment
+  variables, if it avaiable then terraform command will work
+- Install "hashicorp terraform extension" to get colors
 
 We write code in VS ---> then we push to github ---> then we push to the aws, but in order to push 
 to the aws we need authentication for that we have "awsCLI" for this go to the google and search "aws cli install" just run shown commands in "cmd" from the command prompt, then test "aws --version" in cmd aswel as in gitbash select windows to install not linux or macos. So to connect we need to create a terraform user or administrator user by going to IAM/users/create(next)/attach policies directly and select administrator access --> click on your created user/security credentials/create accesskey/click on command line interface(CLI)/copy the accesskey and secretkey then -----> and configure user in your laptop "aws configure" in gitbash --> these credentials will be saved in --> windowsC/users/user/.aws folder
@@ -75,27 +75,27 @@ Lets create ec2 instance
 resource "what resource" "name of your resource" {
 
 }
-1. This syntax we call HCL(Hashicorp Configuration Language) 
-2. Here also we have variables/conditions/loops/functions/datatypes
-3. So rightnow we are using terraform for the aws so search terraform providers --> Select aws 
-   provider if you dont give the provider terraform will not know to work with which provider ? 
-   and .tf is the extension of terraform file
-4. Just go through session-01/ec2.tf,provider.tf,varibles.tf in the VS, where ec2 with SG is created 
-   using terraform, Just type "terraform ec2 in the google"
-5. Where to run the terraform commands ? ---> Where ever .tf files exists, like for example go
-   the directory session01/ec2/ec2.tf and provider.tf ---> Here you should run the command.
+- This syntax we call HCL(Hashicorp Configuration Language) 
+- Here also we have variables/conditions/loops/functions/datatypes
+- So rightnow we are using terraform for the aws so search terraform providers --> Select aws 
+  provider if you dont give the provider terraform will not know to work with which provider ? 
+  and .tf is the extension of terraform file
+- Just go through session-01/ec2.tf,provider.tf,varibles.tf in the VS, where ec2 with SG is created 
+  using terraform, Just type "terraform ec2 in the google"
+- Where to run the terraform commands ? ---> Where ever .tf files exists, like for example go
+  the directory session01/ec2/ec2.tf and provider.tf ---> Here you should run the command.
 
 Terraform commands
 -------------------
-1. terraform init --> Initialize the provider, it will download the aws plugins or provider in
-   ".terraform" folder is created to download the provider.
-2. terraform plan --> Terraform will calculate full details and show it or it is just a plan
-   it will not create, it will show the preview of the changes. Terraform compares the infra between 
-   declared and existing. This is only plan terraform will not create.
-3. terraform apply --> Now it will create
-4. terraform apply -auto-approve --> Not ask for the prompt
-5. terraform destroy -auto-approve --> Not ask for the prompt
-6. All the above commands should be run in the gitbash.
+- terraform init --> Initialize the provider, it will download the aws plugins or provider in ".terraform"   
+  folder is created to download the provider.
+- terraform plan --> Terraform will calculate full details and show it or it is just a plan
+  it will not create, it will show the preview of the changes. Terraform compares the infra between 
+  declared and existing. This is only plan terraform will not create.
+- terraform apply --> Now it will create
+- terraform apply -auto-approve --> Not ask for the prompt
+- terraform destroy -auto-approve --> Not ask for the prompt
+- All the above commands should be run in the gitbash.
 
 Variables
 ----------
@@ -107,15 +107,15 @@ Terraform will automatically consider which datatype is so no need to give datat
 
 Points to remember
 *******************
-1. https://registry.terraform.io/providers/hashicorp/aws/3.34.0/docs/resources/security_group
-   terraform registry website to see all examples
-2. Just go through the "README" file in the sivagithub terraform "https://github.com/daws-76s/terraform"
-3. Go through the session-01 in terraform VS we have created ec2 with security group along with variables.
-4. In provider we can give access_key and secret_key under region to authenticate to aws, when you push 
-   to github then github will send emails to notify, but it is not recommended because anyone can 
-   use your aws account and they can create anything in aws. So thats why we downloaded awsCLI to
-   authenticate to aws account which is a secure way.
-5. Important point to remember, you no need to push to the github, you can directly save the terraform
-   file and run the terraform commands in gitbash and later you can push to the github to save the files.
-   later green colour will change to the normal colour
-6. Dont push the accesskey and secretkey to the github or internet for safety.
+- https://registry.terraform.io/providers/hashicorp/aws/3.34.0/docs/resources/security_group
+  terraform registry website to see all examples
+- Just go through the "README" file in the sivagithub terraform "https://github.com/daws-76s/terraform"
+- Go through the session-01 in terraform VS we have created ec2 with security group along with variables.
+- In provider we can give access_key and secret_key under region to authenticate to aws, when you push 
+  to github then github will send emails to notify, but it is not recommended because anyone can  
+  use your aws account and they can create anything in aws. So thats why we downloaded awsCLI to
+  authenticate to aws account which is a secure way.
+- Important point to remember, you no need to push to the github, you can directly save the terraform
+  file and run the terraform commands in gitbash and later you can push to the github to save the files. 
+  later green colour will change to the normal colour
+- Dont push the accesskey and secretkey to the github or internet for safety.
