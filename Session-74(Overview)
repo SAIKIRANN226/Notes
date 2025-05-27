@@ -1,4 +1,4 @@
-- What is terraform ? and why we call Infrastructure as Code(IaC) ? and why we use ?
+- What is terraform ? and why we use ? 
 - What has used in olden days instead of terraform ? and what are using rightnow ?
 - In how many ways we configured our roboshop project ?
 - Why we prefer ansible as a configuration management if it is a large project ?
@@ -7,7 +7,7 @@
 - Advantages of terraform ? V,C,A,I,C,A,M,H ? 
 - What is declarative in terraform ?
 - How do you setup terraform ? terraform download, give path in system environment variables, 
-  download AWS CLI2, create terraform user or administrator user accesskey and secret keys, aws configure
+  download AWS CLI2, create terraform user or administrator user, accesskey and secret keys, aws configure.
 - What extension do we download to enable colors in terraform ?
 - How do you configure the aws in gitbash ?
 - Command to test aws version in cmd or gitbash ?
