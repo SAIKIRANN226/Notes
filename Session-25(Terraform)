@@ -72,6 +72,7 @@ Lets create ec2 instance
 resource "what resource" "name of your resource" {
 
 }
+
 - This syntax we call HCL (Hashicorp Configuration Language) 
 - Here also we have variables/conditions/loops/functions/datatypes
 - So rightnow we are using terraform for the aws so search terraform providers --> Select aws 
@@ -100,6 +101,7 @@ variable "name-of-variable" {
      type = datatype
      default = "default value"
 }
+
 Terraform will automatically consider which datatype is so no need to give datatype but for practice we need.
 
 Points to remember
