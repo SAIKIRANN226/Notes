@@ -1,6 +1,6 @@
-Note:- Dont forget to put ".gitignore" file, better to put in the root folder in terraform not only in terraform root folder, for example if you are creating any other new folder to work in that, then you need 
-to put there also, because when you do "terraform init" then terraform will download the provider and this provider memory is almost 350mb. Github is only to store code not software (or) .exe files, so github will automatically reject, so thats why .gitignore is important here (or) A .gitignore file tells to Git which 
-files or directories to ignore (i.e., not track or commit) in your repository so that we can 
+Note:- Dont forget to put ".gitignore" file, better to put in the root folder in terraform, not only in terraform root folder, for example if you are creating any other new folder to work, in that also you need 
+to put .gitignore file, because when you do "terraform init" then terraform will download the provider and this provider memory is almost 350mb. Github is only to store code not software (or) .exe files, so github will automatically reject, so thats why .gitignore is important here (or) A .gitignore file tells to Git 
+which files or directories to ignore (i.e., not track or commit) in your repository, so that we can 
 1. Avoid committing sensitive files (e.g., credentials).
 2. Skip auto-generated or local-only files.
 3. Keep the repository clean and portable
@@ -21,7 +21,7 @@ Variable preferences in terraform (VS)
 1. command line ---> terraform plan -var="instance_type=t3.small"
 2. -var-file ---> terraform plan -var-file="saikiran.tfvars"
 3. terraform.tfvars 
-4. ENV variables. If you dont find in any of the above, then terraform will prompt for the value.
+4. ENV variables.
 
 Conditions (VS)
 ----------------
@@ -44,14 +44,14 @@ Loops are two types
 Functions (VS)
 ---------------
 It will do some work, if we give some input and it will take this input and give us output. Here in 
-terraform we cannot create our own functions but terraform itself has some functions we need to use 
+terraform we cannot create our own functions, but terraform itself has some functions we need to use 
 that only. Example:- max(5,12,23) --> max is the function and we are giving inputs 5,12,23 then terraform
 will give output that is 23, similarly we have other functions also, and we have used length function 
 like this "length(var.instance_names)" this will calculate the length in list automatically.
 
 Locals in terraform
 --------------------
-Locals is just like variables but it has some extra capabilities, you can keep functions,expressions,
+Locals is just like variables but it has some extra capabilities, you can keep functions,expressions
 and conditions inside a local and use them anywhere in the script and the locals syntax is below.
           locals {
              name = "saikiran"
@@ -62,7 +62,7 @@ Then how to call a local ---> "local.instance_type"
 
 Syntax of output in terraform
 ------------------------------
-output "aws_info" {
+output "instance_info" {
      value = "aws_instance.web"
 }
 
