@@ -60,6 +60,12 @@ and conditions inside a local and use them anywhere in the script and the locals
           }
 Then how to call a local ---> "local.instance_type"
 
+Syntax of output in terraform
+------------------------------
+output "aws_info" {
+     value = "aws_instance.web"
+}
+
 Points to remember
 *******************
 - You need to see the output.tf also in count folder VS, output is nothing but attributes reference,
