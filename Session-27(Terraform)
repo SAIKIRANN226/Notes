@@ -37,11 +37,11 @@ What is the terraform responsibility ? Whatever we write it will create, nothing
   called "terraform.tfstate.lock" to lock the terraform.tfstate file, so that nobody will touch 
   terraform.tfstate file while terraform is doing changes, because terraform is using that file at 
   the time of doing changes.
-- terraform.tfstate is in my laptop and iam pushing it to the github, another devops engineer also cloned 
-  my repo and run it again, devops engineer has also have terraform.tfstate and both have no connection, 
-  then terraform will compare my state and devops person state. If both are running terraform apply, so here  
-  duplicates may come and some got error as already exists. So for this issue we have central state file to  
-  check wether the infra already exists or not ? that is remote state (s3 bucket).
+- terraform.tfstate is in my laptop and iam pushing it to the github, another devops engineer also 
+  cloned my repo and run it again, devops engineer has also have terraform.tfstate and both have no  
+  connection, then terraform will compare my state and devops person state. If both are running terraform  
+  apply, so here duplicates may come and some got error as already exists. So for this issue we have 
+  central state file to check wether the infra already exists or not ? that is remote state (s3 bucket).
 - terraform.tfstate is a crucial file, should not delete.
 - We have two disadvantages one is "Collaboration environment" like terraform will have no idea 
   about infra created, if multiple persons are working on same infra, it will try to create duplicates 
