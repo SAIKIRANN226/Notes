@@ -3,6 +3,15 @@ Locals in terraform
 Count.index will not have access in the locals, because count is used to create multiple instances and 
 also to reference the current iteration index. The locals block does not support iteration constructs like for_loops or count directly. As a result, there’s no mechanism to access count.index within it. We can only put expressions,conditions and functions inside the locals and use it anywhere.
 
+Syntax of locals
+-----------------
+locals {
+   name = "saikrian"
+   trainer = "kumar"
+   instance_type = var.isProd ? "t3.small" : "t2.micro"
+}
+How to call a local ? "local.name" (or) "local.trainer" (or) "local.instance_type"
+
 Data-Sources|VS|
 -----------------
 Terraform is connecting to lot of providers like aws,azure,gcp and everything. So these providers 
@@ -11,13 +20,13 @@ data-source is used to query the data dynamically from the providers, for exampl
 changing when ever there is a new patch released by the aws, so to fetch ami automatically we use 
 data-source. Just search in the google "Terraform query ami". If anybody created resources manually, 
 then by taking this resource information, we can create another resource also by using data-source or by 
-using terraform query. So that means data-source is useful to query the dynamic data from the provider 
-aswel as from the existing resource information, so using this information we can create another resource.
+using terraform query. So that means data-source is useful to query the dynamic data from the providers 
+aswel as from the existing resource information, using this information we can create another resource.
 
 Types of loops
 ---------------
 1. Conditions ---> Mostly to iterate list, for list we used count and count.index (special variable)
-2. Foreach ---> Mostly to iterate maps, for maps we used "for_each" (special variable)
+2. For_each ---> Mostly to iterate maps, for maps we used "for_each" (special variable)
 3. Dynamic loop ---> For creating multiple instances along with the route53_records, we used count 
    and for_each loop example. So similarly in the securitygroup if you want to add a new rule or multiple   
    ports likes 80,443,22 in ingress (or) egress blocks, that means a block will be repeating as many 
