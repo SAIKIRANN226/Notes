@@ -13,22 +13,21 @@ For example we want web-dev/mongodb-dev/catalogue-dev/redis-dev/user-dev/cart-de
 Domain names are ---> web-dev.megacitysai.fun, mongodb-qa.megacitysai.fun, etc.
 
 Same code but with different configuration, that means we need to control using variables for different 
-env's by using tfvars. Different buckets to maintain states by creating different folders "dev,prod". 
-What do you think ? Using different buckets for dev and prod, or one bucket ? different is the best, 
-we can also use one bucket for both dev and prod, but we make sure different evn's should not get disturbed. How do we maintain different buckets ? By creating two buckets for dev and prod in "AWSconsole" and also create dynamodb tables for dev and prod.
+env's by using tfvars. Different buckets to maintain states by creating different folders "dev,prod".
+We can also use one bucket for both dev and prod, but we make sure different evn's should not get disturbed. How do we maintain different buckets ? By creating two buckets for dev and prod in "AWSconsole" and also create dynamodb tables for dev and prod.
 
 Controlling environments using variables
 -----------------------------------------
 So we have web-dev, web-qa, web-uat, web-prod. How to control this ?
 
-1. If key starts with web then we can write a condition using terraform inbuilt function that is
-   startswith(each.key, "web")
-2. When you do terraform init ---> Backend will also be there, so here you have multiple environments, 
-   so use "terraform init -backend-config=dev/backend.tf"
-3. terraform plan -var-file=dev/dev.tfvars ---> If you dont mention the file name it will load 
-   default variables.
-4. terraform apply -var-file=dev/dev.tfvars
-5. terraform destory -var-file=dev/dev.tfvars
+- If key starts with web then we can write a condition using terraform inbuilt function that is
+  startswith(each.key, "web")
+- When you do terraform init ---> Backend will also be there, so here you have multiple environments, 
+  so use "terraform init -backend-config=dev/backend.tf"
+- terraform plan -var-file=dev/dev.tfvars ---> If you dont mention the file name, it will load 
+  default variables.
+- terraform apply -var-file=dev/dev.tfvars
+- terraform destory -var-file=dev/dev.tfvars
 
 So when you do for the next one prod (or) other env then you need to reconfigure or when you are switching from one env to another you must reinitialize by using this command. "terraform init -reconfigure -backend-config=prod/backend.tf". [Note:- when you forget to give the -var-file then terraform will take default variables which is in variables.tf, now you comment out the default variables then terraform will prompt for the values, so you will get know that you forgot to give varfile.
 
@@ -89,11 +88,11 @@ Why we use this Creation time and Destroy time ? To trigger other systems like s
 
 Points to remember
 *******************
-1. Use different key names in s3 bucket like in the previous you have used different key "foreach" 
-   you can use as per your wish but not with the same key names because it will merge all.
-2. If you are facing any error in pushing the code to the github use the below command
-    "git remote set-url origin <URL>"
-3. If the code in VS is in full green colour that means the repository is not yet ready in the github, 
-   when repo is ready then it will turn to normal colour after pushing to git.
-4. We can write multiple provisioners also like for example "on_failure = continue" nothing but same as
-   ignore errors in ansible.
+- Use different key names in s3 bucket like in the previous you have used different key "foreach" 
+  you can use as per your wish but not with the same key names because it will merge all.
+- If you are facing any error in pushing the code to the github use the below command
+  "git remote set-url origin <URL>"
+- If the code in VS is in full green colour that means the repository is not yet ready in the github, 
+  when repo is ready then it will turn to normal colour after pushing to git.
+- We can write multiple provisioners also like for example "on_failure = continue" nothing but same as
+  ignore errors in ansible.
