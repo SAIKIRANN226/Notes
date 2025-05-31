@@ -67,8 +67,20 @@ terraform command from the linux server. What will be the local here ? local wil
 [Note:- local-exec will run only one time, to run again you need to destroy first] (or) The local-exec provisioner in Terraform allows you to run a local shell command on the machine where Terraform is 
 being run (not the remote EC2 or server). It's commonly used for tasks like calling scripts, triggering tools, or debugging.
 
+Syntax of local-exec
+---------------------
+provisioner "local-exec" {
+      command = "echo this will execute at the time of creation"
+}
+
 2. remote-exec ---> This will run inside the server, first you should connect to the server, then you can 
 run anything inside the server (or) remote-exec provisioner in Terraform, which runs commands on the remote resource (like an EC2 instance) after it's created. Provisioners are useful to integrate terraform with configuration management tools like ansible to get end to end automation, and also enable a keyword called "self"
+
+Syntax of local-exec
+---------------------
+provisioner "remote-exec" {
+      command = "echo this will execute at the time of creation"
+}
 
 What is difference between Terraform and Ansible ?
 ---------------------------------------------------
