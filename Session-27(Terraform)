@@ -44,7 +44,7 @@ What is the terraform responsibility ? Whatever we write it will create, nothing
   state, then it will not take any action.
 - If Current state is not equal to Desired state then it will create.
 - While terraform is doing any changes (nothing but after apply) then terraform will create a file 
-  called "terraform.tfstate.lock" to lock the terraform.tfstate file, so that nobody will touch 
+  called ".terraform.lock.hcl" to lock the "terraform.tfstate" file, so that nobody will touch the 
   terraform.tfstate file while terraform is doing changes, because terraform is using that file at 
   the time of doing changes.
 - terraform.tfstate is in my laptop and iam pushing it to the github, another devops engineer also 
