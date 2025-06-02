@@ -61,10 +61,10 @@ Which approch is best ?
 Provisioners (2types) is only for Ec2 instances
 ------------------------------------------------
 1. local-exec ---> This provisioner in terraform is a specific block with in the resource that let you
-   run the shell commands on your local machine(laptop) at the time or resource is created or destroyed.
+   run the shell commands on your local machine(laptop) at the time of resource is created or destroyed.
    This will run the command from your local machine, not on the instance, when the resource is created. 
    It's part of the Terraform configuration, not what you type manually. Below is the example of how the   
-   provisioner block is written (or) syntax of a provisioner.
+   provisioner block is written (or) syntax of a local-exec provisioner with in the resource.
 
          resource "aws_instance" "example" {
            ami           = "ami-123456"
@@ -75,33 +75,34 @@ Provisioners (2types) is only for Ec2 instances
            }
          }
 
-The local-exec provisioner runs the commands or scripts on the local machine where Terraform is executed (i.e., the machine running the terraform apply command). It does not interact directly with the remote resource being provisioned. (or) local to where you are running terraform command (laptop) is nothing but gitbash, then local is your current laptop, if you run terraform command from the linux server. What will 
+The local-exec provisioner run the commands or scripts on the local machine where Terraform is executed (i.e., the machine running the terraform apply command). It does not interact directly with the remote resource being provisioned. (or) local is where you are running terraform command (laptop) is nothing but gitbash, then local is your current laptop, if you run terraform command from the linux server. What will 
 be the local here ? local will be the linux server. [Note:- local-exec will run only one time, to run again you need to destroy first] (or) The local-exec provisioner in Terraform allows you to run a local shell command on the machine where Terraform is being run (not the remote EC2 or server). It's commonly used for tasks like calling scripts, triggering tools, or debugging.
 
 2. remote-exec ---> This provisioner is used to run commands on a remote resource (like a virtual 
    machine or EC2 machine) after it's been created, typically over SSH (for Linux) or WinRM (for
    Windows). Suppose you provision an EC2 instance using Terraform. You want to install nginx on it 
    automatically after it's created. That's where remote-exec helps. Below is the example of remote-exec
+   and syntax of a remote-exec provisioner with in the resource.
 
-   resource "aws_instance" "web" {
-      ami           = "ami-0c55b159cbfafe1f0"
-      instance_type = "t2.micro"
-      key_name      = "my-key"
-  
-      provisioner "remote-exec" {
-        inline = [
-          "sudo apt-get update",
-          "sudo apt-get install -y nginx"
-        ]
-      }
-
-      connection {
-        type        = "ssh"
-        user        = "ubuntu"
-        private_key = file("~/.ssh/my-key.pem")
-        host        = self.public_ip
-      }
-  }
+         resource "aws_instance" "web" {
+            ami           = "ami-0c55b159cbfafe1f0"
+            instance_type = "t2.micro"
+            key_name      = "my-key"
+        
+            provisioner "remote-exec" {
+              inline = [
+                "sudo apt-get update",
+                "sudo apt-get install -y nginx"
+              ]
+            }
+      
+            connection {
+              type        = "ssh"
+              user        = "ubuntu"
+              private_key = file("~/.ssh/my-key.pem")
+              host        = self.public_ip
+            }
+        }
 
 This will run inside the server, first you should connect to the server, then you can run anything 
 inside the server (or) remote-exec provisioner in Terraform, which runs commands on the remote resource 
