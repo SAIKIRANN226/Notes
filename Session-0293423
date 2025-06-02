@@ -1,0 +1,3 @@
+### Provisioners are two types 
+- local-exec
+- remote-exec
