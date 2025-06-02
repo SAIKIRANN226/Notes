@@ -17,14 +17,14 @@ Terraform.tfvars, instance_type = "t3.small"
   become file and we can pass variable file by using "terraform plan -var-file="saikiran.tfvars"
 - Environment variable.
 
-Variable preferences in terraform (VS)
+Variable preferences in terraform - VS
 ---------------------------------------
 1. command line ---> terraform plan -var="instance_type=t3.small"
 2. -var-file ---> terraform plan -var-file="saikiran.tfvars"
 3. terraform.tfvars 
 4. ENV variables.
 
-Conditions (VS)
+Conditions - VS
 ----------------
 if(expression) {
 	if true this will run
@@ -42,7 +42,7 @@ Loops are two types
 1. Count based loop --> To iterate list, like creating multiple instances.
 2. For_each loop --> To iterate maps, like creating multiple route53 records.
 
-Functions (VS)
+Functions - VS
 ---------------
 It will do some work, if we give some input and it will take this input and give us output. Here in 
 terraform we cannot create our own functions, but terraform itself has some functions we need to use 
