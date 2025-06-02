@@ -12,8 +12,8 @@ locals {
 }
 How to call a local ? "local.name" (or) "local.trainer" (or) "local.instance_type"
 
-Data-Sources|VS|
------------------
+Data-Sources - VS
+------------------
 Terraform is connecting to lot of providers like aws,azure,gcp and everything. So these providers 
 contains lot of data like regions,availability zones,ec2 etc. All these are changing dynamically, so 
 data-source is used to query the data dynamically from the providers, for example:- AMI ID's are 
@@ -33,7 +33,7 @@ Types of loops
    rules you want to add. If a block is repeating more times you can keep that block in a variable and 
    you can call by using dynamic loop (VS).
 
-Terraform State (State and Remote state)
+Terraform State - State and Remote state
 -----------------------------------------
 What is the terraform responsibility ? Whatever we write it will create, nothing but a Declarative.
 - Declarative state is = Our desired state
