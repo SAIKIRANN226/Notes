@@ -1,4 +1,4 @@
-Terraform is a popular Infrastructure as code (IaC)
+Terraform is a popular Infrastructure as code - IaC
 ----------------------------------------------------
 Terraform is an open-source tool developed by HashiCorp. Instead of going into AWS console and manually creating an EC2 instance or any other resources, we can create by writing terraform code. In olden days people used "CFengine" and rightnow people are using chef, puppet, ansible, terraform etc. Till now we configured our project manually, also using shellscript, ansible, but we prefer ansible as a configuration management if it is large project. Because ansible can connect to more number of servers easily from one single ansible server, we can also call controller machine. Why we din't prefer manual configuration ? Because manually logging in every servers is a timetaking process and also we get more human errors.
 
@@ -23,8 +23,8 @@ Often we face the problem of different configurations in different environments 
 will work in all environments like dev,sit,uat,prod. Real time scenario like code is working in dev or uat 
 or pre-prod but not working in prod, to solve this issue we use terraform.
 
-Automated Infrastructure (CRUD)
---------------------------------
+Automated Infrastructure - CRUD
+---------------------------------
 Basically CRUD over the infrastructure. Using terraform we can create entire infra in minutes reducing the human errors and deleting infra in minutes if not required and updating infra using terraform is also easy.
 Create the infra, Read the infra, Update the infra, Delete the infra.
 
